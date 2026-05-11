@@ -389,7 +389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &147028861
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 248189669}
   - component: {fileID: 248189668}
   m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 15_33_41_8
+  m_Name: pedra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 249278237}
   - component: {fileID: 249278236}
   m_Layer: 0
-  m_Name: ChatGPT Image 11 de mai. de 2026, 15_32_33_0
+  m_Name: bau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 336269671}
   - component: {fileID: 336269672}
   m_Layer: 0
-  m_Name: palhaso_0 (1)
+  m_Name: peixe palhaco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -762,8 +762,8 @@ Transform:
   m_GameObject: {fileID: 338954120}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.47, y: -4.9925, z: 0}
-  m_LocalScale: {x: 0.3903362, y: 0.3403554, z: 1}
+  m_LocalPosition: {x: 5.42, y: -4.76, z: 0}
+  m_LocalScale: {x: 0.29354557, y: 0.22330292, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712685119}
@@ -1184,7 +1184,7 @@ GameObject:
   - component: {fileID: 592239393}
   - component: {fileID: 592239392}
   m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 16_06_35_4
+  m_Name: alga rosa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1360,7 +1360,7 @@ GameObject:
   - component: {fileID: 652944928}
   - component: {fileID: 652944927}
   m_Layer: 0
-  m_Name: peixe (1)
+  m_Name: peixe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,7 +1375,7 @@ Transform:
   m_GameObject: {fileID: 652944925}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.72, y: -1.39, z: 0}
+  m_LocalPosition: {x: -2.6, y: -1.39, z: 0}
   m_LocalScale: {x: -0.36120036, y: 0.24436477, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1509,7 +1509,7 @@ GameObject:
   - component: {fileID: 686439568}
   - component: {fileID: 686439567}
   m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 16_06_35 1_0
+  m_Name: alga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1731,7 +1731,7 @@ GameObject:
   - component: {fileID: 862106162}
   - component: {fileID: 862106161}
   m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 16_06_35 1_0 (1)
+  m_Name: alga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1810,7 +1810,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1067134183
+--- !u!1 &878182318
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1818,86 +1818,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1067134185}
-  - component: {fileID: 1067134184}
+  - component: {fileID: 878182319}
   m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 16_06_35_0
+  m_Name: Cenario
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &1067134184
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067134183}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1696410311
-  m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 4484599278822020464, guid: d4dc2fcd894c04d4fb8a800dd83de9c8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 3.18, y: 3.83}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1067134185
+--- !u!4 &878182319
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067134183}
+  m_GameObject: {fileID: 878182318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.16, y: -3.52, z: 0}
-  m_LocalScale: {x: 1.206, y: 1.1496, z: 1}
+  m_LocalPosition: {x: -9.1285, y: -3.2685, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1896698827}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168933180
@@ -1913,7 +1855,7 @@ GameObject:
   - component: {fileID: 1168933183}
   - component: {fileID: 1168933182}
   m_Layer: 0
-  m_Name: peixe (2)
+  m_Name: peixe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2062,7 +2004,7 @@ GameObject:
   - component: {fileID: 1201094836}
   - component: {fileID: 1201094837}
   m_Layer: 0
-  m_Name: palhaso_0
+  m_Name: peixe palhaco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2077,8 +2019,8 @@ Transform:
   m_GameObject: {fileID: 1201094835}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.17783622, w: 0.9840601}
-  m_LocalPosition: {x: 19.1325, y: -3.6125, z: 0}
-  m_LocalScale: {x: 0.5026793, y: 0.30604348, z: 1}
+  m_LocalPosition: {x: 20.04, y: -3.61, z: 0}
+  m_LocalScale: {x: 0.5359567, y: 0.45380127, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712685119}
@@ -2152,7 +2094,7 @@ GameObject:
   - component: {fileID: 1214024626}
   - component: {fileID: 1214024625}
   m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 15_33_41_0 (1)
+  m_Name: pedras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2225,8 +2167,8 @@ Transform:
   m_GameObject: {fileID: 1214024624}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.31, y: -4.29, z: 0}
-  m_LocalScale: {x: 1, y: 0.6749, z: 1}
+  m_LocalPosition: {x: 7.47, y: -4.28, z: 0}
+  m_LocalScale: {x: 1.2766, y: 0.6485114, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2321,96 +2263,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1226005787
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1226005789}
-  - component: {fileID: 1226005788}
-  m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 16_06_35 1_0 (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1226005788
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226005787}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1696410311
-  m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -3855212001991312893, guid: b9f8860158ec10947b9b505b4ad9fc67, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 3.18, y: 3.83}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1226005789
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226005787}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.48, y: -3.42, z: 0}
-  m_LocalScale: {x: 1.0515, y: 1.2423, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1353165957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,7 +2274,7 @@ GameObject:
   - component: {fileID: 1353165959}
   - component: {fileID: 1353165958}
   m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 16_06_35_10
+  m_Name: alga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2495,8 +2347,8 @@ Transform:
   m_GameObject: {fileID: 1353165957}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.26, y: -4.16, z: 0}
-  m_LocalScale: {x: 0.9932, y: 0.9529, z: 1}
+  m_LocalPosition: {x: 6.42, y: -3.81, z: 0}
+  m_LocalScale: {x: 0.9492012, y: 1.2522058, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2512,7 +2364,7 @@ GameObject:
   - component: {fileID: 1388592010}
   - component: {fileID: 1388592009}
   m_Layer: 0
-  m_Name: ChatGPT Image 13 de abr. de 2026, 14_21_12 (1)_0
+  m_Name: icone do gato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2749,8 +2601,8 @@ Transform:
   m_GameObject: {fileID: 1490150120}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.34, y: -5.12, z: 0}
-  m_LocalScale: {x: 0.26928854, y: 0.246049, z: 1}
+  m_LocalPosition: {x: -1.19, y: -4.87, z: 0}
+  m_LocalScale: {x: 0.2625294, y: 0.19194283, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712685119}
@@ -2841,7 +2693,7 @@ Transform:
   m_GameObject: {fileID: 1584034112}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.19, y: -0.64, z: 0}
+  m_LocalPosition: {x: 2.35, y: -0.57, z: 0}
   m_LocalScale: {x: 0.31846383, y: 0.24436477, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2975,7 +2827,7 @@ GameObject:
   - component: {fileID: 1698581257}
   - component: {fileID: 1698581256}
   m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 16_06_35 1_0 (3)
+  m_Name: alga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3025,8 +2877,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1696410311
-  m_SortingLayer: 3
+  m_SortingLayerID: -555525451
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -3855212001991312893, guid: b9f8860158ec10947b9b505b4ad9fc67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3048,8 +2900,8 @@ Transform:
   m_GameObject: {fileID: 1698581255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.67, y: -2.16, z: 0}
-  m_LocalScale: {x: 1.0515, y: 1.9690456, z: 1}
+  m_LocalPosition: {x: 9.9, y: -2.36, z: 0}
+  m_LocalScale: {x: 1.2254181, y: 1.9690456, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3136,7 +2988,7 @@ GameObject:
   - component: {fileID: 1776572814}
   - component: {fileID: 1776572813}
   m_Layer: 0
-  m_Name: barraasul_0
+  m_Name: barra de vida e oxigenio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3304,8 +3156,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1896698827}
   - component: {fileID: 1896698826}
+  - component: {fileID: 1896698828}
+  - component: {fileID: 1896698829}
   m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 16_06_35 1_0 (4)
+  m_Name: algas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3377,13 +3231,71 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896698825}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.14, y: -3.28, z: 0}
-  m_LocalScale: {x: 1.0515, y: 1.2993426, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0442446, y: 1.3053197, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 878182319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1896698828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896698825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59176ffd55518d4f8354fa099263056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::Intera\xE7\xE3o"
+--- !u!61 &1896698829
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896698825}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.41634, y: -0.19282943}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.18, y: 3.83}
+    newSize: {x: 3.18, y: 3.83}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.8440053, y: 3.4443412}
+  m_EdgeRadius: 0
 --- !u!1 &1957580978
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,7 +3307,7 @@ GameObject:
   - component: {fileID: 1957580980}
   - component: {fileID: 1957580979}
   m_Layer: 0
-  m_Name: Design sem nome (1)_0
+  m_Name: submarino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3485,7 +3397,7 @@ GameObject:
   - component: {fileID: 1993128320}
   - component: {fileID: 1993128319}
   m_Layer: 0
-  m_Name: oseano_0
+  m_Name: oceano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3564,96 +3476,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2086722932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2086722934}
-  - component: {fileID: 2086722933}
-  m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 15_33_41_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &2086722933
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086722932}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1696410311
-  m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 4814730483788523551, guid: 86663166b9f3d9749bd4efb9c633e8f8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.34, y: 4.38}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &2086722934
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086722932}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -3.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125283678
 GameObject:
   m_ObjectHideFlags: 0
@@ -3665,7 +3487,7 @@ GameObject:
   - component: {fileID: 2125283680}
   - component: {fileID: 2125283679}
   m_Layer: 0
-  m_Name: ChatGPT Image 27 de abr. de 2026, 15_33_41_0 (2)
+  m_Name: pedras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3738,8 +3560,8 @@ Transform:
   m_GameObject: {fileID: 2125283678}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.32, y: -4.17, z: 0}
-  m_LocalScale: {x: 1.073, y: 0.75352365, z: 1}
+  m_LocalPosition: {x: -6.916, y: -4.17, z: 0}
+  m_LocalScale: {x: 1.2591654, y: 0.75352365, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3751,13 +3573,10 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1993128320}
-  - {fileID: 1067134185}
   - {fileID: 686439568}
   - {fileID: 862106162}
-  - {fileID: 1226005789}
   - {fileID: 1698581257}
-  - {fileID: 1896698827}
-  - {fileID: 2086722934}
+  - {fileID: 878182319}
   - {fileID: 1214024626}
   - {fileID: 2125283680}
   - {fileID: 249278237}
