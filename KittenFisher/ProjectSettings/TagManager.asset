@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: submarino
+    uniqueID: 3599547355
+    locked: 0
   - name: Fish (atras das coisakk
     uniqueID: 1430101051
     locked: 0
@@ -52,6 +55,12 @@ TagManager:
     locked: 0
   - name: Fish
     uniqueID: 971331551
+    locked: 0
+  - name: HUD beta
+    uniqueID: 1127774777
+    locked: 0
+  - name: HUD
+    uniqueID: 1141318895
     locked: 0
   m_RenderingLayers:
   - Default
