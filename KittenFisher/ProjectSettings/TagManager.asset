@@ -50,6 +50,9 @@ TagManager:
   - name: pedras e algas
     uniqueID: 1696410311
     locked: 0
+  - name: Lixo
+    uniqueID: 3325655869
+    locked: 0
   - name: pedras e algas 2
     uniqueID: 3739441845
     locked: 0
