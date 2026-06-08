@@ -6,28 +6,23 @@ public class Deletar : MonoBehaviour
 
     void Start()
     {
-        // Encontra o GameController no objeto pai
         gameController = GetComponentInParent<GameController>();
-    }
-
-    void Update()
-    {
-
     }
 
     public void OnMouseDown()
     {
-        // Verifica se o GameController realmente foi encontrado para evitar erros
+        // 1. Avisa o GameController original que o peixe foi achado
         if (gameController != null)
         {
-            gameController.FoundFish(); // <--- A LINHA QUE FALTAVA! Avisa o controller.
-        }
-        else
-        {
-            Debug.LogWarning("GameController não encontrado no pai de: " + gameObject.name);
+            gameController.FoundFish();
         }
 
-        // Agora sim, destrói o peixe
+        // 2. Adiciona o peixe ao inventário criado acima
+        if (InventoryManager.Instance != null)
+        {
+            InventoryManager.Instance.AdicionarPeixe();
+        }
+
         Destroy(gameObject);
     }
 }
