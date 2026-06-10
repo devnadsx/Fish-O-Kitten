@@ -1,93 +1,122 @@
 using UnityEngine;
-using TMPro;
+using TMPro; // Mantém se usares TextMeshPro, ou muda para 'using UnityEngine.UI;' se for o texto comum
 
 public class InventoryManager : MonoBehaviour
 {
+    // Permite que outros scripts (como o Deletar.cs e o InventorySlot.cs) acessem o gerente facilmente
     public static InventoryManager Instance;
 
+    [Header("Configurações do Inventário")]
     public int peixesNoInventario = 0;
-    [Range(0f, 1f)] public float chanceDeEnvenenamento = 0.5f;
+    [Range(0f, 1f)] public float chanceDeEnvenenamento = 0.5f; // 0.5f significa 50% de chance
 
-    [Header("UI do Inventario")]
+    [Header("UI do Inventário")]
     public GameObject painelInventario;
-    public TextMeshProUGUI textoContadorPeixes;
+    public TextMeshProUGUI textoContadorPeixes; // Muda para 'public Text textoContadorPeixes;' se usares o UI Text antigo
 
     [Header("Configuração Visual dos Slots")]
-    public InventorySlot[] slots;   // Lista com os seus 10 slots
-    public Sprite spriteDoPeixeUI;  // A imagem do peixinho que vai aparecer no inventário
+    public InventorySlot[] slots;   // Lista onde vais arrastar os teus 10 botões invisíveis
+    public Sprite spriteDoPeixeUI;  // A imagem do peixinho que vai aparecer dentro do slot
 
-    [Header("Referências")]
+    [Header("Referências Extra")]
     public SkillCheckManager skillCheckManager;
 
     void Awake()
     {
-        Instance = this;
+        // Configura a Instância para o funcionamento dos outros scripts
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
+    void Start()
+    {
+        AtualizarUI();
+    }
+
+    // Função chamada pelo script 'Deletar.cs' quando apanhas um peixe no cenário
     public void AdicionarPeixe()
     {
         peixesNoInventario++;
         AtualizarUI();
 
-        // Procura o primeiro slot vazio e coloca o peixe lá dentro
+        // Percorre a lista de botões invisíveis e coloca o peixe no primeiro que estiver livre
         foreach (InventorySlot slot in slots)
         {
             if (slot != null)
             {
-                // Se conseguir ocupar o slot, para de procurar
                 if (slot.OcuparSlot(spriteDoPeixeUI))
                 {
-                    break;
+                    break; // Encontrou um slot vazio, colocou o peixe e para a busca
                 }
             }
         }
     }
 
+    // Abre e fecha o inventário (podes ligar esta função ao teu Botão de Ícone do Inventário)
     public void AlternarPainelInventario()
     {
-        painelInventario.SetActive(!painelInventario.activeSelf);
-        AtualizarUI();
+        if (painelInventario != null)
+        {
+            painelInventario.SetActive(!painelInventario.activeSelf);
+            AtualizarUI();
+        }
     }
 
-    void AutalizarUI() // Mantive a escrita antiga caso precise, mas mude para AtualizarUI se quiser fixar
+    // Atualiza o texto de contagem (ex: "Peixes: 1")
+    public void AtualizarUI()
     {
         if (textoContadorPeixes != null)
+        {
             textoContadorPeixes.text = "Peixes: " + peixesNoInventario;
+        }
     }
 
+    // Função chamada pelo 'InventorySlot.cs' quando clicas num peixe para o comer
     public void ComerPeixe()
     {
         if (peixesNoInventario <= 0) return;
 
         peixesNoInventario--;
-        if (textoContadorPeixes != null) textoContadorPeixes.text = "Peixes: " + peixesNoInventario;
+        AtualizarUI();
 
+        // Sorteio de envenenamento (Gera um número entre 0.0 e 1.0)
         if (Random.value < chanceDeEnvenenamento)
         {
-            Debug.LogWarning("O peixe estava estragado! SKILL CHECK!");
-            painelInventario.SetActive(false);
-            skillCheckManager.IniciarSequenciaSkillCheck();
+            Debug.LogWarning("O peixe estava estragado! A iniciar SKILL CHECK!");
+
+            if (painelInventario != null)
+                painelInventario.SetActive(false); // Fecha o inventário para focar no minigame
+
+            if (skillCheckManager != null)
+                skillCheckManager.IniciarSequenciaSkillCheck();
         }
         else
         {
-            Debug.Log("Peixe delicioso! Nada aconteceu.");
+            Debug.Log("Peixe delicioso! Nada de mau aconteceu.");
         }
     }
 
-    // Caso falhe no Skill Check, limpa os slots baseado em quantos peixes perdeu
-    public void LimparSlotsPorPuniçao(int quantidade)
+    // Função de punição: caso o jogador falte ao Skill Check, remove o visual dos slots
+    public void LimparSlotsPorPunicao(int quantidade)
     {
         int removidos = 0;
-        // Limpa de trás para frente para tirar os últimos pegos
+
+        // Percorre os slots de trás para a frente para remover os últimos peixes que entraram
         for (int i = slots.Length - 1; i >= 0; i--)
         {
             if (removidos >= quantidade) break;
 
-            // Aqui uma simplificação: limpa os slots ativos de forma genérica
-            // Para ficar 100% perfeito, o ideal é o slot checar se tinha algo.
-            // Vamos apenas resetar o visual para bater com a punição:
-            slots[i].LimparSlot();
-            removidos++;
+            if (slots[i] != null)
+            {
+                slots[i].LimparSlot();
+                removidos++;
+            }
         }
     }
 }
