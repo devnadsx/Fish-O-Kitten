@@ -43,6 +43,8 @@ public class Bau : MonoBehaviour
         if (imagemEfeitoTela != null)
         {
             StartCoroutine(EfeitoCatnipVisual());
+
+            
         }
 
         GetComponent<Collider2D>().enabled = false;
@@ -75,7 +77,7 @@ public class Bau : MonoBehaviour
             yield return null;
         }
 
-        // Desativa o objeto para não bloquear cliques no jogo depois que sumir
-        imagemEfeitoTela.gameObject.SetActive(false);
+       
+
     }
 }
