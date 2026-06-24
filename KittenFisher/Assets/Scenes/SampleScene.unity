@@ -3976,6 +3976,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrastarCenario
   sensibilidade: 1
+  usarLimites: 1
+  limiteEsquerdaBase: -37
+  limiteDireitaBase: -6
+  limiteBaixoBase: -5
+  limiteCimaBase: 5
+  velocidadeZoom: 6
+  zoomMinimo: 1
+  zoomMaximo: 5
 --- !u!1 &899127467
 GameObject:
   m_ObjectHideFlags: 0
