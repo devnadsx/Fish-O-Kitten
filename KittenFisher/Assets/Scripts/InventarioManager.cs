@@ -1,23 +1,33 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
-    [Header("Configura��es do Invent�rio")]
+    [Header("Configurações do Inventário")]
     public int peixesNoInventario = 0;
     [Range(0f, 1f)] public float chanceDeEnvenenamento = 0.5f;
 
-    [Header("UI do Invent�rio")]
+    [Header("Configurações de Vitória")]
+    [Tooltip("Quantidade total de peixes que existem no cenário para vencer")]
+    public int totalPeixesParaVitoria = 3;
+    [Tooltip("Arraste aqui o objeto da sua Janela de Vitória (Victory Window)")]
+    public GameObject victoryWindow;
+    [Tooltip("Arraste aqui o seu Objeto de Particle System de Confete")]
+    public ParticleSystem particulaVitoria;
+    [Tooltip("Arraste aqui o AudioSource que contém o som de vitória")]
+    public AudioSource somVitoria; // NOVO CAMPO
+
+    [Header("UI do Inventário")]
     public GameObject painelInventario;
     public TextMeshProUGUI textoContadorPeixes;
 
-    [Header("Configura��o Visual dos Slots")]
+    [Header("Configuração Visual dos Slots")]
     public InventorySlot[] slots;
     public Sprite spriteDoPeixeUI;
 
-    [Header("Refer�ncias Extra")]
+    [Header("Referências Extra")]
     public SkillCheckManager skillCheckManager;
 
     void Awake()
@@ -29,6 +39,9 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         AtualizarUI();
+
+        // Garante que a janela de vitória e o som comecem escondidos/parados
+        if (victoryWindow != null) victoryWindow.SetActive(false);
     }
 
     public void AdicionarPeixe()
@@ -42,6 +55,35 @@ public class InventoryManager : MonoBehaviour
             {
                 break;
             }
+        }
+
+        if (peixesNoInventario >= totalPeixesParaVitoria)
+        {
+            GanharJogo();
+        }
+    }
+
+    private void GanharJogo()
+    {
+        Debug.Log("🏆 Todos os peixes coletados! VITÓRIA!");
+
+        // 1. Ativa a janela de vitória
+        if (victoryWindow != null)
+        {
+            victoryWindow.SetActive(true);
+        }
+
+        // 2. Toca as partículas de confete
+        if (particulaVitoria != null)
+        {
+            particulaVitoria.gameObject.SetActive(true);
+            particulaVitoria.Play();
+        }
+
+        // 3. Toca o som de vitória (NOVO)
+        if (somVitoria != null)
+        {
+            somVitoria.Play();
         }
     }
 
