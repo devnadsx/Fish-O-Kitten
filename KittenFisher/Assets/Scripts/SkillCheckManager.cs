@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class SkillCheckManager : MonoBehaviour
@@ -8,15 +8,15 @@ public class SkillCheckManager : MonoBehaviour
     public RectTransform ponteiro;
     public RectTransform zonaDeAcerto;
 
-    [Header("Configurações")]
-    public float velocidadeRotacao = 250f;
+    [Header("ConfiguraÃ§Ãµes")]
+    public float velocidadRotacao = 250f;
 
     private int errosCometidos = 0;
     private bool jogoAtivo = false;
     private float anguloAlvo;
     private float margemDeAcerto = 20f; // Tamanho da zona (em graus)
 
-    [Header("Punição")]
+    [Header("PuniÃ§Ã£o")]
     public int peixesPerdidosAoFalhar = 2;
     public GameController gameController;
     public FishRespawnManager respawnManager;
@@ -25,19 +25,19 @@ public class SkillCheckManager : MonoBehaviour
     {
         if (!jogoAtivo) return;
 
-        // Faz o ponteiro rodar no sentido horário
-        ponteiro.Rotate(0, 0, -velocidadeRotacao * Time.deltaTime);
+        // Faz o ponteiro rodar no sentido horÃ¡rio
+        ponteiro.Rotate(0, 0, -velocidadRotacao * Time.deltaTime);
 
-        // Se o jogador apertar Espaço
+        // Se o jogador apertar EspaÃ§o
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ValidarClique();
         }
 
-        // Se der uma volta completa e o jogador não apertar nada, conta como erro automático
-        if (ponteiro.localEulerAngles.z > 358f || (ponteiro.localEulerAngles.z < 2f && velocidadeRotacao > 0 && ponteiro.localEulerAngles.z != 0))
+        // Se der uma volta completa e o jogador nÃ£o apertar nada, conta como erro automÃ¡tico
+        if (ponteiro.localEulerAngles.z > 358f || (ponteiro.localEulerAngles.z < 2f && velocidadRotacao > 0 && ponteiro.localEulerAngles.z != 0))
         {
-            // Opcional: Adicionar lógica de auto-falha se passar direto da zona
+            // Opcional: Adicionar lÃ³gica de auto-falha se passar direto da zona
         }
     }
 
@@ -55,7 +55,7 @@ public class SkillCheckManager : MonoBehaviour
         // Reseta o ponteiro para o topo (0 graus)
         ponteiro.localEulerAngles = Vector3.zero;
 
-        // Escolhe um ângulo aleatório na roleta (evitando o topo inicial para dar tempo de reagir)
+        // Escolhe um Ã¢ngulo aleatÃ³rio na roleta (evitando o topo inicial para dar tempo de reagir)
         anguloAlvo = Random.Range(60f, 300f);
         zonaDeAcerto.localEulerAngles = new Vector3(0, 0, anguloAlvo);
     }
@@ -65,12 +65,17 @@ public class SkillCheckManager : MonoBehaviour
         jogoAtivo = false;
         float anguloAtual = ponteiro.localEulerAngles.z;
 
-        // Verifica se o ponteiro está dentro do limite da zona alvo
+        // Verifica se o ponteiro estÃ¡ dentro do limite da zona alvo
         if (anguloAtual >= anguloAlvo - margemDeAcerto && anguloAtual <= anguloAlvo + margemDeAcerto)
         {
             Debug.Log("Acertou o Skill Check!");
             painelSkillCheck.SetActive(false);
-            // Sucesso! O veneno passou.
+
+            // ðŸŒŸ NOVO: O jogador acertou! Cura o gatinho voltando a carinha ao normal
+            if (CatIconManager.Instance != null)
+            {
+                CatIconManager.Instance.ResetarNormal();
+            }
         }
         else
         {
@@ -83,7 +88,7 @@ public class SkillCheckManager : MonoBehaviour
             }
             else
             {
-                // Se ainda não errou 3 vezes, manda o próximo instantaneamente
+                // Se ainda nÃ£o errou 3 vezes, manda o prÃ³ximo instantaneamente
                 ProximoSkillCheck();
             }
         }
@@ -93,20 +98,26 @@ public class SkillCheckManager : MonoBehaviour
     {
         jogoAtivo = false;
         painelSkillCheck.SetActive(false);
-        Debug.LogError("Você falhou 3 vezes no Skill Check!");
+        Debug.LogError("VocÃª falhou 3 vezes no Skill Check!");
 
-        // 1. Remove os peixes do Inventário
+        // ðŸŒŸ NOVO: O jogo acabou por derrota, limpa a carinha de envenenado do gatinho tambÃ©m
+        if (CatIconManager.Instance != null)
+        {
+            CatIconManager.Instance.ResetarNormal();
+        }
+
+        // 1. Remove os peixes do InventÃ¡rio
         int perdidos = Mathf.Min(peixesPerdidosAoFalhar, InventoryManager.Instance.peixesNoInventario);
         InventoryManager.Instance.peixesNoInventario -= perdidos;
 
-        // 2. Desconta os peixes do GameController para o jogador não ganhar o jogo
+        // 2. Desconta os peixes do GameController para o jogador nÃ£o ganhar o jogo
         if (gameController != null)
         {
             gameController.foundedFish -= perdidos;
             if (gameController.foundedFish < 0) gameController.foundedFish = 0;
         }
 
-        // 3. Manda os peixes de volta para o cenário
+        // 3. Manda os peixes de volta para o cenÃ¡rio
         if (respawnManager != null)
         {
             respawnManager.SpawnarPeixesEscondidos(perdidos);

@@ -10,14 +10,10 @@ public class InventoryManager : MonoBehaviour
     [Range(0f, 1f)] public float chanceDeEnvenenamento = 0.5f;
 
     [Header("Configurações de Vitória")]
-    [Tooltip("Quantidade total de peixes que existem no cenário para vencer")]
     public int totalPeixesParaVitoria = 3;
-    [Tooltip("Arraste aqui o objeto da sua Janela de Vitória (Victory Window)")]
     public GameObject victoryWindow;
-    [Tooltip("Arraste aqui o seu Objeto de Particle System de Confete")]
     public ParticleSystem particulaVitoria;
-    [Tooltip("Arraste aqui o AudioSource que contém o som de vitória")]
-    public AudioSource somVitoria; // NOVO CAMPO
+    public AudioSource somVitoria;
 
     [Header("UI do Inventário")]
     public GameObject painelInventario;
@@ -39,8 +35,6 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         AtualizarUI();
-
-        // Garante que a janela de vitória e o som comecem escondidos/parados
         if (victoryWindow != null) victoryWindow.SetActive(false);
     }
 
@@ -57,49 +51,16 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
+        // 🌟 NOVO: Avisa o gatinho para ficar feliz por ter pego um peixe!
+        if (CatIconManager.Instance != null)
+        {
+            CatIconManager.Instance.ExpressaoFeliz();
+        }
+
         if (peixesNoInventario >= totalPeixesParaVitoria)
         {
             GanharJogo();
         }
-    }
-
-    private void GanharJogo()
-    {
-        Debug.Log("🏆 Todos os peixes coletados! VITÓRIA!");
-
-        // 1. Ativa a janela de vitória
-        if (victoryWindow != null)
-        {
-            victoryWindow.SetActive(true);
-        }
-
-        // 2. Toca as partículas de confete
-        if (particulaVitoria != null)
-        {
-            particulaVitoria.gameObject.SetActive(true);
-            particulaVitoria.Play();
-        }
-
-        // 3. Toca o som de vitória (NOVO)
-        if (somVitoria != null)
-        {
-            somVitoria.Play();
-        }
-    }
-
-    public void AlternarPainelInventario()
-    {
-        if (painelInventario != null)
-        {
-            painelInventario.SetActive(!painelInventario.activeSelf);
-            AtualizarUI();
-        }
-    }
-
-    public void AtualizarUI()
-    {
-        if (textoContadorPeixes != null)
-            textoContadorPeixes.text = "Peixes: " + peixesNoInventario;
     }
 
     public void ComerPeixe()
@@ -113,13 +74,56 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.LogWarning("O peixe estava estragado! A iniciar SKILL CHECK!");
 
+            // 🌟 NOVO: Gato fica passando mal
+            if (CatIconManager.Instance != null)
+            {
+                CatIconManager.Instance.ExpressaoEnvenenado();
+            }
+
             if (painelInventario != null) painelInventario.SetActive(false);
             if (skillCheckManager != null) skillCheckManager.IniciarSequenciaSkillCheck();
         }
         else
         {
             Debug.Log("Peixe delicioso! Nada de mau aconteceu.");
+
+            // 🌟 NOVO: Fica feliz por comer bem
+            if (CatIconManager.Instance != null)
+            {
+                CatIconManager.Instance.ExpressaoFeliz();
+            }
         }
+    }
+
+    private void GanharJogo()
+    {
+        if (victoryWindow != null) victoryWindow.SetActive(true);
+        if (particulaVitoria != null)
+        {
+            particulaVitoria.gameObject.SetActive(true);
+            particulaVitoria.Play();
+        }
+        if (somVitoria != null) somVitoria.Play();
+    }
+
+    public void AlternarPainelInventario()
+    {
+        if (painelInventario != null)
+        {
+            painelInventario.SetActive(!painelInventario.activeSelf);
+            AtualizarUI();
+        }
+    }
+
+    public void UpdateUI() // Mantido compatível caso use minúsculo
+    {
+        AtualizarUI();
+    }
+
+    public void AtualizarUI()
+    {
+        if (textoContadorPeixes != null)
+            textoContadorPeixes.text = "Peixes: " + peixesNoInventario;
     }
 
     public void LimparSlotsPorPunicao(int quantidade)

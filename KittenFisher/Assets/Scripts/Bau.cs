@@ -39,20 +39,24 @@ public class Bau : MonoBehaviour
             }
         }
 
-        // 2. Ativa o efeito visual na tela
+        // 2. Ativa o efeito visual na tela e no gatinho
         if (imagemEfeitoTela != null)
         {
             StartCoroutine(EfeitoCatnipVisual());
-
-            
         }
 
         GetComponent<Collider2D>().enabled = false;
     }
 
-    // Coroutine que faz o efeito surgir suavemente, esperar e sumir
+    // Coroutine adaptada para controlar também a expressão do gato
     IEnumerator EfeitoCatnipVisual()
     {
+        // ?? NOVO: Ativa a expressão do Catnip no gatinho logo no começo
+        if (CatIconManager.Instance != null)
+        {
+            CatIconManager.Instance.ExpressaoCatnipAtivar();
+        }
+
         Color cor = imagemEfeitoTela.color;
         cor.a = 0f; // Começa totalmente transparente
         imagemEfeitoTela.color = cor;
@@ -77,7 +81,12 @@ public class Bau : MonoBehaviour
             yield return null;
         }
 
-       
+        // ?? NOVO: Quando a tela voltar ao normal, desativa a carinha de doidão
+        if (CatIconManager.Instance != null)
+        {
+            CatIconManager.Instance.ExpressaoCatnipDesativar();
+        }
 
+        imagemEfeitoTela.gameObject.SetActive(false); // Garante que a imagem suma do Canvas
     }
 }

@@ -2483,6 +2483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 512553149}
   - component: {fileID: 512553148}
+  - component: {fileID: 512553150}
   m_Layer: 0
   m_Name: Gatofoda_0
   m_TagString: Untagged
@@ -2563,6 +2564,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 71099155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &512553150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512553147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ba481960bd68047b6f769e7bfba259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatIconManager
+  gatoNormal: {fileID: -6563686678970263314, guid: 66abfb9995d033843ac159e417981349, type: 3}
+  gatoFeliz: {fileID: 8798082667579980142, guid: 9f43dd37d50b01344b9139205e4e2a6f, type: 3}
+  gatoEnvenenado: {fileID: 3942584767413391639, guid: 242a15ae1c7689146a7dd0aa429f5ea0, type: 3}
+  gatoCatnip: {fileID: 2371615467240862262, guid: 70f9d7fabbcfc7e45b84ce62500c49cc, type: 3}
+  tempoExpressaoFeliz: 2
 --- !u!1 &513388140
 GameObject:
   m_ObjectHideFlags: 0
@@ -11426,7 +11444,7 @@ MonoBehaviour:
   painelSkillCheck: {fileID: 380128870}
   ponteiro: {fileID: 2016483416}
   zonaDeAcerto: {fileID: 532296840}
-  velocidadeRotacao: 250
+  velocidadRotacao: 250
   peixesPerdidosAoFalhar: 2
   gameController: {fileID: 826934057}
   respawnManager: {fileID: 1207483717}
