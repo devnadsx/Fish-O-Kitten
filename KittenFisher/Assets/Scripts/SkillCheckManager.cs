@@ -14,7 +14,7 @@ public class SkillCheckManager : MonoBehaviour
     private int errosCometidos = 0;
     private bool jogoAtivo = false;
     private float anguloAlvo;
-    private float margemDeAcerto = 20f; // Tamanho da zona (em graus)
+    public float margemDeAcerto = 20f; // Tamanho da zona (em graus)
 
     [Header("Punição")]
     public int peixesPerdidosAoFalhar = 2;
@@ -23,10 +23,13 @@ public class SkillCheckManager : MonoBehaviour
 
     void Update()
     {
-        if (!jogoAtivo) return;
+       
+            if (!jogoAtivo) return;
 
-        // Faz o ponteiro rodar no sentido horário
-        ponteiro.Rotate(0, 0, -velocidadRotacao * Time.deltaTime);
+            // Gira o ponteiro suavemente no eixo Z
+            // Usando Vector3.forward * -velocidadeRotacao garante que ele gire perfeitamente no sentido horário
+            ponteiro.Rotate(0, 0, -velocidadRotacao * Time.deltaTime, Space.Self);
+        
 
         // Se o jogador apertar Espaço
         if (Input.GetKeyDown(KeyCode.Space))
@@ -55,23 +58,33 @@ public class SkillCheckManager : MonoBehaviour
         // Reseta o ponteiro para o topo (0 graus)
         ponteiro.localEulerAngles = Vector3.zero;
 
-        // Escolhe um ângulo aleatório na roleta (evitando o topo inicial para dar tempo de reagir)
+        // 1. Escolhe um ângulo aleatório
         anguloAlvo = Random.Range(60f, 300f);
+
+        // 2. Aplica a rotação no objeto visual da Zona de Acerto
         zonaDeAcerto.localEulerAngles = new Vector3(0, 0, anguloAlvo);
+
+        // 🌟 CORREÇÃO AQUI: Força o 'anguloAlvo' a ser exatamente a rotação z real do objeto.
+        // Isso evita qualquer bug de diferença de hierarquia do Canvas!
+        anguloAlvo = zonaDeAcerto.localEulerAngles.z;
     }
 
     void ValidarClique()
     {
         jogoAtivo = false;
-        float anguloAtual = ponteiro.localEulerAngles.z;
 
-        // Verifica se o ponteiro está dentro do limite da zona alvo
-        if (anguloAtual >= anguloAlvo - margemDeAcerto && anguloAtual <= anguloAlvo + margemDeAcerto)
+        // Lemos a rotação local do Eixo, que agora gira perfeitamente de 0 a 360 graus
+        float anguloAtual = ponteiro.localEulerAngles.z;
+        float anguloZAlvo = zonaDeAcerto.localEulerAngles.z;
+
+        // Calcula a distância real entre os dois ângulos
+        float diferencaAngulo = Mathf.Abs(Mathf.DeltaAngle(anguloAtual, anguloZAlvo));
+
+        if (diferencaAngulo <= margemDeAcerto)
         {
-            Debug.Log("Acertou o Skill Check!");
+            Debug.Log("Acertou o Skill Check! Diferença real: " + diferencaAngulo + " graus.");
             painelSkillCheck.SetActive(false);
 
-            // 🌟 NOVO: O jogador acertou! Cura o gatinho voltando a carinha ao normal
             if (CatIconManager.Instance != null)
             {
                 CatIconManager.Instance.ResetarNormal();
@@ -79,7 +92,7 @@ public class SkillCheckManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Errou o Skill Check!");
+            Debug.Log("Errou o Skill Check! Diferença real: " + diferencaAngulo + " graus.");
             errosCometidos++;
 
             if (errosCometidos >= 3)
@@ -88,7 +101,6 @@ public class SkillCheckManager : MonoBehaviour
             }
             else
             {
-                // Se ainda não errou 3 vezes, manda o próximo instantaneamente
                 ProximoSkillCheck();
             }
         }
