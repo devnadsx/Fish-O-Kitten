@@ -1,46 +1,73 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SkillCheckManager : MonoBehaviour
 {
-    [Header("UI do Skill Check")]
+    [Header("UI Elementos (Barra Horizontal)")]
     public GameObject painelSkillCheck;
-    public RectTransform ponteiro;
-    public RectTransform zonaDeAcerto;
+    public RectTransform barraFundo;     // A barra preta
+    public RectTransform zonaDeAcerto;   // A barra branca
+    public RectTransform ponteiro;       // A linha vermelha
 
     [Header("Configurações")]
-    public float velocidadRotacao = 250f;
-
-    private int errosCometidos = 0;
-    private bool jogoAtivo = false;
-    private float anguloAlvo;
-    private float margemDeAcerto = 20f; // Tamanho da zona (em graus)
-
-    [Header("Punição")]
+    public float velocidade = 600f;
     public int peixesPerdidosAoFalhar = 2;
+
+    private bool movendoParaDireita = true;
+    private bool jogoAtivo = false;
+    private int errosCometidos = 0;
+
+    private float limiteEsquerda;
+    private float limiteDireita;
+
+    [Header("Gerenciadores")]
+    public IconManager iconManager;
     public GameController gameController;
     public FishRespawnManager respawnManager;
+
+    void Start()
+    {
+        // Calcula os limites da barra no início
+        AtualizarLimites();
+    }
+
+    void AtualizarLimites()
+    {
+        if (barraFundo != null)
+        {
+            float larguraBarra = barraFundo.rect.width;
+            limiteEsquerda = -larguraBarra / 2f;
+            limiteDireita = larguraBarra / 2f;
+        }
+    }
 
     void Update()
     {
         if (!jogoAtivo) return;
 
-        // Faz o ponteiro rodar no sentido horário
-        ponteiro.Rotate(0, 0, -velocidadRotacao * Time.deltaTime);
+        // 1. Move o ponteiro para esquerda e direita
+        float deslocamento = velocidade * Time.deltaTime;
 
-        // Se o jogador apertar Espaço
+        if (movendoParaDireita)
+        {
+            ponteiro.anchoredPosition += new Vector2(deslocamento, 0);
+            if (ponteiro.anchoredPosition.x >= limiteDireita)
+                movendoParaDireita = false;
+        }
+        else
+        {
+            ponteiro.anchoredPosition -= new Vector2(deslocamento, 0);
+            if (ponteiro.anchoredPosition.x <= limiteEsquerda)
+                movendoParaDireita = true;
+        }
+
+        // 2. Detecta o clique no Espaço
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ValidarClique();
         }
-
-        // Se der uma volta completa e o jogador não apertar nada, conta como erro automático
-        if (ponteiro.localEulerAngles.z > 358f || (ponteiro.localEulerAngles.z < 2f && velocidadRotacao > 0 && ponteiro.localEulerAngles.z != 0))
-        {
-            // Opcional: Adicionar lógica de auto-falha se passar direto da zona
-        }
     }
 
+    // Função para iniciar o Skill Check (pode ser chamada por peixes estragados, baús, etc)
     public void IniciarSequenciaSkillCheck()
     {
         errosCometidos = 0;
@@ -49,33 +76,40 @@ public class SkillCheckManager : MonoBehaviour
 
     void ProximoSkillCheck()
     {
+        AtualizarLimites();
         painelSkillCheck.SetActive(true);
         jogoAtivo = true;
 
-        // Reseta o ponteiro para o topo (0 graus)
-        ponteiro.localEulerAngles = Vector3.zero;
+        // Reseta o ponteiro para a esquerda
+        ponteiro.anchoredPosition = new Vector2(limiteEsquerda, ponteiro.anchoredPosition.y);
+        movendoParaDireita = true;
 
-        // Escolhe um ângulo aleatório na roleta (evitando o topo inicial para dar tempo de reagir)
-        anguloAlvo = Random.Range(60f, 300f);
-        zonaDeAcerto.localEulerAngles = new Vector3(0, 0, anguloAlvo);
+        // Sortear a barra branca em um lugar aleatório dentro da barra preta
+        float metadeZona = zonaDeAcerto.rect.width / 2f;
+        float xAleatorio = Random.Range(limiteEsquerda + metadeZona, limiteDireita - metadeZona);
+        zonaDeAcerto.anchoredPosition = new Vector2(xAleatorio, zonaDeAcerto.anchoredPosition.y);
     }
 
     void ValidarClique()
     {
         jogoAtivo = false;
-        float anguloAtual = ponteiro.localEulerAngles.z;
 
-        // Verifica se o ponteiro está dentro do limite da zona alvo
-        if (anguloAtual >= anguloAlvo - margemDeAcerto && anguloAtual <= anguloAlvo + margemDeAcerto)
+        float posPonteiroX = ponteiro.anchoredPosition.x;
+        float zonaInicioX = zonaDeAcerto.anchoredPosition.x - (zonaDeAcerto.rect.width / 2f);
+        float zonaFimX = zonaDeAcerto.anchoredPosition.x + (zonaDeAcerto.rect.width / 2f);
+
+        // Verifica se o ponteiro X está dentro da área X da barra branca
+        if (posPonteiroX >= zonaInicioX && posPonteiroX <= zonaFimX)
         {
-            Debug.Log("Acertou o Skill Check!");
+            Debug.Log("🎯 ACERTOU O SKILL CHECK!");
             painelSkillCheck.SetActive(false);
 
-            
+            if (iconManager != null)
+                iconManager.MudarParaNormal();
         }
         else
         {
-            Debug.Log("Errou o Skill Check!");
+            Debug.Log("❌ ERROU O SKILL CHECK!");
             errosCometidos++;
 
             if (errosCometidos >= 3)
@@ -84,7 +118,6 @@ public class SkillCheckManager : MonoBehaviour
             }
             else
             {
-                // Se ainda não errou 3 vezes, manda o próximo instantaneamente
                 ProximoSkillCheck();
             }
         }
@@ -96,20 +129,18 @@ public class SkillCheckManager : MonoBehaviour
         painelSkillCheck.SetActive(false);
         Debug.LogError("Você falhou 3 vezes no Skill Check!");
 
-     
+        if (iconManager != null)
+            iconManager.MudarParaNormal();
 
-        // 1. Remove os peixes do Inventário
         int perdidos = Mathf.Min(peixesPerdidosAoFalhar, InventoryManager.Instance.peixesNoInventario);
         InventoryManager.Instance.peixesNoInventario -= perdidos;
 
-        // 2. Desconta os peixes do GameController para o jogador não ganhar o jogo
         if (gameController != null)
         {
             gameController.foundedFish -= perdidos;
             if (gameController.foundedFish < 0) gameController.foundedFish = 0;
         }
 
-        // 3. Manda os peixes de volta para o cenário
         if (respawnManager != null)
         {
             respawnManager.SpawnarPeixesEscondidos(perdidos);
