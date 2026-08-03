@@ -71,11 +71,7 @@ public class SkillCheckManager : MonoBehaviour
             Debug.Log("Acertou o Skill Check!");
             painelSkillCheck.SetActive(false);
 
-            // 🌟 NOVO: O jogador acertou! Cura o gatinho voltando a carinha ao normal
-            if (CatIconManager.Instance != null)
-            {
-                CatIconManager.Instance.ResetarNormal();
-            }
+            
         }
         else
         {
@@ -100,11 +96,7 @@ public class SkillCheckManager : MonoBehaviour
         painelSkillCheck.SetActive(false);
         Debug.LogError("Você falhou 3 vezes no Skill Check!");
 
-        // 🌟 NOVO: O jogo acabou por derrota, limpa a carinha de envenenado do gatinho também
-        if (CatIconManager.Instance != null)
-        {
-            CatIconManager.Instance.ResetarNormal();
-        }
+     
 
         // 1. Remove os peixes do Inventário
         int perdidos = Mathf.Min(peixesPerdidosAoFalhar, InventoryManager.Instance.peixesNoInventario);

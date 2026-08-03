@@ -51,12 +51,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        // 🌟 NOVO: Avisa o gatinho para ficar feliz por ter pego um peixe!
-        if (CatIconManager.Instance != null)
-        {
-            CatIconManager.Instance.ExpressaoFeliz();
-        }
-
+   
         if (peixesNoInventario >= totalPeixesParaVitoria)
         {
             GanharJogo();
@@ -74,11 +69,7 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.LogWarning("O peixe estava estragado! A iniciar SKILL CHECK!");
 
-            // 🌟 NOVO: Gato fica passando mal
-            if (CatIconManager.Instance != null)
-            {
-                CatIconManager.Instance.ExpressaoEnvenenado();
-            }
+          
 
             if (painelInventario != null) painelInventario.SetActive(false);
             if (skillCheckManager != null) skillCheckManager.IniciarSequenciaSkillCheck();
@@ -87,11 +78,7 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("Peixe delicioso! Nada de mau aconteceu.");
 
-            // 🌟 NOVO: Fica feliz por comer bem
-            if (CatIconManager.Instance != null)
-            {
-                CatIconManager.Instance.ExpressaoFeliz();
-            }
+         
         }
     }
 

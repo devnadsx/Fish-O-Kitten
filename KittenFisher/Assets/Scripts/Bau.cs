@@ -51,11 +51,7 @@ public class Bau : MonoBehaviour
     // Coroutine adaptada para controlar também a expressão do gato
     IEnumerator EfeitoCatnipVisual()
     {
-        // ?? NOVO: Ativa a expressão do Catnip no gatinho logo no começo
-        if (CatIconManager.Instance != null)
-        {
-            CatIconManager.Instance.ExpressaoCatnipAtivar();
-        }
+      
 
         Color cor = imagemEfeitoTela.color;
         cor.a = 0f; // Começa totalmente transparente
@@ -81,11 +77,7 @@ public class Bau : MonoBehaviour
             yield return null;
         }
 
-        // ?? NOVO: Quando a tela voltar ao normal, desativa a carinha de doidão
-        if (CatIconManager.Instance != null)
-        {
-            CatIconManager.Instance.ExpressaoCatnipDesativar();
-        }
+      
 
         imagemEfeitoTela.gameObject.SetActive(false); // Garante que a imagem suma do Canvas
     }
