@@ -4,9 +4,9 @@ public class SkillCheckManager : MonoBehaviour
 {
     [Header("UI Elementos (Barra Horizontal)")]
     public GameObject painelSkillCheck;
-    public RectTransform barraFundo;     // A barra preta
-    public RectTransform zonaDeAcerto;   // A barra branca
-    public RectTransform ponteiro;       // A linha vermelha
+    public RectTransform barraFundo;
+    public RectTransform zonaDeAcerto;
+    public RectTransform ponteiro;
 
     [Header("Configurações")]
     public float velocidade = 600f;
@@ -19,6 +19,16 @@ public class SkillCheckManager : MonoBehaviour
     private float limiteEsquerda;
     private float limiteDireita;
 
+    [Header("Efeitos Sonoros & Música")]
+    public AudioSource musicaPrincipal;
+    public AudioSource audioSourceSFX;
+
+    [Space(10)]
+    public AudioClip musicaTensa;
+    public AudioClip somAcerto;
+    public AudioClip somErro;
+    public AudioClip somVomito; // 🤮 Arraste o áudio de vômito aqui!
+
     [Header("Gerenciadores")]
     public IconManager iconManager;
     public GameController gameController;
@@ -26,7 +36,6 @@ public class SkillCheckManager : MonoBehaviour
 
     void Start()
     {
-        // Calcula os limites da barra no início
         AtualizarLimites();
     }
 
@@ -44,7 +53,6 @@ public class SkillCheckManager : MonoBehaviour
     {
         if (!jogoAtivo) return;
 
-        // 1. Move o ponteiro para esquerda e direita
         float deslocamento = velocidade * Time.deltaTime;
 
         if (movendoParaDireita)
@@ -60,17 +68,28 @@ public class SkillCheckManager : MonoBehaviour
                 movendoParaDireita = true;
         }
 
-        // 2. Detecta o clique no Espaço
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ValidarClique();
         }
     }
 
-    // Função para iniciar o Skill Check (pode ser chamada por peixes estragados, baús, etc)
     public void IniciarSequenciaSkillCheck()
     {
         errosCometidos = 0;
+
+        if (musicaPrincipal != null && musicaPrincipal.isPlaying)
+        {
+            musicaPrincipal.Pause();
+        }
+
+        if (audioSourceSFX != null && musicaTensa != null)
+        {
+            audioSourceSFX.clip = musicaTensa;
+            audioSourceSFX.loop = true;
+            audioSourceSFX.Play();
+        }
+
         ProximoSkillCheck();
     }
 
@@ -80,11 +99,9 @@ public class SkillCheckManager : MonoBehaviour
         painelSkillCheck.SetActive(true);
         jogoAtivo = true;
 
-        // Reseta o ponteiro para a esquerda
         ponteiro.anchoredPosition = new Vector2(limiteEsquerda, ponteiro.anchoredPosition.y);
         movendoParaDireita = true;
 
-        // Sortear a barra branca em um lugar aleatório dentro da barra preta
         float metadeZona = zonaDeAcerto.rect.width / 2f;
         float xAleatorio = Random.Range(limiteEsquerda + metadeZona, limiteDireita - metadeZona);
         zonaDeAcerto.anchoredPosition = new Vector2(xAleatorio, zonaDeAcerto.anchoredPosition.y);
@@ -98,14 +115,11 @@ public class SkillCheckManager : MonoBehaviour
         float zonaInicioX = zonaDeAcerto.anchoredPosition.x - (zonaDeAcerto.rect.width / 2f);
         float zonaFimX = zonaDeAcerto.anchoredPosition.x + (zonaDeAcerto.rect.width / 2f);
 
-        // Verifica se o ponteiro X está dentro da área X da barra branca
         if (posPonteiroX >= zonaInicioX && posPonteiroX <= zonaFimX)
         {
             Debug.Log("🎯 ACERTOU O SKILL CHECK!");
-            painelSkillCheck.SetActive(false);
-
-            if (iconManager != null)
-                iconManager.MudarParaNormal();
+            TocarSFX(somAcerto);
+            FinalizarSkillCheckSucesso();
         }
         else
         {
@@ -118,9 +132,20 @@ public class SkillCheckManager : MonoBehaviour
             }
             else
             {
+                TocarSFX(somErro);
                 ProximoSkillCheck();
             }
         }
+    }
+
+    void FinalizarSkillCheckSucesso()
+    {
+        painelSkillCheck.SetActive(false);
+
+        if (iconManager != null)
+            iconManager.MudarParaNormal();
+
+        RestaurarMusicaPrincipal();
     }
 
     void FinalizarComDerrota()
@@ -129,8 +154,14 @@ public class SkillCheckManager : MonoBehaviour
         painelSkillCheck.SetActive(false);
         Debug.LogError("Você falhou 3 vezes no Skill Check!");
 
+        // 🤮 Toca o som de vômito ao perder!
+        TocarSFX(somVomito);
+
         if (iconManager != null)
             iconManager.MudarParaNormal();
+
+        // Limpa a quantidade de peixes do inventário
+        InventoryManager.Instance.LimparSlotsPorPunicao(peixesPerdidosAoFalhar);
 
         int perdidos = Mathf.Min(peixesPerdidosAoFalhar, InventoryManager.Instance.peixesNoInventario);
         InventoryManager.Instance.peixesNoInventario -= perdidos;
@@ -144,6 +175,30 @@ public class SkillCheckManager : MonoBehaviour
         if (respawnManager != null)
         {
             respawnManager.SpawnarPeixesEscondidos(perdidos);
+        }
+
+        RestaurarMusicaPrincipal();
+    }
+
+    void RestaurarMusicaPrincipal()
+    {
+        if (audioSourceSFX != null)
+        {
+            audioSourceSFX.Stop();
+            audioSourceSFX.loop = false;
+        }
+
+        if (musicaPrincipal != null)
+        {
+            musicaPrincipal.UnPause();
+        }
+    }
+
+    void TocarSFX(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
         }
     }
 }

@@ -1,6 +1,6 @@
-using System.Collections; // IMPORTANTE: Necess·rio para as Coroutines
+Ôªøusing System.Collections;
 using UnityEngine;
-using UnityEngine.UI;    // IMPORTANTE: Necess·rio para controlar componentes de UI
+using UnityEngine.UI;
 
 public class Bau : MonoBehaviour
 {
@@ -8,12 +8,21 @@ public class Bau : MonoBehaviour
     public GameObject peixeSecretoPrefab;
     public Transform[] spawnPoints;
 
-    [Header("ConfiguraÁıes do Efeito Catnip")]
-    public Image imagemEfeitoTela;     // Arraste a imagem da UI aqui
-    public float tempoDoEfeito = 4f;   // Quanto tempo a tela fica verde
-    public float velocidadeFade = 2f;  // Qu„o r·pido o efeito aparece/some
+    [Header("Referencias Visuais")]
+    public IconManager iconManager;
+
+    [Header("Configura√ß√µes do Efeito Catnip")]
+    public Image imagemEfeitoTela;
+    public float tempoDoEfeito = 4f;
+    public float velocidadeFade = 2f;
     [Range(0f, 1f)]
-    public float opacidadeMaxima = 0.6f; // Intensidade do verde (0 = invisÌvel, 1 = total)
+    public float opacidadeMaxima = 0.6f;
+
+    [Header("Audio & Musica")]
+    public AudioSource musicaPrincipal;  // Arraste o AudioSource da m√∫sica de fundo (ex: Main Camera)
+    public AudioSource audioSourceSFX;   // AudioSource para tocar os efeitos do Bau
+    public AudioClip somAbrirBau;        // Som ao clicar/abrir o ba√∫
+    public AudioClip musicaCatnip;       // M√∫sica divertida/brisa que toca durante o efeito
 
     private bool jaAberto = false;
 
@@ -30,7 +39,13 @@ public class Bau : MonoBehaviour
         jaAberto = true;
         Debug.Log("Catnip encontrado! Ativando efeitos...");
 
-        // 1. Spawn dos peixes secretos
+        // üîä 1. Toca o som de abertura do ba√∫
+        if (audioSourceSFX != null && somAbrirBau != null)
+        {
+            audioSourceSFX.PlayOneShot(somAbrirBau);
+        }
+
+        // 2. Spawn dos peixes secretos
         foreach (Transform ponto in spawnPoints)
         {
             if (ponto != null && gameController != null)
@@ -39,7 +54,7 @@ public class Bau : MonoBehaviour
             }
         }
 
-        // 2. Ativa o efeito visual na tela e no gatinho
+        // 3. Ativa o efeito visual e a troca de m√∫sica
         if (imagemEfeitoTela != null)
         {
             StartCoroutine(EfeitoCatnipVisual());
@@ -48,17 +63,33 @@ public class Bau : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
     }
 
-    // Coroutine adaptada para controlar tambÈm a express„o do gato
     IEnumerator EfeitoCatnipVisual()
     {
-      
+        // üê± Mudar express√£o do gato
+        if (iconManager != null)
+        {
+            iconManager.MudarParaCatnip();
+        }
+
+        // üéµ Pausa a m√∫sica padr√£o e toca a m√∫sica do Catnip
+        if (musicaPrincipal != null && musicaPrincipal.isPlaying)
+        {
+            musicaPrincipal.Pause();
+        }
+
+        if (audioSourceSFX != null && musicaCatnip != null)
+        {
+            audioSourceSFX.clip = musicaCatnip;
+            audioSourceSFX.loop = true;
+            audioSourceSFX.Play();
+        }
 
         Color cor = imagemEfeitoTela.color;
-        cor.a = 0f; // ComeÁa totalmente transparente
+        cor.a = 0f;
         imagemEfeitoTela.color = cor;
         imagemEfeitoTela.gameObject.SetActive(true);
 
-        // --- FADE IN (Aparecendo) ---
+        // --- FADE IN ---
         while (cor.a < opacidadeMaxima)
         {
             cor.a += Time.deltaTime * velocidadeFade;
@@ -66,10 +97,10 @@ public class Bau : MonoBehaviour
             yield return null;
         }
 
-        // --- ESPERA (DuraÁ„o do efeito) ---
+        // --- ESPERA ---
         yield return new WaitForSeconds(tempoDoEfeito);
 
-        // --- FADE OUT (Sumindo) ---
+        // --- FADE OUT ---
         while (cor.a > 0f)
         {
             cor.a -= Time.deltaTime * velocidadeFade;
@@ -77,8 +108,24 @@ public class Bau : MonoBehaviour
             yield return null;
         }
 
-      
+        imagemEfeitoTela.gameObject.SetActive(false);
 
-        imagemEfeitoTela.gameObject.SetActive(false); // Garante que a imagem suma do Canvas
+        // üê± Volta a express√£o normal do gato
+        if (iconManager != null)
+        {
+            iconManager.MudarParaNormal();
+        }
+
+        // üéµ Para a m√∫sica do Catnip e despausa a m√∫sica principal do jogo
+        if (audioSourceSFX != null)
+        {
+            audioSourceSFX.Stop();
+            audioSourceSFX.loop = false;
+        }
+
+        if (musicaPrincipal != null)
+        {
+            musicaPrincipal.UnPause();
+        }
     }
 }

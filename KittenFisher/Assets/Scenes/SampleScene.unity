@@ -317,7 +317,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 147028862}
+  - {fileID: 1452324719}
   - {fileID: 1411172824}
   - {fileID: 1810841794}
   - {fileID: 1332761932}
@@ -364,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconeDoPeixe: {fileID: 1743666828}
   botaoComer: {fileID: 78973491}
+  estaOcupado: 0
 --- !u!114 &78973491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +739,6 @@ GameObject:
   m_Component:
   - component: {fileID: 147028862}
   - component: {fileID: 147028861}
-  - component: {fileID: 147028863}
   m_Layer: 0
   m_Name: inventario
   m_TagString: Untagged
@@ -813,8 +813,8 @@ Transform:
   m_GameObject: {fileID: 147028860}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.54909, y: -1.4690908, z: -3305.4546}
-  m_LocalScale: {x: 8.956583, y: 8.825263, z: 10.6057825}
+  m_LocalPosition: {x: 4.88, y: -3.89, z: 16.513344}
+  m_LocalScale: {x: 0.19912219, y: 0.1962027, z: 0.2357871}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 785958656}
@@ -830,41 +830,8 @@ Transform:
   - {fileID: 78973494}
   - {fileID: 338830293}
   - {fileID: 1898339833}
-  m_Father: {fileID: 71099155}
+  m_Father: {fileID: 1452324719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &147028863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147028860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11e6ef9da82ce2e40aa907e7f8b8850d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  peixesNoInventario: 0
-  chanceDeEnvenenamento: 0.5
-  totalPeixesParaVitoria: 3
-  victoryWindow: {fileID: 0}
-  particulaVitoria: {fileID: 0}
-  somVitoria: {fileID: 0}
-  painelInventario: {fileID: 147028860}
-  textoContadorPeixes: {fileID: 195941248}
-  slots:
-  - {fileID: 0}
-  - {fileID: 1622859131}
-  - {fileID: 78973490}
-  - {fileID: 338830289}
-  - {fileID: 1898339829}
-  - {fileID: 566801506}
-  - {fileID: 464610524}
-  - {fileID: 222108050}
-  - {fileID: 2036673408}
-  - {fileID: 298148045}
-  spriteDoPeixeUI: {fileID: -6297954835743283398, guid: 55f303bf1c430f44aa7579dbe2f84e43, type: 3}
-  skillCheckManager: {fileID: 0}
 --- !u!1 &195941246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconeDoPeixe: {fileID: 1743666828}
   botaoComer: {fileID: 222108051}
+  estaOcupado: 0
 --- !u!114 &222108051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1345,8 +1313,9 @@ GameObject:
   - component: {fileID: 249278236}
   - component: {fileID: 249278239}
   - component: {fileID: 249278238}
+  - component: {fileID: 249278240}
   m_Layer: 0
-  m_Name: bau
+  m_Name: CATNIP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1438,7 +1407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bau
   gameController: {fileID: 826934057}
-  peixeSecretoPrefab: {fileID: 984301170427200700}
+  peixeSecretoPrefab: {fileID: 3371108078909617601, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
   spawnPoints:
   - {fileID: 1856918024}
   - {fileID: 1475883434}
@@ -1446,10 +1415,15 @@ MonoBehaviour:
   - {fileID: 92590369}
   - {fileID: 2050243358}
   - {fileID: 1733169873}
+  iconManager: {fileID: 924382263}
   imagemEfeitoTela: {fileID: 1810841795}
-  tempoDoEfeito: 10
+  tempoDoEfeito: 35
   velocidadeFade: 2
-  opacidadeMaxima: 0.457
+  opacidadeMaxima: 1
+  musicaPrincipal: {fileID: 519420033}
+  audioSourceSFX: {fileID: 249278240}
+  somAbrirBau: {fileID: 8300000, guid: d9f0d548412f3ad409809439fdb77018, type: 3}
+  musicaCatnip: {fileID: 8300000, guid: 6b3b4e36688b3524eaa2ad6c997c52f9, type: 3}
 --- !u!61 &249278239
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1496,6 +1470,103 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.6653023, y: 6.7686167}
   m_EdgeRadius: 0
+--- !u!82 &249278240
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249278235}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &256963470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconeDoPeixe: {fileID: 1743666828}
   botaoComer: {fileID: 256963473}
+  estaOcupado: 0
 --- !u!114 &256963473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1903,6 +1975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconeDoPeixe: {fileID: 1743666828}
   botaoComer: {fileID: 298148046}
+  estaOcupado: 0
 --- !u!114 &298148046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2206,6 +2279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconeDoPeixe: {fileID: 1743666828}
   botaoComer: {fileID: 338830290}
+  estaOcupado: 0
 --- !u!114 &338830290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2579,6 +2653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconeDoPeixe: {fileID: 1743666828}
   botaoComer: {fileID: 464610525}
+  estaOcupado: 0
 --- !u!114 &464610525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2992,6 +3067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconeDoPeixe: {fileID: 1743666828}
   botaoComer: {fileID: 566801507}
+  estaOcupado: 0
 --- !u!114 &566801507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3709,6 +3785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 826934056}
   - component: {fileID: 826934057}
+  - component: {fileID: 826934058}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3754,7 +3831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   foundedFish: 0
-  FishNumber: 10
+  FishNumber: 9
   OnVictory:
     m_PersistentCalls:
       m_Calls:
@@ -3795,8 +3872,105 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   iconManager: {fileID: 924382263}
-  audioSource: {fileID: 0}
-  somColetaPeixe: {fileID: 0}
+  audioSource: {fileID: 826934058}
+  somColetaPeixe: {fileID: 8300000, guid: bc56b9d931c3e0240987e956bcee1239, type: 3}
+--- !u!82 &826934058
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826934055}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.67
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &843956562
 GameObject:
   m_ObjectHideFlags: 0
@@ -4601,7 +4775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51335749dbd34742a65e209b58b3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishRespawnManager
-  peixePrefab: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+  peixePrefab: {fileID: 3371108078909617601, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
   pontosDeEsconderijo:
   - {fileID: 1733169873}
   - {fileID: 1733169873}
@@ -5311,6 +5485,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   tempoRevelado: 3
+--- !u!1 &1452324718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1452324719}
+  - component: {fileID: 1452324720}
+  m_Layer: 0
+  m_Name: "Invent\xE1rio-"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1452324719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452324718}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -241, y: 151, z: -4048.2302}
+  m_LocalScale: {x: 44.98034, y: 44.98034, z: 44.98034}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 147028862}
+  m_Father: {fileID: 71099155}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1452324720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452324718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e6ef9da82ce2e40aa907e7f8b8850d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
+  peixesNoInventario: 0
+  chanceDeEnvenenamento: 0.5
+  audioSourceSFX: {fileID: 826934058}
+  somComerPeixe: {fileID: 8300000, guid: 3d6832b37c3920344b115f0320ec4abe, type: 3}
+  painelInventario: {fileID: 147028860}
+  slots:
+  - {fileID: 0}
+  - {fileID: 1622859131}
+  - {fileID: 78973490}
+  - {fileID: 338830289}
+  - {fileID: 1898339829}
+  - {fileID: 566801506}
+  - {fileID: 464610524}
+  - {fileID: 222108050}
+  - {fileID: 2036673408}
+  - {fileID: 298148045}
+  spriteDoPeixeUI: {fileID: -6297954835743283398, guid: 55f303bf1c430f44aa7579dbe2f84e43, type: 3}
+  skillCheckManager: {fileID: 1627439354}
+  iconManager: {fileID: 924382263}
 --- !u!1 &1455027391
 GameObject:
   m_ObjectHideFlags: 0
@@ -11189,6 +11427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconeDoPeixe: {fileID: 1743666828}
   botaoComer: {fileID: 1622859132}
+  estaOcupado: 0
 --- !u!114 &1622859132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11314,13 +11553,14 @@ GameObject:
   - component: {fileID: 1627439356}
   - component: {fileID: 1627439355}
   - component: {fileID: 1627439354}
+  - component: {fileID: 1627439357}
   m_Layer: 5
   m_Name: PainelSkillCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1627439353
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11361,6 +11601,12 @@ MonoBehaviour:
   ponteiro: {fileID: 382228760}
   velocidade: 600
   peixesPerdidosAoFalhar: 2
+  musicaPrincipal: {fileID: 519420033}
+  audioSourceSFX: {fileID: 1627439357}
+  musicaTensa: {fileID: 8300000, guid: 7a2fc0175b6c8df4bbc8f8cdb2c50380, type: 3}
+  somAcerto: {fileID: 8300000, guid: 1fcdea03787d4004abb53ba9e1e20ceb, type: 3}
+  somErro: {fileID: 8300000, guid: 555b41796964d274e8f4574e4c881759, type: 3}
+  somVomito: {fileID: 8300000, guid: ce93fd2f4b2fabe4ba0f005f698e3c83, type: 3}
   iconManager: {fileID: 924382263}
   gameController: {fileID: 826934057}
   respawnManager: {fileID: 1207483717}
@@ -11402,6 +11648,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627439352}
   m_CullTransparentMesh: 1
+--- !u!82 &1627439357
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627439352}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 7a2fc0175b6c8df4bbc8f8cdb2c50380, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.52
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1644949062
 GameObject:
   m_ObjectHideFlags: 0
@@ -12291,7 +12634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4156866, g: 1, b: 0.23113209, a: 1}
+  m_Color: {r: 0.23979592, g: 1, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12639,6 +12982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconeDoPeixe: {fileID: 1743666828}
   botaoComer: {fileID: 1898339830}
+  estaOcupado: 0
 --- !u!114 &1898339830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12971,6 +13315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconeDoPeixe: {fileID: 1743666828}
   botaoComer: {fileID: 2036673409}
+  estaOcupado: 0
 --- !u!114 &2036673409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13573,13 +13918,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
 --- !u!4 &182352311386945074 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-  m_PrefabInstance: {fileID: 7080932963077158737}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &984301170427200700 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2153224996009544377, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-  m_PrefabInstance: {fileID: 7080932963077158737}
+  m_CorrespondingSourceObject: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+  m_PrefabInstance: {fileID: 8014908075893015570}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1075337096683301218
 PrefabInstance:
@@ -13724,53 +14064,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
---- !u!61 &6449016544526370438
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984301170427200700}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 3.22}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 5.34, y: 3.22}
-  m_EdgeRadius: 0
---- !u!1001 &7080932963077158737
+--- !u!1001 &8014908075893015570
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -13778,93 +14072,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 826934056}
     m_Modifications:
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.22218
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.22218
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.22218
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 33.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477083805371872588, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370406895994124607, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_SortingLayer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370406895994124607, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1127774777
-      objectReference: {fileID: 0}
-    - target: {fileID: 2153224996009544377, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+    - target: {fileID: 3371108078909617601, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
       propertyPath: m_Name
       value: PeixeSecreto
       objectReference: {fileID: 0}
-    - target: {fileID: 2153224996009544377, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 33.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6295761864346016750, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: tempoDaAura
-      value: 8
+    - target: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 7525388112734626536, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
+    - target: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 7525388112734626536, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1430101051
+    - target: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870755263497062964, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5346216931760212717, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 826934057}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2153224996009544377, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6449016544526370438}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a15ed3e4c56c16c4eaf3452b8e03c745, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

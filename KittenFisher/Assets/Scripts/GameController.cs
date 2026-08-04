@@ -4,11 +4,12 @@ using UnityEngine.Events;
 public class GameController : MonoBehaviour
 {
     public int foundedFish;
-    public int FishNumber;
+    [Tooltip("Defina a quantidade de peixes necessários no Inspector")]
+    public int FishNumber = 3; // Valor padrão, mas você altera no Inspector como quiser!
     public UnityEvent OnVictory;
 
     [Header("Gerenciador do Gatinho")]
-    public IconManager iconManager; // Arraste o objeto do gato aqui no Inspector!
+    public IconManager iconManager;
 
     [Header("Efeitos Sonoros")]
     public AudioSource audioSource;
@@ -16,7 +17,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        FishNumber = transform.childCount;
+        // Linha removida! Agora a variável FishNumber NÃO será mais sobrescrita automaticamente.
     }
 
     public void FoundFish()

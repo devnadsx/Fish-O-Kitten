@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -9,15 +8,12 @@ public class InventoryManager : MonoBehaviour
     public int peixesNoInventario = 0;
     [Range(0f, 1f)] public float chanceDeEnvenenamento = 0.5f;
 
-    [Header("Configurações de Vitória")]
-    public int totalPeixesParaVitoria = 3;
-    public GameObject victoryWindow;
-    public ParticleSystem particulaVitoria;
-    public AudioSource somVitoria;
+    [Header("Efeitos Sonoros")]
+    public AudioSource audioSourceSFX;
+    public AudioClip somComerPeixe;
 
     [Header("UI do Inventário")]
     public GameObject painelInventario;
-    public TextMeshProUGUI textoContadorPeixes;
 
     [Header("Configuração Visual dos Slots")]
     public InventorySlot[] slots;
@@ -25,6 +21,7 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Referências Extra")]
     public SkillCheckManager skillCheckManager;
+    public IconManager iconManager;
 
     void Awake()
     {
@@ -34,28 +31,28 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
-        AtualizarUI();
-        if (victoryWindow != null) victoryWindow.SetActive(false);
+        if (painelInventario != null)
+        {
+            slots = painelInventario.GetComponentsInChildren<InventorySlot>(true);
+        }
     }
 
     public void AdicionarPeixe()
     {
         peixesNoInventario++;
-        AtualizarUI();
 
-        foreach (InventorySlot slot in slots)
+        if (slots != null)
         {
-            if (slot != null && slot.OcuparSlot(spriteDoPeixeUI))
+            foreach (InventorySlot slot in slots)
             {
-                break;
+                if (slot != null && !slot.estaOcupado)
+                {
+                    slot.OcuparSlot(spriteDoPeixeUI);
+                    break;
+                }
             }
         }
-
-   
-        if (peixesNoInventario >= totalPeixesParaVitoria)
-        {
-            GanharJogo();
-        }
+        // A verificação de vitória foi removida daqui para não disparar antes da hora!
     }
 
     public void ComerPeixe()
@@ -63,34 +60,26 @@ public class InventoryManager : MonoBehaviour
         if (peixesNoInventario <= 0) return;
 
         peixesNoInventario--;
-        AtualizarUI();
 
         if (Random.value < chanceDeEnvenenamento)
         {
             Debug.LogWarning("O peixe estava estragado! A iniciar SKILL CHECK!");
 
-          
-
+            if (iconManager != null) iconManager.MudarParaEnvenenado();
             if (painelInventario != null) painelInventario.SetActive(false);
             if (skillCheckManager != null) skillCheckManager.IniciarSequenciaSkillCheck();
         }
         else
         {
-            Debug.Log("Peixe delicioso! Nada de mau aconteceu.");
+            Debug.Log("Peixe delicioso!");
 
-         
-        }
-    }
+            if (audioSourceSFX != null && somComerPeixe != null)
+            {
+                audioSourceSFX.PlayOneShot(somComerPeixe);
+            }
 
-    private void GanharJogo()
-    {
-        if (victoryWindow != null) victoryWindow.SetActive(true);
-        if (particulaVitoria != null)
-        {
-            particulaVitoria.gameObject.SetActive(true);
-            particulaVitoria.Play();
+            if (iconManager != null) iconManager.MudarParaFeliz();
         }
-        if (somVitoria != null) somVitoria.Play();
     }
 
     public void AlternarPainelInventario()
@@ -98,19 +87,7 @@ public class InventoryManager : MonoBehaviour
         if (painelInventario != null)
         {
             painelInventario.SetActive(!painelInventario.activeSelf);
-            AtualizarUI();
         }
-    }
-
-    public void UpdateUI() // Mantido compatível caso use minúsculo
-    {
-        AtualizarUI();
-    }
-
-    public void AtualizarUI()
-    {
-        if (textoContadorPeixes != null)
-            textoContadorPeixes.text = "Peixes: " + peixesNoInventario;
     }
 
     public void LimparSlotsPorPunicao(int quantidade)
@@ -119,7 +96,7 @@ public class InventoryManager : MonoBehaviour
         for (int i = slots.Length - 1; i >= 0; i--)
         {
             if (removidos >= quantidade) break;
-            if (slots[i] != null)
+            if (slots[i] != null && slots[i].estaOcupado)
             {
                 slots[i].LimparSlot();
                 removidos++;
