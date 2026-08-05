@@ -391,6 +391,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1440605019333601210, guid: df5cd4c5705117547bddae0d3bee569e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440605019333601210, guid: df5cd4c5705117547bddae0d3bee569e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 971331551
+      objectReference: {fileID: 0}
     - target: {fileID: 3901663909084806979, guid: df5cd4c5705117547bddae0d3bee569e, type: 3}
       propertyPath: m_Name
       value: Lupa
@@ -611,7 +619,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8960213033406119914, guid: c35e23db9dc4ff146b0af6cc5d5d5ab9, type: 3}
+  m_Sprite: {fileID: 2644626227164436294, guid: dd3decc26e25c5a408e3a7f87990ec06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -645,8 +653,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 311.05, y: -20}
-  m_SizeDelta: {x: 136.1, y: 345.19}
+  m_AnchoredPosition: {x: 310, y: -18.057}
+  m_SizeDelta: {x: 160, y: 413.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &450130097 stripped
 Transform:
@@ -1125,6 +1133,14 @@ PrefabInstance:
     - target: {fileID: 381813063485072401, guid: c09b440361f74b54e880ac207539d6b3, type: 3}
       propertyPath: m_Name
       value: "Aqu\xE1rio"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268131000042626341, guid: c09b440361f74b54e880ac207539d6b3, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268131000042626341, guid: c09b440361f74b54e880ac207539d6b3, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 971331551
       objectReference: {fileID: 0}
     - target: {fileID: 7987375780956043248, guid: c09b440361f74b54e880ac207539d6b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1947,6 +1963,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 2698029127241013738, guid: 66f460db1a7a3724e9baa09eb3a53a4d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698029127241013738, guid: 66f460db1a7a3724e9baa09eb3a53a4d, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 971331551
+      objectReference: {fileID: 0}
     - target: {fileID: 3709692936751608813, guid: 66f460db1a7a3724e9baa09eb3a53a4d, type: 3}
       propertyPath: m_Name
       value: Tesoura
