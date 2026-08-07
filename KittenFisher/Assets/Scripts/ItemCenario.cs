@@ -1,25 +1,23 @@
-using System.Collections; // IMPORTANTE: Necessário para usar Coroutines
+using System.Collections;
 using UnityEngine;
 
 public class ItemCenario : MonoBehaviour
 {
-    [Header("Configurações de Tempo")]
-    public float tempoRevelado = 3f; // Quantos segundos o item some antes de voltar
-
     private SpriteRenderer spriteRenderer;
-    private Collider2D colisor2D; // Mude para 'Collider' se seu jogo for 3D
+    private Collider2D colisor2D;
     private bool vasculhando = false;
 
     void Start()
     {
-        // Pega os componentes do próprio objeto do cenário automaticamente
         spriteRenderer = GetComponent<SpriteRenderer>();
         colisor2D = GetComponent<Collider2D>();
     }
 
     void OnMouseDown()
     {
-        // Só ativa se o objeto já não estiver sumido
+        // Se a interação estiver bloqueada pelo Manager (ex: durante o diálogo) ou já estiver sumido, não faz nada!
+        if (EsconderijosManager.Instance != null && EsconderijosManager.Instance.interacaoBloqueada) return;
+
         if (!vasculhando)
         {
             StartCoroutine(RevelarEsconderijo());
@@ -30,20 +28,19 @@ public class ItemCenario : MonoBehaviour
     {
         vasculhando = true;
 
-        // 1. Esconde o objeto do cenário e desliga o clique dele
+        // Esconde o item do cenário
         if (spriteRenderer != null) spriteRenderer.enabled = false;
         if (colisor2D != null) colisor2D.enabled = false;
 
-        Debug.Log(gameObject.name + " sumiu! Pegue o peixe rápido!");
+        // Pega o tempo configurado no EsconderijosManager
+        float tempo = EsconderijosManager.Instance != null ? EsconderijosManager.Instance.tempoReveladoPadrao : 3f;
 
-        // 2. Espera o tempo que você configurou no Inspector
-        yield return new WaitForSeconds(tempoRevelado);
+        yield return new WaitForSeconds(tempo);
 
-        // 3. Traz o objeto do cenário de volta (cobrindo o peixe de novo se ele não foi pego)
+        // Volta o item para cobrir o peixe
         if (spriteRenderer != null) spriteRenderer.enabled = true;
         if (colisor2D != null) colisor2D.enabled = true;
 
         vasculhando = false;
-        Debug.Log(gameObject.name + " voltou a cobrir o esconderijo.");
     }
 }

@@ -82,15 +82,15 @@ public class TutorialManager : MonoBehaviour
         switch (etapaFala)
         {
             case 0:
-                IniciarDigitacao("Ah, preciso fazer um experimento novo hoje!");
+                IniciarDigitacao("Oh, I need to do a new experiment!");
                 break;
 
             case 1:
-                IniciarDigitacao("Para isso, preciso coletar alguns materiais no laboratório...");
+                IniciarDigitacao("But.., to do that, I need to collect some materials from the lab...");
                 break;
 
             case 2:
-                IniciarDigitacao("Procure a lupa, o aquário e a tesoura!");
+                IniciarDigitacao("Great! I need to find the magnifying glass, the fishbowl and the scissors. Where on earth did I leave each of them…?");
                 break;
 
             case 3:
@@ -100,11 +100,11 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 4:
-                IniciarDigitacao("Encontrei a lupa! Agora consigo olhar melhor para ver se encontro outras coisas.");
+                IniciarDigitacao("I've found the magnifying glass! Now I can have a closer look to see if I can find the remain...");
                 break;
 
             case 5:
-                IniciarDigitacao("💡 Dica: Você pode aproximar usando a Scroll Wheel do mouse e arrastar o cenário!");
+                IniciarDigitacao("💡 Tip: You can move the scene and zoom in on it for a better view!");
                 break;
 
             case 6:
@@ -112,7 +112,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 7:
-                IniciarDigitacao("Ótimo, peguei tudo! Agora estou pronto para o experimento!");
+                IniciarDigitacao("Great, I’ve got everything! Now I’m ready for the experiment! Yay!");
                 if (botaoAvancarFala != null)
                 {
                     botaoAvancarFala.onClick.RemoveAllListeners();

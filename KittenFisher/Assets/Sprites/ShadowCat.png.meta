@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dd3decc26e25c5a408e3a7f87990ec06
+guid: 2df5173a1c14c9d46a6346d3ebd596e1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2644626227164436294
-    second: baixador de png (1)_0
+      213: -7315111759967458589
+    second: ShadowCat_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: baixador de png (1)_0
+      name: ShadowCat_0
       rect:
         serializedVersion: 2
-        x: 853
-        y: 85
-        width: 342
-        height: 986
+        x: 348
+        y: 0
+        width: 795
+        height: 1943
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 64751d1ba8993b420800000000000000
-      internalID: 2644626227164436294
+      spriteID: 3ea6bd68c908b7a90800000000000000
+      internalID: -7315111759967458589
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      baixador de png (1)_0: 2644626227164436294
+      ShadowCat_0: -7315111759967458589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

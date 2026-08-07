@@ -1,27 +1,26 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro; // Use TextMeshProUGUI se estiver usando TMP, ou 'using UnityEngine.UI;' se for Text padrão
 
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
-    [Header("Configurações do Inventário")]
-    public int peixesNoInventario = 0;
-    [Range(0f, 1f)] public float chanceDeEnvenenamento = 0.5f;
+    [Header("Contador de Peixes")]
+    public int peixesColetados = 0;
+    public TextMeshProUGUI textoContadorPeixes; // O texto da UI do contador!
+
+    [Header("Animação do Ícone (Juice)")]
+    public RectTransform iconeInventario;     // Arraste o RectTransform do Ícone do Inventário
+    public float intensidadePulo = 1.25f;      // O quanto ele aumenta de tamanho rapidinho
+    public float duracaoPulo = 0.15f;         // Duração do efeito (segundos)
 
     [Header("Efeitos Sonoros")]
-    public AudioSource audioSourceSFX;
-    public AudioClip somComerPeixe;
+    public AudioSource audioSource;
+    public AudioClip somColetaPeixe;
 
-    [Header("UI do Inventário")]
-    public GameObject painelInventario;
-
-    [Header("Configuração Visual dos Slots")]
-    public InventorySlot[] slots;
-    public Sprite spriteDoPeixeUI;
-
-    [Header("Referências Extra")]
-    public SkillCheckManager skillCheckManager;
-    public IconManager iconManager;
+    private Vector3 escalaOriginal;
 
     void Awake()
     {
@@ -31,76 +30,67 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
-        if (painelInventario != null)
+        if (iconeInventario != null)
         {
-            slots = painelInventario.GetComponentsInChildren<InventorySlot>(true);
+            escalaOriginal = iconeInventario.localScale;
         }
+
+        AtualizarTextoContador();
     }
 
+    // Função chamada toda vez que o jogador pesca/coleta um peixe!
     public void AdicionarPeixe()
     {
-        peixesNoInventario++;
+        peixesColetados++;
+        AtualizarTextoContador();
 
-        if (slots != null)
+        // 1. Toca o Som
+        if (audioSource != null && somColetaPeixe != null)
         {
-            foreach (InventorySlot slot in slots)
-            {
-                if (slot != null && !slot.estaOcupado)
-                {
-                    slot.OcuparSlot(spriteDoPeixeUI);
-                    break;
-                }
-            }
+            audioSource.PlayOneShot(somColetaPeixe);
         }
-        // A verificação de vitória foi removida daqui para não disparar antes da hora!
-    }
 
-    public void ComerPeixe()
-    {
-        if (peixesNoInventario <= 0) return;
-
-        peixesNoInventario--;
-
-        if (Random.value < chanceDeEnvenenamento)
+        // 2. Faz o ícone balançar/pular
+        if (iconeInventario != null)
         {
-            Debug.LogWarning("O peixe estava estragado! A iniciar SKILL CHECK!");
-
-            if (iconManager != null) iconManager.MudarParaEnvenenado();
-            if (painelInventario != null) painelInventario.SetActive(false);
-            if (skillCheckManager != null) skillCheckManager.IniciarSequenciaSkillCheck();
-        }
-        else
-        {
-            Debug.Log("Peixe delicioso!");
-
-            if (audioSourceSFX != null && somComerPeixe != null)
-            {
-                audioSourceSFX.PlayOneShot(somComerPeixe);
-            }
-
-            if (iconManager != null) iconManager.MudarParaFeliz();
+            StopAllCoroutines();
+            StartCoroutine(EfeitoPuloEscale());
         }
     }
 
-    public void AlternarPainelInventario()
+    void AtualizarTextoContador()
     {
-        if (painelInventario != null)
+        if (textoContadorPeixes != null)
         {
-            painelInventario.SetActive(!painelInventario.activeSelf);
+            textoContadorPeixes.text = peixesColetados.ToString();
+            // Se preferir mostrar tipo "x3", basta mudar para: $"x{peixesColetados}"
         }
     }
 
-    public void LimparSlotsPorPunicao(int quantidade)
+    // --- COROUTINE DO EFEITO VISUAL (Pulinho no Ícone) ---
+    IEnumerator EfeitoPuloEscale()
     {
-        int removidos = 0;
-        for (int i = slots.Length - 1; i >= 0; i--)
+        Vector3 escalaPulo = escalaOriginal * intensidadePulo;
+        float tempo = 0f;
+
+        // Aumenta o tamanho do ícone
+        while (tempo < duracaoPulo / 2f)
         {
-            if (removidos >= quantidade) break;
-            if (slots[i] != null && slots[i].estaOcupado)
-            {
-                slots[i].LimparSlot();
-                removidos++;
-            }
+            tempo += Time.deltaTime;
+            iconeInventario.localScale = Vector3.Lerp(escalaOriginal, escalaPulo, tempo / (duracaoPulo / 2f));
+            yield return null;
         }
+
+        tempo = 0f;
+
+        // Volta ao tamanho original
+        while (tempo < duracaoPulo / 2f)
+        {
+            tempo += Time.deltaTime;
+            iconeInventario.localScale = Vector3.Lerp(escalaPulo, escalaOriginal, tempo / (duracaoPulo / 2f));
+            yield return null;
+        }
+
+        iconeInventario.localScale = escalaOriginal;
     }
 }
