@@ -2110,9 +2110,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: dd8a1d47653a2f448873444da6cd3579, type: 3}
+  m_Resource: {fileID: 8300000, guid: 639eadd3a32dd9346b0768781fbb8e3f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.307
+  m_Volume: 0.18
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10580,6 +10580,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d6180c8490dfe4883430a76fe363dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillCheckManager
+  painelSkillCheck: {fileID: 0}
+  barraFundo: {fileID: 0}
+  zonaDeAcerto: {fileID: 0}
+  ponteiro: {fileID: 0}
+  velocidade: 600
+  peixesPerdidosAoFalhar: 2
+  musicaPrincipal: {fileID: 0}
+  audioSourceSFX: {fileID: 0}
+  musicaTensa: {fileID: 0}
+  somAcerto: {fileID: 0}
+  somErro: {fileID: 0}
+  somVomito: {fileID: 0}
+  iconManager: {fileID: 0}
+  gameController: {fileID: 0}
+  respawnManager: {fileID: 0}
+  modoAnaliseLaboratorio: 0
 --- !u!114 &1627439355
 MonoBehaviour:
   m_ObjectHideFlags: 0

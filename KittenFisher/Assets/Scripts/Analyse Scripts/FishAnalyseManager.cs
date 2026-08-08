@@ -1,7 +1,7 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 public class FishAnalyseManager : MonoBehaviour
@@ -11,27 +11,10 @@ public class FishAnalyseManager : MonoBehaviour
     [Header("Aviso de Controles (Canva)")]
     public GameObject imagemAvisoControles;
 
-    [Header("UI do Diálogo (Estilo Visual Novel)")]
-    public GameObject painelBalaoFala;
-    public TextMeshProUGUI textoBalao;
-    public Image imagemGatinho;
-    public Button botaoAvancarFala;
-
-    [Header("Estilo Efeitos Visual Novel / RPG")]
-    public float velocidadeEscrita = 0.03f;
-    public float alturaPuloLetra = 8f;
-    public AudioSource audioSourceSFX;
-    public AudioClip somFalaGatinho;
-
     [Header("Configuração da Cena")]
     public string nomeProximaFase = "Game2";
     public int totalPeixesNaMesa = 3;
     private int peixesProcessados = 0;
-
-    private Vector3 posicaoOriginalGato;
-    private Coroutine coroutineDigitacao;
-    private bool estaEscrevendo = false;
-    private string textoCompletoAtual = "";
 
     // Guarda o peixe em teste no momento
     private GameObject peixeAtualObjeto;
@@ -45,58 +28,31 @@ public class FishAnalyseManager : MonoBehaviour
 
     void Start()
     {
-        if (imagemGatinho != null)
-        {
-            posicaoOriginalGato = imagemGatinho.rectTransform.anchoredPosition;
-        }
-
         if (imagemAvisoControles != null)
         {
             imagemAvisoControles.SetActive(true);
         }
 
-        Falar("Time to test and taste these fish! Select one from the table.");
+        if (DialogoManager.Instance != null)
+        {
+            DialogoManager.Instance.AdicionarFala("Time to test and taste these fish! Select one from the table.", false);
+        }
     }
 
     void Update()
     {
-        // Avançar diálogo pressionando ENTER ou Keypad ENTER
-        if (painelBalaoFala != null && painelBalaoFala.activeSelf && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
-        {
-            AvancarTexto();
-        }
-    }
-
-    // Chamado pelo Botão / ENTER / Clique
-    public void AvancarTexto()
-    {
-        // Esconde o aviso de controles no primeiro clique/enter
+        // Se o aviso de controles estiver ativo e o jogador apertar Enter, esconde ele
         if (imagemAvisoControles != null && imagemAvisoControles.activeSelf)
         {
-            imagemAvisoControles.SetActive(false);
-        }
-
-        // Se ainda está digitando, completa o texto imediatamente
-        if (estaEscrevendo)
-        {
-            CompletarTextoImediatamente();
-            return;
-        }
-
-        // Se todos os peixes já foram analisados, avança para a próxima cena
-        if (peixesProcessados >= totalPeixesNaMesa)
-        {
-            IrParaProximaFase();
-        }
-        else
-        {
-            if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                imagemAvisoControles.SetActive(false);
+            }
         }
     }
 
     public void IniciarTesteDoPeixe(string nome, bool ehVenenoso, GameObject objetoPeixe)
     {
-        // Esconde o aviso de controles se ainda estiver ativo
         if (imagemAvisoControles != null && imagemAvisoControles.activeSelf)
         {
             imagemAvisoControles.SetActive(false);
@@ -106,12 +62,13 @@ public class FishAnalyseManager : MonoBehaviour
         peixeAtualEhVenenoso = ehVenenoso;
         peixeAtualObjeto = objetoPeixe;
 
-        if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
+        if (DialogoManager.Instance != null)
+        {
+            DialogoManager.Instance.FecharDialogo();
+        }
 
-        // 🎯 AQUI ESTÁ A MUDANÇA:
         if (ehVenenoso)
         {
-            // Se for VENENOSO -> Ativa o Skill Check!
             if (SkillCheckManager.Instance != null)
             {
                 SkillCheckManager.Instance.IniciarSequenciaSkillCheck();
@@ -119,22 +76,32 @@ public class FishAnalyseManager : MonoBehaviour
         }
         else
         {
-            // Se NÃO for venenoso -> Pula o Skill Check e considera Sucesso Direto!
             OnSkillCheckSucesso();
         }
     }
+
     public void OnSkillCheckSucesso()
     {
         if (peixeAtualObjeto != null) peixeAtualObjeto.SetActive(false);
         peixesProcessados++;
 
-        if (peixeAtualEhVenenoso)
+        if (DialogoManager.Instance != null)
         {
-            Falar($"Ugh! The {peixeAtualNome} was super poisonous! Good thing I tested it carefully!");
-        }
-        else
-        {
-            Falar($"Yum! The {peixeAtualNome} is delicious and perfectly safe!");
+            DialogoManager.Instance.LimparDialogo();
+
+            if (peixeAtualEhVenenoso)
+            {
+                DialogoManager.Instance.AdicionarFala($"Ugh! The {peixeAtualNome} was super poisonous!", false);
+                DialogoManager.Instance.AdicionarFala("Gosh! I'm glad I was careful.., otherwise, I would definitely be dead..", false);
+                DialogoManager.Instance.AdicionarFala("Shadow breathe a little, trying to not vomit again. He wrote down while coughing a lot.", true);
+                DialogoManager.Instance.AdicionarFala("Okay, time to another one..", false);
+            }
+            else
+            {
+                DialogoManager.Instance.AdicionarFala($"Mmmph! The {peixeAtualNome} is delicious and perfectly safe.", false);
+                DialogoManager.Instance.AdicionarFala("Shadow finish tasting and wrote down about the fish.", true);
+                DialogoManager.Instance.AdicionarFala("Okay, I need to finish these fish..", false);
+            }
         }
 
         VerificarFimDaAnalise();
@@ -145,7 +112,15 @@ public class FishAnalyseManager : MonoBehaviour
         if (peixeAtualObjeto != null) peixeAtualObjeto.SetActive(false);
         peixesProcessados++;
 
-        Falar($"Oops! I dropped the {peixeAtualNome}! It fell off the table...");
+        if (DialogoManager.Instance != null)
+        {
+            DialogoManager.Instance.LimparDialogo();
+
+            DialogoManager.Instance.AdicionarFala($"Ughh! {peixeAtualNome} definity not safe!-", false);
+            DialogoManager.Instance.AdicionarFala("Shadow runs to an empty bucket and finish vomiting.", true);
+            DialogoManager.Instance.AdicionarFala("He wrote down, with a sickened face.", true);
+            DialogoManager.Instance.AdicionarFala("Okay, Let me continue this..", false);
+        }
 
         VerificarFimDaAnalise();
     }
@@ -154,74 +129,23 @@ public class FishAnalyseManager : MonoBehaviour
     {
         if (peixesProcessados >= totalPeixesNaMesa)
         {
-            if (botaoAvancarFala != null)
-            {
-                botaoAvancarFala.onClick.RemoveAllListeners();
-                botaoAvancarFala.onClick.AddListener(IrParaProximaFase);
-            }
+            StartCoroutine(AguardarFimDosDialogosEAvancar());
         }
     }
 
-    public void Falar(string texto)
+    IEnumerator AguardarFimDosDialogosEAvancar()
     {
-        if (painelBalaoFala != null) painelBalaoFala.SetActive(true);
-        if (imagemGatinho != null) imagemGatinho.gameObject.SetActive(true);
+        // Espera o jogador terminar de ler todas as falas antes de mudar de cena
+        yield return new WaitForSeconds(0.5f);
 
-        textoCompletoAtual = texto;
-
-        if (coroutineDigitacao != null) StopCoroutine(coroutineDigitacao);
-        coroutineDigitacao = StartCoroutine(EfeitoDigitar(texto));
-    }
-
-    IEnumerator EfeitoDigitar(string texto)
-    {
-        estaEscrevendo = true;
-        textoBalao.text = "";
-
-        foreach (char letra in texto.ToCharArray())
+        while (DialogoManager.Instance != null && DialogoManager.Instance.TemFalasPendentes())
         {
-            textoBalao.text += letra;
-
-            if (char.IsLetterOrDigit(letra))
-            {
-                if (imagemGatinho != null && imagemGatinho.gameObject.activeSelf)
-                {
-                    StartCoroutine(PulinhoRapidoGato());
-                }
-
-                if (audioSourceSFX != null && somFalaGatinho != null)
-                {
-                    audioSourceSFX.PlayOneShot(somFalaGatinho);
-                }
-            }
-
-            yield return new WaitForSeconds(velocidadeEscrita);
+            yield return null;
         }
 
-        estaEscrevendo = false;
+        IrParaProximaFase();
     }
 
-    void CompletarTextoImediatamente()
-    {
-        if (coroutineDigitacao != null) StopCoroutine(coroutineDigitacao);
-        textoBalao.text = textoCompletoAtual;
-        estaEscrevendo = false;
-
-        if (imagemGatinho != null)
-        {
-            imagemGatinho.rectTransform.anchoredPosition = posicaoOriginalGato;
-        }
-    }
-
-    IEnumerator PulinhoRapidoGato()
-    {
-        RectTransform rect = imagemGatinho.rectTransform;
-        rect.anchoredPosition = posicaoOriginalGato + new Vector3(0, alturaPuloLetra, 0);
-        yield return new WaitForSeconds(velocidadeEscrita * 0.5f);
-        rect.anchoredPosition = posicaoOriginalGato;
-    }
-
-    // Função para botão de Pular Fase/Cena
     public void PularAnalise()
     {
         IrParaProximaFase();

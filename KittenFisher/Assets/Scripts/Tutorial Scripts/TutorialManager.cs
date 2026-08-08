@@ -115,7 +115,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 2:
-                IniciarDigitacao("Great! I need to find the magnifying glass, the fishbowl and the scissors. Where on earth did I leave each of them…?");
+                IniciarDigitacao("Tsk.. I need to find the magnifying glass, the fishbowl and the scissors. Where on earth did I leave each of them…?");
                 break;
 
             case 3:
