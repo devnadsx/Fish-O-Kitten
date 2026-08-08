@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d196a23ac7d8fd54ca0b09f3517daae5
+guid: 235180363a2a218458a209e7b563cd9c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3695940655150911006
-    second: barraasul_0
+      213: 7581819696594820012
+    second: ChatGPT Image 6 de mai. de 2026, 13_36_55_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -135,17 +135,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barraasul_0
+      name: ChatGPT Image 6 de mai. de 2026, 13_36_55_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 497
-        width: 882
-        height: 161
+        x: 95
+        y: 88
+        width: 835
+        height: 651
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +167,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1ec135a17e9a4330800000000000000
-      internalID: 3695940655150911006
+      spriteID: cab189608d8083960800000000000000
+      internalID: 7581819696594820012
       vertices: []
       indices: 
       edges: []
@@ -174,7 +187,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      barraasul_0: 3695940655150911006
+      ChatGPT Image 6 de mai. de 2026, 13_36_55_0: 7581819696594820012
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance;
+    
+    [Header("Aviso de Controles (Canva)")]
+    public GameObject imagemAvisoControles; // Arraste a imagem do aviso aqui no Inspector!
+    private bool avisoJaFoiExibido = false;
 
     [Header("UI do Diálogo")]
     public GameObject painelBalaoFala;
@@ -54,13 +58,35 @@ public class TutorialManager : MonoBehaviour
         }
 
         if (painelListaItens != null) painelListaItens.SetActive(false);
+
+        // Garante que o aviso esteja visível na primeira fala
+        if (imagemAvisoControles != null)
+        {
+            imagemAvisoControles.SetActive(true);
+        }
+
         MostrarFalaAtual();
     }
 
-    // Chamado pelo Botão / Clique para avançar
+    void Update()
+    {
+        // Permite avançar a fala/diálogo pressionando ENTER no teclado ou Keypad
+        if (falaAtiva && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
+        {
+            AvancarTexto();
+        }
+    }
+
+    // Chamado pelo Botão / Tecla ENTER / Clique para avançar
     public void AvancarTexto()
     {
-        // Se ainda está digitando a frase, o clique faz aparecer a frase inteira de uma vez!
+        // Esconde o aviso do Canva assim que o jogador avança a primeira vez!
+        if (imagemAvisoControles != null && imagemAvisoControles.activeSelf)
+        {
+            imagemAvisoControles.SetActive(false);
+        }
+
+        // Se ainda está digitando a frase, o clique/ENTER completa a frase na hora
         if (estaEscrevendo)
         {
             CompletarTextoImediatamente();
@@ -70,7 +96,6 @@ public class TutorialManager : MonoBehaviour
         etapaFala++;
         MostrarFalaAtual();
     }
-
     void MostrarFalaAtual()
     {
         falaAtiva = true;
@@ -100,7 +125,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 4:
-                IniciarDigitacao("I've found the magnifying glass! Now I can have a closer look to see if I can find the remain...");
+                IniciarDigitacao("I've found the magnifying glass! Now I can have a closer look to see if I can find the rest...");
                 break;
 
             case 5:
@@ -229,10 +254,11 @@ public class TutorialManager : MonoBehaviour
     {
         if (textoLista == null) return;
 
-        textoLista.text = $"<b>Materiais:</b>\n" +
-            $"{(pegouLupa ? "<s>• Lupa</s>" : "• Lupa")}\n" +
-            $"{(pegouAquario ? "<s>• Aquário</s>" : "• Aquário")}\n" +
-            $"{(pegouTesoura ? "<s>• Tesoura</s>" : "• Tesoura")}";
+        // Texto da checklist adaptado para Inglês no jogo
+        textoLista.text = $"<b>Materials:</b>\n" +
+            $"{(pegouLupa ? "<s>• Magnifying Glass</s>" : "• Magnifying Glass")}\n" +
+            $"{(pegouAquario ? "<s>• Fishbowl</s>" : "• Fishbowl")}\n" +
+            $"{(pegouTesoura ? "<s>• Scissors</s>" : "• Scissors")}";
     }
 
     public void PularTutorial()
