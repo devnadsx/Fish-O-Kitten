@@ -4,40 +4,27 @@ public class SkillCheckManager : MonoBehaviour
 {
     public static SkillCheckManager Instance;
 
-    [Header("UI Elementos (Barra Horizontal)")]
+    [Header("UI Elementos")]
     public GameObject painelSkillCheck;
     public RectTransform barraFundo;
     public RectTransform zonaDeAcerto;
     public RectTransform ponteiro;
 
-    [Header("Configurações")]
+    [Header("Configuração de Movimento")]
     public float velocidade = 600f;
-    public int peixesPerdidosAoFalhar = 2;
 
-    private bool movendoParaDireita = true;
-    private bool jogoAtivo = false;
-    private int errosCometidos = 0;
-
-    private float limiteEsquerda;
-    private float limiteDireita;
-
-    [Header("Efeitos Sonoros & Música")]
+    [Header("Sons")]
     public AudioSource musicaPrincipal;
     public AudioSource audioSourceSFX;
-
-    [Space(10)]
     public AudioClip musicaTensa;
     public AudioClip somAcerto;
     public AudioClip somErro;
-    public AudioClip somVomito;
 
-    [Header("Gerenciadores")]
-    public IconManager iconManager;
-    public GameController gameController;
-    public FishRespawnManager respawnManager;
+    private bool movendoParaDireita = true;
+    private bool jogoAtivo = false;
 
-    [Header("Modo de Cena")]
-    public bool modoAnaliseLaboratorio = false;
+    private float limiteEsquerda;
+    private float limiteDireita;
 
     void Awake()
     {
@@ -49,20 +36,11 @@ public class SkillCheckManager : MonoBehaviour
         AtualizarLimites();
     }
 
-    void AtualizarLimites()
-    {
-        if (barraFundo != null)
-        {
-            float larguraBarra = barraFundo.rect.width;
-            limiteEsquerda = -larguraBarra / 2f;
-            limiteDireita = larguraBarra / 2f;
-        }
-    }
-
     void Update()
     {
         if (!jogoAtivo) return;
 
+        // Movimentação da agulha/ponteiro
         float deslocamento = velocidade * Time.deltaTime;
 
         if (movendoParaDireita)
@@ -78,16 +56,26 @@ public class SkillCheckManager : MonoBehaviour
                 movendoParaDireita = true;
         }
 
+        // Pressionar Espaço para validar a tentativa
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ValidarClique();
         }
     }
 
+    void AtualizarLimites()
+    {
+        if (barraFundo != null)
+        {
+            float larguraBarra = barraFundo.rect.width;
+            limiteEsquerda = -larguraBarra / 2f;
+            limiteDireita = larguraBarra / 2f;
+        }
+    }
+
     public void IniciarSequenciaSkillCheck()
     {
-        errosCometidos = 0;
-
+        // Troca a música normal pela música tensa
         if (musicaPrincipal != null && musicaPrincipal.isPlaying)
         {
             musicaPrincipal.Pause();
@@ -100,26 +88,25 @@ public class SkillCheckManager : MonoBehaviour
             audioSourceSFX.Play();
         }
 
-        ProximoSkillCheck();
-    }
-
-    void ProximoSkillCheck()
-    {
+        // Prepara e ativa a interface
         AtualizarLimites();
         if (painelSkillCheck != null) painelSkillCheck.SetActive(true);
-        jogoAtivo = true;
 
+        // Posiciona o ponteiro no início
         if (ponteiro != null)
             ponteiro.anchoredPosition = new Vector2(limiteEsquerda, ponteiro.anchoredPosition.y);
 
         movendoParaDireita = true;
 
+        // Sortia a posição da Zona Amarela/Verde de acerto
         if (zonaDeAcerto != null)
         {
             float metadeZona = zonaDeAcerto.rect.width / 2f;
             float xAleatorio = Random.Range(limiteEsquerda + metadeZona, limiteDireita - metadeZona);
             zonaDeAcerto.anchoredPosition = new Vector2(xAleatorio, zonaDeAcerto.anchoredPosition.y);
         }
+
+        jogoAtivo = true;
     }
 
     void ValidarClique()
@@ -130,85 +117,32 @@ public class SkillCheckManager : MonoBehaviour
         float zonaInicioX = zonaDeAcerto.anchoredPosition.x - (zonaDeAcerto.rect.width / 2f);
         float zonaFimX = zonaDeAcerto.anchoredPosition.x + (zonaDeAcerto.rect.width / 2f);
 
+        // Checa se acertou dentro da zona
         if (posPonteiroX >= zonaInicioX && posPonteiroX <= zonaFimX)
         {
-            Debug.Log("🎯 ACERTOU O SKILL CHECK!");
             TocarSFX(somAcerto);
-            FinalizarSkillCheckSucesso();
+            Finalizar(true);
         }
         else
         {
-            Debug.Log("❌ ERROU O SKILL CHECK!");
-            errosCometidos++;
+            TocarSFX(somErro);
+            Finalizar(false);
+        }
+    }
 
-            int limiteErros = modoAnaliseLaboratorio ? 1 : 3;
+    void Finalizar(bool sucesso)
+    {
+        if (painelSkillCheck != null) painelSkillCheck.SetActive(false);
 
-            if (errosCometidos >= limiteErros)
-            {
-                FinalizarComDerrota();
-            }
+        RestaurarMusicaPrincipal();
+
+        // Notifica o FishAnalyseManager do resultado
+        if (FishAnalyseManager.Instance != null)
+        {
+            if (sucesso)
+                FishAnalyseManager.Instance.OnSkillCheckSucesso();
             else
-            {
-                TocarSFX(somErro);
-                ProximoSkillCheck();
-            }
-        }
-    }
-
-    void FinalizarSkillCheckSucesso()
-    {
-        if (painelSkillCheck != null) painelSkillCheck.SetActive(false);
-
-        if (iconManager != null)
-            iconManager.MudarParaNormal();
-
-        RestaurarMusicaPrincipal();
-
-        if (modoAnaliseLaboratorio && FishAnalyseManager.Instance != null)
-        {
-            FishAnalyseManager.Instance.OnSkillCheckSucesso();
-        }
-    }
-
-    void FinalizarComDerrota()
-    {
-        jogoAtivo = false;
-        if (painelSkillCheck != null) painelSkillCheck.SetActive(false);
-
-        TocarSFX(somVomito);
-
-        if (iconManager != null)
-            iconManager.MudarParaNormal();
-
-        RestaurarMusicaPrincipal();
-
-        // Se estiver no laboratório de análise:
-        if (modoAnaliseLaboratorio)
-        {
-            if (FishAnalyseManager.Instance != null)
-            {
                 FishAnalyseManager.Instance.OnSkillCheckFalha();
-            }
-            return;
-        }
-
-        // --- MODO PESCARIA ---
-        // Desconta os peixes do contador simples do InventoryManager e GameController
-        if (InventoryManager.Instance != null)
-        {
-            int perdidos = Mathf.Min(peixesPerdidosAoFalhar, InventoryManager.Instance.peixesColetados);
-            InventoryManager.Instance.peixesColetados -= perdidos;
-
-            if (gameController != null)
-            {
-                gameController.foundedFish -= perdidos;
-                if (gameController.foundedFish < 0) gameController.foundedFish = 0;
-            }
-
-            if (respawnManager != null)
-            {
-                respawnManager.SpawnarPeixesEscondidos(perdidos);
-            }
         }
     }
 

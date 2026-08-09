@@ -11,8 +11,12 @@ public class SceneIntroDialogue : MonoBehaviour
     public TextMeshProUGUI textoBalao;
     public Button botaoAvancarFala;
 
-    [Header("Estilo Visual Novel / RPG")]
+    [Header("Sprites do Gatinho (Boca Aberta / Fechada)")]
     public Image imagemGatinho;
+    public Sprite spriteBocaFechada; // Sprite do gatinho quieto
+    public Sprite spriteBocaAberta;  // Sprite do gatinho falando
+
+    [Header("Estilo Visual Novel / RPG")]
     public float velocidadeEscrita = 0.03f;
     public float alturaPuloLetra = 6f;
     public AudioSource audioSourceSFX;
@@ -20,10 +24,10 @@ public class SceneIntroDialogue : MonoBehaviour
 
     [Header("✍️ DIGITE AS FALAS AQUI NO INSPECTOR!")]
     [TextArea(2, 5)]
-    public List<string> falasDoGato = new List<string>(); // Adicione quantas falas quiser pelo Inspector!
+    public List<string> falasDoGato = new List<string>();
 
     [Header("Desbloquear Gameplay")]
-    public MonoBehaviour[] scriptsParaAtivarAposDialogo; // Scripts de gameplay para ativar só depois que o diálogo terminar
+    public MonoBehaviour[] scriptsParaAtivarAposDialogo;
 
     private Vector3 posicaoOriginalGato;
     private Coroutine coroutineEscrita;
@@ -36,27 +40,23 @@ public class SceneIntroDialogue : MonoBehaviour
         if (imagemGatinho != null)
         {
             posicaoOriginalGato = imagemGatinho.rectTransform.anchoredPosition;
+            DefinirSpriteNormal();
         }
 
-        // Se tiver falas configuradas, inicia o diálogo
         if (falasDoGato.Count > 0)
         {
-            // Opcional: Desativa scripts de controle durante o diálogo
             DefinirEstadoGameplay(false);
-
             indiceFalaAtual = 0;
             MostrarFalaAtual();
         }
         else
         {
-            // Se não tiver nenhuma fala, fecha tudo e libera o jogo direto
             FinalizarDialogo();
         }
     }
 
     public void AvancarTexto()
     {
-        // Se ainda está digitando a frase, o clique completa a palavra na hora!
         if (estaEscrevendo)
         {
             CompletarTextoImediatamente();
@@ -102,6 +102,12 @@ public class SceneIntroDialogue : MonoBehaviour
 
             if (char.IsLetterOrDigit(letra))
             {
+                // 😮 Troca para boca aberta quando for uma letra
+                if (imagemGatinho != null && spriteBocaAberta != null)
+                {
+                    imagemGatinho.sprite = spriteBocaAberta;
+                }
+
                 if (imagemGatinho != null && imagemGatinho.gameObject.activeSelf)
                 {
                     StartCoroutine(PulinhoRapidoGato());
@@ -112,10 +118,17 @@ public class SceneIntroDialogue : MonoBehaviour
                     audioSourceSFX.PlayOneShot(somFalaGatinho);
                 }
             }
+            else
+            {
+                // 😐 Fecha a boca em espaços e pontuações
+                DefinirSpriteNormal();
+            }
 
             yield return new WaitForSeconds(velocidadeEscrita);
         }
 
+        // 😐 Fecha a boca quando a frase terminar
+        DefinirSpriteNormal();
         estaEscrevendo = false;
     }
 
@@ -123,6 +136,8 @@ public class SceneIntroDialogue : MonoBehaviour
     {
         if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
         textoBalao.text = textoCompletoAtual;
+
+        DefinirSpriteNormal(); // Garante que fecha a boca
         estaEscrevendo = false;
 
         if (imagemGatinho != null)
@@ -139,12 +154,20 @@ public class SceneIntroDialogue : MonoBehaviour
         rect.anchoredPosition = posicaoOriginalGato;
     }
 
+    void DefinirSpriteNormal()
+    {
+        if (imagemGatinho != null && spriteBocaFechada != null)
+        {
+            imagemGatinho.sprite = spriteBocaFechada;
+        }
+    }
+
     void FinalizarDialogo()
     {
+        DefinirSpriteNormal();
         if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
         if (imagemGatinho != null) imagemGatinho.gameObject.SetActive(false);
 
-        // Libera os scripts do jogo para o jogador começar a pescar!
         DefinirEstadoGameplay(true);
     }
 

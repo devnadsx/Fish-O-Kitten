@@ -1,28 +1,37 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
+
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance;
-    
+
     [Header("Aviso de Controles (Canva)")]
-    public GameObject imagemAvisoControles; // Arraste a imagem do aviso aqui no Inspector!
-    private bool avisoJaFoiExibido = false;
+    public GameObject imagemAvisoControles;
 
     [Header("UI do Diálogo")]
     public GameObject painelBalaoFala;
     public TextMeshProUGUI textoBalao;
     public Button botaoAvancarFala;
 
+    [Header("Sprites do Gatinho (Visual Novel)")]
+    public Image imagemGatinho;           // Componente Image na tela
+    public Sprite spriteBocaFechada;      // Sprite padrão (Rosto normal)
+    public Sprite spriteBocaAberta;       // Sprite falando (Boca aberta)
+
+    [Header("Expressões Futuras (Expansível)")]
+    public List<ExpressaoGatinho> expressoesExtras = new List<ExpressaoGatinho>();
+
     [Header("Estilo Visual Novel / RPG")]
-    public Image imagemGatinho;          // Sprite do gatinho do lado do balão
-    public float velocidadeEscrita = 0.04f; // Tempo entre cada letra (menor = mais rápido)
-    public float alturaPuloLetra = 8f;   // Pulinho curto a cada letra
-    public AudioSource audioSourceSFX;   // AudioSource para o som de fala
-    public AudioClip somFalaGatinho;     // Som curto (bipe/miau bem curto) para cada letra
+    public float velocidadeEscrita = 0.04f;
+    public float alturaPuloLetra = 8f;
+    public AudioSource audioSourceSFX;
+    public AudioClip somFalaGatinho;
 
     private Vector3 posicaoOriginalGato;
     private Coroutine coroutineEscrita;
@@ -55,11 +64,11 @@ public class TutorialManager : MonoBehaviour
         if (imagemGatinho != null)
         {
             posicaoOriginalGato = imagemGatinho.rectTransform.anchoredPosition;
+            DefinirSpriteNormal();
         }
 
         if (painelListaItens != null) painelListaItens.SetActive(false);
 
-        // Garante que o aviso esteja visível na primeira fala
         if (imagemAvisoControles != null)
         {
             imagemAvisoControles.SetActive(true);
@@ -70,23 +79,19 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
-        // Permite avançar a fala/diálogo pressionando ENTER no teclado ou Keypad
         if (falaAtiva && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
         {
             AvancarTexto();
         }
     }
 
-    // Chamado pelo Botão / Tecla ENTER / Clique para avançar
     public void AvancarTexto()
     {
-        // Esconde o aviso do Canva assim que o jogador avança a primeira vez!
         if (imagemAvisoControles != null && imagemAvisoControles.activeSelf)
         {
             imagemAvisoControles.SetActive(false);
         }
 
-        // Se ainda está digitando a frase, o clique/ENTER completa a frase na hora
         if (estaEscrevendo)
         {
             CompletarTextoImediatamente();
@@ -96,6 +101,7 @@ public class TutorialManager : MonoBehaviour
         etapaFala++;
         MostrarFalaAtual();
     }
+
     void MostrarFalaAtual()
     {
         falaAtiva = true;
@@ -147,7 +153,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    // --- LÓGICA DE DIGITAÇÃO E PULINHO POR LETRA ---
+    // --- DIGITAÇÃO COM ANIMAÇÃO DE BOCA ABERTA/FECHADA ---
 
     void IniciarDigitacao(string texto)
     {
@@ -165,9 +171,14 @@ public class TutorialManager : MonoBehaviour
         {
             textoBalao.text += letra;
 
-            // Se for uma letra (não espaço/pontuação), faz o gatinho pular e toca som
             if (char.IsLetterOrDigit(letra))
             {
+                // 😮 Troca o sprite para a boca aberta enquanto digita a letra!
+                if (imagemGatinho != null && spriteBocaAberta != null)
+                {
+                    imagemGatinho.sprite = spriteBocaAberta;
+                }
+
                 if (imagemGatinho != null && imagemGatinho.gameObject.activeSelf)
                 {
                     StartCoroutine(PulinhoRapidoGato());
@@ -178,10 +189,17 @@ public class TutorialManager : MonoBehaviour
                     audioSourceSFX.PlayOneShot(somFalaGatinho);
                 }
             }
+            else
+            {
+                // 😐 Em pontuações e espaços, ele fecha a boca um segundo
+                DefinirSpriteNormal();
+            }
 
             yield return new WaitForSeconds(velocidadeEscrita);
         }
 
+        // 😐 A fala acabou, volta para o sprite de boca fechada normal
+        DefinirSpriteNormal();
         estaEscrevendo = false;
     }
 
@@ -189,6 +207,9 @@ public class TutorialManager : MonoBehaviour
     {
         if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
         textoBalao.text = textoCompletoAtual;
+
+        // Garante que ao terminar a boca fecha e volta a posição
+        DefinirSpriteNormal();
         estaEscrevendo = false;
 
         if (imagemGatinho != null)
@@ -200,18 +221,37 @@ public class TutorialManager : MonoBehaviour
     IEnumerator PulinhoRapidoGato()
     {
         RectTransform rect = imagemGatinho.rectTransform;
-
-        // Sobe um pouquinho
         rect.anchoredPosition = posicaoOriginalGato + new Vector3(0, alturaPuloLetra, 0);
         yield return new WaitForSeconds(velocidadeEscrita * 0.5f);
-
-        // Volta ao normal
         rect.anchoredPosition = posicaoOriginalGato;
+    }
+
+    void DefinirSpriteNormal()
+    {
+        if (imagemGatinho != null && spriteBocaFechada != null)
+        {
+            imagemGatinho.sprite = spriteBocaFechada;
+        }
+    }
+
+    // --- SISTEMA EXPANSÍVEL DE EXPRESSÕES FUTURAS ---
+    // Você pode chamar isso no futuro assim: MudarExpressao("Triste");
+    public void MudarExpressao(string nomeExpressao)
+    {
+        foreach (var item in expressoesExtras)
+        {
+            if (item.nomeExpressao.ToLower() == nomeExpressao.ToLower())
+            {
+                if (imagemGatinho != null) imagemGatinho.sprite = item.sprite;
+                return;
+            }
+        }
     }
 
     void EsconderDialogoEGato()
     {
         falaAtiva = false;
+        DefinirSpriteNormal();
         if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
         if (imagemGatinho != null) imagemGatinho.gameObject.SetActive(false);
     }
@@ -254,7 +294,6 @@ public class TutorialManager : MonoBehaviour
     {
         if (textoLista == null) return;
 
-        // Texto da checklist adaptado para Inglês no jogo
         textoLista.text = $"<b>Materials:</b>\n" +
             $"{(pegouLupa ? "<s>• Magnifying Glass</s>" : "• Magnifying Glass")}\n" +
             $"{(pegouAquario ? "<s>• Fishbowl</s>" : "• Fishbowl")}\n" +

@@ -484,10 +484,12 @@ MonoBehaviour:
   textoBalao: {fileID: 4488174}
   botaoAvancarFala: {fileID: 848458251}
   imagemGatinho: {fileID: 530656341}
+  spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
+  spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
   velocidadeEscrita: 0.07
   alturaPuloLetra: 4
   audioSourceSFX: {fileID: 71099157}
-  somFalaGatinho: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   falasDoGato:
   - Okay..! Now let's start from the shallow seas..
   - It will gonna be so easy..!
@@ -511,10 +513,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  m_Resource: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.8
+  m_Pitch: 0.9
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -10585,17 +10587,11 @@ MonoBehaviour:
   zonaDeAcerto: {fileID: 0}
   ponteiro: {fileID: 0}
   velocidade: 600
-  peixesPerdidosAoFalhar: 2
   musicaPrincipal: {fileID: 0}
   audioSourceSFX: {fileID: 0}
   musicaTensa: {fileID: 0}
   somAcerto: {fileID: 0}
   somErro: {fileID: 0}
-  somVomito: {fileID: 0}
-  iconManager: {fileID: 0}
-  gameController: {fileID: 0}
-  respawnManager: {fileID: 0}
-  modoAnaliseLaboratorio: 0
 --- !u!114 &1627439355
 MonoBehaviour:
   m_ObjectHideFlags: 0

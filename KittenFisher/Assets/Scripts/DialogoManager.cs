@@ -5,11 +5,19 @@ using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
+public struct ExpressaoGatinho
+{
+    public string nomeExpressao; // Ex: "Feliz", "Triste", "Confuso", "Surpreso"
+    public Sprite sprite;
+}
+
+[System.Serializable]
 public struct LineDialogo
 {
     [TextArea(2, 4)]
     public string texto;
     public bool ehAcaoOuNarracao;
+    public string expressao; // Opcional: digite o nome da expressão no Inspector (Ex: "Feliz")
 }
 
 public class DialogoManager : MonoBehaviour
@@ -19,8 +27,15 @@ public class DialogoManager : MonoBehaviour
     [Header("UI do Diálogo")]
     public GameObject painelBalaoFala;
     public TextMeshProUGUI textoBalao;
-    public Image imagemGatinho;
     public Button botaoAvancarFala;
+
+    [Header("Sprites do Gatinho (Boca Aberta / Fechada)")]
+    public Image imagemGatinho;
+    public Sprite spriteBocaFechada; // Sprite do gatinho quieto
+    public Sprite spriteBocaAberta;  // Sprite do gatinho falando
+
+    [Header("Expressões Futuras (Expansível)")]
+    public List<ExpressaoGatinho> expressoesExtras = new List<ExpressaoGatinho>();
 
     [Header("Efeitos Estilo Visual Novel (DDLC)")]
     public Color corFoco = Color.white;
@@ -40,6 +55,7 @@ public class DialogoManager : MonoBehaviour
 
     private Queue<string> filaTextos = new Queue<string>();
     private Queue<bool> filaTiposAcao = new Queue<bool>();
+    private Queue<string> filaExpressoes = new Queue<string>();
 
     private Vector3 posicaoOriginalGato;
     private Coroutine coroutineDigitacao;
@@ -66,9 +82,10 @@ public class DialogoManager : MonoBehaviour
             posicaoOriginalGato = imagemGatinho.rectTransform.anchoredPosition;
             escalaAlvo = escalaFoco;
             corAlvo = corFoco;
+            DefinirSpriteNormal();
         }
 
-        if (falasIniciais.Count > 0)
+        if (falasIniciais != null && falasIniciais.Count > 0)
         {
             IniciarSequenciaDialogo(falasIniciais);
         }
@@ -96,15 +113,17 @@ public class DialogoManager : MonoBehaviour
         {
             filaTextos.Enqueue(fala.texto);
             filaTiposAcao.Enqueue(fala.ehAcaoOuNarracao);
+            filaExpressoes.Enqueue(fala.expressao);
         }
 
         ExibirProximaFrase();
     }
 
-    public void AdicionarFala(string texto, bool ehAcao = false)
+    public void AdicionarFala(string texto, bool ehAcao = false, string expressao = "")
     {
         filaTextos.Enqueue(texto);
         filaTiposAcao.Enqueue(ehAcao);
+        filaExpressoes.Enqueue(expressao);
 
         if (painelBalaoFala != null && !painelBalaoFala.activeSelf && filaTextos.Count == 1)
         {
@@ -114,7 +133,6 @@ public class DialogoManager : MonoBehaviour
 
     public void AvancarTexto()
     {
-        // Trava anti-duplo clique
         if (Time.time - tempoUltimoClique < intervaloMinimoClique) return;
         tempoUltimoClique = Time.time;
 
@@ -140,12 +158,19 @@ public class DialogoManager : MonoBehaviour
 
         string texto = filaTextos.Dequeue();
         bool ehAcao = filaTiposAcao.Dequeue();
+        string expressaoDaFala = filaExpressoes.Dequeue();
 
         if (painelBalaoFala != null) painelBalaoFala.SetActive(true);
         if (imagemGatinho != null) imagemGatinho.gameObject.SetActive(true);
 
         textoCompletoAtual = texto;
         falaAtualEhAcao = ehAcao;
+
+        // Troca para a expressão cadastrada na fala (se houver)
+        if (!string.IsNullOrEmpty(expressaoDaFala))
+        {
+            MudarExpressao(expressaoDaFala);
+        }
 
         if (ehAcao)
         {
@@ -165,17 +190,22 @@ public class DialogoManager : MonoBehaviour
     IEnumerator EfeitoDigitar(string texto)
     {
         estaEscrevendo = true;
-        textoBalao.text = "";
+        if (textoBalao != null) textoBalao.text = "";
 
         foreach (char letra in texto.ToCharArray())
         {
-            textoBalao.text += letra;
+            if (textoBalao != null) textoBalao.text += letra;
 
             if (char.IsLetterOrDigit(letra))
             {
                 if (!falaAtualEhAcao)
                 {
-                    if (imagemGatinho != null && imagemGatinho.gameObject.activeSelf)
+                    if (imagemGatinho != null && spriteBocaAberta != null)
+                    {
+                        imagemGatinho.sprite = spriteBocaAberta;
+                    }
+
+                    if (imagemGatinho != null && imagemGatinho.gameObject.activeInHierarchy)
                     {
                         StartCoroutine(PulinhoRapidoGato());
                     }
@@ -186,17 +216,24 @@ public class DialogoManager : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                DefinirSpriteNormal();
+            }
 
             yield return new WaitForSeconds(velocidadeEscrita);
         }
 
+        DefinirSpriteNormal();
         estaEscrevendo = false;
     }
 
     void CompletarTextoImediatamente()
     {
         if (coroutineDigitacao != null) StopCoroutine(coroutineDigitacao);
-        textoBalao.text = textoCompletoAtual;
+        if (textoBalao != null) textoBalao.text = textoCompletoAtual;
+
+        DefinirSpriteNormal();
         estaEscrevendo = false;
 
         if (imagemGatinho != null)
@@ -207,10 +244,40 @@ public class DialogoManager : MonoBehaviour
 
     IEnumerator PulinhoRapidoGato()
     {
+        if (imagemGatinho == null) yield break;
+
         RectTransform rect = imagemGatinho.rectTransform;
         rect.anchoredPosition = posicaoOriginalGato + new Vector3(0, alturaPuloLetra, 0);
         yield return new WaitForSeconds(velocidadeEscrita * 0.5f);
         rect.anchoredPosition = posicaoOriginalGato;
+    }
+
+    void DefinirSpriteNormal()
+    {
+        if (imagemGatinho != null && spriteBocaFechada != null)
+        {
+            imagemGatinho.sprite = spriteBocaFechada;
+        }
+    }
+
+    // --- MÉTODOS DE EXPRESSÕES FUTURAS ---
+
+    public void MudarExpressao(string nomeExpressao)
+    {
+        if (string.IsNullOrEmpty(nomeExpressao)) return;
+
+        foreach (var exp in expressoesExtras)
+        {
+            if (exp.nomeExpressao.ToLower() == nomeExpressao.ToLower())
+            {
+                if (exp.sprite != null)
+                {
+                    spriteBocaFechada = exp.sprite;
+                    DefinirSpriteNormal();
+                }
+                return;
+            }
+        }
     }
 
     public bool TemFalasPendentes()
@@ -222,11 +289,13 @@ public class DialogoManager : MonoBehaviour
     {
         filaTextos.Clear();
         filaTiposAcao.Clear();
+        filaExpressoes.Clear();
     }
 
     public void FecharDialogo()
     {
         LimparDialogo();
+        DefinirSpriteNormal();
         if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
     }
 }
