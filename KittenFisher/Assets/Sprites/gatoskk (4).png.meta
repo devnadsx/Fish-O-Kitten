@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 34c45c21033dd0d408b9aba2e915c2e1
+guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4488399503288809115
-    second: gatoskk 1_0
+      213: 5053938106407878201
+    second: gatoskk (4)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +97,33 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gatoskk 1_0
+      name: gatoskk (4)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b96b193519ff94e30800000000000000
-      internalID: 4488399503288809115
+      spriteID: 93e704d4ee1332640800000000000000
+      internalID: 5053938106407878201
       vertices: []
       indices: 
       edges: []
@@ -148,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gatoskk 1_0: 4488399503288809115
+      gatoskk (4)_0: 5053938106407878201
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

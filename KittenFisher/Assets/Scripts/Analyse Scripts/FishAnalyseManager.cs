@@ -93,13 +93,13 @@ public class FishAnalyseManager : MonoBehaviour
             {
                 DialogoManager.Instance.AdicionarFala($"Ugh! The {peixeAtualNome} was super poisonous!", false);
                 DialogoManager.Instance.AdicionarFala("Gosh! I'm glad I was careful.., otherwise, I would definitely be dead..", false);
-                DialogoManager.Instance.AdicionarFala("Shadow breathe a little, trying to not vomit again. He wrote down while coughing a lot.", true);
+                DialogoManager.Instance.AdicionarFala("Myke breathe a little, trying to not vomit again. He wrote down while coughing a lot.", true);
                 DialogoManager.Instance.AdicionarFala("Okay, time to another one..", false);
             }
             else
             {
                 DialogoManager.Instance.AdicionarFala($"Mmmph! The {peixeAtualNome} is delicious and perfectly safe.", false);
-                DialogoManager.Instance.AdicionarFala("Shadow finish tasting and wrote down about the fish.", true);
+                DialogoManager.Instance.AdicionarFala("Myke finish tasting and wrote down about the fish.", true);
                 DialogoManager.Instance.AdicionarFala("Okay, I need to finish these fish..", false);
             }
         }
@@ -117,7 +117,7 @@ public class FishAnalyseManager : MonoBehaviour
             DialogoManager.Instance.LimparDialogo();
 
             DialogoManager.Instance.AdicionarFala($"Ughh! {peixeAtualNome} definity not safe!-", false);
-            DialogoManager.Instance.AdicionarFala("Shadow runs to an empty bucket and finish vomiting.", true);
+            DialogoManager.Instance.AdicionarFala("Myke runs to an empty bucket and finish vomiting.", true);
             DialogoManager.Instance.AdicionarFala("He wrote down, with a sickened face.", true);
             DialogoManager.Instance.AdicionarFala("Okay, Let me continue this..", false);
         }

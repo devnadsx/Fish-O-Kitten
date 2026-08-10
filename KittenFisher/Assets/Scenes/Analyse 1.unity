@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishAnalyseManager
   imagemAvisoControles: {fileID: 0}
-  nomeProximaFase: Fase2
+  nomeProximaFase: End
   totalPeixesNaMesa: 6
 --- !u!82 &71099157
 AudioSource:
@@ -380,6 +380,7 @@ MonoBehaviour:
   imagemGatinho: {fileID: 572010381}
   spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
   spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
+  expressoesExtras: []
   corFoco: {r: 1, g: 1, b: 1, a: 1}
   corInativo: {r: 0.55, g: 0.55, b: 0.55, a: 1}
   escalaFoco: {x: 1, y: 1, z: 1}
@@ -1219,7 +1220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 183, y: -47}
+  m_AnchoredPosition: {x: 215, y: -51}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1148118420
@@ -1298,8 +1299,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 184374681061851693, guid: e5a165f97b441c942a64a089848a43a5, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1772,7 +1773,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8960213033406119914, guid: f8f5c4d620580a647ad2be2d415142a0, type: 3}
+  m_Sprite: {fileID: -8059835526935162259, guid: 50257964aaf3b8e47955ca384ea183b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

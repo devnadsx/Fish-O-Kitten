@@ -5,8 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-
-
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance;
@@ -33,14 +31,12 @@ public class TutorialManager : MonoBehaviour
     public AudioSource audioSourceSFX;
     public AudioClip somFalaGatinho;
 
-    private Vector3 posicaoOriginalGato;
-    private Coroutine coroutineEscrita;
-    private bool estaEscrevendo = false;
-    private string textoCompletoAtual = "";
-
     [Header("UI da Lista de Tarefas")]
     public GameObject painelListaItens;
     public TextMeshProUGUI textoLista;
+
+    [Header("Desbloquear Gameplay Após a Lupa")]
+    public MonoBehaviour[] scriptsParaAtivarAposLupa; // Scripts que serão liberados só após achar a lupa!
 
     [Header("Configuração de Cenas")]
     public string nomeCenaJogoPrincipal = "SampleScene";
@@ -53,6 +49,11 @@ public class TutorialManager : MonoBehaviour
     private bool pegouLupa = false;
     private bool pegouAquario = false;
     private bool pegouTesoura = false;
+
+    private Vector3 posicaoOriginalGato;
+    private Coroutine coroutineEscrita;
+    private bool estaEscrevendo = false;
+    private string textoCompletoAtual = "";
 
     void Awake()
     {
@@ -73,6 +74,9 @@ public class TutorialManager : MonoBehaviour
         {
             imagemAvisoControles.SetActive(true);
         }
+
+        // Garante que os scripts pós-lupa comecem desativados
+        DefinirEstadoScriptsPosLupa(false);
 
         MostrarFalaAtual();
     }
@@ -117,32 +121,40 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 1:
-                IniciarDigitacao("But.., to do that, I need to collect some materials from the lab...");
+                IniciarDigitacao("I heard about a mysterious catnip in the ocean.");
                 break;
 
             case 2:
-                IniciarDigitacao("Tsk.. I need to find the magnifying glass, the fishbowl and the scissors. Where on earth did I leave each of them…?");
+                IniciarDigitacao("Okay. I need to collect some materials from the lab...");
                 break;
 
             case 3:
+                IniciarDigitacao("Uhh.. I need to find the magnifying glass, the fishbowl and the scissors. Where on earth did I leave each of them…?");
+                break;
+
+            case 4:
+                // Oculta o diálogo para o jogador procurar os itens na tela
                 EsconderDialogoEGato();
                 if (painelListaItens != null) painelListaItens.SetActive(true);
                 AtualizarTextoLista();
                 break;
 
-            case 4:
+            case 5:
+                // Fala acionada imediatamente após encontrar a LUPA!
                 IniciarDigitacao("I've found the magnifying glass! Now I can have a closer look to see if I can find the rest...");
                 break;
 
-            case 5:
+            case 6:
                 IniciarDigitacao("💡 Tip: You can move the scene and zoom in on it for a better view!");
                 break;
 
-            case 6:
+            case 7:
+                // Oculta o diálogo para o jogador continuar buscando o aquário e a tesoura
                 EsconderDialogoEGato();
                 break;
 
-            case 7:
+            case 8:
+                // Fala acionada após pegar TODOS os 3 itens!
                 IniciarDigitacao("Great, I’ve got everything! Now I’m ready for the experiment! Yay!");
                 if (botaoAvancarFala != null)
                 {
@@ -165,21 +177,20 @@ public class TutorialManager : MonoBehaviour
     IEnumerator EfeitoDigitarTexto(string texto)
     {
         estaEscrevendo = true;
-        textoBalao.text = "";
+        if (textoBalao != null) textoBalao.text = "";
 
         foreach (char letra in texto.ToCharArray())
         {
-            textoBalao.text += letra;
+            if (textoBalao != null) textoBalao.text += letra;
 
             if (char.IsLetterOrDigit(letra))
             {
-                // 😮 Troca o sprite para a boca aberta enquanto digita a letra!
                 if (imagemGatinho != null && spriteBocaAberta != null)
                 {
                     imagemGatinho.sprite = spriteBocaAberta;
                 }
 
-                if (imagemGatinho != null && imagemGatinho.gameObject.activeSelf)
+                if (imagemGatinho != null && imagemGatinho.gameObject.activeInHierarchy)
                 {
                     StartCoroutine(PulinhoRapidoGato());
                 }
@@ -191,14 +202,12 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
-                // 😐 Em pontuações e espaços, ele fecha a boca um segundo
                 DefinirSpriteNormal();
             }
 
             yield return new WaitForSeconds(velocidadeEscrita);
         }
 
-        // 😐 A fala acabou, volta para o sprite de boca fechada normal
         DefinirSpriteNormal();
         estaEscrevendo = false;
     }
@@ -206,9 +215,8 @@ public class TutorialManager : MonoBehaviour
     void CompletarTextoImediatamente()
     {
         if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
-        textoBalao.text = textoCompletoAtual;
+        if (textoBalao != null) textoBalao.text = textoCompletoAtual;
 
-        // Garante que ao terminar a boca fecha e volta a posição
         DefinirSpriteNormal();
         estaEscrevendo = false;
 
@@ -220,6 +228,8 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator PulinhoRapidoGato()
     {
+        if (imagemGatinho == null) yield break;
+
         RectTransform rect = imagemGatinho.rectTransform;
         rect.anchoredPosition = posicaoOriginalGato + new Vector3(0, alturaPuloLetra, 0);
         yield return new WaitForSeconds(velocidadeEscrita * 0.5f);
@@ -234,8 +244,6 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    // --- SISTEMA EXPANSÍVEL DE EXPRESSÕES FUTURAS ---
-    // Você pode chamar isso no futuro assim: MudarExpressao("Triste");
     public void MudarExpressao(string nomeExpressao)
     {
         foreach (var item in expressoesExtras)
@@ -269,7 +277,12 @@ public class TutorialManager : MonoBehaviour
         {
             pegouLupa = true;
             AtualizarTextoLista();
-            etapaFala = 4;
+
+            // Activa os scripts liberados após a Lupa!
+            DefinirEstadoScriptsPosLupa(true);
+
+            // Redireciona para a etapa 5 (Fala do achado da Lupa)
+            etapaFala = 5;
             MostrarFalaAtual();
         }
         else if (nome == "Aquario")
@@ -283,10 +296,22 @@ public class TutorialManager : MonoBehaviour
             AtualizarTextoLista();
         }
 
+        // Se coletou todos os itens, vai para a fala final (Etapa 8)
         if (pegouLupa && pegouAquario && pegouTesoura)
         {
-            etapaFala = 7;
+            etapaFala = 8;
             MostrarFalaAtual();
+        }
+    }
+
+    void DefinirEstadoScriptsPosLupa(bool estado)
+    {
+        if (scriptsParaAtivarAposLupa != null)
+        {
+            foreach (MonoBehaviour script in scriptsParaAtivarAposLupa)
+            {
+                if (script != null) script.enabled = estado;
+            }
         }
     }
 

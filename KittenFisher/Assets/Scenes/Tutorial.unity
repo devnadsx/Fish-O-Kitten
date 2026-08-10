@@ -253,6 +253,8 @@ MonoBehaviour:
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   painelListaItens: {fileID: 2104633069}
   textoLista: {fileID: 846873253}
+  scriptsParaAtivarAposLupa:
+  - {fileID: 878182320}
   nomeCenaJogoPrincipal: Fase1
 --- !u!82 &71099157
 AudioSource:
@@ -761,7 +763,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Skip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1579,7 +1581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35, y: 38}
+  m_AnchoredPosition: {x: -10, y: 34}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &878182318
@@ -2027,7 +2029,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8960213033406119914, guid: f8f5c4d620580a647ad2be2d415142a0, type: 3}
+  m_Sprite: {fileID: -8059835526935162259, guid: 50257964aaf3b8e47955ca384ea183b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2085,8 +2087,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -305, y: 154.43}
-  m_SizeDelta: {x: 142.98, y: 133.14}
+  m_AnchoredPosition: {x: -230.41, y: 154.43}
+  m_SizeDelta: {x: 292.16, y: 133.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2104633071
 MonoBehaviour:
