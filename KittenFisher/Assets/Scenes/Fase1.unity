@@ -502,6 +502,7 @@ MonoBehaviour:
   - {fileID: 1207483717}
   - {fileID: 924382264}
   - {fileID: 249278238}
+  - {fileID: 1852266993}
 --- !u!82 &71099157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11786,6 +11787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1852266992}
+  - component: {fileID: 1852266993}
   m_Layer: 0
   m_Name: Lixos
   m_TagString: Untagged
@@ -11815,6 +11817,19 @@ Transform:
   - {fileID: 1436373214}
   m_Father: {fileID: 878182319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1852266993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852266991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f312721d5f9bde4479840d4d9f3fa684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Deletar
+  gameController: {fileID: 0}
 --- !u!1 &1856918023
 GameObject:
   m_ObjectHideFlags: 0

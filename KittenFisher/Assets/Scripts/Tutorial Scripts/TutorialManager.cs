@@ -145,7 +145,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 6:
-                IniciarDigitacao("💡 Tip: You can move the scene and zoom in on it for a better view!");
+                IniciarDigitacao("Tip: You can move the scene and zoom in on it for a better view!");
                 break;
 
             case 7:
