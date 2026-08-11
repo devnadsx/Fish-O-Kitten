@@ -9,17 +9,17 @@ public class IconManager : MonoBehaviour
     [Header("Sprites das Expressões")]
     public Sprite gatoNormal;
     public Sprite gatoFeliz;
-    public Sprite gatoEnvenenado;
     public Sprite gatoCatnip;
+    public Sprite gatoFelizCatnip; // 👈 Novo campo adicionado!
 
     [Header("Configurações")]
     public float tempoExpressaoFeliz = 2f;
 
-    private bool estaEnvenenado = false;
+    // Propriedade para controlar se o catnip está ativo
+    public bool EstaSobEfeitoCatnip { get; private set; } = false;
 
     void Start()
     {
-        // Se você esqueceu de arrastar no Inspector, ele tenta pegar o componente do próprio objeto
         if (imagemGatoUI == null)
         {
             imagemGatoUI = GetComponent<Image>();
@@ -28,53 +28,67 @@ public class IconManager : MonoBehaviour
         MudarParaNormal();
     }
 
-    // --- FUNÇÕES PÚBLICAS PARA OUTROS SCRIPTS CHAMAR ---
+    // --- MÉTODOS DE CONTROLE ---
 
     public void MudarParaFeliz()
     {
-        if (estaEnvenenado) return; // Se está mal do estômago, não fica feliz
+        CancelInvoke(nameof(RetornarEstadoAposFeliz));
 
-        CancelInvoke(nameof(MudarParaNormal));
-        MudarSprite(gatoFeliz);
-        Debug.Log("🐱 Gatinho ficou FELIZ!");
+        // Se estiver sob efeito do Catnip, mostra a carinha especial (Feliz + Catnip)
+        if (EstaSobEfeitoCatnip)
+        {
+            MudarSprite(gatoFelizCatnip != null ? gatoFelizCatnip : gatoFeliz);
+            Debug.Log("🐱 Gatinho ficou FELIZ com CATNIP!");
+        }
+        else
+        {
+            MudarSprite(gatoFeliz);
+            Debug.Log("🐱 Gatinho ficou FELIZ!");
+        }
 
-        // Volta para o normal depois de alguns segundos
-        Invoke(nameof(MudarParaNormal), tempoExpressaoFeliz);
-    }
-
-    public void MudarParaEnvenenado()
-    {
-        estaEnvenenado = true;
-        CancelInvoke(nameof(MudarParaNormal));
-        MudarSprite(gatoEnvenenado);
-        Debug.Log("🐱 Gatinho ficou ENVENENADO!");
+        // Volta ao estado normal/catnip depois do tempo configurado
+        Invoke(nameof(RetornarEstadoAposFeliz), tempoExpressaoFeliz);
     }
 
     public void MudarParaCatnip()
     {
-        CancelInvoke(nameof(MudarParaNormal));
+        EstaSobEfeitoCatnip = true;
+        CancelInvoke(nameof(RetornarEstadoAposFeliz));
         MudarSprite(gatoCatnip);
         Debug.Log("🐱 Gatinho ficou DOIDÃO DE CATNIP!");
     }
 
     public void MudarParaNormal()
     {
-        estaEnvenenado = false;
+        EstaSobEfeitoCatnip = false;
+        CancelInvoke(nameof(RetornarEstadoAposFeliz));
         MudarSprite(gatoNormal);
         Debug.Log("🐱 Gatinho voltou ao NORMAL.");
     }
 
-    // Função interna que troca a imagem de fato
+    private void RetornarEstadoAposFeliz()
+    {
+        if (EstaSobEfeitoCatnip)
+        {
+            MudarSprite(gatoCatnip);
+            Debug.Log("🐱 Gatinho voltou para a carinha normal de Catnip!");
+        }
+        else
+        {
+            MudarSprite(gatoNormal);
+            Debug.Log("🐱 Gatinho voltou ao Normal.");
+        }
+    }
+
     private void MudarSprite(Sprite novoSprite)
     {
         if (imagemGatoUI != null && novoSprite != null)
         {
             imagemGatoUI.sprite = novoSprite;
         }
-        else
+        else if (novoSprite == null)
         {
-            Debug.LogWarning("⚠️ IconManager: A imagem da UI ou o Sprite do gato está VAZIO no Inspector!");
+            Debug.LogWarning("⚠️ IconManager: O Sprite que você tentou carregar não está atribuído no Inspector!");
         }
     }
-    
 }

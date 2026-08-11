@@ -19,10 +19,10 @@ public class Bau : MonoBehaviour
     public float opacidadeMaxima = 0.6f;
 
     [Header("Audio & Musica")]
-    public AudioSource musicaPrincipal;  // Arraste o AudioSource da música de fundo (ex: Main Camera)
-    public AudioSource audioSourceSFX;   // AudioSource para tocar os efeitos do Bau
+    public AudioSource musicaPrincipal;  // Arraste o AudioSource da música de fundo
+    public AudioSource audioSourceSFX;    // AudioSource para tocar os efeitos do Baú
     public AudioClip somAbrirBau;        // Som ao clicar/abrir o baú
-    public AudioClip musicaCatnip;       // Música divertida/brisa que toca durante o efeito
+    public AudioClip musicaCatnip;       // Música divertida durante o efeito
 
     private bool jaAberto = false;
 
@@ -60,12 +60,13 @@ public class Bau : MonoBehaviour
             StartCoroutine(EfeitoCatnipVisual());
         }
 
-        GetComponent<Collider2D>().enabled = false;
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
     }
 
     IEnumerator EfeitoCatnipVisual()
     {
-        // 🐱 Mudar expressão do gato
+        // 🐱 Mudar expressão do gato para Catnip
         if (iconManager != null)
         {
             iconManager.MudarParaCatnip();
