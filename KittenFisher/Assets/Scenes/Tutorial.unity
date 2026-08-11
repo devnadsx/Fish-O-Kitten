@@ -165,6 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2f41d2fe511d640a274b6e4ecd6d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
+  destruirAposRevelar: 0
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!212 &6228806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -681,6 +686,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2f41d2fe511d640a274b6e4ecd6d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
+  destruirAposRevelar: 0
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!212 &140722235
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1001,6 +1011,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: -6698482957735969513, guid: c09b440361f74b54e880ac207539d6b3, type: 3}
+      propertyPath: objetoEsconderijo
+      value: 
+      objectReference: {fileID: 1050086156}
     - target: {fileID: 381813063485072401, guid: c09b440361f74b54e880ac207539d6b3, type: 3}
       propertyPath: m_Name
       value: "Aqu\xE1rio"
@@ -1989,6 +2003,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2f41d2fe511d640a274b6e4ecd6d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
+  destruirAposRevelar: 0
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!212 &1050086159
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2218,6 +2237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2f41d2fe511d640a274b6e4ecd6d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
+  destruirAposRevelar: 0
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!212 &1135276222
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2374,6 +2398,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: -4567617537882801949, guid: 66f460db1a7a3724e9baa09eb3a53a4d, type: 3}
+      propertyPath: objetoEsconderijo
+      value: 
+      objectReference: {fileID: 1688559348}
     - target: {fileID: 3709692936751608813, guid: 66f460db1a7a3724e9baa09eb3a53a4d, type: 3}
       propertyPath: m_Name
       value: Tesoura
@@ -2695,6 +2723,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2f41d2fe511d640a274b6e4ecd6d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
+  destruirAposRevelar: 0
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!212 &1688559351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2922,6 +2955,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2f41d2fe511d640a274b6e4ecd6d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
+  destruirAposRevelar: 0
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!212 &1881032551
 SpriteRenderer:
   m_ObjectHideFlags: 0
