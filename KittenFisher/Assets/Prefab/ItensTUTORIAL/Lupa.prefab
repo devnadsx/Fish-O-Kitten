@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayerID: 1430101051
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.7735849, g: 0.054734774, b: 0.054734774, a: 1}
+  m_Sprite: {fileID: 4421436994050687871, guid: e6baa3412ca2bed459b43699f695bce7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 8.79, y: 9.93}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -152,3 +152,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TutorialItem
   nomeDoItem: Lupa
   somColeta: {fileID: 0}
+  objetoEsconderijo: {fileID: 0}
