@@ -360,6 +360,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!61 &38108477
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -830,6 +834,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1001 &118657692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1731,6 +1739,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!4 &329073576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3263774276397628451, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
@@ -1887,6 +1899,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1 &382228759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,6 +2527,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +2771,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!4 &719698518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3263774276397628451, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
@@ -3246,6 +3270,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1 &848458247
 GameObject:
   m_ObjectHideFlags: 0
@@ -3529,6 +3557,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1 &878182318
 GameObject:
   m_ObjectHideFlags: 0
@@ -3592,10 +3624,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArrastarCenario
   sensibilidade: 1
   usarLimites: 1
-  limiteEsquerdaBase: -37
+  limiteEsquerdaBase: -36.3
   limiteDireitaBase: -6
-  limiteBaixoBase: -5
-  limiteCimaBase: 5
+  limiteBaixoBase: -3
+  limiteCimaBase: -3.1
   velocidadeZoom: 6
   zoomMinimo: 1
   zoomMaximo: 5
@@ -3704,6 +3736,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!61 &915898556
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3954,6 +3990,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!61 &1111871105
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4743,6 +4783,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1 &1436373213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4848,6 +4892,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!61 &1436373217
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4999,6 +5047,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!61 &1455027395
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5271,6 +5323,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1 &1572253783
 GameObject:
   m_ObjectHideFlags: 0
@@ -5422,6 +5478,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1001 &1575427254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5642,6 +5702,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1 &1603108303
 GameObject:
   m_ObjectHideFlags: 0
@@ -10785,6 +10849,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1 &1627439352
 GameObject:
   m_ObjectHideFlags: 0
@@ -11210,6 +11278,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1 &1733169872
 GameObject:
   m_ObjectHideFlags: 0
@@ -11392,6 +11464,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!1001 &1751595203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11570,6 +11646,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!61 &1763532049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11800,6 +11880,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  audioSource: {fileID: 0}
+  somAoClicar: {fileID: 0}
+  somAoRespawnar: {fileID: 0}
+  tempoImunidadeClique: 0.2
 --- !u!61 &1787501153
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12180,6 +12264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deletar
   gameController: {fileID: 0}
+  objetoEsconderijo: {fileID: 0}
 --- !u!1 &1856918023
 GameObject:
   m_ObjectHideFlags: 0
@@ -12316,6 +12401,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
+  audioSource: {fileID: 519420033}
+  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
+  tempoImunidadeClique: 0.2
 --- !u!61 &1896698829
 BoxCollider2D:
   m_ObjectHideFlags: 0

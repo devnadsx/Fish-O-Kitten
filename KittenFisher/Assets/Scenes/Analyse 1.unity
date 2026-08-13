@@ -358,7 +358,7 @@ MonoBehaviour:
   ponteiro: {fileID: 382228760}
   velocidade: 600
   musicaPrincipal: {fileID: 519420033}
-  audioSourceSFX: {fileID: 71099160}
+  audioSourceSFX: {fileID: 1627439357}
   musicaTensa: {fileID: 8300000, guid: 7a2fc0175b6c8df4bbc8f8cdb2c50380, type: 3}
   somAcerto: {fileID: 8300000, guid: 1fcdea03787d4004abb53ba9e1e20ceb, type: 3}
   somErro: {fileID: 8300000, guid: 555b41796964d274e8f4574e4c881759, type: 3}
@@ -404,7 +404,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7a2fc0175b6c8df4bbc8f8cdb2c50380, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.69
+  m_Volume: 0.213
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1476,7 +1476,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7a2fc0175b6c8df4bbc8f8cdb2c50380, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.52
+  m_Volume: 0.239
   m_Pitch: 1
   Loop: 1
   Mute: 0

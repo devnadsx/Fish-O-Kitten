@@ -1974,10 +1974,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArrastarCenario
   sensibilidade: 1
   usarLimites: 1
-  limiteEsquerdaBase: -37
-  limiteDireitaBase: -6
-  limiteBaixoBase: -5
-  limiteCimaBase: 5
+  limiteEsquerdaBase: -9.9
+  limiteDireitaBase: -8.4
+  limiteBaixoBase: -3.1
+  limiteCimaBase: -3
   velocidadeZoom: 6
   zoomMinimo: 1
   zoomMaximo: 5
