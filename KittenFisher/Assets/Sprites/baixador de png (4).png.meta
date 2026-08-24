@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 25204990fcb5804408002b97e55a4d2b
+guid: 97230b470426ef544ac83b7836df07a1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1937992276944667789
-    second: image (12)_0
+      213: 2205291294715099465
+    second: baixador de png (4)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -135,30 +135,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: image (12)_0
+      name: baixador de png (4)_0
       rect:
         serializedVersion: 2
-        x: 109
-        y: 0
-        width: 521
-        height: 552
+        x: 245
+        y: 195
+        width: 1430
+        height: 497
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 37b3343ca4eda15e0800000000000000
-      internalID: -1937992276944667789
+      spriteID: 94931c79fb4ca9e10800000000000000
+      internalID: 2205291294715099465
       vertices: []
       indices: 
       edges: []
@@ -187,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      image (12)_0: -1937992276944667789
+      baixador de png (4)_0: 2205291294715099465
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

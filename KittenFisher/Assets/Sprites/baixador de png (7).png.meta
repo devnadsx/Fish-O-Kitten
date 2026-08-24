@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 50257964aaf3b8e47955ca384ea183b6
+guid: d87745c7d259e0446b041e15e5f4500d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8059835526935162259
-    second: baixador de png (3)_0
+      213: -8608519003162847847
+    second: baixador de png (7)_0
+  - first:
+      213: -7584444672027048454
+    second: baixador de png (7)_1
+  - first:
+      213: -7596165770298680030
+    second: baixador de png (7)_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +145,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: baixador de png (3)_0
+      name: baixador de png (7)_0
       rect:
         serializedVersion: 2
-        x: 465
-        y: 321
-        width: 826
-        height: 288
+        x: 487
+        y: 295
+        width: 294
+        height: 584
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +160,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d62d4f48a46b52090800000000000000
-      internalID: -8059835526935162259
+      spriteID: 99557469395688880800000000000000
+      internalID: -8608519003162847847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baixador de png (7)_1
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 610
+        width: 549
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af5493141c3aeb690800000000000000
+      internalID: -7584444672027048454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baixador de png (7)_2
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 271
+        width: 424
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22d9d566a7ff49690800000000000000
+      internalID: -7596165770298680030
       vertices: []
       indices: 
       edges: []
@@ -174,7 +224,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      baixador de png (3)_0: -8059835526935162259
+      baixador de png (7)_0: -8608519003162847847
+      baixador de png (7)_1: -7584444672027048454
+      baixador de png (7)_2: -7596165770298680030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
