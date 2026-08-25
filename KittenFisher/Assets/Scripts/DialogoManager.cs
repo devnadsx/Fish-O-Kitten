@@ -4,12 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-[System.Serializable]
-public struct ExpressaoGatinho
-{
-    public string nomeExpressao; // Ex: "Feliz", "Triste", "Confuso", "Surpreso"
-    public Sprite sprite;
-}
 
 [System.Serializable]
 public struct LineDialogo
