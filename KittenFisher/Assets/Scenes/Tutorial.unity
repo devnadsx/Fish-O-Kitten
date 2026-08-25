@@ -246,13 +246,7 @@ MonoBehaviour:
   imagemGatinho: {fileID: 289747838}
   spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
   spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
-  spriteBocaFechadaFinal: {fileID: 1143495456257030561, guid: dfec08b89706de549b31598b22ab34cd, type: 3}
-  spriteBocaAbertaFinal: {fileID: -2472076170658201133, guid: 52bcc9e4e52056b4e96663edca6c3537, type: 3}
-  expressoesExtras:
-  - nomeExpressao: Caixa
-    sprite: {fileID: 1143495456257030561, guid: dfec08b89706de549b31598b22ab34cd, type: 3}
-  - nomeExpressao: Caixa boca aberta
-    sprite: {fileID: -2472076170658201133, guid: 52bcc9e4e52056b4e96663edca6c3537, type: 3}
+  expressoesExtras: []
   velocidadeEscrita: 0.07
   alturaPuloLetra: 4
   audioSourceSFX: {fileID: 71099157}
@@ -1609,12 +1603,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658684692}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.48, y: -2.08, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.6085, y: 1.1885002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 878182319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &671816095
 GameObject:
@@ -1813,8 +1807,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1851,7 +1845,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 57.57868, w: -12.771039}
+  m_margin: {x: 0, y: 0, z: 111.461624, w: -12.771039}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1881,7 +1875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49.3, y: 21.3}
+  m_AnchoredPosition: {x: 67, y: 8.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &847299028
@@ -2073,6 +2067,9 @@ Transform:
   - {fileID: 1889278195}
   - {fileID: 1218590418}
   - {fileID: 1651308040}
+  - {fileID: 658684694}
+  - {fileID: 1222346395}
+  - {fileID: 1795857566}
   - {fileID: 1688559349}
   - {fileID: 266239786}
   - {fileID: 1881032549}
@@ -2459,12 +2456,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222346393}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.000712, y: -1.992815, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.127788, y: 1.2756851, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 878182319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1229351854
 GameObject:
@@ -3284,11 +3281,11 @@ Transform:
   m_GameObject: {fileID: 1795857562}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.99, y: -1.98, z: 0}
+  m_LocalPosition: {x: 13.1185, y: 1.2885001, z: 0}
   m_LocalScale: {x: -1.2306557, y: 1.8453387, z: 0.17621097}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 878182319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822976088
 GameObject:
@@ -3647,8 +3644,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -305, y: 110}
-  m_SizeDelta: {x: 171.06, y: 133.14}
+  m_AnchoredPosition: {x: -325, y: -133}
+  m_SizeDelta: {x: 131.24, y: 96.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2104633071
 MonoBehaviour:
@@ -3698,6 +3695,3 @@ SceneRoots:
   - {fileID: 71099155}
   - {fileID: 1229351856}
   - {fileID: 1105474294}
-  - {fileID: 658684694}
-  - {fileID: 1222346395}
-  - {fileID: 1795857566}
