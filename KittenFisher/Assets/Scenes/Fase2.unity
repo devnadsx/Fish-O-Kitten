@@ -3302,6 +3302,13 @@ MonoBehaviour:
   iconManager: {fileID: 924382263}
   audioSource: {fileID: 826934058}
   somColetaPeixe: {fileID: 8300000, guid: bc56b9d931c3e0240987e956bcee1239, type: 3}
+  audioSourceMusicaFundo: {fileID: 0}
+  musicaTensa: {fileID: 0}
+  nomeCenaFase3: Game3
+  nomeCenaGameOver: GameOver
+  textoTimerUI: {fileID: 0}
+  tempoLimite: 60
+  scriptDialogoAlerta: {fileID: 0}
 --- !u!82 &826934058
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13471,8 +13478,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -695419941
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -5575453096910144972, guid: e3f4a84cbb598674fab268b4650b079f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13494,8 +13501,8 @@ Transform:
   m_GameObject: {fileID: 2091820465}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.9792, y: 3.3285, z: 0}
-  m_LocalScale: {x: 1.2944555, y: 1, z: 1}
+  m_LocalPosition: {x: -14.9078, y: 3.2714, z: 0}
+  m_LocalScale: {x: 1.3037757, y: 1.0112, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 878182319}
@@ -13528,7 +13535,7 @@ Transform:
   m_GameObject: {fileID: 2095747882}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.70117533, w: 0.712989}
-  m_LocalPosition: {x: 3.01, y: 1.06, z: 0}
+  m_LocalPosition: {x: 3.44, y: -0.85, z: 0}
   m_LocalScale: {x: 0.29289, y: 0.29289, z: 0.29289}
   m_ConstrainProportionsScale: 0
   m_Children: []
