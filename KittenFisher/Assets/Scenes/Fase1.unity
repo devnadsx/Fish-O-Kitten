@@ -834,7 +834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1001 &118657692
@@ -1747,7 +1747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!4 &329073576 stripped
@@ -1907,7 +1907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1 &400057346
@@ -2460,7 +2460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1 &619394800
@@ -2704,7 +2704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!4 &719698518 stripped
@@ -3218,7 +3218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1 &848458247
@@ -3505,7 +3505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1 &878182318
@@ -4742,7 +4742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1 &1436373213
@@ -5282,7 +5282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1 &1572253783
@@ -5437,7 +5437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1001 &1575427254
@@ -5661,7 +5661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1 &1603108303
@@ -10808,7 +10808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1 &1698581255
@@ -10963,7 +10963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1 &1733169872
@@ -11149,7 +11149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!1001 &1751595203
@@ -12094,7 +12094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 0
   audioSource: {fileID: 519420033}
-  somAoClicar: {fileID: 8300000, guid: f641678f1fd9c2043ae68851f3d4eb2f, type: 3}
+  somAoClicar: {fileID: 8300000, guid: 536fd1e638beb3c48ac57a1efd76cf0d, type: 3}
   somAoRespawnar: {fileID: 8300000, guid: 4d45cb0a6f9e7bb458949ae4814c5096, type: 3}
   tempoImunidadeClique: 0.2
 --- !u!61 &1896698829
