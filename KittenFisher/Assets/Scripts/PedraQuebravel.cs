@@ -7,14 +7,14 @@ public class PedraQuebravel : MonoBehaviour
     public int toquesNecessarios = 2;
     private int toquesAtuais = 0;
 
-    [Header("Efeitos")]
-    public AudioSource audioSource;
-    public AudioClip somPancada;     // Som do 1º clique (impacto)
-    public AudioClip somQuebrar;     // Som do 2º clique (destruição)
-    public GameObject efeitoParticulas; // (Opcional) Prefab de poeira/pedrinhas caindo
+    [Header("Visual")]
+    [Tooltip("Arraste aqui a versão rachada dessa mesma pedra (ou o overlay de rachadura).")]
+    public GameObject objetoRachadura; // Pode ser um objeto filho com o Sprite rachado ou a variação do sprite
 
-    [Header("Mudança Visual (Opcional)")]
-    public Sprite spritePedraTrincada; // Sprite da pedra rachiada após o 1º impacto
+    [Header("Sons")]
+    public AudioSource audioSource;
+    public AudioClip somPancada;     // Som do 1º impacto (quando racha)
+    public AudioClip somQuebrar;     // Som do 2º impacto (quando destrói)
 
     private SpriteRenderer spriteRenderer;
     private Collider2D colisor2D;
@@ -27,50 +27,55 @@ public class PedraQuebravel : MonoBehaviour
 
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
+
+        // Garante que o efeito/sprite de rachadura comece escondido
+        if (objetoRachadura != null)
+        {
+            objetoRachadura.SetActive(false);
+        }
     }
 
     void OnMouseDown()
     {
-        // Se o jogo estiver travado por diálogo ou se a pedra estiver sendo destruída, ignora
-        if (EsconderijosManager.Instance != null && EsconderijosManager.Instance.interacaoBloqueada) return;
-        if (estaQuebrando) return;
-
-        // 🛑 VERIFICAÇÃO: O jogador precisa ter a picareta!
+        // 🔒 BLOQUEIO 1: Só funciona se o jogador JÁ tiver a picareta no inventário
         if (GerenciadorInventario.Instance != null && !GerenciadorInventario.Instance.temPicareta)
         {
-            // Fala rápida avisando que precisa de uma ferramenta
+            // Opcional: Se quiser que o gato dê uma dica quando clicar na pedra sem a picareta
             if (DialogoManager.Instance != null)
             {
                 DialogoManager.Instance.LimparDialogo();
                 DialogoManager.Instance.AdicionarFala("This rock is too hard! I need a pickaxe to break it.", false);
             }
-            return;
+            return; // Interrompe o código aqui, impedindo qualquer clique ou quebra!
         }
 
-        // Se tem a picareta, processa o clique:
-        RegistrarClique();
+        // Trava de segurança para diálogos ativos ou animação em andamento
+        if (EsconderijosManager.Instance != null && EsconderijosManager.Instance.interacaoBloqueada) return;
+        if (estaQuebrando) return;
+
+        // Se chegou até aqui, o player possui a picareta!
+        ProcessarClique();
     }
 
-    void RegistrarClique()
+    void ProcessarClique()
     {
         toquesAtuais++;
 
-        if (toquesAtuais < toquesNecessarios)
+        if (toquesAtuais == 1)
         {
-            // 🔨 Primeiro clique: Trinca a pedra
+            // 🔨 1º Clique: Ativa o aspecto rachado e toca som
             TocarSom(somPancada);
 
-            if (spritePedraTrincada != null && spriteRenderer != null)
+            if (objetoRachadura != null)
             {
-                spriteRenderer.sprite = spritePedraTrincada;
+                objetoRachadura.SetActive(true);
             }
 
-            // Animação simples de tremer a pedra no 1º impacto
             StartCoroutine(EfeitoTremer());
         }
-        else
+        else if (toquesAtuais >= toquesNecessarios)
         {
-            // 💥 Segundo clique: Destrói a pedra
+            // 💥 2º Clique: Quebra e destrói a pedra
             StartCoroutine(QuebrarPedra());
         }
     }
@@ -96,17 +101,12 @@ public class PedraQuebravel : MonoBehaviour
         estaQuebrando = true;
         TocarSom(somQuebrar);
 
-        // Desativa o colisor e o sprite
+        // Esconde a pedra da tela
         if (colisor2D != null) colisor2D.enabled = false;
         if (spriteRenderer != null) spriteRenderer.enabled = false;
+        if (objetoRachadura != null) objetoRachadura.SetActive(false);
 
-        // Spawna partículas de quebra se configurado
-        if (efeitoParticulas != null)
-        {
-            Instantiate(efeitoParticulas, transform.position, Quaternion.identity);
-        }
-
-        // Aguarda o som de destruição terminar antes de remover o objeto da hierarquia
+        // Aguarda o som de quebrar tocar antes de destruir o objeto
         if (audioSource != null && somQuebrar != null)
         {
             yield return new WaitForSeconds(somQuebrar.length);
