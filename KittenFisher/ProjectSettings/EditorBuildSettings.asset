@@ -18,6 +18,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Analyse 1.unity
     guid: 2d8798c34c8ae924e9d29be5f3d41a98
   - enabled: 1
+    path: Assets/Scenes/Fase2.unity
+    guid: 99aa5c46800319847afb23111bc8cde1
+  - enabled: 1
+    path: Assets/Scenes/Analyse 2.unity
+    guid: 3948866ae2e5fe440990553909112e5f
+  - enabled: 1
+    path: Assets/Scenes/Fase3.unity
+    guid: 35429b0309e21d54e99e9310d4920b10
+  - enabled: 1
+    path: Assets/Scenes/Analyse 3.unity
+    guid: 17a21d6a5f692334eb757081153194cc
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 2019a08c0ce9e7f49b9b8c8ee7170d33
+  - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 784d868ff264fda409628f3d238eead3
   m_configObjects:

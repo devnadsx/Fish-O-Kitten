@@ -181,4 +181,14 @@ public class SceneIntroDialogue : MonoBehaviour
             }
         }
     }
+    // Adicione este método em qualquer lugar dentro da classe SceneIntroDialogue
+    public void IniciarNovoDialogoExterno()
+    {
+        if (falasDoGato.Count > 0)
+        {
+            indiceFalaAtual = 0;
+            DefinirEstadoGameplay(false); // Pausa ações enquanto fala
+            MostrarFalaAtual();
+        }
+    }
 }

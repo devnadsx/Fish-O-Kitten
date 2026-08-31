@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -166,100 +166,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChatGPT Image 27 de abr. de 2026, 15_33_41_0
+      name: Pedras_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 576
-        width: 434
-        height: 438
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f18a57f8ddb51d240800000000000000
-      internalID: 4814730483788523551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChatGPT Image 27 de abr. de 2026, 15_33_41_1
-      rect:
-        serializedVersion: 2
-        x: 478
-        y: 583
-        width: 739
-        height: 439
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 37038d420f2885ee0800000000000000
-      internalID: -1272122926810255245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChatGPT Image 27 de abr. de 2026, 15_33_41_2
-      rect:
-        serializedVersion: 2
-        x: 982
-        y: 669
-        width: 523
-        height: 186
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0309c2fbc575f35e0800000000000000
-      internalID: -1927726059635306448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChatGPT Image 27 de abr. de 2026, 15_33_41_3
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 328
-        width: 398
-        height: 235
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 81de9fe7ddeae8d70800000000000000
-      internalID: 9047360967775218968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChatGPT Image 27 de abr. de 2026, 15_33_41_4
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 1
-        width: 522
+        x: 31
+        y: 645
+        width: 430
         height: 339
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -267,120 +179,208 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a410e550f42cd53a0800000000000000
-      internalID: -6674965428044955318
+      spriteID: 52f6d9639ead6d9419d820ea94c0e8ae
+      internalID: -190215956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChatGPT Image 27 de abr. de 2026, 15_33_41_5
+      name: Pedras_1
       rect:
         serializedVersion: 2
-        x: 446
-        y: 341
-        width: 309
-        height: 240
+        x: 469
+        y: 649
+        width: 486
+        height: 340
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: eb676de9360727220800000000000000
-      internalID: 2482169917803493054
+      spriteID: 25d893def5e4f584e8a661648caead6f
+      internalID: 1896606395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChatGPT Image 27 de abr. de 2026, 15_33_41_6
+      name: Pedras_2
       rect:
         serializedVersion: 2
-        x: 561
-        y: 1
-        width: 459
-        height: 384
+        x: 963
+        y: 652
+        width: 551
+        height: 332
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 80bec0dae112eb690800000000000000
-      internalID: -7584588306809296120
+      spriteID: 2415328a3e38c10449a95693be2f66ef
+      internalID: 201134550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChatGPT Image 27 de abr. de 2026, 15_33_41_7
+      name: Pedras_3
       rect:
         serializedVersion: 2
-        x: 793
-        y: 280
-        width: 328
-        height: 336
+        x: 2
+        y: 419
+        width: 426
+        height: 191
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7bee19a8136d0a970800000000000000
-      internalID: 8764240383129546423
+      spriteID: c2a72e0c14de5cb439d2b8f0e808eb9e
+      internalID: 1102715724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChatGPT Image 27 de abr. de 2026, 15_33_41_8
+      name: Pedras_4
       rect:
         serializedVersion: 2
-        x: 1042
-        y: 2
-        width: 482
-        height: 344
+        x: 431
+        y: 425
+        width: 340
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 667f423e1e351ed80800000000000000
-      internalID: -8223199214958217370
+      spriteID: 67835e63c729a084297933973034c75e
+      internalID: 452986219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChatGPT Image 27 de abr. de 2026, 15_33_41_9
+      name: Pedras_5
       rect:
         serializedVersion: 2
-        x: 1140
-        y: 384
-        width: 362
-        height: 178
+        x: 781
+        y: 419
+        width: 352
+        height: 205
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 00e180f1f2c5ac040800000000000000
-      internalID: 4668645321176784384
+      spriteID: 1623360ba10996241a59fd55afd1488a
+      internalID: 2084358104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pedras_6
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 415
+        width: 361
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02aaf81528d25f04b82d49de49b5a87c
+      internalID: -1916721047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pedras_7
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 153
+        width: 542
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf433759c6a0344a94c0dcac8c68b3e
+      internalID: 925309914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pedras_8
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 150
+        width: 446
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f7b94f6b638e94fa9c827802c8e070
+      internalID: 1705735262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pedras_9
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 153
+        width: 474
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc9e4c518527274a9a088732e365aa6
+      internalID: 259481326
       vertices: []
       indices: 
       edges: []
@@ -389,7 +389,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bc27dd3066e0fb642901d6528a768d92
     internalID: 0
     vertices: []
     indices: 
@@ -409,6 +409,16 @@ TextureImporter:
       ChatGPT Image 27 de abr. de 2026, 15_33_41_7: 8764240383129546423
       ChatGPT Image 27 de abr. de 2026, 15_33_41_8: -8223199214958217370
       ChatGPT Image 27 de abr. de 2026, 15_33_41_9: 4668645321176784384
+      Pedras_0: -190215956
+      Pedras_1: 1896606395
+      Pedras_2: 201134550
+      Pedras_3: 1102715724
+      Pedras_4: 452986219
+      Pedras_5: 2084358104
+      Pedras_6: -1916721047
+      Pedras_7: 925309914
+      Pedras_8: 1705735262
+      Pedras_9: 259481326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

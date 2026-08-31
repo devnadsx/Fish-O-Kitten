@@ -35,7 +35,7 @@ public class FishAnalyseManager : MonoBehaviour
 
         if (DialogoManager.Instance != null)
         {
-            DialogoManager.Instance.AdicionarFala("Time to test and taste these fish! Select one from the table.", false);
+            DialogoManager.Instance.AdicionarFala("Time to taste and write down these fish! Which one should i start?", false);
         }
     }
 
@@ -94,13 +94,23 @@ public class FishAnalyseManager : MonoBehaviour
                 DialogoManager.Instance.AdicionarFala($"Ugh! The {peixeAtualNome} was super poisonous!", false);
                 DialogoManager.Instance.AdicionarFala("Gosh! I'm glad I was careful.., otherwise, I would definitely be dead..", false);
                 DialogoManager.Instance.AdicionarFala("Myke breathe a little, trying to not vomit again. He wrote down while coughing a lot.", true);
-                DialogoManager.Instance.AdicionarFala("Okay, time to another one..", false);
+
+                // Exibe essa fala intermediária só se ainda restarem peixes
+                if (peixesProcessados < totalPeixesNaMesa)
+                {
+                    DialogoManager.Instance.AdicionarFala("Okay, time to another one..", false);
+                }
             }
             else
             {
                 DialogoManager.Instance.AdicionarFala($"Mmmph! The {peixeAtualNome} is delicious and perfectly safe.", false);
                 DialogoManager.Instance.AdicionarFala("Myke finish tasting and wrote down about the fish.", true);
-                DialogoManager.Instance.AdicionarFala("Okay, I need to finish these fish..", false);
+
+                // Exibe essa fala intermediária só se ainda restarem peixes
+                if (peixesProcessados < totalPeixesNaMesa)
+                {
+                    DialogoManager.Instance.AdicionarFala("Okay, I need to finish these fish..", false);
+                }
             }
         }
 
@@ -119,7 +129,12 @@ public class FishAnalyseManager : MonoBehaviour
             DialogoManager.Instance.AdicionarFala($"Ughh! {peixeAtualNome} definity not safe!-", false);
             DialogoManager.Instance.AdicionarFala("Myke runs to an empty bucket and finish vomiting.", true);
             DialogoManager.Instance.AdicionarFala("He wrote down, with a sickened face.", true);
-            DialogoManager.Instance.AdicionarFala("Okay, Let me continue this..", false);
+
+            // Exibe essa fala intermediária só se ainda restarem peixes
+            if (peixesProcessados < totalPeixesNaMesa)
+            {
+                DialogoManager.Instance.AdicionarFala("Okay, Let me continue this..", false);
+            }
         }
 
         VerificarFimDaAnalise();
@@ -129,6 +144,12 @@ public class FishAnalyseManager : MonoBehaviour
     {
         if (peixesProcessados >= totalPeixesNaMesa)
         {
+            // Adiciona a fala de encerramento quando todos os peixes forem analisados
+            if (DialogoManager.Instance != null)
+            {
+                DialogoManager.Instance.AdicionarFala("Alright! I've finished analyzing all the fish. Time to move on!", false);
+            }
+
             StartCoroutine(AguardarFimDosDialogosEAvancar());
         }
     }

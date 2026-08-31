@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance;
@@ -17,10 +18,17 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI textoBalao;
     public Button botaoAvancarFala;
 
-    [Header("Sprites do Gatinho (Visual Novel)")]
-    public Image imagemGatinho;           // Componente Image na tela
-    public Sprite spriteBocaFechada;      // Sprite padrão (Rosto normal)
-    public Sprite spriteBocaAberta;       // Sprite falando (Boca aberta)
+    [Header("Gatinho Normal (UI)")]
+    public GameObject objetoGatinhoNormal; // GameObject do Gatinho Padrão no Canvas
+    public Image imagemGatinhoNormal;      // Componente Image do Gatinho Padrão
+    public Sprite spriteNormalFechada;
+    public Sprite spriteNormalAberta;
+
+    [Header("Gatinho Final / Caixa (UI)")]
+    public GameObject objetoGatinhoFinal;  // GameObject do Gatinho Especial no Canvas
+    public Image imagemGatinhoFinal;       // Componente Image do Gatinho Especial
+    public Sprite spriteFinalFechada;
+    public Sprite spriteFinalAberta;
 
     [Header("Expressões Futuras (Expansível)")]
     public List<ExpressaoGatinho> expressoesExtras = new List<ExpressaoGatinho>();
@@ -36,7 +44,7 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI textoLista;
 
     [Header("Desbloquear Gameplay Após a Lupa")]
-    public MonoBehaviour[] scriptsParaAtivarAposLupa; // Scripts liberados após achar a lupa
+    public MonoBehaviour[] scriptsParaAtivarAposLupa;
 
     [Header("Configuração de Cenas")]
     public string nomeCenaJogoPrincipal = "SampleScene";
@@ -50,10 +58,15 @@ public class TutorialManager : MonoBehaviour
     private bool pegouAquario = false;
     private bool pegouTesoura = false;
 
-    private Vector3 posicaoOriginalGato;
+    // Posições originais para animação de pulo
+    private Vector3 posicaoOriginalNormal;
+    private Vector3 posicaoOriginalFinal;
     private Coroutine coroutineEscrita;
     private bool estaEscrevendo = false;
     private string textoCompletoAtual = "";
+
+    // Controle de qual gatinho está ativo no momento
+    private bool usarGatinhoFinal = false;
 
     void Awake()
     {
@@ -62,10 +75,15 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
-        if (imagemGatinho != null)
+        if (imagemGatinhoNormal != null)
         {
-            posicaoOriginalGato = imagemGatinho.rectTransform.anchoredPosition;
-            DefinirSpriteNormal();
+            posicaoOriginalNormal = imagemGatinhoNormal.rectTransform.anchoredPosition;
+        }
+
+        if (imagemGatinhoFinal != null)
+        {
+            posicaoOriginalFinal = imagemGatinhoFinal.rectTransform.anchoredPosition;
+            if (objetoGatinhoFinal != null) objetoGatinhoFinal.SetActive(false); // Mantém o final oculto no início
         }
 
         if (painelListaItens != null) painelListaItens.SetActive(false);
@@ -75,9 +93,8 @@ public class TutorialManager : MonoBehaviour
             imagemAvisoControles.SetActive(true);
         }
 
-        // Garante que os scripts pós-lupa comecem desativados
+        DefinirSpriteNormal();
         DefinirEstadoScriptsPosLupa(false);
-
         MostrarFalaAtual();
     }
 
@@ -111,7 +128,8 @@ public class TutorialManager : MonoBehaviour
         falaAtiva = true;
 
         if (painelBalaoFala != null) painelBalaoFala.SetActive(true);
-        if (imagemGatinho != null) imagemGatinho.gameObject.SetActive(true);
+        ExibirGatinhoAtual(true);
+
         if (botaoAvancarFala != null) botaoAvancarFala.gameObject.SetActive(true);
 
         switch (etapaFala)
@@ -133,14 +151,12 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 4:
-                // Oculta o diálogo para o jogador procurar os itens na tela
                 EsconderDialogoEGato();
                 if (painelListaItens != null) painelListaItens.SetActive(true);
                 AtualizarTextoLista();
                 break;
 
             case 5:
-                // Fala acionada imediatamente após encontrar a LUPA!
                 IniciarDigitacao("I've found the magnifying glass! Now I can have a closer look to see if I can find the rest...");
                 break;
 
@@ -149,13 +165,17 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 7:
-                // Oculta o diálogo para o jogador continuar buscando o aquário e a tesoura
                 EsconderDialogoEGato();
                 break;
 
             case 8:
-                // Fala acionada após pegar TODOS os 3 itens!
+                // Alterna a flag para indicar que agora usaremos o objeto do Gatinho Final
+                usarGatinhoFinal = true;
+                ExibirGatinhoAtual(true);
+                DefinirSpriteNormal();
+
                 IniciarDigitacao("Great, I’ve got everything! Now I’m ready for the experiment! Yay!");
+
                 if (botaoAvancarFala != null)
                 {
                     botaoAvancarFala.onClick.RemoveAllListeners();
@@ -165,7 +185,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    // --- DIGITAÇÃO COM ANIMAÇÃO DE BOCA ABERTA/FECHADA ---
+    // --- SISTEMA DE DIGITAÇÃO E ANIMAÇÃO ---
 
     void IniciarDigitacao(string texto)
     {
@@ -185,15 +205,9 @@ public class TutorialManager : MonoBehaviour
 
             if (char.IsLetterOrDigit(letra))
             {
-                if (imagemGatinho != null && spriteBocaAberta != null)
-                {
-                    imagemGatinho.sprite = spriteBocaAberta;
-                }
+                DefinirSpriteAberta();
 
-                if (imagemGatinho != null && imagemGatinho.gameObject.activeInHierarchy)
-                {
-                    StartCoroutine(PulinhoRapidoGato());
-                }
+                StartCoroutine(PulinhoRapidoGato());
 
                 if (audioSourceSFX != null && somFalaGatinho != null)
                 {
@@ -219,40 +233,75 @@ public class TutorialManager : MonoBehaviour
 
         DefinirSpriteNormal();
         estaEscrevendo = false;
-
-        if (imagemGatinho != null)
-        {
-            imagemGatinho.rectTransform.anchoredPosition = posicaoOriginalGato;
-        }
+        ResetarPosicaoGato();
     }
 
     IEnumerator PulinhoRapidoGato()
     {
-        if (imagemGatinho == null) yield break;
+        Image imgAtual = usarGatinhoFinal ? imagemGatinhoFinal : imagemGatinhoNormal;
+        Vector3 posOriginal = usarGatinhoFinal ? posicaoOriginalFinal : posicaoOriginalNormal;
 
-        RectTransform rect = imagemGatinho.rectTransform;
-        rect.anchoredPosition = posicaoOriginalGato + new Vector3(0, alturaPuloLetra, 0);
+        if (imgAtual == null || !imgAtual.gameObject.activeInHierarchy) yield break;
+
+        RectTransform rect = imgAtual.rectTransform;
+        rect.anchoredPosition = posOriginal + new Vector3(0, alturaPuloLetra, 0);
         yield return new WaitForSeconds(velocidadeEscrita * 0.5f);
-        rect.anchoredPosition = posicaoOriginalGato;
+        rect.anchoredPosition = posOriginal;
     }
+
+    void ResetarPosicaoGato()
+    {
+        if (imagemGatinhoNormal != null)
+            imagemGatinhoNormal.rectTransform.anchoredPosition = posicaoOriginalNormal;
+
+        if (imagemGatinhoFinal != null)
+            imagemGatinhoFinal.rectTransform.anchoredPosition = posicaoOriginalFinal;
+    }
+
+    // --- GERENCIAMENTO DE SPRITES E VISIBILIDADE ---
 
     void DefinirSpriteNormal()
     {
-        if (imagemGatinho != null && spriteBocaFechada != null)
+        if (!usarGatinhoFinal && imagemGatinhoNormal != null && spriteNormalFechada != null)
         {
-            imagemGatinho.sprite = spriteBocaFechada;
+            imagemGatinhoNormal.sprite = spriteNormalFechada;
+        }
+        else if (usarGatinhoFinal && imagemGatinhoFinal != null && spriteFinalFechada != null)
+        {
+            imagemGatinhoFinal.sprite = spriteFinalFechada;
         }
     }
 
-    public void MudarExpressao(string nomeExpressao)
+    void DefinirSpriteAberta()
     {
-        foreach (var item in expressoesExtras)
+        if (!usarGatinhoFinal && imagemGatinhoNormal != null && spriteNormalAberta != null)
         {
-            if (item.nomeExpressao.ToLower() == nomeExpressao.ToLower())
-            {
-                if (imagemGatinho != null) imagemGatinho.sprite = item.sprite;
-                return;
-            }
+            imagemGatinhoNormal.sprite = spriteNormalAberta;
+        }
+        else if (usarGatinhoFinal && imagemGatinhoFinal != null && spriteFinalAberta != null)
+        {
+            imagemGatinhoFinal.sprite = spriteFinalAberta;
+        }
+    }
+
+    void ExibirGatinhoAtual(bool visivel)
+    {
+        if (!visivel)
+        {
+            if (objetoGatinhoNormal != null) objetoGatinhoNormal.SetActive(false);
+            if (objetoGatinhoFinal != null) objetoGatinhoFinal.SetActive(false);
+            return;
+        }
+
+        if (usarGatinhoFinal)
+        {
+            if (objetoGatinhoNormal != null) objetoGatinhoNormal.SetActive(false);
+            if (objetoGatinhoFinal != null) objetoGatinhoFinal.SetActive(true);
+        }
+        else
+        {
+            if (objetoGatinhoNormal != null) objetoGatinhoNormal.SetActive(true);
+            if (objetoGatinhoFinal != null) objetoGatinhoFinal.SetActive(false);
         }
     }
 
@@ -261,10 +310,11 @@ public class TutorialManager : MonoBehaviour
         falaAtiva = false;
         DefinirSpriteNormal();
         if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
-        if (imagemGatinho != null) imagemGatinho.gameObject.SetActive(false);
+        ExibirGatinhoAtual(false);
     }
 
-    // Liberado para coletar qualquer item sempre que não houver diálogo ativo
+    // --- GAMEPLAY E COLETA DE ITENS ---
+
     public bool PodeColetarItem(string nomeDoItem)
     {
         return !falaAtiva;
@@ -276,11 +326,8 @@ public class TutorialManager : MonoBehaviour
         {
             pegouLupa = true;
             AtualizarTextoLista();
-
-            // Ativa os scripts liberados após a Lupa!
             DefinirEstadoScriptsPosLupa(true);
 
-            // Redireciona para a etapa 5 (Fala do achado da Lupa)
             etapaFala = 5;
             MostrarFalaAtual();
         }
@@ -295,7 +342,6 @@ public class TutorialManager : MonoBehaviour
             AtualizarTextoLista();
         }
 
-        // Se coletou todos os itens, vai para a fala final (Etapa 8)
         if (pegouLupa && pegouAquario && pegouTesoura)
         {
             etapaFala = 8;
