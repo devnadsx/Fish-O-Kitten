@@ -315,7 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishAnalyseManager
   imagemAvisoControles: {fileID: 0}
   nomeProximaFase: End
-  totalPeixesNaMesa: 10
+  totalPeixesNaMesa: 15
 --- !u!82 &71099157
 AudioSource:
   m_ObjectHideFlags: 0
