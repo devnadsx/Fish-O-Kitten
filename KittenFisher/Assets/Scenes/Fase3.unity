@@ -620,9 +620,9 @@ MonoBehaviour:
   falasDoGato:
   - Okay.., now it's time for the deep water..
   - I heard that most fish hide behind rocks, maybe there's a pickake somewhere.
-  - but I think I should be quick now..
+  - And i should be quick now..
   - I'm afraid my oxygen might suddenly run out!
-  - Okay, Myke. I need to hurry.
+  - Okay, Myke. Time to hurry.
   scriptsParaAtivarAposDialogo:
   - {fileID: 878182320}
   - {fileID: 878182320}
@@ -757,7 +757,10 @@ MonoBehaviour:
   alturaPuloLetra: 8
   audioSourceSFX: {fileID: 71099157}
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  falasIniciais: []
+  falasIniciais:
+  - texto: 
+    ehAcaoOuNarracao: 0
+    expressao: 
 --- !u!1 &92590368
 GameObject:
   m_ObjectHideFlags: 0

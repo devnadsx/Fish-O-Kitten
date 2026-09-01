@@ -7,7 +7,7 @@ using TMPro;
 [System.Serializable]
 public struct ExpressaoGatinho
 {
-    public string nomeExpressao; // Ex: "Feliz", "Triste", "Confuso", "Surpreso"
+    public string nomeExpressao;
     public Sprite sprite;
 }
 
@@ -17,7 +17,7 @@ public struct LineDialogo
     [TextArea(2, 4)]
     public string texto;
     public bool ehAcaoOuNarracao;
-    public string expressao; // Opcional: digite o nome da expressão no Inspector (Ex: "Feliz")
+    public string expressao;
 }
 
 public class DialogoManager : MonoBehaviour
@@ -31,8 +31,8 @@ public class DialogoManager : MonoBehaviour
 
     [Header("Sprites do Gatinho (Boca Aberta / Fechada)")]
     public Image imagemGatinho;
-    public Sprite spriteBocaFechada; // Sprite do gatinho quieto
-    public Sprite spriteBocaAberta;  // Sprite do gatinho falando
+    public Sprite spriteBocaFechada;
+    public Sprite spriteBocaAberta;
 
     [Header("Expressões Futuras (Expansível)")]
     public List<ExpressaoGatinho> expressoesExtras = new List<ExpressaoGatinho>();
@@ -66,7 +66,6 @@ public class DialogoManager : MonoBehaviour
     private Vector3 escalaAlvo;
     private Color corAlvo;
 
-    // Trava para evitar pulo duplo no Enter
     private float tempoUltimoClique = 0f;
     private float intervaloMinimoClique = 0.15f;
 
@@ -93,16 +92,14 @@ public class DialogoManager : MonoBehaviour
 
     void Update()
     {
+        // Animação suave de escala e cor da imagem do gatinho
         if (imagemGatinho != null)
         {
             imagemGatinho.transform.localScale = Vector3.Lerp(imagemGatinho.transform.localScale, escalaAlvo, Time.deltaTime * velocidadeTransicao);
             imagemGatinho.color = Color.Lerp(imagemGatinho.color, corAlvo, Time.deltaTime * velocidadeTransicao);
         }
 
-        if (painelBalaoFala != null && painelBalaoFala.activeSelf && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
-        {
-            AvancarTexto();
-        }
+        // ❌ A verificação da tecla Enter foi removida para evitar bugs de pulo de texto.
     }
 
     public void IniciarSequenciaDialogo(List<LineDialogo> listaFalas)
@@ -166,7 +163,6 @@ public class DialogoManager : MonoBehaviour
         textoCompletoAtual = texto;
         falaAtualEhAcao = ehAcao;
 
-        // Troca para a expressão cadastrada na fala (se houver)
         if (!string.IsNullOrEmpty(expressaoDaFala))
         {
             MudarExpressao(expressaoDaFala);
@@ -259,8 +255,6 @@ public class DialogoManager : MonoBehaviour
             imagemGatinho.sprite = spriteBocaFechada;
         }
     }
-
-    // --- MÉTODOS DE EXPRESSÕES FUTURAS ---
 
     public void MudarExpressao(string nomeExpressao)
     {
