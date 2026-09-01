@@ -2919,7 +2919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   foundedFish: 0
-  FishNumber: 9
+  FishNumber: 10
   OnVictory:
     m_PersistentCalls:
       m_Calls:
