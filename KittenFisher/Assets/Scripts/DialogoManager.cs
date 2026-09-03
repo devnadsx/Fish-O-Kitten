@@ -145,42 +145,57 @@ public class DialogoManager : MonoBehaviour
         estaEscrevendo = true;
         if (textoBalao != null) textoBalao.text = "";
 
-        string textoFormatado = "";
+        // Guarda a posição original do slot de imagem do personagem
+        Vector3 posOriginalPersonagem = Vector3.zero;
+        RectTransform rectPersonagem = null;
+
+        if (imagemAtivaAtual != null)
+        {
+            rectPersonagem = imagemAtivaAtual.rectTransform;
+            posOriginalPersonagem = rectPersonagem.anchoredPosition;
+        }
 
         foreach (char letra in linhaAtual.texto.ToCharArray())
         {
-            // Se for letra ou número, aplica a tag <voffset> do TextMeshPro para dar o efeito de pulo
+            if (textoBalao != null) textoBalao.text += letra;
+
             if (char.IsLetterOrDigit(letra))
             {
-                // Adiciona a letra com o pulinho e depois restaura a posição normal
-                textoBalao.text = textoFormatado + $"<voffset={alturaPuloLetra}px>{letra}</voffset>";
+                // 1. Faz o personagem pular subindo a posição Y da imagem dele
+                if (rectPersonagem != null)
+                {
+                    rectPersonagem.anchoredPosition = posOriginalPersonagem + new Vector3(0, alturaPuloLetra, 0);
+                }
 
-                // Troca a sprite para boca aberta
+                // 2. Troca para a boca aberta
                 if (imagemAtivaAtual != null && personagemAtivoAtual.spriteBocaAberta != null)
                 {
                     imagemAtivaAtual.sprite = personagemAtivoAtual.spriteBocaAberta;
                 }
 
-                // Toca o som de fala
+                // 3. Toca o som de fala
                 AudioClip clipParaTocar = linhaAtual.somFala != null ? linhaAtual.somFala : somFalaPadrao;
                 if (audioSourceSFX != null && clipParaTocar != null)
                 {
                     audioSourceSFX.PlayOneShot(clipParaTocar);
                 }
             }
-            else
-            {
-                textoBalao.text = textoFormatado + letra;
-                RestaurarSpriteBocaFechada();
-            }
 
             yield return new WaitForSeconds(velocidadeEscrita);
 
-            // Fixa a letra na posição normal no texto acumulado para a próxima letra pular
-            textoFormatado += letra;
-            textoBalao.text = textoFormatado;
+            // Volta a imagem do personagem para a altura normal e fecha a boca
+            if (rectPersonagem != null)
+            {
+                rectPersonagem.anchoredPosition = posOriginalPersonagem;
+            }
+            RestaurarSpriteBocaFechada();
         }
 
+        // Garante que o personagem volte à posição original ao terminar
+        if (rectPersonagem != null)
+        {
+            rectPersonagem.anchoredPosition = posOriginalPersonagem;
+        }
         RestaurarSpriteBocaFechada();
         estaEscrevendo = false;
     }
