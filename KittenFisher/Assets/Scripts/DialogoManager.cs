@@ -4,20 +4,30 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-[System.Serializable]
-public struct ExpressaoGatinho
+public enum PosicaoPersonagem
 {
-    public string nomeExpressao;
-    public Sprite sprite;
+    Esquerda,
+    Direita,
+    Centro
+}
+
+[System.Serializable]
+public struct DadosPersonagem
+{
+    public string nomePersonagem;
+    public Sprite spriteBocaFechada;
+    public Sprite spriteBocaAberta;
+    public Color corFoco;
 }
 
 [System.Serializable]
 public struct LineDialogo
 {
-    [TextArea(2, 4)]
+    public string nomeQuemFala;
     public string texto;
-    public bool ehAcaoOuNarracao;
-    public string expressao;
+    public bool ehNarracao;
+    public PosicaoPersonagem posicao;
+    public AudioClip somFala; // <--- Som personalizado para este personagem/fala
 }
 
 public class DialogoManager : MonoBehaviour
@@ -26,46 +36,34 @@ public class DialogoManager : MonoBehaviour
 
     [Header("UI do Diálogo")]
     public GameObject painelBalaoFala;
+    public TextMeshProUGUI textoNomePersonagem;
     public TextMeshProUGUI textoBalao;
-    public Button botaoAvancarFala;
 
-    [Header("Sprites do Gatinho (Boca Aberta / Fechada)")]
-    public Image imagemGatinho;
-    public Sprite spriteBocaFechada;
-    public Sprite spriteBocaAberta;
+    [Header("Slots de Imagem para Personagens na Tela")]
+    public Image imagemEsquerda;
+    public Image imagemCentro;
+    public Image imagemDireita;
 
-    [Header("Expressões Futuras (Expansível)")]
-    public List<ExpressaoGatinho> expressoesExtras = new List<ExpressaoGatinho>();
+    [Header("Banco de Dados de Personagens")]
+    public List<DadosPersonagem> listaPersonagens = new List<DadosPersonagem>();
 
-    [Header("Efeitos Estilo Visual Novel (DDLC)")]
-    public Color corFoco = Color.white;
-    public Color corInativo = new Color(0.55f, 0.55f, 0.55f);
-    public Vector3 escalaFoco = new Vector3(1f, 1f, 1f);
-    public Vector3 escalaInativo = new Vector3(0.9f, 0.9f, 1f);
-    public float velocidadeTransicao = 8f;
-
-    [Header("Estilo Efeitos de Escrita & Som")]
+    [Header("Configurações de Animação e Efeitos")]
     public float velocidadeEscrita = 0.03f;
-    public float alturaPuloLetra = 8f;
+    public float alturaPuloLetra = 6f;
+    public Color corInativo = new Color(0.5f, 0.5f, 0.5f);
     public AudioSource audioSourceSFX;
-    public AudioClip somFalaGatinho;
+    public AudioClip somFalaPadrao;
 
-    [Header("Falas Configuráveis pelo Inspector")]
+    [Header("Falas Iniciais (Inspector)")]
     public List<LineDialogo> falasIniciais = new List<LineDialogo>();
 
-    private Queue<string> filaTextos = new Queue<string>();
-    private Queue<bool> filaTiposAcao = new Queue<bool>();
-    private Queue<string> filaExpressoes = new Queue<string>();
-
-    private Vector3 posicaoOriginalGato;
+    private Queue<LineDialogo> filaFalas = new Queue<LineDialogo>();
     private Coroutine coroutineDigitacao;
     private bool estaEscrevendo = false;
     private string textoCompletoAtual = "";
-    private bool falaAtualEhAcao = false;
 
-    private Vector3 escalaAlvo;
-    private Color corAlvo;
-
+    private Image imagemAtivaAtual;
+    private DadosPersonagem personagemAtivoAtual;
     private float tempoUltimoClique = 0f;
     private float intervaloMinimoClique = 0.15f;
 
@@ -76,30 +74,12 @@ public class DialogoManager : MonoBehaviour
 
     void Start()
     {
-        if (imagemGatinho != null)
-        {
-            posicaoOriginalGato = imagemGatinho.rectTransform.anchoredPosition;
-            escalaAlvo = escalaFoco;
-            corAlvo = corFoco;
-            DefinirSpriteNormal();
-        }
+        EsconderTodasImagens();
 
         if (falasIniciais != null && falasIniciais.Count > 0)
         {
             IniciarSequenciaDialogo(falasIniciais);
         }
-    }
-
-    void Update()
-    {
-        // Animação suave de escala e cor da imagem do gatinho
-        if (imagemGatinho != null)
-        {
-            imagemGatinho.transform.localScale = Vector3.Lerp(imagemGatinho.transform.localScale, escalaAlvo, Time.deltaTime * velocidadeTransicao);
-            imagemGatinho.color = Color.Lerp(imagemGatinho.color, corAlvo, Time.deltaTime * velocidadeTransicao);
-        }
-
-        // ❌ A verificação da tecla Enter foi removida para evitar bugs de pulo de texto.
     }
 
     public void IniciarSequenciaDialogo(List<LineDialogo> listaFalas)
@@ -108,24 +88,10 @@ public class DialogoManager : MonoBehaviour
 
         foreach (var fala in listaFalas)
         {
-            filaTextos.Enqueue(fala.texto);
-            filaTiposAcao.Enqueue(fala.ehAcaoOuNarracao);
-            filaExpressoes.Enqueue(fala.expressao);
+            filaFalas.Enqueue(fala);
         }
 
         ExibirProximaFrase();
-    }
-
-    public void AdicionarFala(string texto, bool ehAcao = false, string expressao = "")
-    {
-        filaTextos.Enqueue(texto);
-        filaTiposAcao.Enqueue(ehAcao);
-        filaExpressoes.Enqueue(expressao);
-
-        if (painelBalaoFala != null && !painelBalaoFala.activeSelf && filaTextos.Count == 1)
-        {
-            ExibirProximaFrase();
-        }
     }
 
     public void AvancarTexto()
@@ -139,7 +105,7 @@ public class DialogoManager : MonoBehaviour
             return;
         }
 
-        if (filaTextos.Count > 0)
+        if (filaFalas.Count > 0)
         {
             ExibirProximaFrase();
         }
@@ -151,76 +117,71 @@ public class DialogoManager : MonoBehaviour
 
     public void ExibirProximaFrase()
     {
-        if (filaTextos.Count == 0) return;
+        if (filaFalas.Count == 0) return;
 
-        string texto = filaTextos.Dequeue();
-        bool ehAcao = filaTiposAcao.Dequeue();
-        string expressaoDaFala = filaExpressoes.Dequeue();
+        LineDialogo falaAtual = filaFalas.Dequeue();
 
         if (painelBalaoFala != null) painelBalaoFala.SetActive(true);
-        if (imagemGatinho != null) imagemGatinho.gameObject.SetActive(true);
 
-        textoCompletoAtual = texto;
-        falaAtualEhAcao = ehAcao;
+        textoCompletoAtual = falaAtual.texto;
 
-        if (!string.IsNullOrEmpty(expressaoDaFala))
+        if (textoNomePersonagem != null)
         {
-            MudarExpressao(expressaoDaFala);
+            textoNomePersonagem.text = falaAtual.ehNarracao ? "" : falaAtual.nomeQuemFala;
         }
 
-        if (ehAcao)
-        {
-            corAlvo = corInativo;
-            escalaAlvo = escalaInativo;
-        }
-        else
-        {
-            corAlvo = corFoco;
-            escalaAlvo = escalaFoco;
-        }
+        // Busca as configurações do personagem na lista
+        personagemAtivoAtual = ObterDadosPersonagem(falaAtual.nomeQuemFala);
+        imagemAtivaAtual = ObterSlotImagem(falaAtual.posicao);
+
+        AtualizarDestaquePersonagens(imagemAtivaAtual, falaAtual.ehNarracao);
 
         if (coroutineDigitacao != null) StopCoroutine(coroutineDigitacao);
-        coroutineDigitacao = StartCoroutine(EfeitoDigitar(texto));
+        coroutineDigitacao = StartCoroutine(EfeitoDigitarTexto(falaAtual));
     }
 
-    IEnumerator EfeitoDigitar(string texto)
+    IEnumerator EfeitoDigitarTexto(LineDialogo linhaAtual)
     {
         estaEscrevendo = true;
         if (textoBalao != null) textoBalao.text = "";
 
-        foreach (char letra in texto.ToCharArray())
-        {
-            if (textoBalao != null) textoBalao.text += letra;
+        string textoFormatado = "";
 
+        foreach (char letra in linhaAtual.texto.ToCharArray())
+        {
+            // Se for letra ou número, aplica a tag <voffset> do TextMeshPro para dar o efeito de pulo
             if (char.IsLetterOrDigit(letra))
             {
-                if (!falaAtualEhAcao)
+                // Adiciona a letra com o pulinho e depois restaura a posição normal
+                textoBalao.text = textoFormatado + $"<voffset={alturaPuloLetra}px>{letra}</voffset>";
+
+                // Troca a sprite para boca aberta
+                if (imagemAtivaAtual != null && personagemAtivoAtual.spriteBocaAberta != null)
                 {
-                    if (imagemGatinho != null && spriteBocaAberta != null)
-                    {
-                        imagemGatinho.sprite = spriteBocaAberta;
-                    }
+                    imagemAtivaAtual.sprite = personagemAtivoAtual.spriteBocaAberta;
+                }
 
-                    if (imagemGatinho != null && imagemGatinho.gameObject.activeInHierarchy)
-                    {
-                        StartCoroutine(PulinhoRapidoGato());
-                    }
-
-                    if (audioSourceSFX != null && somFalaGatinho != null)
-                    {
-                        audioSourceSFX.PlayOneShot(somFalaGatinho);
-                    }
+                // Toca o som de fala
+                AudioClip clipParaTocar = linhaAtual.somFala != null ? linhaAtual.somFala : somFalaPadrao;
+                if (audioSourceSFX != null && clipParaTocar != null)
+                {
+                    audioSourceSFX.PlayOneShot(clipParaTocar);
                 }
             }
             else
             {
-                DefinirSpriteNormal();
+                textoBalao.text = textoFormatado + letra;
+                RestaurarSpriteBocaFechada();
             }
 
             yield return new WaitForSeconds(velocidadeEscrita);
+
+            // Fixa a letra na posição normal no texto acumulado para a próxima letra pular
+            textoFormatado += letra;
+            textoBalao.text = textoFormatado;
         }
 
-        DefinirSpriteNormal();
+        RestaurarSpriteBocaFechada();
         estaEscrevendo = false;
     }
 
@@ -229,67 +190,81 @@ public class DialogoManager : MonoBehaviour
         if (coroutineDigitacao != null) StopCoroutine(coroutineDigitacao);
         if (textoBalao != null) textoBalao.text = textoCompletoAtual;
 
-        DefinirSpriteNormal();
+        RestaurarSpriteBocaFechada();
         estaEscrevendo = false;
+    }
 
-        if (imagemGatinho != null)
+    private DadosPersonagem ObterDadosPersonagem(string nome)
+    {
+        foreach (var p in listaPersonagens)
         {
-            imagemGatinho.rectTransform.anchoredPosition = posicaoOriginalGato;
+            if (p.nomePersonagem.ToLower() == nome.ToLower()) return p;
+        }
+        return new DadosPersonagem { nomePersonagem = nome, corFoco = Color.white };
+    }
+
+    private Image ObterSlotImagem(PosicaoPersonagem posicao)
+    {
+        switch (posicao)
+        {
+            case PosicaoPersonagem.Esquerda: return imagemEsquerda;
+            case PosicaoPersonagem.Direita: return imagemDireita;
+            case PosicaoPersonagem.Centro: return imagemCentro;
+            default: return imagemCentro;
         }
     }
 
-    IEnumerator PulinhoRapidoGato()
+    private void AtualizarDestaquePersonagens(Image slotAtivo, bool ehNarracao)
     {
-        if (imagemGatinho == null) yield break;
+        Image[] slots = { imagemEsquerda, imagemCentro, imagemDireita };
 
-        RectTransform rect = imagemGatinho.rectTransform;
-        rect.anchoredPosition = posicaoOriginalGato + new Vector3(0, alturaPuloLetra, 0);
-        yield return new WaitForSeconds(velocidadeEscrita * 0.5f);
-        rect.anchoredPosition = posicaoOriginalGato;
-    }
-
-    void DefinirSpriteNormal()
-    {
-        if (imagemGatinho != null && spriteBocaFechada != null)
+        foreach (var slot in slots)
         {
-            imagemGatinho.sprite = spriteBocaFechada;
-        }
-    }
+            if (slot == null) continue;
 
-    public void MudarExpressao(string nomeExpressao)
-    {
-        if (string.IsNullOrEmpty(nomeExpressao)) return;
-
-        foreach (var exp in expressoesExtras)
-        {
-            if (exp.nomeExpressao.ToLower() == nomeExpressao.ToLower())
+            if (slot == slotAtivo && !ehNarracao)
             {
-                if (exp.sprite != null)
-                {
-                    spriteBocaFechada = exp.sprite;
-                    DefinirSpriteNormal();
-                }
-                return;
+                slot.gameObject.SetActive(true);
+                slot.color = personagemAtivoAtual.corFoco != Color.clear ? personagemAtivoAtual.corFoco : Color.white;
+                if (personagemAtivoAtual.spriteBocaFechada != null) slot.sprite = personagemAtivoAtual.spriteBocaFechada;
+            }
+            else if (slot.gameObject.activeSelf)
+            {
+                // Escurece os outros personagens que estão na tela mas não estão falando
+                slot.color = corInativo;
             }
         }
     }
 
+    private void RestaurarSpriteBocaFechada()
+    {
+        if (imagemAtivaAtual != null && personagemAtivoAtual.spriteBocaFechada != null)
+        {
+            imagemAtivaAtual.sprite = personagemAtivoAtual.spriteBocaFechada;
+        }
+    }
+
+    private void EsconderTodasImagens()
+    {
+        if (imagemEsquerda != null) imagemEsquerda.gameObject.SetActive(false);
+        if (imagemCentro != null) imagemCentro.gameObject.SetActive(false);
+        if (imagemDireita != null) imagemDireita.gameObject.SetActive(false);
+    }
+
     public bool TemFalasPendentes()
     {
-        return filaTextos.Count > 0 || estaEscrevendo;
+        return filaFalas.Count > 0 || estaEscrevendo || (painelBalaoFala != null && painelBalaoFala.activeSelf);
     }
 
     public void LimparDialogo()
     {
-        filaTextos.Clear();
-        filaTiposAcao.Clear();
-        filaExpressoes.Clear();
+        filaFalas.Clear();
     }
 
     public void FecharDialogo()
     {
         LimparDialogo();
-        DefinirSpriteNormal();
+        EsconderTodasImagens();
         if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
     }
 }

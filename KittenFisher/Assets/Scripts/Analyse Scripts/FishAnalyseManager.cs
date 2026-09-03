@@ -35,7 +35,18 @@ public class FishAnalyseManager : MonoBehaviour
 
         if (DialogoManager.Instance != null)
         {
-            DialogoManager.Instance.AdicionarFala("Time to taste and write down these fish! Which one should i start?", false);
+            List<LineDialogo> falaInicial = new List<LineDialogo>()
+            {
+                new LineDialogo
+                {
+                    nomeQuemFala = "Myke",
+                    texto = "Time to taste and write down these fish! Which one should i start?",
+                    ehNarracao = false,
+                    posicao = PosicaoPersonagem.Centro
+                }
+            };
+
+            DialogoManager.Instance.IniciarSequenciaDialogo(falaInicial);
         }
     }
 
@@ -87,31 +98,31 @@ public class FishAnalyseManager : MonoBehaviour
 
         if (DialogoManager.Instance != null)
         {
-            DialogoManager.Instance.LimparDialogo();
+            List<LineDialogo> sequenciaFalas = new List<LineDialogo>();
 
             if (peixeAtualEhVenenoso)
             {
-                DialogoManager.Instance.AdicionarFala($"Ugh! The {peixeAtualNome} was super poisonous!", false);
-                DialogoManager.Instance.AdicionarFala("Gosh! I'm glad I was careful.., otherwise, I would definitely be dead..", false);
-                DialogoManager.Instance.AdicionarFala("Myke breathe a little, trying to not vomit again. He wrote down while coughing a lot.", true);
+                sequenciaFalas.Add(new LineDialogo { nomeQuemFala = "Myke", texto = $"Ugh! The {peixeAtualNome} was super poisonous!", ehNarracao = false, posicao = PosicaoPersonagem.Centro });
+                sequenciaFalas.Add(new LineDialogo { nomeQuemFala = "Myke", texto = "Gosh! I'm glad I was careful.., otherwise, I would definitely be dead..", ehNarracao = false, posicao = PosicaoPersonagem.Centro });
+                sequenciaFalas.Add(new LineDialogo { nomeQuemFala = "Narrador", texto = "Myke breathe a little, trying to not vomit again. He wrote down while coughing a lot.", ehNarracao = true, posicao = PosicaoPersonagem.Centro });
 
-                // Exibe essa fala intermediária só se ainda restarem peixes
                 if (peixesProcessados < totalPeixesNaMesa)
                 {
-                    DialogoManager.Instance.AdicionarFala("Okay, time to another one..", false);
+                    sequenciaFalas.Add(new LineDialogo { nomeQuemFala = "Myke", texto = "Okay, time to another one..", ehNarracao = false, posicao = PosicaoPersonagem.Centro });
                 }
             }
             else
             {
-                DialogoManager.Instance.AdicionarFala($"Mmmph! The {peixeAtualNome} is delicious and perfectly safe.", false);
-                DialogoManager.Instance.AdicionarFala("Myke finish tasting and wrote down about the fish.", true);
+                sequenciaFalas.Add(new LineDialogo { nomeQuemFala = "Myke", texto = $"Mmmph! The {peixeAtualNome} is delicious and perfectly safe.", ehNarracao = false, posicao = PosicaoPersonagem.Centro });
+                sequenciaFalas.Add(new LineDialogo { nomeQuemFala = "Narrador", texto = "Myke finish tasting and wrote down about the fish.", ehNarracao = true, posicao = PosicaoPersonagem.Centro });
 
-                // Exibe essa fala intermediária só se ainda restarem peixes
                 if (peixesProcessados < totalPeixesNaMesa)
                 {
-                    DialogoManager.Instance.AdicionarFala("Okay, I need to finish these fish..", false);
+                    sequenciaFalas.Add(new LineDialogo { nomeQuemFala = "Myke", texto = "Okay, I need to finish these fish..", ehNarracao = false, posicao = PosicaoPersonagem.Centro });
                 }
             }
+
+            DialogoManager.Instance.IniciarSequenciaDialogo(sequenciaFalas);
         }
 
         VerificarFimDaAnalise();
@@ -124,17 +135,19 @@ public class FishAnalyseManager : MonoBehaviour
 
         if (DialogoManager.Instance != null)
         {
-            DialogoManager.Instance.LimparDialogo();
+            List<LineDialogo> sequenciaFalas = new List<LineDialogo>()
+            {
+                new LineDialogo { nomeQuemFala = "Myke", texto = $"Ughh! {peixeAtualNome} definity not safe!-", ehNarracao = false, posicao = PosicaoPersonagem.Centro },
+                new LineDialogo { nomeQuemFala = "Narrador", texto = "Myke runs to an empty bucket and finish vomiting.", ehNarracao = true, posicao = PosicaoPersonagem.Centro },
+                new LineDialogo { nomeQuemFala = "Narrador", texto = "He wrote down, with a sickened face.", ehNarracao = true, posicao = PosicaoPersonagem.Centro }
+            };
 
-            DialogoManager.Instance.AdicionarFala($"Ughh! {peixeAtualNome} definity not safe!-", false);
-            DialogoManager.Instance.AdicionarFala("Myke runs to an empty bucket and finish vomiting.", true);
-            DialogoManager.Instance.AdicionarFala("He wrote down, with a sickened face.", true);
-
-            // Exibe essa fala intermediária só se ainda restarem peixes
             if (peixesProcessados < totalPeixesNaMesa)
             {
-                DialogoManager.Instance.AdicionarFala("Okay, Let me continue this..", false);
+                sequenciaFalas.Add(new LineDialogo { nomeQuemFala = "Myke", texto = "Okay, Let me continue this..", ehNarracao = false, posicao = PosicaoPersonagem.Centro });
             }
+
+            DialogoManager.Instance.IniciarSequenciaDialogo(sequenciaFalas);
         }
 
         VerificarFimDaAnalise();
@@ -144,10 +157,14 @@ public class FishAnalyseManager : MonoBehaviour
     {
         if (peixesProcessados >= totalPeixesNaMesa)
         {
-            // Adiciona a fala de encerramento quando todos os peixes forem analisados
             if (DialogoManager.Instance != null)
             {
-                DialogoManager.Instance.AdicionarFala("Alright! I've finished analyzing all the fish. Time to move on!", false);
+                List<LineDialogo> falaFinal = new List<LineDialogo>()
+                {
+                    new LineDialogo { nomeQuemFala = "Myke", texto = "Alright! I've finished analyzing all the fish. Time to move on!", ehNarracao = false, posicao = PosicaoPersonagem.Centro }
+                };
+
+                DialogoManager.Instance.IniciarSequenciaDialogo(falaFinal);
             }
 
             StartCoroutine(AguardarFimDosDialogosEAvancar());
@@ -156,10 +173,10 @@ public class FishAnalyseManager : MonoBehaviour
 
     IEnumerator AguardarFimDosDialogosEAvancar()
     {
-        // Espera o jogador terminar de ler todas as falas antes de mudar de cena
         yield return new WaitForSeconds(0.5f);
 
-        while (DialogoManager.Instance != null && DialogoManager.Instance.TemFalasPendentes())
+        // Aguarda enquanto o painel/caixa do DialogoManager estiver visível na tela
+        while (DialogoManager.Instance != null && DialogoManager.Instance.gameObject.activeInHierarchy)
         {
             yield return null;
         }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic; // Necessário para usar List
 using UnityEngine;
 
 public class PedraQuebravel : MonoBehaviour
@@ -9,12 +10,12 @@ public class PedraQuebravel : MonoBehaviour
 
     [Header("Visual")]
     [Tooltip("Arraste aqui o Sprite da pedra rachada.")]
-    public Sprite spriteRachado; // Sprite trocado no 1º clique
+    public Sprite spriteRachado;
 
     [Header("Sons")]
     public AudioSource audioSource;
-    public AudioClip somPancada;     // Som do 1º impacto
-    public AudioClip somQuebrar;     // Som do 2º impacto
+    public AudioClip somPancada;
+    public AudioClip somQuebrar;
 
     private SpriteRenderer spriteRenderer;
     private Collider2D colisor2D;
@@ -36,8 +37,19 @@ public class PedraQuebravel : MonoBehaviour
         {
             if (DialogoManager.Instance != null)
             {
-                DialogoManager.Instance.LimparDialogo();
-                DialogoManager.Instance.AdicionarFala("This rock is too hard! I need a pickaxe to break it.", false);
+                // Cria a fala usando a nova estrutura do DialogoManager
+                List<LineDialogo> falaSemPicareta = new List<LineDialogo>()
+                {
+                    new LineDialogo
+                    {
+                        nomeQuemFala = "Gatinho",
+                        texto = "This rock is too hard! I need a pickaxe to break it.",
+                        ehNarracao = false,
+                        posicao = PosicaoPersonagem.Centro
+                    }
+                };
+
+                DialogoManager.Instance.IniciarSequenciaDialogo(falaSemPicareta);
             }
             return;
         }
@@ -54,7 +66,6 @@ public class PedraQuebravel : MonoBehaviour
 
         if (toquesAtuais == 1)
         {
-            // 🔨 1º Clique: Troca a imagem do SpriteRenderer para a pedra rachada
             TocarSom(somPancada);
 
             if (spriteRachado != null && spriteRenderer != null)
@@ -66,7 +77,6 @@ public class PedraQuebravel : MonoBehaviour
         }
         else if (toquesAtuais >= toquesNecessarios)
         {
-            // 💥 2º Clique: Quebra a pedra
             StartCoroutine(QuebrarPedra());
         }
     }

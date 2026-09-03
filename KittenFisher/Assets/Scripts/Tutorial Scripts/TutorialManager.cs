@@ -5,6 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+public struct ExpressaoGatinho
+{
+    public string nomeExpressao;
+    public Sprite sprite;
+}
 
 public class TutorialManager : MonoBehaviour
 {
@@ -169,7 +175,6 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 8:
-                // Alterna a flag para indicar que agora usaremos o objeto do Gatinho Final
                 usarGatinhoFinal = true;
                 ExibirGatinhoAtual(true);
                 DefinirSpriteNormal();

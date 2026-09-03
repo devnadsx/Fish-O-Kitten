@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemPicareta : MonoBehaviour
@@ -22,7 +24,7 @@ public class ItemPicareta : MonoBehaviour
         }
 
         // 2. Toca o som de coleta
-        if (audioSource != null && somColeta != null)
+        if (somColeta != null)
         {
             AudioSource.PlayClipAtPoint(somColeta, transform.position);
         }
@@ -30,8 +32,18 @@ public class ItemPicareta : MonoBehaviour
         // 3. Inicia a fala do gatinho informando que achou a ferramenta
         if (DialogoManager.Instance != null)
         {
-            DialogoManager.Instance.LimparDialogo();
-            DialogoManager.Instance.AdicionarFala("Great! I found a pickaxe! Now I can break those big rocks in my way!", false);
+            List<LineDialogo> falaPicareta = new List<LineDialogo>()
+            {
+                new LineDialogo
+                {
+                    nomeQuemFala = "Myke",
+                    texto = "Great! I found a pickaxe! Now I can break those big rocks in my way!",
+                    ehNarracao = false,
+                    posicao = PosicaoPersonagem.Centro
+                }
+            };
+
+            DialogoManager.Instance.IniciarSequenciaDialogo(falaPicareta);
         }
 
         // 4. Desativa o item da tela
