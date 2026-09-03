@@ -289,7 +289,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 5600772223580213204, guid: 25aa12e0e475b494b944857e6d5d4913, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -316,14 +316,14 @@ RectTransform:
   m_GameObject: {fileID: 48322228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8625, y: 4.4, z: 1}
+  m_LocalScale: {x: 1.8625, y: 4.07, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1031518409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -246, y: 0}
+  m_AnchoredPosition: {x: -258, y: -47}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -408,7 +409,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 0.9858491, b: 0.9858491, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -433,7 +434,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8.528174
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -458,7 +459,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -3.1840954, y: -2.879857, z: -17.070398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -480,6 +481,38 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 2
+    CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  CustomBlends: {fileID: 0}
 --- !u!1 &536729366
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,22 +719,22 @@ MonoBehaviour:
     spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
     corFoco: {r: 0, g: 0, b: 0, a: 0}
   - nomePersonagem: Brandy
-    spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
-    spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
+    spriteBocaFechada: {fileID: 5600772223580213204, guid: 25aa12e0e475b494b944857e6d5d4913, type: 3}
+    spriteBocaAberta: {fileID: 7517225429614508252, guid: 4e4e79b3fe84c5c4e984a15d1c049ede, type: 3}
     corFoco: {r: 0, g: 0, b: 0, a: 0}
-  velocidadeEscrita: 0.03
-  alturaPuloLetra: 8
+  velocidadeEscrita: 0.07
+  alturaPuloLetra: 4
   corInativo: {r: 0.55, g: 0.55, b: 0.55, a: 1}
   audioSourceSFX: {fileID: 1031518405}
   somFalaPadrao: {fileID: 0}
   falasIniciais:
-  - nomeQuemFala: Myke
-    texto: Oi brandy eae
+  - nomeQuemFala: 
+    texto: 
     ehNarracao: 0
     posicao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Brandy
-    texto: Oi Myke rsrs
+  - nomeQuemFala: 
+    texto: 
     ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
@@ -965,7 +998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 310.00003, y: -31}
+  m_AnchoredPosition: {x: 310.00003, y: -15}
   m_SizeDelta: {x: 160, y: 413.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436648940
