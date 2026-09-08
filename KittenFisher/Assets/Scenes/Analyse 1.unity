@@ -1192,7 +1192,7 @@ MonoBehaviour:
   velocidadeEscrita: 0.07
   audioSource: {fileID: 71099157}
   somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  nomeCenaEntrevista: End
+  nomeCenaEntrevista: Fase2
 --- !u!1001 &582882935
 PrefabInstance:
   m_ObjectHideFlags: 0
