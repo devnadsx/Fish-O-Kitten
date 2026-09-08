@@ -340,7 +340,6 @@ GameObject:
   - component: {fileID: 519420030}
   - component: {fileID: 519420034}
   - component: {fileID: 519420035}
-  - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -482,39 +481,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
-  ShowDebugText: 0
-  ShowCameraFrustum: 1
-  IgnoreTimeScale: 0
-  WorldUpOverride: {fileID: 0}
-  ChannelMask: -1
-  UpdateMethod: 2
-  BlendUpdateMethod: 1
-  LensModeOverride:
-    Enabled: 0
-    DefaultMode: 2
-  DefaultBlend:
-    Style: 1
-    Time: 2
-    CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
---- !u!82 &519420036
+--- !u!82 &519420035
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -525,9 +492,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 5db58d7ba6bc9fa47b08fad767a1e593, type: 3}
+  m_Resource: {fileID: 8300000, guid: 59fee1135a58fe643a81323585142acf, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.735
+  m_Volume: 0.725
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -787,7 +754,6 @@ GameObject:
   - component: {fileID: 1031518406}
   - component: {fileID: 1031518405}
   - component: {fileID: 1031518404}
-  - component: {fileID: 1031518410}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -808,7 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogoManager
   painelBalaoFala: {fileID: 536729366}
-  textoNomePersonagem: {fileID: 1355338277}
+  textoNomePersonagem: {fileID: 0}
   textoBalao: {fileID: 2132858260}
   imagemEsquerda: {fileID: 48322229}
   imagemCentro: {fileID: 0}
@@ -828,69 +794,17 @@ MonoBehaviour:
     corFoco: {r: 0, g: 0, b: 0, a: 0}
   velocidadeEscrita: 0.07
   alturaPuloLetra: 4
-  corInativo: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  corInativo: {r: 0.55, g: 0.55, b: 0.55, a: 1}
   audioSourceSFX: {fileID: 1031518405}
   somFalaPadrao: {fileID: 0}
-  nomeProximaCena: End 1
+  nomeProximaCena: Menu
   falasIniciais:
   - nomeQuemFala: Narrador
-    texto: Welcome back to 'Cats & Flavors', the TV show where we interview the most
-      daring adventurous chefs of the kingdom!
-    ehNarracao: 1
-    posicao: 0
+    texto: They stayed there chatting a little longer until the end of the podcast.
+      Congratulations, you beat the game!
+    ehNarracao: 0
+    posicao: 2
     somFala: {fileID: 0}
-  - nomeQuemFala: Saky
-    texto: 'Tonight, we have a very special guest. He just survived the depths of
-      the ocean and tasted... questionable marine life. Please welcome: Myke!'
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Myke
-    texto: Hey Saky! Thanks for having me. Honestly, I'm just glad to be alive after
-      tasting some of those fish...
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Saky
-    texto: We heard you went out there completely unprepared, armed with just fishbowl
-      and a fishing net. Is that true?
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Myke
-    texto: Well... a real scientist has to test their ideas in the field! Even if
-      it means almost getting poisoned by a glowing toxic fish.
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Saky
-    texto: A true hero of science! Tell us, what was the absolute worst thing you
-      had to chew on today?
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Myke
-    texto: Definitely the Jixh. I was coughing for ten minutes straight into an empty
-      bucket! Zero stars, do not recommend.
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Saky
-    texto: Yikes! But you managed to log and catalog all the edible ones, right?
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Myke
-    texto: Every single one. The recipes are ready, and the kitchen is open!
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Saky
-    texto: That's what I like to hear! Thank you Myke, and thank you all for watching
-      'Cats & Flavors'! See you next season!
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
 --- !u!82 &1031518405
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1074,103 +988,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!82 &1031518410
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031518403}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 0.94
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1229351854
 GameObject:
   m_ObjectHideFlags: 0

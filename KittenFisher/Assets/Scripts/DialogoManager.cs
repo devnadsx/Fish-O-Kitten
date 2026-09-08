@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Adicionado para carregar a próxima cena
 using TMPro;
 
 public enum PosicaoPersonagem
@@ -27,7 +28,7 @@ public struct LineDialogo
     public string texto;
     public bool ehNarracao;
     public PosicaoPersonagem posicao;
-    public AudioClip somFala; // <--- Som personalizado para este personagem/fala
+    public AudioClip somFala;
 }
 
 public class DialogoManager : MonoBehaviour
@@ -53,6 +54,9 @@ public class DialogoManager : MonoBehaviour
     public Color corInativo = new Color(0.5f, 0.5f, 0.5f);
     public AudioSource audioSourceSFX;
     public AudioClip somFalaPadrao;
+
+    [Header("Transição de Cena Final")]
+    public string nomeProximaCena = "End"; // Digite aqui o nome da cena final no Inspector
 
     [Header("Falas Iniciais (Inspector)")]
     public List<LineDialogo> falasIniciais = new List<LineDialogo>();
@@ -82,6 +86,15 @@ public class DialogoManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        // Aceita o clique com Espaço ou Enter além do botão na UI
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        {
+            AvancarTexto();
+        }
+    }
+
     public void IniciarSequenciaDialogo(List<LineDialogo> listaFalas)
     {
         LimparDialogo();
@@ -94,24 +107,28 @@ public class DialogoManager : MonoBehaviour
         ExibirProximaFrase();
     }
 
+    // Função que deve ser associada ao evento OnClick() do seu Botão
     public void AvancarTexto()
     {
         if (Time.time - tempoUltimoClique < intervaloMinimoClique) return;
         tempoUltimoClique = Time.time;
 
+        // 1. Se o texto ainda está sendo digitado na tela, completa a frase na hora
         if (estaEscrevendo)
         {
             CompletarTextoImediatamente();
             return;
         }
 
+        // 2. Se ainda existem falas na fila, avança para a próxima
         if (filaFalas.Count > 0)
         {
             ExibirProximaFrase();
         }
+        // 3. Se NÃO tem mais falas disponíveis, fecha o diálogo e troca para a próxima cena
         else
         {
-            FecharDialogo();
+            FinalizarEDevolverCena();
         }
     }
 
@@ -130,7 +147,6 @@ public class DialogoManager : MonoBehaviour
             textoNomePersonagem.text = falaAtual.ehNarracao ? "" : falaAtual.nomeQuemFala;
         }
 
-        // Busca as configurações do personagem na lista
         personagemAtivoAtual = ObterDadosPersonagem(falaAtual.nomeQuemFala);
         imagemAtivaAtual = ObterSlotImagem(falaAtual.posicao);
 
@@ -145,7 +161,6 @@ public class DialogoManager : MonoBehaviour
         estaEscrevendo = true;
         if (textoBalao != null) textoBalao.text = "";
 
-        // Guarda a posição original do slot de imagem do personagem
         Vector3 posOriginalPersonagem = Vector3.zero;
         RectTransform rectPersonagem = null;
 
@@ -161,19 +176,16 @@ public class DialogoManager : MonoBehaviour
 
             if (char.IsLetterOrDigit(letra))
             {
-                // 1. Faz o personagem pular subindo a posição Y da imagem dele
                 if (rectPersonagem != null)
                 {
                     rectPersonagem.anchoredPosition = posOriginalPersonagem + new Vector3(0, alturaPuloLetra, 0);
                 }
 
-                // 2. Troca para a boca aberta
                 if (imagemAtivaAtual != null && personagemAtivoAtual.spriteBocaAberta != null)
                 {
                     imagemAtivaAtual.sprite = personagemAtivoAtual.spriteBocaAberta;
                 }
 
-                // 3. Toca o som de fala
                 AudioClip clipParaTocar = linhaAtual.somFala != null ? linhaAtual.somFala : somFalaPadrao;
                 if (audioSourceSFX != null && clipParaTocar != null)
                 {
@@ -183,7 +195,6 @@ public class DialogoManager : MonoBehaviour
 
             yield return new WaitForSeconds(velocidadeEscrita);
 
-            // Volta a imagem do personagem para a altura normal e fecha a boca
             if (rectPersonagem != null)
             {
                 rectPersonagem.anchoredPosition = posOriginalPersonagem;
@@ -191,7 +202,6 @@ public class DialogoManager : MonoBehaviour
             RestaurarSpriteBocaFechada();
         }
 
-        // Garante que o personagem volte à posição original ao terminar
         if (rectPersonagem != null)
         {
             rectPersonagem.anchoredPosition = posOriginalPersonagem;
@@ -207,6 +217,17 @@ public class DialogoManager : MonoBehaviour
 
         RestaurarSpriteBocaFechada();
         estaEscrevendo = false;
+    }
+
+    private void FinalizarEDevolverCena()
+    {
+        FecharDialogo();
+
+        // Verifica se o nome da cena foi digitado no Inspector e carrega a nova cena
+        if (!string.IsNullOrEmpty(nomeProximaCena))
+        {
+            SceneManager.LoadScene(nomeProximaCena);
+        }
     }
 
     private DadosPersonagem ObterDadosPersonagem(string nome)
@@ -245,7 +266,6 @@ public class DialogoManager : MonoBehaviour
             }
             else if (slot.gameObject.activeSelf)
             {
-                // Escurece os outros personagens que estão na tela mas não estão falando
                 slot.color = corInativo;
             }
         }

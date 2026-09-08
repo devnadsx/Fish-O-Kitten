@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class SkillCheckManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class SkillCheckManager : MonoBehaviour
     public RectTransform barraFundo;
     public RectTransform zonaDeAcerto;
     public RectTransform ponteiro;
+
+    [Header("Referência da UI")]
+    public MonoBehaviour uiManager;
 
     [Header("Configuração de Movimento")]
     public float velocidade = 600f;
@@ -26,6 +30,8 @@ public class SkillCheckManager : MonoBehaviour
     private float limiteEsquerda;
     private float limiteDireita;
 
+    private string nomePeixeAtual = "";
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -40,7 +46,6 @@ public class SkillCheckManager : MonoBehaviour
     {
         if (!jogoAtivo) return;
 
-        // Movimentação da agulha/ponteiro
         float deslocamento = velocidade * Time.deltaTime;
 
         if (movendoParaDireita)
@@ -56,7 +61,6 @@ public class SkillCheckManager : MonoBehaviour
                 movendoParaDireita = true;
         }
 
-        // Pressionar Espaço para validar a tentativa
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ValidarClique();
@@ -73,9 +77,10 @@ public class SkillCheckManager : MonoBehaviour
         }
     }
 
-    public void IniciarSequenciaSkillCheck()
+    public void IniciarSequenciaSkillCheck(string nomePeixe)
     {
-        // Troca a música normal pela música tensa
+        nomePeixeAtual = nomePeixe;
+
         if (musicaPrincipal != null && musicaPrincipal.isPlaying)
         {
             musicaPrincipal.Pause();
@@ -88,17 +93,14 @@ public class SkillCheckManager : MonoBehaviour
             audioSourceSFX.Play();
         }
 
-        // Prepara e ativa a interface
         AtualizarLimites();
         if (painelSkillCheck != null) painelSkillCheck.SetActive(true);
 
-        // Posiciona o ponteiro no início
         if (ponteiro != null)
             ponteiro.anchoredPosition = new Vector2(limiteEsquerda, ponteiro.anchoredPosition.y);
 
         movendoParaDireita = true;
 
-        // Sortia a posição da Zona Amarela/Verde de acerto
         if (zonaDeAcerto != null)
         {
             float metadeZona = zonaDeAcerto.rect.width / 2f;
@@ -117,7 +119,6 @@ public class SkillCheckManager : MonoBehaviour
         float zonaInicioX = zonaDeAcerto.anchoredPosition.x - (zonaDeAcerto.rect.width / 2f);
         float zonaFimX = zonaDeAcerto.anchoredPosition.x + (zonaDeAcerto.rect.width / 2f);
 
-        // Checa se acertou dentro da zona
         if (posPonteiroX >= zonaInicioX && posPonteiroX <= zonaFimX)
         {
             TocarSFX(somAcerto);
@@ -136,13 +137,12 @@ public class SkillCheckManager : MonoBehaviour
 
         RestaurarMusicaPrincipal();
 
-        // Notifica o FishAnalyseManager do resultado
-        if (FishAnalyseManager.Instance != null)
+        if (GerenciadorAnalisePeixes.Instance != null)
         {
             if (sucesso)
-                FishAnalyseManager.Instance.OnSkillCheckSucesso();
+                GerenciadorAnalisePeixes.Instance.OnSkillCheckSucesso();
             else
-                FishAnalyseManager.Instance.OnSkillCheckFalha();
+                GerenciadorAnalisePeixes.Instance.OnSkillCheckFalha();
         }
     }
 
