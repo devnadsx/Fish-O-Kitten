@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 127440502}
   - component: {fileID: 127440501}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,16 +145,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127440499}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.21126708, y: 0.19590108, z: 0.19590108}
+  m_LocalScale: {x: 0.4866987, y: 0.45129982, z: 0.45129982}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 344716167}
+  m_Father: {fileID: 445773189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 210, y: 126}
+  m_AnchoredPosition: {x: 483.76752, y: 290.26422}
   m_SizeDelta: {x: 1891.8, y: 1063.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &127440501
@@ -305,11 +305,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 445773189}
-  - {fileID: 1278136059}
-  - {fileID: 127440500}
-  - {fileID: 1592053318}
-  - {fileID: 1337538970}
-  - {fileID: 1445833664}
   - {fileID: 1251841180}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -410,7 +405,7 @@ GameObject:
   - component: {fileID: 445773190}
   - component: {fileID: 445773192}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +422,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.43408188, y: 0.43408188, z: 0.43408188}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1592053318}
+  - {fileID: 1337538970}
+  - {fileID: 1445833664}
+  - {fileID: 1278136059}
+  - {fileID: 127440500}
   m_Father: {fileID: 344716167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1157,7 +1157,7 @@ GameObject:
   - component: {fileID: 1278136061}
   - component: {fileID: 1278136060}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Myke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1170,16 +1170,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278136058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.26460016, y: 0.41710368, z: 0.41710368}
+  m_LocalScale: {x: 0.60956275, y: 0.9608871, z: 0.9608871}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 344716167}
+  m_Father: {fileID: 445773189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -160, y: -8}
+  m_AnchoredPosition: {x: -368.6062, y: -18.433258}
   m_SizeDelta: {x: 1891.8, y: 1063.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278136060
@@ -1250,8 +1250,9 @@ GameObject:
   - component: {fileID: 1337538972}
   - component: {fileID: 1337538971}
   - component: {fileID: 1337538976}
+  - component: {fileID: 1337538977}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1264,16 +1265,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337538969}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7737438, y: 1.9343592, z: 1.9343592}
+  m_LocalScale: {x: 1.7824835, y: 4.456208, z: 4.456208}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 344716167}
+  m_Father: {fileID: 445773189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 279.9, y: -92.8}
+  m_AnchoredPosition: {x: 644.797, y: -213.7881}
   m_SizeDelta: {x: 216.36, y: 28.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1337538971
@@ -1497,6 +1498,21 @@ MonoBehaviour:
   aumento: 1.08
   inclinacao: 2
   velocidade: 12
+--- !u!114 &1337538977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337538969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abf5cd00532dd04ab52698c04e48701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TituloAnimado
+  movimento: 2
+  escala: 0.01
+  velocidade: 1.5
 --- !u!1 &1415557433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,8 +1572,9 @@ GameObject:
   - component: {fileID: 1445833666}
   - component: {fileID: 1445833665}
   - component: {fileID: 1445833670}
+  - component: {fileID: 1445833671}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1570,16 +1587,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445833663}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7737438, y: 1.9343592, z: 1.9343592}
+  m_LocalScale: {x: 1.7824835, y: 4.456208, z: 4.456208}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 344716167}
+  m_Father: {fileID: 445773189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 220.8, y: -161.6}
+  m_AnchoredPosition: {x: 508.64764, y: -372.2835}
   m_SizeDelta: {x: 216.36, y: 28.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445833665
@@ -1803,6 +1820,21 @@ MonoBehaviour:
   aumento: 1.08
   inclinacao: 2
   velocidade: 12
+--- !u!114 &1445833671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445833663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abf5cd00532dd04ab52698c04e48701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TituloAnimado
+  movimento: 2
+  escala: 0.01
+  velocidade: 1.5
 --- !u!1 &1592053317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,8 +1850,9 @@ GameObject:
   - component: {fileID: 1592053323}
   - component: {fileID: 1592053322}
   - component: {fileID: 1592053324}
+  - component: {fileID: 1592053325}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1832,16 +1865,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592053317}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7737438, y: 1.9343592, z: 1.9343592}
+  m_LocalScale: {x: 1.7824835, y: 4.456208, z: 4.456208}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 344716167}
+  m_Father: {fileID: 445773189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 214, y: -24}
+  m_AnchoredPosition: {x: 492.98236, y: -55.292664}
   m_SizeDelta: {x: 216.36, y: 28.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1592053319
@@ -2065,6 +2098,21 @@ MonoBehaviour:
   aumento: 1.08
   inclinacao: 2
   velocidade: 12
+--- !u!114 &1592053325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592053317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abf5cd00532dd04ab52698c04e48701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TituloAnimado
+  movimento: 2
+  escala: 0.01
+  velocidade: 1.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

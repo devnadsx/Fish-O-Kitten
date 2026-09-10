@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GerenciadorAnalisePeixes
   uiManager: {fileID: 572010381}
-  totalPeixesNaMesa: 10
+  totalPeixesNaMesa: 20
 --- !u!1001 &105021934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1341,6 +1341,7 @@ GameObject:
   - component: {fileID: 572010382}
   - component: {fileID: 572010381}
   - component: {fileID: 572010384}
+  - component: {fileID: 572010385}
   m_Layer: 5
   m_Name: GatinhoVN
   m_TagString: Untagged
@@ -1428,6 +1429,21 @@ MonoBehaviour:
   audioSource: {fileID: 71099157}
   somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   nomeCenaEntrevista: End
+--- !u!114 &572010385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572010380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abf5cd00532dd04ab52698c04e48701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TituloAnimado
+  movimento: 4
+  escala: 0.02
+  velocidade: 1
 --- !u!1001 &582882935
 PrefabInstance:
   m_ObjectHideFlags: 0
