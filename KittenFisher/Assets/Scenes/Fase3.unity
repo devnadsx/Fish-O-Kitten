@@ -6183,6 +6183,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1140816382}
   - component: {fileID: 1140816383}
+  - component: {fileID: 1140816385}
+  - component: {fileID: 1140816384}
   m_Layer: 0
   m_Name: pedras (2)
   m_TagString: Untagged
@@ -6263,6 +6265,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1140816384
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140816381}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.091996014, y: 0.19071132}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.46, y: 2.42}
+    newSize: {x: 4.3, y: 3.39}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.8245163, y: 1.7842945}
+  m_EdgeRadius: 0
+--- !u!114 &1140816385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140816381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336ebdc14c7f275439faa4b339503bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
+  toquesNecessarios: 2
+  spriteRachado: {fileID: 0}
+  audioSource: {fileID: 0}
+  somPancada: {fileID: 0}
+  somQuebrar: {fileID: 0}
 --- !u!1 &1151332812
 GameObject:
   m_ObjectHideFlags: 0
@@ -14092,6 +14157,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1605057290}
   - component: {fileID: 1605057291}
+  - component: {fileID: 1605057293}
+  - component: {fileID: 1605057292}
   m_Layer: 0
   m_Name: pedras (1)
   m_TagString: Untagged
@@ -14172,6 +14239,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1605057292
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605057289}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.115502715, y: -0.07058656}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.3, y: 3.39}
+    newSize: {x: 4.3, y: 3.39}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.9005196, y: 2.6178076}
+  m_EdgeRadius: 0
+--- !u!114 &1605057293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605057289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336ebdc14c7f275439faa4b339503bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
+  toquesNecessarios: 2
+  spriteRachado: {fileID: 0}
+  audioSource: {fileID: 0}
+  somPancada: {fileID: 0}
+  somQuebrar: {fileID: 0}
 --- !u!1 &1609307381
 GameObject:
   m_ObjectHideFlags: 0
@@ -16567,6 +16697,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2098507061}
   - component: {fileID: 2098507062}
+  - component: {fileID: 2098507064}
+  - component: {fileID: 2098507063}
   m_Layer: 0
   m_Name: pedras
   m_TagString: Untagged
@@ -16647,6 +16779,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2098507063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098507060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336ebdc14c7f275439faa4b339503bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
+  toquesNecessarios: 2
+  spriteRachado: {fileID: 0}
+  audioSource: {fileID: 0}
+  somPancada: {fileID: 0}
+  somQuebrar: {fileID: 0}
+--- !u!61 &2098507064
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098507060}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.41909337, y: -0.22062755}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.3, y: 3.39}
+    newSize: {x: 4.3, y: 3.39}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.296533, y: 2.3205187}
+  m_EdgeRadius: 0
 --- !u!1 &2102220364
 GameObject:
   m_ObjectHideFlags: 0
