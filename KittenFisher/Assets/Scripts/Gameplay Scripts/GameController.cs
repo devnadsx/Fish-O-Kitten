@@ -1,4 +1,5 @@
-using System.Collections;
+Ôªøusing System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -7,7 +8,7 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
     public int foundedFish;
-    [Tooltip("Defina a quantidade de peixes necess·rios no Inspector")]
+    [Tooltip("Defina a quantidade de peixes necess√°rios no Inspector")]
     public int FishNumber = 3;
     public UnityEvent OnVictory;
 
@@ -18,22 +19,28 @@ public class GameController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip somColetaPeixe;
 
-    [Header("M˙sica de Tens„o (Fase 3)")]
-    public AudioSource audioSourceMusicaFundo; // Componente que toca a m˙sica principal
-    public AudioClip musicaTensa;              // Troca para essa m˙sica ao iniciar o timer
+    [Header("M√∫sica de Tens√£o (Fase 3)")]
+    public AudioSource audioSourceMusicaFundo; // Componente que toca a m√∫sica principal
+    public AudioClip musicaTensa;              // Troca para essa m√∫sica ao iniciar o timer
 
-    [Header("ConfiguraÁıes da Fase 3 (Timer)")]
+    [Header("Configura√ß√µes da Fase 3 (Timer)")]
     public string nomeCenaFase3 = "Game3";
     public string nomeCenaGameOver = "GameOver";
     public TextMeshProUGUI textoTimerUI;
     public float tempoLimite = 60f;
 
-    [Header("Di·logo de Alerta de OxigÍnio")]
-    public SceneIntroDialogue scriptDialogoAlerta; // Arraste o componente de di·logo aqui
+    [Header("Di√°logo de Alerta de Oxig√™nio")]
+    public SceneIntroDialogue scriptDialogoAlerta; // Arraste o componente de di√°logo aqui
+
+    [Header("Efeito Vis√£o Catnip / Ba√∫")]
+    public GameObject auraPeixePrefab; // Arraste o Prefab da Aura no Inspector
 
     private bool timerAtivo = false;
     private bool estaNaTerceiraFase = false;
     private bool alertaDisparado = false;
+
+    // Guardar√° as auras criadas para poder destru√≠-las depois
+    private List<GameObject> aurasInstanciadas = new List<GameObject>();
 
     void Start()
     {
@@ -111,36 +118,36 @@ public class GameController : MonoBehaviour
             AtualizarTextoTimer();
         }
 
-        // 2. Chama o di·logo do gato
+        // 2. Chama o di√°logo do gato
         if (scriptDialogoAlerta != null)
         {
-            // Limpa falas antigas e insere a fala de emergÍncia
+            // Limpa falas antigas e insere a fala de emerg√™ncia
             scriptDialogoAlerta.falasDoGato.Clear();
             scriptDialogoAlerta.falasDoGato.Add("Oh no! My oxygen tank is running low, I need to hurry up!");
 
-            // Inicia o di·logo na tela
+            // Inicia o di√°logo na tela
             scriptDialogoAlerta.gameObject.SetActive(true);
             scriptDialogoAlerta.IniciarNovoDialogoExterno();
 
-            // Inicia Coroutine que espera a fala fechar para rodar o timer e a m˙sica
+            // Inicia Coroutine que espera a fala fechar para rodar o timer e a m√∫sica
             StartCoroutine(AguardarFimDoDialogoEIniciarTimer());
         }
         else
         {
-            // Caso n„o tenha script de di·logo atribuÌdo, inicia o timer direto
+            // Caso n√£o tenha script de di√°logo atribu√≠do, inicia o timer direto
             IniciarTimerEMusica();
         }
     }
 
     IEnumerator AguardarFimDoDialogoEIniciarTimer()
     {
-        // Aguarda enquanto a janela de di·logo estiver visÌvel/ativa
+        // Aguarda enquanto a janela de di√°logo estiver vis√≠vel/ativa
         while (scriptDialogoAlerta != null && scriptDialogoAlerta.painelBalaoFala.activeSelf)
         {
             yield return null;
         }
 
-        // ComeÁa a contagem e troca a m˙sica assim que o jogador fechar o bal„o de fala
+        // Come√ßa a contagem e troca a m√∫sica assim que o jogador fechar o bal√£o de fala
         IniciarTimerEMusica();
     }
 
@@ -148,7 +155,7 @@ public class GameController : MonoBehaviour
     {
         timerAtivo = true;
 
-        // Troca a trilha sonora para a vers„o tensa
+        // Troca a trilha sonora para a vers√£o tensa
         if (audioSourceMusicaFundo != null && musicaTensa != null)
         {
             audioSourceMusicaFundo.Stop();
@@ -169,5 +176,54 @@ public class GameController : MonoBehaviour
     void CarregarGameOver()
     {
         SceneManager.LoadScene(nomeCenaGameOver);
+    }
+
+    // -----------------------------------------------------------
+    // üê± SISTEMA DE REVELAR PEIXES (VIS√ÉO CATNIP DO BA√ö)
+    // -----------------------------------------------------------
+
+    /// <summary>
+    /// Encontra todos os peixes com a Tag "Peixe" ativos no cen√°rio e coloca o prefab de aura neles.
+    /// </summary>
+    public void RevelarPeixesRestantes()
+    {
+        aurasInstanciadas.Clear();
+
+        // Procura todos os GameObjects na cena com a Tag "Peixe"
+        GameObject[] peixesNaCena = GameObject.FindGameObjectsWithTag("Peixe");
+
+        foreach (GameObject peixe in peixesNaCena)
+        {
+            if (peixe != null && auraPeixePrefab != null)
+            {
+                // Instancia o prefab da aura e torna ele FILHO do peixe (para acompanhar se o peixe se mover)
+                GameObject aura = Instantiate(auraPeixePrefab, peixe.transform.position, Quaternion.identity, peixe.transform);
+                aurasInstanciadas.Add(aura);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Remove o efeito de ilumina√ß√£o/aura dos peixes restantes.
+    /// </summary>
+    public void EsconderAuraPeixes(float tempoFade)
+    {
+        foreach (GameObject auraObj in aurasInstanciadas)
+        {
+            if (auraObj != null)
+            {
+                EfeitoAura auraScript = auraObj.GetComponent<EfeitoAura>();
+                if (auraScript != null)
+                {
+                    auraScript.DestruirComFade(tempoFade);
+                }
+                else
+                {
+                    Destroy(auraObj);
+                }
+            }
+        }
+
+        aurasInstanciadas.Clear();
     }
 }

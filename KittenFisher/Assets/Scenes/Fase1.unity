@@ -897,6 +897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -2900,6 +2904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -3106,6 +3114,7 @@ MonoBehaviour:
   textoTimerUI: {fileID: 0}
   tempoLimite: 60
   scriptDialogoAlerta: {fileID: 0}
+  auraPeixePrefab: {fileID: 951689331282238978, guid: 935aa5c72d165d7479a7bbbba2e21bd6, type: 3}
 --- !u!82 &826934058
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4409,6 +4418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 4125107082899399930, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: gameController
       value: 
@@ -5628,6 +5641,10 @@ PrefabInstance:
     - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
@@ -11365,6 +11382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8479804016778410989, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12024,6 +12045,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -12520,6 +12545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 4125107082899399930, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: gameController
       value: 
@@ -12947,6 +12976,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -12987,6 +13020,10 @@ PrefabInstance:
     - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     - target: {fileID: 4125107082899399930, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: gameController
@@ -13113,6 +13150,10 @@ PrefabInstance:
     - target: {fileID: 8479804016778410989, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479804016778410989, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

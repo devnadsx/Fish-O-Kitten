@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ItemPicareta : MonoBehaviour
 {
-    [Header("Efeitos Sonoros")]
-    public AudioSource audioSource;
-    public AudioClip somColeta;
+    [Header("Referência ao Diálogo")]
+    public SceneIntroDialogue scriptDialogo; // Arraste o objeto com o SceneIntroDialogue no Inspector
 
     void OnMouseDown()
     {
@@ -23,30 +22,23 @@ public class ItemPicareta : MonoBehaviour
             GerenciadorInventario.Instance.temPicareta = true;
         }
 
-        // 2. Toca o som de coleta
-        if (somColeta != null)
+        // 2. Busca usando a sintaxe atualizada da Unity (elimina o aviso CS0618)
+        if (scriptDialogo == null)
         {
-            AudioSource.PlayClipAtPoint(somColeta, transform.position);
+            scriptDialogo = FindFirstObjectByType<SceneIntroDialogue>();
         }
 
-        // 3. Inicia a fala do gatinho informando que achou a ferramenta
-        if (DialogoManager.Instance != null)
+        // 3. Injeta a fala e ativa o diálogo
+        if (scriptDialogo != null)
         {
-            List<LineDialogo> falaPicareta = new List<LineDialogo>()
-            {
-                new LineDialogo
-                {
-                    nomeQuemFala = "Myke",
-                    texto = "Great! I found a pickaxe! Now I can break those big rocks in my way!",
-                    ehNarracao = false,
-                    posicao = PosicaoPersonagem.Centro
-                }
-            };
+            scriptDialogo.falasDoGato.Clear();
+            scriptDialogo.falasDoGato.Add("Great! I found a pickaxe! Now I can break those big rocks in my way!");
 
-            DialogoManager.Instance.IniciarSequenciaDialogo(falaPicareta);
+            scriptDialogo.gameObject.SetActive(true);
+            scriptDialogo.IniciarNovoDialogoExterno();
         }
 
-        // 4. Desativa o item da tela
+        // 4. Desativa a picareta do cenário
         gameObject.SetActive(false);
     }
 }

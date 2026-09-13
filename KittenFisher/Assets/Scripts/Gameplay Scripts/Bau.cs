@@ -19,10 +19,10 @@ public class Bau : MonoBehaviour
     public float opacidadeMaxima = 0.6f;
 
     [Header("Audio & Musica")]
-    public AudioSource musicaPrincipal;  // Arraste o AudioSource da música de fundo
-    public AudioSource audioSourceSFX;    // AudioSource para tocar os efeitos do Baú
-    public AudioClip somAbrirBau;        // Som ao clicar/abrir o baú
-    public AudioClip musicaCatnip;       // Música divertida durante o efeito
+    public AudioSource musicaPrincipal;
+    public AudioSource audioSourceSFX;
+    public AudioClip somAbrirBau;
+    public AudioClip musicaCatnip;
 
     private bool jaAberto = false;
 
@@ -37,7 +37,6 @@ public class Bau : MonoBehaviour
     void AbrirBau()
     {
         jaAberto = true;
-        Debug.Log("Catnip encontrado! Ativando efeitos...");
 
         // 🔊 1. Toca o som de abertura do baú
         if (audioSourceSFX != null && somAbrirBau != null)
@@ -54,7 +53,13 @@ public class Bau : MonoBehaviour
             }
         }
 
-        // 3. Ativa o efeito visual e a troca de música
+        // 🔍 3. Comunica com o GameController para revelar os peixes restantes em cena
+        if (gameController != null)
+        {
+            gameController.RevelarPeixesRestantes();
+        }
+
+        // 4. Ativa o efeito visual e a troca de música
         if (imagemEfeitoTela != null)
         {
             StartCoroutine(EfeitoCatnipVisual());
@@ -110,6 +115,12 @@ public class Bau : MonoBehaviour
         }
 
         imagemEfeitoTela.gameObject.SetActive(false);
+
+        // 🔍 Remove a aura dos peixes
+        if (gameController != null)
+        {
+            gameController.EsconderAuraPeixes(1f / velocidadeFade);
+        }
 
         // 🐱 Volta a expressão normal do gato
         if (iconManager != null)

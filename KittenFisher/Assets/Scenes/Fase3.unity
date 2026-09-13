@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -362,7 +366,6 @@ GameObject:
   - component: {fileID: 71099152}
   - component: {fileID: 71099156}
   - component: {fileID: 71099157}
-  - component: {fileID: 71099158}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -593,37 +596,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &71099158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71099151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dcd408145778f04eaec33ae12e961c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogoManager
-  painelBalaoFala: {fileID: 0}
-  textoNomePersonagem: {fileID: 0}
-  textoBalao: {fileID: 0}
-  imagemEsquerda: {fileID: 0}
-  imagemCentro: {fileID: 0}
-  imagemDireita: {fileID: 0}
-  listaPersonagens: []
-  velocidadeEscrita: 0.03
-  alturaPuloLetra: 8
-  corInativo: {r: 0.55, g: 0.55, b: 0.55, a: 1}
-  audioSourceSFX: {fileID: 71099157}
-  somFalaPadrao: {fileID: 0}
-  nomeProximaCena: End
-  falasIniciais:
-  - nomeQuemFala: 
-    texto: 
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 0}
 --- !u!1 &92590368
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,9 +830,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3741058384966335658, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 7.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741058384966335658, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4.17
+      objectReference: {fileID: 0}
     - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
@@ -1036,8 +1020,8 @@ MonoBehaviour:
   toquesNecessarios: 2
   spriteRachado: {fileID: 8670117088969469661, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
   audioSource: {fileID: 519420033}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!1001 &214353635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1089,6 +1073,10 @@ PrefabInstance:
     - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
@@ -1269,9 +1257,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
   toquesNecessarios: 2
   spriteRachado: {fileID: -6285649870596336600, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
-  audioSource: {fileID: 0}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  audioSource: {fileID: 519420033}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!1 &249278235
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,8 +2370,8 @@ MonoBehaviour:
   toquesNecessarios: 2
   spriteRachado: {fileID: -8989640668172429792, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
   audioSource: {fileID: 519420033}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!4 &329073576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3263774276397628451, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
@@ -2440,6 +2428,10 @@ PrefabInstance:
     - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
@@ -2641,6 +2633,10 @@ PrefabInstance:
     - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     - target: {fileID: 4125107082899399930, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: gameController
@@ -3645,6 +3641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -3862,8 +3862,8 @@ MonoBehaviour:
   toquesNecessarios: 2
   spriteRachado: {fileID: 7422176819706547434, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
   audioSource: {fileID: 519420033}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!61 &621842308
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4068,8 +4068,8 @@ MonoBehaviour:
   toquesNecessarios: 2
   spriteRachado: {fileID: -8989640668172429792, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
   audioSource: {fileID: 519420033}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!1 &686439566
 GameObject:
   m_ObjectHideFlags: 0
@@ -4372,6 +4372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -4510,6 +4514,7 @@ MonoBehaviour:
   textoTimerUI: {fileID: 1053009541}
   tempoLimite: 60
   scriptDialogoAlerta: {fileID: 71099156}
+  auraPeixePrefab: {fileID: 951689331282238978, guid: 935aa5c72d165d7479a7bbbba2e21bd6, type: 3}
 --- !u!82 &826934058
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4620,7 +4625,7 @@ GameObject:
   - component: {fileID: 837998172}
   - component: {fileID: 837998171}
   m_Layer: 0
-  m_Name: baixador de png (15)_0
+  m_Name: pedra caverna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4686,9 +4691,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
   toquesNecessarios: 6
   spriteRachado: {fileID: 0}
-  audioSource: {fileID: 0}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  audioSource: {fileID: 519420033}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!212 &837998173
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4930,7 +4935,7 @@ GameObject:
   - component: {fileID: 843960859}
   - component: {fileID: 843960858}
   m_Layer: 0
-  m_Name: baixador de png (15)_0 (1)
+  m_Name: pedra caverna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4996,9 +5001,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
   toquesNecessarios: 6
   spriteRachado: {fileID: 0}
-  audioSource: {fileID: 0}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  audioSource: {fileID: 519420033}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!212 &843960860
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5614,7 +5619,7 @@ GameObject:
   - component: {fileID: 949744638}
   - component: {fileID: 949744637}
   m_Layer: 0
-  m_Name: baixador de png (15)_1 (1)
+  m_Name: pedra caverna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5632,11 +5637,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336ebdc14c7f275439faa4b339503bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
-  toquesNecessarios: 6
+  toquesNecessarios: 5
   spriteRachado: {fileID: 0}
-  audioSource: {fileID: 0}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  audioSource: {fileID: 519420033}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!61 &949744638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5992,6 +5997,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -6324,10 +6333,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
   toquesNecessarios: 2
-  spriteRachado: {fileID: 0}
-  audioSource: {fileID: 0}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  spriteRachado: {fileID: -8009454904708308030, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+  audioSource: {fileID: 519420033}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!1 &1151332812
 GameObject:
   m_ObjectHideFlags: 0
@@ -6341,7 +6350,7 @@ GameObject:
   - component: {fileID: 1151332814}
   - component: {fileID: 1151332813}
   m_Layer: 0
-  m_Name: baixador de png (15)_1
+  m_Name: pedra caverna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6361,9 +6370,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
   toquesNecessarios: 6
   spriteRachado: {fileID: 0}
-  audioSource: {fileID: 0}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  audioSource: {fileID: 519420033}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!61 &1151332814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6876,9 +6885,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
   toquesNecessarios: 2
   spriteRachado: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
-  audioSource: {fileID: 0}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  audioSource: {fileID: 519420033}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!61 &1214024628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7350,8 +7359,8 @@ MonoBehaviour:
   toquesNecessarios: 2
   spriteRachado: {fileID: -6285649870596336600, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
   audioSource: {fileID: 519420033}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!61 &1373776647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8496,6 +8505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 4125107082899399930, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: gameController
       value: 
@@ -8765,6 +8778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -8857,6 +8874,10 @@ PrefabInstance:
     - target: {fileID: 8479804016778410989, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479804016778410989, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14298,10 +14319,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
   toquesNecessarios: 2
-  spriteRachado: {fileID: 0}
-  audioSource: {fileID: 0}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  spriteRachado: {fileID: 7422176819706547434, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+  audioSource: {fileID: 519420033}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!1 &1609307381
 GameObject:
   m_ObjectHideFlags: 0
@@ -14991,8 +15012,8 @@ MonoBehaviour:
   toquesNecessarios: 2
   spriteRachado: {fileID: -8009454904708308030, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
   audioSource: {fileID: 519420033}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!1001 &1725902775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15044,6 +15065,10 @@ PrefabInstance:
     - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
@@ -15261,6 +15286,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 826934056}
     m_Modifications:
+    - target: {fileID: 26443915988722813, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 26443915988722813, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.17
+      objectReference: {fileID: 0}
     - target: {fileID: 2232759810517673204, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.81
@@ -15320,6 +15353,10 @@ PrefabInstance:
     - target: {fileID: 8479804016778410989, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479804016778410989, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15980,6 +16017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -16337,8 +16378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8acb76b0df11ec47af601acf550a262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPicareta
-  audioSource: {fileID: 0}
-  somColeta: {fileID: 0}
+  scriptDialogo: {fileID: 71099156}
 --- !u!212 &1965259977
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16547,6 +16587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 4125107082899399930, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: gameController
       value: 
@@ -16633,10 +16677,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 4125107082899399930, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: gameController
       value: 
       objectReference: {fileID: 826934057}
+    - target: {fileID: 5563080136518176604, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 5563080136518176604, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.06
+      objectReference: {fileID: 0}
     - target: {fileID: 6022911695945748437, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.98
@@ -16792,10 +16848,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
   toquesNecessarios: 2
-  spriteRachado: {fileID: 0}
-  audioSource: {fileID: 0}
-  somPancada: {fileID: 0}
-  somQuebrar: {fileID: 0}
+  spriteRachado: {fileID: 7422176819706547434, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+  audioSource: {fileID: 519420033}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!61 &2098507064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17217,6 +17273,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2125283680}
   - component: {fileID: 2125283679}
+  - component: {fileID: 2125283682}
+  - component: {fileID: 2125283681}
   m_Layer: 0
   m_Name: pedras
   m_TagString: Untagged
@@ -17297,6 +17355,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 878182319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2125283681
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125283678}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.46, y: 2.42}
+    newSize: {x: 4.46, y: 2.42}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 4.46, y: 2.42}
+  m_EdgeRadius: 0
+--- !u!114 &2125283682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125283678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336ebdc14c7f275439faa4b339503bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PedraQuebravel
+  toquesNecessarios: 2
+  spriteRachado: {fileID: -8009454904708308030, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+  audioSource: {fileID: 519420033}
+  somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
+  somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
 --- !u!1001 &2134327880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17320,6 +17441,10 @@ PrefabInstance:
     - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     - target: {fileID: 4125107082899399930, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: gameController
@@ -17435,6 +17560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5051150426591830842, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 5179627918207358732, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: gameController
       value: 
@@ -17476,10 +17605,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peixe 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4091420903064801484, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
+      objectReference: {fileID: 0}
     - target: {fileID: 4125107082899399930, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: gameController
       value: 
       objectReference: {fileID: 826934057}
+    - target: {fileID: 5563080136518176604, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 5563080136518176604, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.06
+      objectReference: {fileID: 0}
     - target: {fileID: 6022911695945748437, guid: 17af772d359b41a4a88a3d02c49d3850, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.48
@@ -17593,6 +17734,10 @@ PrefabInstance:
     - target: {fileID: 8479804016778410989, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
       propertyPath: m_Name
       value: Peixe 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479804016778410989, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
+      propertyPath: m_TagString
+      value: Peixe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

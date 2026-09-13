@@ -232,7 +232,6 @@ GameObject:
   - component: {fileID: 71099154}
   - component: {fileID: 71099153}
   - component: {fileID: 71099152}
-  - component: {fileID: 71099156}
   - component: {fileID: 71099157}
   - component: {fileID: 71099158}
   - component: {fileID: 71099160}
@@ -329,20 +328,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &71099156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71099151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0131869873e9046a562f63025fe702, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FishAnalyseManager
-  uiManagerScript: {fileID: 572010381}
-  totalPeixesNaMesa: 15
 --- !u!82 &71099157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -572,8 +557,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509e22a3c441e154ba98b7b708a6ab5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GerenciadorAnalisePeixes
-  uiManager: {fileID: 572010381}
+  uiManager: {fileID: 572010384}
   totalPeixesNaMesa: 15
+  nomeProximaCena: End
 --- !u!1001 &136706839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1371,6 +1357,8 @@ MonoBehaviour:
   rectGatoUI: {fileID: 572010383}
   bocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
   bocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
+  corGatoFala: {r: 1, g: 1, b: 1, a: 1}
+  corGatoNarracao: {r: 0.6, g: 0.6, b: 0.6, a: 1}
   forcaPuloUI: 4
   velocidadeEscrita: 0.07
   audioSource: {fileID: 71099157}
