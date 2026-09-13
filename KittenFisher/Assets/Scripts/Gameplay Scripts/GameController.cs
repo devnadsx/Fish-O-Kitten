@@ -10,7 +10,16 @@ public class GameController : MonoBehaviour
     public int foundedFish;
     [Tooltip("Defina a quantidade de peixes necessários no Inspector")]
     public int FishNumber = 3;
-    public UnityEvent OnVictory;
+
+    [Header("Troca Direta de Cena")]
+    [Tooltip("Digite aqui o nome exato da cena para onde o jogador deve ir ao coletar todos os peixes")]
+    public string nomeProximaCena = "AnalyseScene";
+    [Tooltip("Tempo em segundos de espera com as partículas na tela antes de carregar a nova cena")]
+    public float tempoEsperaTrocaCena = 1.5f;
+
+    [Header("Efeitos de Vitória")]
+    [Tooltip("Prefab de Partícula que será instanciado ao coletar todos os peixes")]
+    public GameObject prefabParticulaVitoria;
 
     [Header("Gerenciador do Gatinho")]
     public IconManager iconManager;
@@ -20,8 +29,8 @@ public class GameController : MonoBehaviour
     public AudioClip somColetaPeixe;
 
     [Header("Música de Tensão (Fase 3)")]
-    public AudioSource audioSourceMusicaFundo; // Componente que toca a música principal
-    public AudioClip musicaTensa;              // Troca para essa música ao iniciar o timer
+    public AudioSource audioSourceMusicaFundo;
+    public AudioClip musicaTensa;
 
     [Header("Configurações da Fase 3 (Timer)")]
     public string nomeCenaFase3 = "Game3";
@@ -30,16 +39,16 @@ public class GameController : MonoBehaviour
     public float tempoLimite = 60f;
 
     [Header("Diálogo de Alerta de Oxigênio")]
-    public SceneIntroDialogue scriptDialogoAlerta; // Arraste o componente de diálogo aqui
+    public SceneIntroDialogue scriptDialogoAlerta;
 
     [Header("Efeito Visão Catnip / Baú")]
-    public GameObject auraPeixePrefab; // Arraste o Prefab da Aura no Inspector
+    public GameObject auraPeixePrefab;
 
     private bool timerAtivo = false;
     private bool estaNaTerceiraFase = false;
     private bool alertaDisparado = false;
+    private bool jogoFinalizado = false;
 
-    // Guardará as auras criadas para poder destruí-las depois
     private List<GameObject> aurasInstanciadas = new List<GameObject>();
 
     void Start()
@@ -76,6 +85,8 @@ public class GameController : MonoBehaviour
 
     public void FoundFish()
     {
+        if (jogoFinalizado) return;
+
         foundedFish += 1;
 
         if (audioSource != null && somColetaPeixe != null)
@@ -100,54 +111,73 @@ public class GameController : MonoBehaviour
             }
         }
 
+        // CONDIÇÃO DE VITÓRIA / FINALIZAÇÃO DA FASE
         if (foundedFish >= FishNumber)
         {
+            jogoFinalizado = true;
             timerAtivo = false;
-            if (textoTimerUI != null) textoTimerUI.gameObject.SetActive(false);
 
-            OnVictory.Invoke();
+            if (textoTimerUI != null)
+                textoTimerUI.gameObject.SetActive(false);
+
+            StartCoroutine(ExecutarEfeitosETrocarCena());
+        }
+    }
+
+    IEnumerator ExecutarEfeitosETrocarCena()
+    {
+        // 1. Instancia o Prefab da Partícula de Vitória no centro da tela ou na posição da câmera
+        if (prefabParticulaVitoria != null)
+        {
+            Vector3 posSpawn = Camera.main != null ? Camera.main.transform.position + Camera.main.transform.forward * 2f : transform.position;
+            Instantiate(prefabParticulaVitoria, posSpawn, Quaternion.identity);
+        }
+
+        // 2. Aguarda o tempo configurado para que a partícula e o áudio terminem de tocar
+        yield return new WaitForSeconds(tempoEsperaTrocaCena);
+
+        // 3. Carrega a cena cujo nome foi digitado no Inspector
+        if (!string.IsNullOrEmpty(nomeProximaCena))
+        {
+            SceneManager.LoadScene(nomeProximaCena);
+        }
+        else
+        {
+            Debug.LogError("O campo 'Nome Proxima Cena' está vazio no Inspector do GameController!");
         }
     }
 
     void DispararAlertaOxigenio()
     {
-        // 1. Exibe o Timer travado no valor total (ex: 60s)
         if (textoTimerUI != null)
         {
             textoTimerUI.gameObject.SetActive(true);
             AtualizarTextoTimer();
         }
 
-        // 2. Chama o diálogo do gato
         if (scriptDialogoAlerta != null)
         {
-            // Limpa falas antigas e insere a fala de emergência
             scriptDialogoAlerta.falasDoGato.Clear();
             scriptDialogoAlerta.falasDoGato.Add("Oh no! My oxygen tank is running low, I need to hurry up!");
 
-            // Inicia o diálogo na tela
             scriptDialogoAlerta.gameObject.SetActive(true);
             scriptDialogoAlerta.IniciarNovoDialogoExterno();
 
-            // Inicia Coroutine que espera a fala fechar para rodar o timer e a música
             StartCoroutine(AguardarFimDoDialogoEIniciarTimer());
         }
         else
         {
-            // Caso não tenha script de diálogo atribuído, inicia o timer direto
             IniciarTimerEMusica();
         }
     }
 
     IEnumerator AguardarFimDoDialogoEIniciarTimer()
     {
-        // Aguarda enquanto a janela de diálogo estiver visível/ativa
         while (scriptDialogoAlerta != null && scriptDialogoAlerta.painelBalaoFala.activeSelf)
         {
             yield return null;
         }
 
-        // Começa a contagem e troca a música assim que o jogador fechar o balão de fala
         IniciarTimerEMusica();
     }
 
@@ -155,7 +185,6 @@ public class GameController : MonoBehaviour
     {
         timerAtivo = true;
 
-        // Troca a trilha sonora para a versão tensa
         if (audioSourceMusicaFundo != null && musicaTensa != null)
         {
             audioSourceMusicaFundo.Stop();
@@ -182,30 +211,21 @@ public class GameController : MonoBehaviour
     // 🐱 SISTEMA DE REVELAR PEIXES (VISÃO CATNIP DO BAÚ)
     // -----------------------------------------------------------
 
-    /// <summary>
-    /// Encontra todos os peixes com a Tag "Peixe" ativos no cenário e coloca o prefab de aura neles.
-    /// </summary>
     public void RevelarPeixesRestantes()
     {
         aurasInstanciadas.Clear();
-
-        // Procura todos os GameObjects na cena com a Tag "Peixe"
         GameObject[] peixesNaCena = GameObject.FindGameObjectsWithTag("Peixe");
 
         foreach (GameObject peixe in peixesNaCena)
         {
             if (peixe != null && auraPeixePrefab != null)
             {
-                // Instancia o prefab da aura e torna ele FILHO do peixe (para acompanhar se o peixe se mover)
                 GameObject aura = Instantiate(auraPeixePrefab, peixe.transform.position, Quaternion.identity, peixe.transform);
                 aurasInstanciadas.Add(aura);
             }
         }
     }
 
-    /// <summary>
-    /// Remove o efeito de iluminação/aura dos peixes restantes.
-    /// </summary>
     public void EsconderAuraPeixes(float tempoFade)
     {
         foreach (GameObject auraObj in aurasInstanciadas)

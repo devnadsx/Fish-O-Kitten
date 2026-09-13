@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 48322230}
   - component: {fileID: 48322229}
   m_Layer: 5
-  m_Name: BrandyVN
+  m_Name: SakyVN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5600772223580213204, guid: 25aa12e0e475b494b944857e6d5d4913, type: 3}
+  m_Sprite: {fileID: -1768769924907106779, guid: b6c4e47d19c91c34891c4d478515d380, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -316,15 +316,15 @@ RectTransform:
   m_GameObject: {fileID: 48322228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8625, y: 4.07, z: 1}
+  m_LocalScale: {x: 2.241146, y: 4.8974314, z: 1.2033}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1031518409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: -47}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 275.66, y: 69}
+  m_SizeDelta: {x: 79.28, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
 GameObject:
@@ -773,6 +773,156 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &795438542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795438543}
+  - component: {fileID: 795438545}
+  - component: {fileID: 795438544}
+  m_Layer: 5
+  m_Name: Plateia
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &795438543
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795438542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.31828123, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1031518409}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000045776, y: -131}
+  m_SizeDelta: {x: 800, y: 446.67}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &795438544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795438542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 5074354084149328108, guid: 182cc2fe6710ccf46bf2a05c1e14fdd9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &795438545
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795438542}
+  m_CullTransparentMesh: 1
+--- !u!1 &805137802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 805137803}
+  - component: {fileID: 805137805}
+  - component: {fileID: 805137804}
+  m_Layer: 5
+  m_Name: SakyTable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &805137803
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805137802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.8625, y: 4.07, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1031518409}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 239.57, y: -98.58}
+  m_SizeDelta: {x: 166.12, y: 40.45}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &805137804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805137802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -3030898821712404945, guid: f2763f8159382b3458943f20822fb3f2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &805137805
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805137802}
+  m_CullTransparentMesh: 1
 --- !u!1 &1031518403
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,17 +960,17 @@ MonoBehaviour:
   painelBalaoFala: {fileID: 536729366}
   textoNomePersonagem: {fileID: 1355338277}
   textoBalao: {fileID: 2132858260}
-  imagemEsquerda: {fileID: 48322229}
+  imagemEsquerda: {fileID: 1436648940}
   imagemCentro: {fileID: 0}
-  imagemDireita: {fileID: 1436648940}
+  imagemDireita: {fileID: 48322229}
   listaPersonagens:
   - nomePersonagem: Myke
-    spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
-    spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
+    spriteBocaFechada: {fileID: -2774935278654895130, guid: ac555857b32beef449adc9a054559984, type: 3}
+    spriteBocaAberta: {fileID: -7421273427394222630, guid: 3054c74687683bd4fa2fec20613a26a7, type: 3}
     corFoco: {r: 0, g: 0, b: 0, a: 0}
   - nomePersonagem: Saky
-    spriteBocaFechada: {fileID: 5600772223580213204, guid: 25aa12e0e475b494b944857e6d5d4913, type: 3}
-    spriteBocaAberta: {fileID: 7517225429614508252, guid: 4e4e79b3fe84c5c4e984a15d1c049ede, type: 3}
+    spriteBocaFechada: {fileID: -1768769924907106779, guid: b6c4e47d19c91c34891c4d478515d380, type: 3}
+    spriteBocaAberta: {fileID: 3376071792619935919, guid: 6cf82002ea8e6d6469cecbaf89f46190, type: 3}
     corFoco: {r: 0, g: 0, b: 0, a: 0}
   - nomePersonagem: Narrador
     spriteBocaFechada: {fileID: 0}
@@ -828,68 +978,68 @@ MonoBehaviour:
     corFoco: {r: 0, g: 0, b: 0, a: 0}
   velocidadeEscrita: 0.07
   alturaPuloLetra: 4
-  corInativo: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  corInativo: {r: 1, g: 1, b: 1, a: 1}
   audioSourceSFX: {fileID: 1031518405}
   somFalaPadrao: {fileID: 0}
-  nomeProximaCena: End 1
+  nomeProximaCena: Narrator End
   falasIniciais:
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Saky
     texto: Welcome back to 'Cats & Flavors', the TV show where we interview the most
       daring adventurous chefs of the kingdom!
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 0}
+    ehNarracao: 0
+    posicao: 1
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Saky
     texto: 'Tonight, we have a very special guest. He just survived the depths of
       the ocean and tasted... questionable marine life. Please welcome: Myke!'
     ehNarracao: 0
-    posicao: 0
+    posicao: 1
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
     texto: Hey Saky! Thanks for having me. Honestly, I'm just glad to be alive after
       tasting some of those fish...
     ehNarracao: 0
-    posicao: 1
+    posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Saky
     texto: We heard you went out there completely unprepared, armed with just fishbowl
       and a fishing net. Is that true?
     ehNarracao: 0
-    posicao: 0
+    posicao: 1
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
     texto: Well... a real scientist has to test their ideas in the field! Even if
       it means almost getting poisoned by a glowing toxic fish.
     ehNarracao: 0
-    posicao: 1
+    posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Saky
     texto: A true hero of science! Tell us, what was the absolute worst thing you
       had to chew on today?
     ehNarracao: 0
-    posicao: 0
+    posicao: 1
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
     texto: Definitely the Jixh. I was coughing for ten minutes straight into an empty
       bucket! Zero stars, do not recommend.
     ehNarracao: 0
-    posicao: 1
+    posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Saky
     texto: Yikes! But you managed to log and catalog all the edible ones, right?
     ehNarracao: 0
-    posicao: 0
+    posicao: 1
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
     texto: Every single one. The recipes are ready, and the kitchen is open!
     ehNarracao: 0
-    posicao: 1
+    posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Saky
     texto: That's what I like to hear! Thank you Myke, and thank you all for watching
       'Cats & Flavors'! See you next season!
     ehNarracao: 0
-    posicao: 0
+    posicao: 1
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
 --- !u!82 &1031518405
 AudioSource:
@@ -1065,7 +1215,9 @@ RectTransform:
   m_Children:
   - {fileID: 1436648778}
   - {fileID: 48322231}
+  - {fileID: 805137803}
   - {fileID: 1436648939}
+  - {fileID: 795438543}
   - {fileID: 536729367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1408,7 +1560,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -434988731963028148, guid: 61be81ad15892584e8f249eaa493cbe0, type: 3}
+  m_Sprite: {fileID: -8008447450637822732, guid: fd57f2906efba3a40969e030696c291f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1438,7 +1590,7 @@ GameObject:
   - component: {fileID: 1436648941}
   - component: {fileID: 1436648940}
   m_Layer: 5
-  m_Name: GatinhoVN
+  m_Name: MykeVN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1453,14 +1605,14 @@ RectTransform:
   m_GameObject: {fileID: 1436648938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.158952, y: 1.158952, z: 1.158952}
+  m_LocalScale: {x: 1.7769963, y: 1.0154264, z: 1.0154264}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1031518409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 310.00003, y: -15}
+  m_AnchoredPosition: {x: -153, y: -14}
   m_SizeDelta: {x: 160, y: 413.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436648940
@@ -1483,7 +1635,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
+  m_Sprite: {fileID: -2774935278654895130, guid: ac555857b32beef449adc9a054559984, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

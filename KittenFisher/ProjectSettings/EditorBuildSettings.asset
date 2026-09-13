@@ -22,22 +22,22 @@ EditorBuildSettings:
     guid: 99aa5c46800319847afb23111bc8cde1
   - enabled: 1
     path: Assets/Scenes/Analyse 2.unity
-    guid: 3948866ae2e5fe440990553909112e5f
+    guid: cfd399a4be0fb2a44a6a589bca45ef49
   - enabled: 1
     path: Assets/Scenes/Fase3.unity
     guid: 35429b0309e21d54e99e9310d4920b10
   - enabled: 1
     path: Assets/Scenes/Analyse 3.unity
-    guid: 17a21d6a5f692334eb757081153194cc
+    guid: 5100bb8e582ccfe4fb418ce0274523ec
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
-    guid: 2019a08c0ce9e7f49b9b8c8ee7170d33
+    guid: 77034ff742dda8c4d99af4242630ede3
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 784d868ff264fda409628f3d238eead3
   - enabled: 1
-    path: Assets/Scenes/End 1.unity
-    guid: 3ea42bdc64b7f7047a6e753d3af3e4d0
+    path: Assets/Scenes/Narrator End.unity
+    guid: 64f23555a491cc046a3ef1052289231a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

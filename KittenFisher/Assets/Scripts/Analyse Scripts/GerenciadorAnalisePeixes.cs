@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,19 +7,23 @@ public class GerenciadorAnalisePeixes : MonoBehaviour
 {
     public static GerenciadorAnalisePeixes Instance;
 
-    [Header("Referência da UI da Análise")]
+    [Header("ReferÃªncia da UI da AnÃ¡lise")]
     public AnalyseUIManager uiManager;
 
     [Header("Controle da Mesa")]
     public int totalPeixesNaMesa = 3;
     private int peixesAnalisados = 0;
 
-    [Header("Próxima Cena")]
+    [Header("PrÃ³xima Cena")]
     public string nomeProximaCena = "End";
 
     private string peixeSendoAnalisado = "";
     private bool peixeAtualEhVenenoso = false;
     private GameObject peixeObjetoAtual;
+
+    // Controla se hÃ¡ um diÃ¡logo em andamento
+    [HideInInspector]
+    public bool estaEmDialogo = false;
 
     void Awake()
     {
@@ -52,14 +56,12 @@ public class GerenciadorAnalisePeixes : MonoBehaviour
 
         if (peixeAtualEhVenenoso)
         {
-            // Reação ao Peixe Venenoso
             sequencia.Add(new FalaItem { texto = $"Phew! Good thing I was careful with this {peixeSendoAnalisado}!", ehNarracao = false });
             sequencia.Add(new FalaItem { texto = $"*Mike carefully marks a red warning symbol in his notebook.*", ehNarracao = true });
             sequencia.Add(new FalaItem { texto = $"It contains dangerous toxins. Completely unsafe to eat!", ehNarracao = false });
         }
         else
         {
-            // Reação ao Peixe Seguro
             sequencia.Add(new FalaItem { texto = $"Excellent cut! The {peixeSendoAnalisado} looks pristine.", ehNarracao = false });
             sequencia.Add(new FalaItem { texto = $"*Mike writes down the clean inspection details in his notebook.*", ehNarracao = true });
             sequencia.Add(new FalaItem { texto = $"It's clean and safe for consumption.", ehNarracao = false });
@@ -84,6 +86,9 @@ public class GerenciadorAnalisePeixes : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
 
+        // Marca que o diÃ¡logo comeÃ§ou
+        estaEmDialogo = true;
+
         if (uiManager != null)
         {
             uiManager.IniciarSequenciaDialogo(sequencia);
@@ -98,6 +103,12 @@ public class GerenciadorAnalisePeixes : MonoBehaviour
         ChecarFimDaCena();
     }
 
+    // Chame este mÃ©todo quando a sequÃªncia de falas do diÃ¡logo terminar na UI
+    public void FinalizarDialogo()
+    {
+        estaEmDialogo = false;
+    }
+
     void ChecarFimDaCena()
     {
         if (peixesAnalisados >= totalPeixesNaMesa)
@@ -109,6 +120,8 @@ public class GerenciadorAnalisePeixes : MonoBehaviour
     IEnumerator AguardarETrocarCena()
     {
         yield return new WaitForSeconds(4f);
+
+        estaEmDialogo = true;
 
         List<FalaItem> sequenciaFinal = new List<FalaItem>()
         {

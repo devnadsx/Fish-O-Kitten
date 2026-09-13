@@ -26,6 +26,7 @@ public class SkillCheckManager : MonoBehaviour
 
     private bool movendoParaDireita = true;
     private bool jogoAtivo = false;
+    public bool estaAtivo => jogoAtivo;
 
     private float limiteEsquerda;
     private float limiteDireita;

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,32 +10,32 @@ public class FalaItem
 {
     [TextArea(2, 4)]
     public string texto;
-    public bool ehNarracao; // Se true, o gato escurece, não mexe a boca e não pula (representa uma ação)
+    public bool ehNarracao; // Se true, o gato escurece, nÃ£o mexe a boca e nÃ£o pula (representa uma aÃ§Ã£o)
 }
 
 public class AnalyseUIManager : MonoBehaviour
 {
     [Header("UI Elementos")]
     public GameObject painelBalaoFala;  // Objeto 'fala'
-    public TextMeshProUGUI textoBalao; // Texto do balão
+    public TextMeshProUGUI textoBalao; // Texto do balÃ£o
     public Image imagemGatoUI;         // GatinhoVN
     public RectTransform rectGatoUI;   // GatinhoVN
 
-    [Header("Expressões do Gato")]
+    [Header("ExpressÃµes do Gato")]
     public Sprite bocaFechada;
     public Sprite bocaAberta;
 
-    [Header("Cores de Fala vs. Narração")]
+    [Header("Cores de Fala vs. NarraÃ§Ã£o")]
     public Color corGatoFala = Color.white;
-    public Color corGatoNarracao = new Color(0.6f, 0.6f, 0.6f, 1f); // Tom mais escuro durante ações
+    public Color corGatoNarracao = new Color(0.6f, 0.6f, 0.6f, 1f); // Tom mais escuro durante aÃ§Ãµes
 
-    [Header("Configurações do Pulo e Fala")]
+    [Header("ConfiguraÃ§Ãµes do Pulo e Fala")]
     public float forcaPuloUI = 10f;
     public float velocidadeEscrita = 0.03f;
     public AudioSource audioSource;
     public AudioClip somFala;
 
-    [Header("Próxima Cena")]
+    [Header("PrÃ³xima Cena")]
     public string nomeCenaEntrevista = "End";
 
     private Vector2 posOriginalGato;
@@ -45,7 +45,7 @@ public class AnalyseUIManager : MonoBehaviour
     private string textoAtual = "";
     private float tempoUltimoInput = 0f;
 
-    // Fila para controlar a sequência de falas/narrações
+    // Fila para controlar a sequÃªncia de falas/narraÃ§Ãµes
     private List<FalaItem> sequenciaAtual = new List<FalaItem>();
     private int indiceFalaAtual = 0;
 
@@ -59,7 +59,7 @@ public class AnalyseUIManager : MonoBehaviour
 
     void Start()
     {
-        // Introdução inicial com Fala + Narração de ação
+        // IntroduÃ§Ã£o inicial com Fala + NarraÃ§Ã£o de aÃ§Ã£o
         List<FalaItem> intro = new List<FalaItem>()
         {
             new FalaItem { texto = "Time to analyze these fish carefully...", ehNarracao = false },
@@ -85,6 +85,12 @@ public class AnalyseUIManager : MonoBehaviour
 
     public void IniciarSequenciaDialogo(List<FalaItem> falas)
     {
+        // Avisa ao Gerenciador que um diÃ¡logo comeÃ§ou
+        if (GerenciadorAnalisePeixes.Instance != null)
+        {
+            GerenciadorAnalisePeixes.Instance.estaEmDialogo = true;
+        }
+
         sequenciaAtual = falas;
         indiceFalaAtual = 0;
 
@@ -102,7 +108,7 @@ public class AnalyseUIManager : MonoBehaviour
             return;
         }
 
-        // Avança para a próxima fala da sequência
+        // AvanÃ§a para a prÃ³xima fala da sequÃªncia
         indiceFalaAtual++;
 
         if (sequenciaAtual != null && indiceFalaAtual < sequenciaAtual.Count)
@@ -111,9 +117,15 @@ public class AnalyseUIManager : MonoBehaviour
         }
         else
         {
-            // Fim da sequência de falas atual
+            // Fim da sequÃªncia de falas atual
             if (painelBalaoFala != null)
                 painelBalaoFala.SetActive(false);
+
+            // ðŸ”´ LIBERA OS CLIQUES NOS PEIXES AO TERMINAR AS FALAS
+            if (GerenciadorAnalisePeixes.Instance != null)
+            {
+                GerenciadorAnalisePeixes.Instance.FinalizarDialogo();
+            }
         }
     }
 
@@ -129,7 +141,7 @@ public class AnalyseUIManager : MonoBehaviour
         if (painelBalaoFala != null)
             painelBalaoFala.SetActive(true);
 
-        // Aplica o efeito visual de cor no Gato (fala vs narração)
+        // Aplica o efeito visual de cor no Gato (fala vs narraÃ§Ã£o)
         if (imagemGatoUI != null)
         {
             imagemGatoUI.color = item.ehNarracao ? corGatoNarracao : corGatoFala;
@@ -158,7 +170,7 @@ public class AnalyseUIManager : MonoBehaviour
             if (textoBalao != null)
                 textoBalao.text += letra;
 
-            // Animação e áudio acontecem apenas se NÃO for narração
+            // AnimaÃ§Ã£o e Ã¡udio acontecem apenas se NÃƒO for narraÃ§Ã£o
             if (!item.ehNarracao && char.IsLetterOrDigit(letra))
             {
                 if (imagemGatoUI != null && bocaAberta != null)

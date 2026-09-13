@@ -341,7 +341,7 @@ MonoBehaviour:
   zonaDeAcerto: {fileID: 1644949063}
   ponteiro: {fileID: 382228760}
   uiManager: {fileID: 572010381}
-  velocidade: 600
+  velocidade: 300
   musicaPrincipal: {fileID: 519420033}
   audioSourceSFX: {fileID: 1627439357}
   musicaTensa: {fileID: 8300000, guid: 7a2fc0175b6c8df4bbc8f8cdb2c50380, type: 3}
@@ -459,6 +459,7 @@ MonoBehaviour:
   uiManager: {fileID: 572010384}
   totalPeixesNaMesa: 20
   nomeProximaCena: End
+  estaEmDialogo: 0
 --- !u!1001 &105021934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -842,8 +843,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PRESS THE SPACEBAR!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -908,7 +909,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -128.85469, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &257721828

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // Adicionado para carregar a próxima cena
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public enum PosicaoPersonagem
@@ -51,12 +51,12 @@ public class DialogoManager : MonoBehaviour
     [Header("Configurações de Animação e Efeitos")]
     public float velocidadeEscrita = 0.03f;
     public float alturaPuloLetra = 6f;
-    public Color corInativo = new Color(0.5f, 0.5f, 0.5f);
+    public Color corInativo = new Color(0.5f, 0.5f, 0.5f, 1f);
     public AudioSource audioSourceSFX;
     public AudioClip somFalaPadrao;
 
     [Header("Transição de Cena Final")]
-    public string nomeProximaCena = "End"; // Digite aqui o nome da cena final no Inspector
+    public string nomeProximaCena = "End";
 
     [Header("Falas Iniciais (Inspector)")]
     public List<LineDialogo> falasIniciais = new List<LineDialogo>();
@@ -71,14 +71,25 @@ public class DialogoManager : MonoBehaviour
     private float tempoUltimoClique = 0f;
     private float intervaloMinimoClique = 0.15f;
 
+    // Posições originais fixas travadas no início do jogo para evitar acúmulo de pulos
+    private Vector2 posFixaEsquerda;
+    private Vector2 posFixaCentro;
+    private Vector2 posFixaDireita;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
+
+        // Salva as posições originais dos RectTransforms para os pulos serem absolutos
+        if (imagemEsquerda != null) posFixaEsquerda = imagemEsquerda.rectTransform.anchoredPosition;
+        if (imagemCentro != null) posFixaCentro = imagemCentro.rectTransform.anchoredPosition;
+        if (imagemDireita != null) posFixaDireita = imagemDireita.rectTransform.anchoredPosition;
     }
 
     void Start()
     {
-        EsconderTodasImagens();
+        // Garante que os personagens na tela estejam visíveis (sem ocultar)
+        GarantirPersonagensVisiveis();
 
         if (falasIniciais != null && falasIniciais.Count > 0)
         {
@@ -88,7 +99,6 @@ public class DialogoManager : MonoBehaviour
 
     void Update()
     {
-        // Aceita o clique com Espaço ou Enter além do botão na UI
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             AvancarTexto();
@@ -107,25 +117,21 @@ public class DialogoManager : MonoBehaviour
         ExibirProximaFrase();
     }
 
-    // Função que deve ser associada ao evento OnClick() do seu Botão
     public void AvancarTexto()
     {
         if (Time.time - tempoUltimoClique < intervaloMinimoClique) return;
         tempoUltimoClique = Time.time;
 
-        // 1. Se o texto ainda está sendo digitado na tela, completa a frase na hora
         if (estaEscrevendo)
         {
             CompletarTextoImediatamente();
             return;
         }
 
-        // 2. Se ainda existem falas na fila, avança para a próxima
         if (filaFalas.Count > 0)
         {
             ExibirProximaFrase();
         }
-        // 3. Se NÃO tem mais falas disponíveis, fecha o diálogo e troca para a próxima cena
         else
         {
             FinalizarEDevolverCena();
@@ -161,24 +167,26 @@ public class DialogoManager : MonoBehaviour
         estaEscrevendo = true;
         if (textoBalao != null) textoBalao.text = "";
 
-        Vector3 posOriginalPersonagem = Vector3.zero;
-        RectTransform rectPersonagem = null;
+        // Posição de origem limpa e imutável do slot ativo
+        Vector2 posOrigemSlot = ObterPosicaoFixaSlot(linhaAtual.posicao);
+        RectTransform rectPersonagem = imagemAtivaAtual != null ? imagemAtivaAtual.rectTransform : null;
 
-        if (imagemAtivaAtual != null)
+        // Garante reset de posição no início da frase
+        if (rectPersonagem != null)
         {
-            rectPersonagem = imagemAtivaAtual.rectTransform;
-            posOriginalPersonagem = rectPersonagem.anchoredPosition;
+            rectPersonagem.anchoredPosition = posOrigemSlot;
         }
 
         foreach (char letra in linhaAtual.texto.ToCharArray())
         {
             if (textoBalao != null) textoBalao.text += letra;
 
-            if (char.IsLetterOrDigit(letra))
+            if (!linhaAtual.ehNarracao && char.IsLetterOrDigit(letra))
             {
+                // Aplica pulo relativo à posição original fixa
                 if (rectPersonagem != null)
                 {
-                    rectPersonagem.anchoredPosition = posOriginalPersonagem + new Vector3(0, alturaPuloLetra, 0);
+                    rectPersonagem.anchoredPosition = posOrigemSlot + new Vector2(0, alturaPuloLetra);
                 }
 
                 if (imagemAtivaAtual != null && personagemAtivoAtual.spriteBocaAberta != null)
@@ -195,16 +203,18 @@ public class DialogoManager : MonoBehaviour
 
             yield return new WaitForSeconds(velocidadeEscrita);
 
+            // Retorna estritamente à posição base travada
             if (rectPersonagem != null)
             {
-                rectPersonagem.anchoredPosition = posOriginalPersonagem;
+                rectPersonagem.anchoredPosition = posOrigemSlot;
             }
             RestaurarSpriteBocaFechada();
         }
 
+        // Dupla garantia ao término da frase
         if (rectPersonagem != null)
         {
-            rectPersonagem.anchoredPosition = posOriginalPersonagem;
+            rectPersonagem.anchoredPosition = posOrigemSlot;
         }
         RestaurarSpriteBocaFechada();
         estaEscrevendo = false;
@@ -215,6 +225,8 @@ public class DialogoManager : MonoBehaviour
         if (coroutineDigitacao != null) StopCoroutine(coroutineDigitacao);
         if (textoBalao != null) textoBalao.text = textoCompletoAtual;
 
+        // Força a restauração exata de posições e boca fechada
+        ResetarPosicoesDeTodosSlots();
         RestaurarSpriteBocaFechada();
         estaEscrevendo = false;
     }
@@ -223,7 +235,6 @@ public class DialogoManager : MonoBehaviour
     {
         FecharDialogo();
 
-        // Verifica se o nome da cena foi digitado no Inspector e carrega a nova cena
         if (!string.IsNullOrEmpty(nomeProximaCena))
         {
             SceneManager.LoadScene(nomeProximaCena);
@@ -250,6 +261,17 @@ public class DialogoManager : MonoBehaviour
         }
     }
 
+    private Vector2 ObterPosicaoFixaSlot(PosicaoPersonagem posicao)
+    {
+        switch (posicao)
+        {
+            case PosicaoPersonagem.Esquerda: return posFixaEsquerda;
+            case PosicaoPersonagem.Direita: return posFixaDireita;
+            case PosicaoPersonagem.Centro: return posFixaCentro;
+            default: return posFixaCentro;
+        }
+    }
+
     private void AtualizarDestaquePersonagens(Image slotAtivo, bool ehNarracao)
     {
         Image[] slots = { imagemEsquerda, imagemCentro, imagemDireita };
@@ -258,14 +280,24 @@ public class DialogoManager : MonoBehaviour
         {
             if (slot == null) continue;
 
-            if (slot == slotAtivo && !ehNarracao)
+            // Mantém os GameObjects visíveis se tiverem Sprite atrelado
+            if (slot.sprite != null)
             {
                 slot.gameObject.SetActive(true);
-                slot.color = personagemAtivoAtual.corFoco != Color.clear ? personagemAtivoAtual.corFoco : Color.white;
-                if (personagemAtivoAtual.spriteBocaFechada != null) slot.sprite = personagemAtivoAtual.spriteBocaFechada;
             }
-            else if (slot.gameObject.activeSelf)
+
+            if (slot == slotAtivo && !ehNarracao)
             {
+                // Destaque para quem está falando
+                slot.color = personagemAtivoAtual.corFoco != Color.clear ? personagemAtivoAtual.corFoco : Color.white;
+                if (personagemAtivoAtual.spriteBocaFechada != null)
+                {
+                    slot.sprite = personagemAtivoAtual.spriteBocaFechada;
+                }
+            }
+            else
+            {
+                // Fica levemente escurecido enquanto ouve ou narra
                 slot.color = corInativo;
             }
         }
@@ -279,11 +311,24 @@ public class DialogoManager : MonoBehaviour
         }
     }
 
-    private void EsconderTodasImagens()
+    private void GarantirPersonagensVisiveis()
     {
-        if (imagemEsquerda != null) imagemEsquerda.gameObject.SetActive(false);
-        if (imagemCentro != null) imagemCentro.gameObject.SetActive(false);
-        if (imagemDireita != null) imagemDireita.gameObject.SetActive(false);
+        Image[] slots = { imagemEsquerda, imagemCentro, imagemDireita };
+        foreach (var slot in slots)
+        {
+            if (slot != null && slot.sprite != null)
+            {
+                slot.gameObject.SetActive(true);
+                slot.color = corInativo;
+            }
+        }
+    }
+
+    private void ResetarPosicoesDeTodosSlots()
+    {
+        if (imagemEsquerda != null) imagemEsquerda.rectTransform.anchoredPosition = posFixaEsquerda;
+        if (imagemCentro != null) imagemCentro.rectTransform.anchoredPosition = posFixaCentro;
+        if (imagemDireita != null) imagemDireita.rectTransform.anchoredPosition = posFixaDireita;
     }
 
     public bool TemFalasPendentes()
@@ -299,7 +344,7 @@ public class DialogoManager : MonoBehaviour
     public void FecharDialogo()
     {
         LimparDialogo();
-        EsconderTodasImagens();
+        ResetarPosicoesDeTodosSlots();
         if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
     }
 }
