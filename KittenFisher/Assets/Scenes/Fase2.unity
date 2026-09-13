@@ -2482,7 +2482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControleCamera2D
   limiteEsquerda: {fileID: 97088786}
-  limiteDireita: {fileID: 0}
+  limiteDireita: {fileID: 1465554705}
   limiteCima: {fileID: 274866355}
   limiteBaixo: {fileID: 691565203}
   velocidadeZoom: 5
