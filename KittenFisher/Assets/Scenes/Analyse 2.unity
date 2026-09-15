@@ -212,6 +212,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9097880278921006746, guid: 2e39590d5320abe49ba77ec4e161248c, type: 3}
+      propertyPath: ehVenenoso
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097880278921006746, guid: 2e39590d5320abe49ba77ec4e161248c, type: 3}
       propertyPath: nomeDoPeixe
       value: Medium Fish
       objectReference: {fileID: 0}
@@ -1545,6 +1549,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 364701650740023557, guid: cefccd57e29612a47a9d1fa1c79d217b, type: 3}
+      propertyPath: ehVenenoso
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1300342884953453876, guid: cefccd57e29612a47a9d1fa1c79d217b, type: 3}
       propertyPath: m_LocalScale.x
       value: -0.28600234
@@ -1829,6 +1837,10 @@ PrefabInstance:
     - target: {fileID: 6954577315874346042, guid: 2e39590d5320abe49ba77ec4e161248c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097880278921006746, guid: 2e39590d5320abe49ba77ec4e161248c, type: 3}
+      propertyPath: ehVenenoso
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9097880278921006746, guid: 2e39590d5320abe49ba77ec4e161248c, type: 3}
       propertyPath: nomeDoPeixe
@@ -2379,6 +2391,10 @@ PrefabInstance:
     - target: {fileID: 5321137228435083055, guid: 856580a9795e09f468928739e7ad0369, type: 3}
       propertyPath: m_Name
       value: The Cuttiest Fish (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892516945537078065, guid: 856580a9795e09f468928739e7ad0369, type: 3}
+      propertyPath: ehVenenoso
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3101,6 +3117,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -26.111
       objectReference: {fileID: 0}
+    - target: {fileID: 8707547604026588757, guid: 697bdc2159555a34095ad9eb1db5a70e, type: 3}
+      propertyPath: ehVenenoso
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3169,6 +3189,10 @@ PrefabInstance:
     - target: {fileID: 5321137228435083055, guid: 856580a9795e09f468928739e7ad0369, type: 3}
       propertyPath: m_Name
       value: The Cuttiest Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892516945537078065, guid: 856580a9795e09f468928739e7ad0369, type: 3}
+      propertyPath: ehVenenoso
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
