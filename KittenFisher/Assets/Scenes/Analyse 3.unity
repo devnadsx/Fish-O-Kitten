@@ -341,7 +341,7 @@ MonoBehaviour:
   zonaDeAcerto: {fileID: 1644949063}
   ponteiro: {fileID: 382228760}
   uiManager: {fileID: 572010381}
-  velocidade: 300
+  velocidade: 450
   musicaPrincipal: {fileID: 519420033}
   audioSourceSFX: {fileID: 1627439357}
   musicaTensa: {fileID: 8300000, guid: 7a2fc0175b6c8df4bbc8f8cdb2c50380, type: 3}

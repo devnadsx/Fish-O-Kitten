@@ -38,7 +38,8 @@ public class GerenciadorAnalisePeixes : MonoBehaviour
         }
     }
 
-    public void IniciarAnalise(string nomePeixe, bool ehVenenoso, GameObject peixeObj)
+   
+    public void IniciarAnalise(string nomePeixe, bool ehVenenoso, GameObject peixeObj, float multiplicadorVelocidade = 1.0f)
     {
         peixeSendoAnalisado = nomePeixe;
         peixeAtualEhVenenoso = ehVenenoso;
@@ -46,7 +47,8 @@ public class GerenciadorAnalisePeixes : MonoBehaviour
 
         if (SkillCheckManager.Instance != null)
         {
-            SkillCheckManager.Instance.IniciarSequenciaSkillCheck(nomePeixe);
+            // Envia o nome e a velocidade para o gerenciador de Skill Check
+            SkillCheckManager.Instance.IniciarSequenciaSkillCheck(nomePeixe, multiplicadorVelocidade);
         }
     }
 

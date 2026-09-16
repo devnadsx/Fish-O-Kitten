@@ -460,79 +460,6 @@ MonoBehaviour:
   totalPeixesNaMesa: 10
   nomeProximaCena: End
   estaEmDialogo: 0
---- !u!1001 &136706839
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -0.31713325
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3466695
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.3466695
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.64000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3145636366595757767, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_Name
-      value: SpamFish (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4748286008182988143, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: ehVenenoso
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
 --- !u!1001 &142472948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -615,7 +542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8707547604026588757, guid: 697bdc2159555a34095ad9eb1db5a70e, type: 3}
       propertyPath: ehVenenoso
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707547604026588757, guid: 697bdc2159555a34095ad9eb1db5a70e, type: 3}
+      propertyPath: multiplicadorVelocidadeVenenoso
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1268,7 +1199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097880278921006746, guid: 2e39590d5320abe49ba77ec4e161248c, type: 3}
       propertyPath: ehVenenoso
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2478,75 +2409,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804314336}
   m_CullTransparentMesh: 1
---- !u!1001 &3055713790416071819
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.27619505
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.27619505
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.27619505
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 388273546414555112, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3145636366595757767, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
-      propertyPath: m_Name
-      value: SpamFish
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
 --- !u!1001 &4571571252135356305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2835,6 +2697,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 766108860010480307, guid: 293c70c1e4f127c4ead5a8da1e383b21, type: 3}
+      propertyPath: multiplicadorVelocidadeVenenoso
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1986210376575911744, guid: 293c70c1e4f127c4ead5a8da1e383b21, type: 3}
       propertyPath: m_Name
       value: Evil Fish
@@ -2906,8 +2772,6 @@ SceneRoots:
   - {fileID: 71099155}
   - {fileID: 1229351856}
   - {fileID: 1642403835}
-  - {fileID: 3055713790416071819}
-  - {fileID: 136706839}
   - {fileID: 8287789783865901263}
   - {fileID: 7494159371937475671}
   - {fileID: 6638330938004236265}

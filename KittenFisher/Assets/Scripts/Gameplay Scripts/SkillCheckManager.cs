@@ -16,6 +16,7 @@ public class SkillCheckManager : MonoBehaviour
 
     [Header("Configuração de Movimento")]
     public float velocidade = 600f;
+    private float velocidadeBase; // 🟢 Guarda o valor padrão de velocidade
 
     [Header("Sons")]
     public AudioSource musicaPrincipal;
@@ -36,6 +37,9 @@ public class SkillCheckManager : MonoBehaviour
     void Awake()
     {
         if (Instance == null) Instance = this;
+
+        // 🟢 Salva a velocidade configurada no Inspector logo no início
+        velocidadeBase = velocidade;
     }
 
     void Start()
@@ -47,6 +51,7 @@ public class SkillCheckManager : MonoBehaviour
     {
         if (!jogoAtivo) return;
 
+        // Usa o valor de velocidade ajustado para o peixe atual
         float deslocamento = velocidade * Time.deltaTime;
 
         if (movendoParaDireita)
@@ -78,9 +83,12 @@ public class SkillCheckManager : MonoBehaviour
         }
     }
 
-    public void IniciarSequenciaSkillCheck(string nomePeixe)
+    public void IniciarSequenciaSkillCheck(string nomePeixe, float multiplicadorVelocidade = 1.0f)
     {
         nomePeixeAtual = nomePeixe;
+
+        // 🟢 AQUI ESTAVA O PROBLEMA: Agora aplicamos o multiplicador de velocidade
+        velocidade = velocidadeBase * multiplicadorVelocidade;
 
         if (musicaPrincipal != null && musicaPrincipal.isPlaying)
         {
@@ -135,6 +143,9 @@ public class SkillCheckManager : MonoBehaviour
     void Finalizar(bool sucesso)
     {
         if (painelSkillCheck != null) painelSkillCheck.SetActive(false);
+
+        // 🟢 Reseta a velocidade para o padrão ao fechar
+        velocidade = velocidadeBase;
 
         RestaurarMusicaPrincipal();
 
