@@ -126,27 +126,19 @@ public class GameController : MonoBehaviour
 
     IEnumerator ExecutarEfeitosETrocarCena()
     {
-        // 1. Instancia o Prefab da Partícula de Vitória no centro da tela ou na posição da câmera
         if (prefabParticulaVitoria != null)
         {
             Vector3 posSpawn = Camera.main != null ? Camera.main.transform.position + Camera.main.transform.forward * 2f : transform.position;
             Instantiate(prefabParticulaVitoria, posSpawn, Quaternion.identity);
         }
 
-        // 2. Aguarda o tempo configurado para que a partícula e o áudio terminem de tocar
         yield return new WaitForSeconds(tempoEsperaTrocaCena);
 
-        // 3. Carrega a cena cujo nome foi digitado no Inspector
         if (!string.IsNullOrEmpty(nomeProximaCena))
         {
             SceneManager.LoadScene(nomeProximaCena);
         }
-        else
-        {
-            Debug.LogError("O campo 'Nome Proxima Cena' está vazio no Inspector do GameController!");
-        }
     }
-
     void DispararAlertaOxigenio()
     {
         if (textoTimerUI != null)
