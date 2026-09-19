@@ -152,3 +152,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AnalysableFish
   nomeDoPeixe: Evil Fish
   ehVenenoso: 1
+  multiplicadorVelocidadeVenenoso: 3

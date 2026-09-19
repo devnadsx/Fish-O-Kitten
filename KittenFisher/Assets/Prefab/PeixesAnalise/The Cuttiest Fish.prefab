@@ -151,4 +151,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnalysableFish
   nomeDoPeixe: The Cuttiest Fish
-  ehVenenoso: 1
+  ehVenenoso: 0
+  multiplicadorVelocidadeVenenoso: 0.5

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4711682660319496820
+--- !u!1 &5321137228435083055
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1300342884953453876}
-  - component: {fileID: 319769557056832487}
-  - component: {fileID: 425775245691854600}
-  - component: {fileID: 364701650740023557}
+  - component: {fileID: 121840043621086767}
+  - component: {fileID: 5616398089846344040}
+  - component: {fileID: 4731087881352931272}
+  - component: {fileID: 6892516945537078065}
   m_Layer: 0
-  m_Name: Jixh
+  m_Name: Chill Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1300342884953453876
+--- !u!4 &121840043621086767
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4711682660319496820}
+  m_GameObject: {fileID: 5321137228435083055}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5, y: 0.43, z: 0}
+  m_LocalPosition: {x: 2.21, y: 3.83, z: 0}
   m_LocalScale: {x: 0.41664, y: 0.41664, z: 0.41664}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &319769557056832487
+--- !u!212 &5616398089846344040
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4711682660319496820}
+  m_GameObject: {fileID: 5321137228435083055}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1455096403836856330, guid: a8c7dba5b3b7f14428817c718daf52cd, type: 3}
+  m_Sprite: {fileID: 160114767289012160, guid: 76a4678b370966244bb67198a508303e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,13 +92,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &425775245691854600
+--- !u!61 &4731087881352931272
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4711682660319496820}
+  m_GameObject: {fileID: 5321137228435083055}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -126,30 +126,30 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.30041432, y: 0.10013825}
+  m_Offset: {x: -0.057644904, y: -0.03473413}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.94, y: 3.17}
+    oldSize: {x: 1.94, y: 1.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 7.075043, y: 3.3365555}
+  m_Size: {x: 1.9498864, y: 1.3404415}
   m_EdgeRadius: 0
---- !u!114 &364701650740023557
+--- !u!114 &6892516945537078065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4711682660319496820}
+  m_GameObject: {fileID: 5321137228435083055}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 160db46520b11e54199a25de20ec28ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnalysableFish
-  nomeDoPeixe: Jixh
-  ehVenenoso: 1
-  multiplicadorVelocidadeVenenoso: 2
+  nomeDoPeixe: ChillFish
+  ehVenenoso: 0
+  multiplicadorVelocidadeVenenoso: 2.2
