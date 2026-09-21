@@ -5,31 +5,31 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-// Estrutura do Personagem (Nome + Sprite)
 [System.Serializable]
 public struct Personagem
 {
     public string nome;
-    public Sprite spritePersonagem; // Imagem/Retrato do personagem se quiser usar
+    public Sprite bocaFechada;
+    public Sprite bocaAberta;
 }
 
-// Estrutura de cada Fala da Lore
 [System.Serializable]
 public struct FalaLore
 {
-    public string nomeQuemFala;     // Nome do personagem que está falando
+    public string nomeQuemFala;
     [TextArea(2, 5)]
-    public string texto;            // A fala
-    public Sprite imagemFundo;       // Fundo associado
-    public AudioClip somFala;        // Som de digitação/efeito
+    public string texto;
+    public Sprite imagemFundo;
+    public AudioClip somFala;
 }
 
 public class CutsceneController : MonoBehaviour
 {
     [Header("Componentes de UI")]
     public Image imagemFundo;
-    public TextMeshProUGUI textoNomePersonagem; // Campo UI para o nome
-    public TextMeshProUGUI textoBalao;          // Campo UI para o texto
+    public Image imagemPersonagemUI;            // Slot da UI onde o personagem aparece
+    public TextMeshProUGUI textoNomePersonagem;
+    public TextMeshProUGUI textoBalao;
     public CanvasGroup canvasGroupFade;
 
     [Header("Áudio")]
@@ -72,12 +72,19 @@ public class CutsceneController : MonoBehaviour
     {
         if (estaEmTransicao) return;
 
-        // Se o texto ainda estiver digitando, completa instantaneamente
+        // Se o texto ainda estiver digitando, completa instantaneamente e fecha a boca
         if (coroutineEscrita != null)
         {
             StopCoroutine(coroutineEscrita);
             coroutineEscrita = null;
             if (textoBalao != null) textoBalao.text = falas[indiceAtual].texto;
+
+            // Garante que a boca fecha ao interromper
+            Personagem p = BuscarPersonagem(falas[indiceAtual].nomeQuemFala);
+            if (imagemPersonagemUI != null && p.bocaFechada != null)
+            {
+                imagemPersonagemUI.sprite = p.bocaFechada;
+            }
             return;
         }
 
@@ -88,7 +95,6 @@ public class CutsceneController : MonoBehaviour
             Sprite fundoAnterior = falas[indiceAtual - 1].imagemFundo;
             Sprite fundoNovo = falas[indiceAtual].imagemFundo;
 
-            // Se o fundo mudou, faz a transição com Fade
             if (fundoNovo != null && fundoNovo != fundoAnterior)
             {
                 StartCoroutine(TrocarFundoEFalaComFade(fundoNovo));
@@ -108,36 +114,88 @@ public class CutsceneController : MonoBehaviour
     {
         FalaLore fala = falas[indiceAtual];
 
-        // Atualiza o nome do personagem na UI
         if (textoNomePersonagem != null)
         {
             textoNomePersonagem.text = fala.nomeQuemFala;
         }
 
-        // Inicia a digitação e passa o som correspondente para a corrotina
+        Personagem personagemAtual = BuscarPersonagem(fala.nomeQuemFala);
+
+        // Se encontrou o personagem, exibe a imagem dele
+        if (imagemPersonagemUI != null)
+        {
+            if (personagemAtual.bocaFechada != null)
+            {
+                imagemPersonagemUI.enabled = true;
+                imagemPersonagemUI.sprite = personagemAtual.bocaFechada;
+            }
+            else
+            {
+                // Esconde a imagem se for o Narrador ou não tiver sprite
+                imagemPersonagemUI.enabled = false;
+            }
+        }
+
         if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
-        coroutineEscrita = StartCoroutine(EfeitoDigitaTexto(fala.texto, fala.somFala));
+        coroutineEscrita = StartCoroutine(EfeitoDigitaTexto(fala.texto, fala.somFala, personagemAtual));
     }
 
-    private IEnumerator EfeitoDigitaTexto(string textoCompleto, AudioClip somDaFala)
+    private IEnumerator EfeitoDigitaTexto(string textoCompleto, AudioClip somDaFala, Personagem personagem)
     {
         if (textoBalao != null)
         {
             textoBalao.text = "";
+            bool bocaEstaAberta = false;
+
             foreach (char letra in textoCompleto.ToCharArray())
             {
                 textoBalao.text += letra;
 
-                // Toca o som a cada letra (ignorando espaços para não ficar estranho)
+                // Toca o som de digitação
                 if (letra != ' ' && somDaFala != null && audioSourceSFX != null)
                 {
                     audioSourceSFX.PlayOneShot(somDaFala);
                 }
 
+                // Alterna a boca a cada espaço (por palavra) ou por caractere
+                if (imagemPersonagemUI != null && imagemPersonagemUI.enabled)
+                {
+                    if (letra == ' ')
+                    {
+                        // Reseta para boca fechada nos espaços entre palavras
+                        imagemPersonagemUI.sprite = personagem.bocaFechada;
+                        bocaEstaAberta = false;
+                    }
+                    else if (personagem.bocaAberta != null && personagem.bocaFechada != null)
+                    {
+                        // Alterna a boca conforme digita
+                        bocaEstaAberta = !bocaEstaAberta;
+                        imagemPersonagemUI.sprite = bocaEstaAberta ? personagem.bocaAberta : personagem.bocaFechada;
+                    }
+                }
+
                 yield return new WaitForSeconds(velocidadeEscrita);
+            }
+
+            // Garante que a boca fecha quando o texto termina de ser digitado
+            if (imagemPersonagemUI != null && personagem.bocaFechada != null)
+            {
+                imagemPersonagemUI.sprite = personagem.bocaFechada;
             }
         }
         coroutineEscrita = null;
+    }
+
+    private Personagem BuscarPersonagem(string nome)
+    {
+        foreach (Personagem p in listaPersonagens)
+        {
+            if (p.nome.ToLower() == nome.ToLower())
+            {
+                return p;
+            }
+        }
+        return default(Personagem);
     }
 
     private IEnumerator TrocarFundoEFalaComFade(Sprite proximaImagem)

@@ -313,6 +313,7 @@ RectTransform:
   m_Children:
   - {fileID: 1202550936}
   - {fileID: 813380207}
+  - {fileID: 1489011122}
   - {fileID: 1035864644}
   - {fileID: 2070692053}
   m_Father: {fileID: 0}
@@ -1072,13 +1073,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 0.8
+  m_Volume: 0.632
+  m_Pitch: 0.9
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 169
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1169,27 +1170,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneController
   imagemFundo: {fileID: 813380205}
+  imagemPersonagemUI: {fileID: 1489011120}
   textoNomePersonagem: {fileID: 1583282777}
   textoBalao: {fileID: 1413458684}
   canvasGroupFade: {fileID: 2070692054}
   audioSourceSFX: {fileID: 1202550937}
   duracaoFade: 0.5
-  velocidadeEscrita: 0.05
+  velocidadeEscrita: 0.07
   nomeProximaCena: Fase1
   listaPersonagens:
-  - nome: 
-    spritePersonagem: {fileID: 0}
+  - nome: Myke
+    bocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
+    bocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
+  - nome: "P\xE9res"
+    bocaFechada: {fileID: 5600772223580213204, guid: 25aa12e0e475b494b944857e6d5d4913, type: 3}
+    bocaAberta: {fileID: 7517225429614508252, guid: 4e4e79b3fe84c5c4e984a15d1c049ede, type: 3}
+  - nome: Narrator
+    bocaFechada: {fileID: 1143495456257030561, guid: dfec08b89706de549b31598b22ab34cd, type: 3}
+    bocaAberta: {fileID: -2472076170658201133, guid: 52bcc9e4e52056b4e96663edca6c3537, type: 3}
   falas:
-  - nomeQuemFala: 
+  - nomeQuemFala: Narrator
     texto: "Myke and P\xE9res used to be an unbeatable team, sharing the same lab
       and the same big dreams."
-    imagemFundo: {fileID: 0}
+    imagemFundo: {fileID: 4085662441678637604, guid: 20575267bdc4a6d48a4290360b76d2ee, type: 3}
     somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
-  - nomeQuemFala: 
+  - nomeQuemFala: Narrator
     texto: "But ambition changed everything. During a major breakthrough, P\xE9res
       presented the entire project to their superior as his own, erasing Myke\u2019s
       name from history."
-    imagemFundo: {fileID: 0}
+    imagemFundo: {fileID: 3733806953780483782, guid: a718a6b93f44b584fb8c7a8550969d25, type: 3}
+    somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
+  - nomeQuemFala: Myke
+    texto: What are you doing?! That was OUR project! You stole everything I worked
+      for!
+    imagemFundo: {fileID: 8960213033406119914, guid: 4d038ccdd0ca6bc4dad9a730f3bae6f0, type: 3}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: "P\xE9res"
+    texto: "Face reality, Myke. The board needs a leader, not a sidekick. You\u2019re
+      out."
+    imagemFundo: {fileID: -8008447450637822732, guid: fd57f2906efba3a40969e030696c291f, type: 3}
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Narrator
+    texto: The argument escalated into a physical fight. As a consequence, Myke was
+      demoted, stripped of his authority, and pushed to the background.
+    imagemFundo: {fileID: 5074354084149328108, guid: 182cc2fe6710ccf46bf2a05c1e14fdd9, type: 3}
+    somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
+  - nomeQuemFala: Narrator
+    texto: He became a ghost in his own workplace... until a breaking news report
+      shook the scientific world.
+    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
     somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
 --- !u!1 &1229351854
 GameObject:
@@ -1373,6 +1402,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413458682}
   m_CullTransparentMesh: 1
+--- !u!1 &1489011119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1489011122}
+  - component: {fileID: 1489011121}
+  - component: {fileID: 1489011120}
+  m_Layer: 5
+  m_Name: GatinhoVN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1489011120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489011119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1489011121
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489011119}
+  m_CullTransparentMesh: 1
+--- !u!224 &1489011122
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489011119}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.047489, y: 1.047489, z: 1.047489}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 516767117}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 302.99997, y: -15.718999}
+  m_SizeDelta: {x: 179.01, y: 458.88}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1583282775
 GameObject:
   m_ObjectHideFlags: 0
