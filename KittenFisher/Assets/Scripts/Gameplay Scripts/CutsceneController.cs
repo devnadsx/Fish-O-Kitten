@@ -5,18 +5,29 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-[System.Serializable]
-public struct Personagem
+public enum PosicaoCutscene
 {
-    public string nome;
-    public Sprite bocaFechada;
-    public Sprite bocaAberta;
+    Esquerda,
+    Centro,
+    Direita
 }
 
 [System.Serializable]
-public struct FalaLore
+
+public struct PersonagemCutscene
+{
+    public string nome;
+    public Sprite spriteBocaFechada;
+    public Sprite spriteBocaAberta;
+    public Color corFoco;
+}
+
+[System.Serializable]
+public struct FalaCutscene
 {
     public string nomeQuemFala;
+    public bool ehNarracao; // Se true, escurece os personagens e não mexe a boca
+    public PosicaoCutscene posicao;
     [TextArea(2, 5)]
     public string texto;
     public Sprite imagemFundo;
@@ -25,30 +36,59 @@ public struct FalaLore
 
 public class CutsceneController : MonoBehaviour
 {
-    [Header("Componentes de UI")]
+    [Header("Componentes de UI - Geral")]
     public Image imagemFundo;
-    public Image imagemPersonagemUI;            // Slot da UI onde o personagem aparece
     public TextMeshProUGUI textoNomePersonagem;
     public TextMeshProUGUI textoBalao;
     public CanvasGroup canvasGroupFade;
 
+    [Header("Slots de Imagem para Personagens")]
+    public Image imagemEsquerda;
+    public Image imagemCentro;
+    public Image imagemDireita;
+
     [Header("Áudio")]
     public AudioSource audioSourceSFX;
+    public AudioClip somFalaPadrao;
 
-    [Header("Configurações")]
+    [Header("Configurações de Animação e Cores")]
     public float duracaoFade = 0.5f;
-    public float velocidadeEscrita = 0.05f;
-    public string nomeProximaCena;
+    public float velocidadeEscrita = 0.03f;
+    public float alturaPuloLetra = 6f;
+    public Color corInativo = new Color(0.5f, 0.5f, 0.5f, 1f);
+    public string nomeProximaCena = "End";
 
     [Header("Banco de Dados de Personagens")]
-    public List<Personagem> listaPersonagens = new List<Personagem>();
+    public List<PersonagemCutscene> listaPersonagens = new List<PersonagemCutscene>();
 
-    [Header("Lista de Falas da Lore")]
-    public List<FalaLore> falas = new List<FalaLore>();
+    [Header("Lista de Falas da Lore (Inspector)")]
+    public List<FalaCutscene> falas = new List<FalaCutscene>();
 
+    private Queue<FalaCutscene> filaFalas = new Queue<FalaCutscene>();
+    private FalaCutscene falaAtual;
     private int indiceAtual = 0;
+
     private bool estaEmTransicao = false;
+    private bool estaEscrevendo = false;
     private Coroutine coroutineEscrita;
+
+    private Image imagemAtivaAtual;
+    private PersonagemCutscene personagemAtivoAtual;
+
+    private Vector2 posFixaEsquerda;
+    private Vector2 posFixaCentro;
+    private Vector2 posFixaDireita;
+
+    private float tempoUltimoClique = 0f;
+    private float intervaloMinimoClique = 0.15f;
+
+    void Awake()
+    {
+        // Salva as posições fixas originais para o pulo não acumular erro
+        if (imagemEsquerda != null) posFixaEsquerda = imagemEsquerda.rectTransform.anchoredPosition;
+        if (imagemCentro != null) posFixaCentro = imagemCentro.rectTransform.anchoredPosition;
+        if (imagemDireita != null) posFixaDireita = imagemDireita.rectTransform.anchoredPosition;
+    }
 
     void Start()
     {
@@ -60,11 +100,27 @@ public class CutsceneController : MonoBehaviour
 
         if (falas != null && falas.Count > 0)
         {
+            // Aplica o primeiro fundo da história
             if (falas[0].imagemFundo != null && imagemFundo != null)
             {
                 imagemFundo.sprite = falas[0].imagemFundo;
             }
-            ExibirFalaAtual();
+
+            // Enfileira as falas
+            foreach (var fala in falas)
+            {
+                filaFalas.Enqueue(fala);
+            }
+
+            ExibirProximaFala();
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        {
+            Avançar();
         }
     }
 
@@ -72,36 +128,29 @@ public class CutsceneController : MonoBehaviour
     {
         if (estaEmTransicao) return;
 
-        // Se o texto ainda estiver digitando, completa instantaneamente e fecha a boca
-        if (coroutineEscrita != null)
-        {
-            StopCoroutine(coroutineEscrita);
-            coroutineEscrita = null;
-            if (textoBalao != null) textoBalao.text = falas[indiceAtual].texto;
+        // Debounce de clique
+        if (Time.time - tempoUltimoClique < intervaloMinimoClique) return;
+        tempoUltimoClique = Time.time;
 
-            // Garante que a boca fecha ao interromper
-            Personagem p = BuscarPersonagem(falas[indiceAtual].nomeQuemFala);
-            if (imagemPersonagemUI != null && p.bocaFechada != null)
-            {
-                imagemPersonagemUI.sprite = p.bocaFechada;
-            }
+        // Se estiver digitando, completa o texto instantaneamente
+        if (estaEscrevendo)
+        {
+            CompletarTextoImediatamente();
             return;
         }
 
-        indiceAtual++;
-
-        if (indiceAtual < falas.Count)
+        if (filaFalas.Count > 0)
         {
-            Sprite fundoAnterior = falas[indiceAtual - 1].imagemFundo;
-            Sprite fundoNovo = falas[indiceAtual].imagemFundo;
+            FalaCutscene proximaFala = filaFalas.Peek();
 
-            if (fundoNovo != null && fundoNovo != fundoAnterior)
+            // Verifica se o fundo mudou para fazer a transição por Fade
+            if (proximaFala.imagemFundo != null && proximaFala.imagemFundo != imagemFundo.sprite)
             {
-                StartCoroutine(TrocarFundoEFalaComFade(fundoNovo));
+                StartCoroutine(TrocarFundoEFalaComFade(proximaFala.imagemFundo));
             }
             else
             {
-                ExibirFalaAtual();
+                ExibirProximaFala();
             }
         }
         else
@@ -110,92 +159,152 @@ public class CutsceneController : MonoBehaviour
         }
     }
 
-    private void ExibirFalaAtual()
+    private void ExibirProximaFala()
     {
-        FalaLore fala = falas[indiceAtual];
+        if (filaFalas.Count == 0) return;
+
+        falaAtual = filaFalas.Dequeue();
+        indiceAtual++;
 
         if (textoNomePersonagem != null)
         {
-            textoNomePersonagem.text = fala.nomeQuemFala;
+            textoNomePersonagem.text = falaAtual.ehNarracao ? "" : falaAtual.nomeQuemFala;
         }
 
-        Personagem personagemAtual = BuscarPersonagem(fala.nomeQuemFala);
+        personagemAtivoAtual = BuscarPersonagem(falaAtual.nomeQuemFala);
+        imagemAtivaAtual = ObterSlotImagem(falaAtual.posicao);
 
-        // Se encontrou o personagem, exibe a imagem dele
-        if (imagemPersonagemUI != null)
+        AtualizarDestaquePersonagens(imagemAtivaAtual, falaAtual.ehNarracao);
+
+        if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
+        coroutineEscrita = StartCoroutine(EfeitoDigitaTexto(falaAtual));
+    }
+
+    private IEnumerator EfeitoDigitaTexto(FalaCutscene linha)
+    {
+        estaEscrevendo = true;
+        if (textoBalao != null) textoBalao.text = "";
+
+        Vector2 posOrigemSlot = ObterPosicaoFixaSlot(linha.posicao);
+        RectTransform rectPersonagem = imagemAtivaAtual != null ? imagemAtivaAtual.rectTransform : null;
+
+        if (rectPersonagem != null) rectPersonagem.anchoredPosition = posOrigemSlot;
+
+        foreach (char letra in linha.texto.ToCharArray())
         {
-            if (personagemAtual.bocaFechada != null)
+            if (textoBalao != null) textoBalao.text += letra;
+
+            // Animação de fala, pulo e som ocorrem apenas se NÃO for narração
+            if (!linha.ehNarracao && char.IsLetterOrDigit(letra))
             {
-                imagemPersonagemUI.enabled = true;
-                imagemPersonagemUI.sprite = personagemAtual.bocaFechada;
+                if (rectPersonagem != null)
+                {
+                    rectPersonagem.anchoredPosition = posOrigemSlot + new Vector2(0, alturaPuloLetra);
+                }
+
+                if (imagemAtivaAtual != null && personagemAtivoAtual.spriteBocaAberta != null)
+                {
+                    imagemAtivaAtual.sprite = personagemAtivoAtual.spriteBocaAberta;
+                }
+
+                AudioClip clipParaTocar = linha.somFala != null ? linha.somFala : somFalaPadrao;
+                if (audioSourceSFX != null && clipParaTocar != null)
+                {
+                    audioSourceSFX.PlayOneShot(clipParaTocar);
+                }
+            }
+
+            yield return new WaitForSeconds(velocidadeEscrita);
+
+            // Retorna à posição original e fecha a boca
+            if (rectPersonagem != null) rectPersonagem.anchoredPosition = posOrigemSlot;
+            RestaurarBocaFechada();
+        }
+
+        if (rectPersonagem != null) rectPersonagem.anchoredPosition = posOrigemSlot;
+        RestaurarBocaFechada();
+        estaEscrevendo = false;
+    }
+
+    private void CompletarTextoImediatamente()
+    {
+        if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
+        if (textoBalao != null) textoBalao.text = falaAtual.texto;
+
+        ResetarPosicoesDeTodosSlots();
+        RestaurarBocaFechada();
+        estaEscrevendo = false;
+    }
+
+    private PersonagemCutscene BuscarPersonagem(string nome)
+    {
+        foreach (var p in listaPersonagens)
+        {
+            if (p.nome.ToLower() == nome.ToLower()) return p;
+        }
+        return new PersonagemCutscene { nome = nome, corFoco = Color.white };
+    }
+
+    private Image ObterSlotImagem(PosicaoCutscene posicao)
+    {
+        switch (posicao)
+        {
+            case PosicaoCutscene.Esquerda: return imagemEsquerda;
+            case PosicaoCutscene.Direita: return imagemDireita;
+            case PosicaoCutscene.Centro: return imagemCentro;
+            default: return imagemCentro;
+        }
+    }
+
+    private Vector2 ObterPosicaoFixaSlot(PosicaoCutscene posicao)
+    {
+        switch (posicao)
+        {
+            case PosicaoCutscene.Esquerda: return posFixaEsquerda;
+            case PosicaoCutscene.Direita: return posFixaDireita;
+            case PosicaoCutscene.Centro: return posFixaCentro;
+            default: return posFixaCentro;
+        }
+    }
+
+    private void AtualizarDestaquePersonagens(Image slotAtivo, bool ehNarracao)
+    {
+        Image[] slots = { imagemEsquerda, imagemCentro, imagemDireita };
+
+        foreach (var slot in slots)
+        {
+            if (slot == null) continue;
+
+            if (slot.sprite != null) slot.gameObject.SetActive(true);
+
+            if (slot == slotAtivo && !ehNarracao)
+            {
+                slot.color = personagemAtivoAtual.corFoco != Color.clear ? personagemAtivoAtual.corFoco : Color.white;
+                if (personagemAtivoAtual.spriteBocaFechada != null)
+                {
+                    slot.sprite = personagemAtivoAtual.spriteBocaFechada;
+                }
             }
             else
             {
-                // Esconde a imagem se for o Narrador ou não tiver sprite
-                imagemPersonagemUI.enabled = false;
+                slot.color = corInativo;
             }
         }
-
-        if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
-        coroutineEscrita = StartCoroutine(EfeitoDigitaTexto(fala.texto, fala.somFala, personagemAtual));
     }
 
-    private IEnumerator EfeitoDigitaTexto(string textoCompleto, AudioClip somDaFala, Personagem personagem)
+    private void RestaurarBocaFechada()
     {
-        if (textoBalao != null)
+        if (imagemAtivaAtual != null && personagemAtivoAtual.spriteBocaFechada != null)
         {
-            textoBalao.text = "";
-            bool bocaEstaAberta = false;
-
-            foreach (char letra in textoCompleto.ToCharArray())
-            {
-                textoBalao.text += letra;
-
-                // Toca o som de digitação
-                if (letra != ' ' && somDaFala != null && audioSourceSFX != null)
-                {
-                    audioSourceSFX.PlayOneShot(somDaFala);
-                }
-
-                // Alterna a boca a cada espaço (por palavra) ou por caractere
-                if (imagemPersonagemUI != null && imagemPersonagemUI.enabled)
-                {
-                    if (letra == ' ')
-                    {
-                        // Reseta para boca fechada nos espaços entre palavras
-                        imagemPersonagemUI.sprite = personagem.bocaFechada;
-                        bocaEstaAberta = false;
-                    }
-                    else if (personagem.bocaAberta != null && personagem.bocaFechada != null)
-                    {
-                        // Alterna a boca conforme digita
-                        bocaEstaAberta = !bocaEstaAberta;
-                        imagemPersonagemUI.sprite = bocaEstaAberta ? personagem.bocaAberta : personagem.bocaFechada;
-                    }
-                }
-
-                yield return new WaitForSeconds(velocidadeEscrita);
-            }
-
-            // Garante que a boca fecha quando o texto termina de ser digitado
-            if (imagemPersonagemUI != null && personagem.bocaFechada != null)
-            {
-                imagemPersonagemUI.sprite = personagem.bocaFechada;
-            }
+            imagemAtivaAtual.sprite = personagemAtivoAtual.spriteBocaFechada;
         }
-        coroutineEscrita = null;
     }
 
-    private Personagem BuscarPersonagem(string nome)
+    private void ResetarPosicoesDeTodosSlots()
     {
-        foreach (Personagem p in listaPersonagens)
-        {
-            if (p.nome.ToLower() == nome.ToLower())
-            {
-                return p;
-            }
-        }
-        return default(Personagem);
+        if (imagemEsquerda != null) imagemEsquerda.rectTransform.anchoredPosition = posFixaEsquerda;
+        if (imagemCentro != null) imagemCentro.rectTransform.anchoredPosition = posFixaCentro;
+        if (imagemDireita != null) imagemDireita.rectTransform.anchoredPosition = posFixaDireita;
     }
 
     private IEnumerator TrocarFundoEFalaComFade(Sprite proximaImagem)
@@ -214,7 +323,7 @@ public class CutsceneController : MonoBehaviour
         if (canvasGroupFade != null) canvasGroupFade.alpha = 1f;
         if (imagemFundo != null) imagemFundo.sprite = proximaImagem;
 
-        ExibirFalaAtual();
+        ExibirProximaFala();
 
         tempo = duracaoFade;
         while (tempo > 0f)
