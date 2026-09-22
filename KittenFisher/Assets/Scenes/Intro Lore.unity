@@ -473,7 +473,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 48948eb8e69ec7a4b9ba55764da8bad5, type: 3}
+  m_Resource: {fileID: 8300000, guid: e8b8c849e651b6143b98f989e8d4272f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.724
   m_Pitch: 0.67
@@ -1186,20 +1186,20 @@ MonoBehaviour:
     bocaFechada: {fileID: 5600772223580213204, guid: 25aa12e0e475b494b944857e6d5d4913, type: 3}
     bocaAberta: {fileID: 7517225429614508252, guid: 4e4e79b3fe84c5c4e984a15d1c049ede, type: 3}
   - nome: Narrator
-    bocaFechada: {fileID: 1143495456257030561, guid: dfec08b89706de549b31598b22ab34cd, type: 3}
-    bocaAberta: {fileID: -2472076170658201133, guid: 52bcc9e4e52056b4e96663edca6c3537, type: 3}
+    bocaFechada: {fileID: 0}
+    bocaAberta: {fileID: 0}
   falas:
   - nomeQuemFala: Narrator
     texto: "Myke and P\xE9res used to be an unbeatable team, sharing the same lab
       and the same big dreams."
     imagemFundo: {fileID: 4085662441678637604, guid: 20575267bdc4a6d48a4290360b76d2ee, type: 3}
-    somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
     texto: "But ambition changed everything. During a major breakthrough, P\xE9res
       presented the entire project to their superior as his own, erasing Myke\u2019s
       name from history."
     imagemFundo: {fileID: 3733806953780483782, guid: a718a6b93f44b584fb8c7a8550969d25, type: 3}
-    somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
     texto: What are you doing?! That was OUR project! You stole everything I worked
       for!
@@ -1214,12 +1214,36 @@ MonoBehaviour:
     texto: The argument escalated into a physical fight. As a consequence, Myke was
       demoted, stripped of his authority, and pushed to the background.
     imagemFundo: {fileID: 5074354084149328108, guid: 182cc2fe6710ccf46bf2a05c1e14fdd9, type: 3}
-    somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
     texto: He became a ghost in his own workplace... until a breaking news report
       shook the scientific world.
     imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
-    somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Narrator
+    texto: "It was P\xE9res, presenting the project that the two of them had worked
+      hard on, and from which Myke had been excluded."
+    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Myke
+    texto: 'Wh-What the heck!!?? '
+    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Narrator
+    texto: Myke was speechless. Immediately afterwards, he gritted his teeth and
+      aggressively turned off the TV.
+    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Myke
+    texto: "If you think you can control the skies, P\xE9res... then I will conquer
+      the depths."
+    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Narrator
+    texto: Determined and full of rage, Myke decides it's time to turn things around;
+      he decides to start working on a project to explore the depths of the ocean.
+    imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
 --- !u!1 &1229351854
 GameObject:
   m_ObjectHideFlags: 0
