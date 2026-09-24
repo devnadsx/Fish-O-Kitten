@@ -1276,9 +1276,19 @@ MonoBehaviour:
   - nomeQuemFala: Narrator
     ehNarracao: 0
     posicao: 1
-    texto: "Myke and P\xE9res used to be an unbeatable team, sharing the same lab
-      and the same big dreams."
+    texto: "Myke and P\xE9res used to be an unbeatable duo, sharing the same tastes
+      and the same big dreams. They met in high school and always made it clear to
+      each other that they loved science. So much so that they both studied Biological
+      and Health Sciences."
     imagemFundo: {fileID: 4085662441678637604, guid: 20575267bdc4a6d48a4290360b76d2ee, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Narrator
+    ehNarracao: 0
+    posicao: 1
+    texto: 'They also managed to get hired together and became an unbeatable team.
+      They started working together on various projects, always standing out for
+      their innovation. '
+    imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 0
@@ -1348,6 +1358,12 @@ MonoBehaviour:
     posicao: 1
     texto: Determined and full of rage, Myke decides it's time to turn things around;
       he decides to start working on a project to explore the depths of the ocean.
+    imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Narrator
+    ehNarracao: 0
+    posicao: 1
+    texto: 
     imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
 --- !u!1 &1229351854
