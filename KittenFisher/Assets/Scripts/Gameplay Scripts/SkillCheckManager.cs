@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System;
 
 public class SkillCheckManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class SkillCheckManager : MonoBehaviour
 
     [Header("Configuração de Movimento")]
     public float velocidade = 600f;
-    private float velocidadeBase; // 🟢 Guarda o valor padrão de velocidade
+    private float velocidadeBase;
 
     [Header("Sons")]
     public AudioSource musicaPrincipal;
@@ -34,11 +35,16 @@ public class SkillCheckManager : MonoBehaviour
 
     private string nomePeixeAtual = "";
 
+    // 🟢 Novas variáveis para controle de sequências progressivas
+    private Action<bool> callbackFinal;
+    private int tentativasTotais = 1;
+    private int tentativaAtual = 0;
+    private float incrementoVelocidade = 1.25f;
+    private float multiplicadorAtual = 1.0f;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
-
-        // 🟢 Salva a velocidade configurada no Inspector logo no início
         velocidadeBase = velocidade;
     }
 
@@ -51,7 +57,6 @@ public class SkillCheckManager : MonoBehaviour
     {
         if (!jogoAtivo) return;
 
-        // Usa o valor de velocidade ajustado para o peixe atual
         float deslocamento = velocidade * Time.deltaTime;
 
         if (movendoParaDireita)
@@ -83,19 +88,41 @@ public class SkillCheckManager : MonoBehaviour
         }
     }
 
+    // Método tradicional mantido para os peixes
     public void IniciarSequenciaSkillCheck(string nomePeixe, float multiplicadorVelocidade = 1.0f)
     {
         nomePeixeAtual = nomePeixe;
+        callbackFinal = null;
+        tentativasTotais = 1;
+        tentativaAtual = 0;
+        multiplicadorAtual = multiplicadorVelocidade;
 
-        // 🟢 AQUI ESTAVA O PROBLEMA: Agora aplicamos o multiplicador de velocidade
-        velocidade = velocidadeBase * multiplicadorVelocidade;
+        ExecutarRodada();
+    }
+
+    // 🟢 NOVO MÉTODO: Suporta múltiplas rodadas com velocidade progressiva
+    public void IniciarSequenciaMultipla(int totalRodadas, float multiplicadorInicial, float fatorAumento, Action<bool> onComplete)
+    {
+        nomePeixeAtual = "";
+        tentativasTotais = totalRodadas;
+        tentativaAtual = 0;
+        multiplicadorAtual = multiplicadorInicial;
+        incrementoVelocidade = fatorAumento;
+        callbackFinal = onComplete;
+
+        ExecutarRodada();
+    }
+
+    private void ExecutarRodada()
+    {
+        velocidade = velocidadeBase * multiplicadorAtual;
 
         if (musicaPrincipal != null && musicaPrincipal.isPlaying)
         {
             musicaPrincipal.Pause();
         }
 
-        if (audioSourceSFX != null && musicaTensa != null)
+        if (audioSourceSFX != null && musicaTensa != null && !audioSourceSFX.isPlaying)
         {
             audioSourceSFX.clip = musicaTensa;
             audioSourceSFX.loop = true;
@@ -113,7 +140,7 @@ public class SkillCheckManager : MonoBehaviour
         if (zonaDeAcerto != null)
         {
             float metadeZona = zonaDeAcerto.rect.width / 2f;
-            float xAleatorio = Random.Range(limiteEsquerda + metadeZona, limiteDireita - metadeZona);
+            float xAleatorio = UnityEngine.Random.Range(limiteEsquerda + metadeZona, limiteDireita - metadeZona);
             zonaDeAcerto.anchoredPosition = new Vector2(xAleatorio, zonaDeAcerto.anchoredPosition.y);
         }
 
@@ -131,7 +158,18 @@ public class SkillCheckManager : MonoBehaviour
         if (posPonteiroX >= zonaInicioX && posPonteiroX <= zonaFimX)
         {
             TocarSFX(somAcerto);
-            Finalizar(true);
+            tentativaAtual++;
+
+            // Se ainda restam rodadas no teste
+            if (tentativaAtual < tentativasTotais)
+            {
+                multiplicadorAtual *= incrementoVelocidade; // 🚀 Aumenta a velocidade
+                ExecutarRodada();
+            }
+            else
+            {
+                Finalizar(true);
+            }
         }
         else
         {
@@ -144,18 +182,20 @@ public class SkillCheckManager : MonoBehaviour
     {
         if (painelSkillCheck != null) painelSkillCheck.SetActive(false);
 
-        // 🟢 Reseta a velocidade para o padrão ao fechar
         velocidade = velocidadeBase;
-
         RestaurarMusicaPrincipal();
 
-        if (GerenciadorAnalisePeixes.Instance != null)
+        // Se veio do sistema de análise de peixes
+        if (GerenciadorAnalisePeixes.Instance != null && string.IsNullOrEmpty(nomePeixeAtual) == false)
         {
             if (sucesso)
                 GerenciadorAnalisePeixes.Instance.OnSkillCheckSucesso();
             else
                 GerenciadorAnalisePeixes.Instance.OnSkillCheckFalha();
         }
+
+        // 🟢 Se veio de uma chamada personalizada (ex: Tutorial / Montagem do Traje)
+        callbackFinal?.Invoke(sucesso);
     }
 
     void RestaurarMusicaPrincipal()

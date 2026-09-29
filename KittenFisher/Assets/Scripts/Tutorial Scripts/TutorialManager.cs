@@ -5,41 +5,31 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-[System.Serializable]
-public struct ExpressaoGatinho
-{
-    public string nomeExpressao;
-    public Sprite sprite;
-}
-
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance;
 
-    [Header("Aviso de Controles (Canva)")]
+    [Header("Aviso de Controles")]
     public GameObject imagemAvisoControles;
 
     [Header("UI do Diálogo")]
     public GameObject painelBalaoFala;
+    public TextMeshProUGUI textoNomePersonagem;
     public TextMeshProUGUI textoBalao;
     public Button botaoAvancarFala;
 
-    [Header("Gatinho Normal (UI)")]
-    public GameObject objetoGatinhoNormal; // GameObject do Gatinho Padrão no Canvas
-    public Image imagemGatinhoNormal;      // Componente Image do Gatinho Padrão
+    [Header("UI dos Botões de Escolha do Paxton")]
+    public GameObject painelBotoesEscolha;
+    public Button botaoAceitarPaxton;
+    public Button botaoRecusarPaxton;
+
+    [Header("Gatinho UI")]
+    public GameObject objetoGatinhoUI;
+    public Image imagemGatinhoUI;
     public Sprite spriteNormalFechada;
     public Sprite spriteNormalAberta;
 
-    [Header("Gatinho Final / Caixa (UI)")]
-    public GameObject objetoGatinhoFinal;  // GameObject do Gatinho Especial no Canvas
-    public Image imagemGatinhoFinal;       // Componente Image do Gatinho Especial
-    public Sprite spriteFinalFechada;
-    public Sprite spriteFinalAberta;
-
-    [Header("Expressões Futuras (Expansível)")]
-    public List<ExpressaoGatinho> expressoesExtras = new List<ExpressaoGatinho>();
-
-    [Header("Estilo Visual Novel / RPG")]
+    [Header("Efeitos e Som")]
     public float velocidadeEscrita = 0.04f;
     public float alturaPuloLetra = 8f;
     public AudioSource audioSourceSFX;
@@ -49,8 +39,8 @@ public class TutorialManager : MonoBehaviour
     public GameObject painelListaItens;
     public TextMeshProUGUI textoLista;
 
-    [Header("Desbloquear Gameplay Após a Lupa")]
-    public MonoBehaviour[] scriptsParaAtivarAposLupa;
+    [Header("Desbloquear Gameplay Após Pegar o Capacete")]
+    public MonoBehaviour[] scriptsParaAtivarAposCapacete;
 
     [Header("Configuração de Cenas")]
     public string nomeCenaJogoPrincipal = "SampleScene";
@@ -59,20 +49,14 @@ public class TutorialManager : MonoBehaviour
     private int etapaFala = 0;
     private bool falaAtiva = true;
 
-    // Itens
-    private bool pegouLupa = false;
-    private bool pegouAquario = false;
-    private bool pegouTesoura = false;
+    private bool pegouCapacete = false;
+    private bool pegouTanque = false;
+    private bool pegouFerramenta = false;
 
-    // Posições originais para animação de pulo
-    private Vector3 posicaoOriginalNormal;
-    private Vector3 posicaoOriginalFinal;
+    private Vector3 posicaoOriginalGato;
     private Coroutine coroutineEscrita;
     private bool estaEscrevendo = false;
     private string textoCompletoAtual = "";
-
-    // Controle de qual gatinho está ativo no momento
-    private bool usarGatinhoFinal = false;
 
     void Awake()
     {
@@ -81,32 +65,36 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
-        if (imagemGatinhoNormal != null)
+        if (imagemGatinhoUI != null)
         {
-            posicaoOriginalNormal = imagemGatinhoNormal.rectTransform.anchoredPosition;
-        }
-
-        if (imagemGatinhoFinal != null)
-        {
-            posicaoOriginalFinal = imagemGatinhoFinal.rectTransform.anchoredPosition;
-            if (objetoGatinhoFinal != null) objetoGatinhoFinal.SetActive(false); // Mantém o final oculto no início
+            posicaoOriginalGato = imagemGatinhoUI.rectTransform.anchoredPosition;
         }
 
         if (painelListaItens != null) painelListaItens.SetActive(false);
+        if (painelBotoesEscolha != null) painelBotoesEscolha.SetActive(false);
 
         if (imagemAvisoControles != null)
         {
             imagemAvisoControles.SetActive(true);
         }
 
-        DefinirSpriteNormal();
-        DefinirEstadoScriptsPosLupa(false);
+        if (botaoAceitarPaxton != null)
+            botaoAceitarPaxton.onClick.AddListener(() => EscolherPaxton(true));
+
+        if (botaoRecusarPaxton != null)
+            botaoRecusarPaxton.onClick.AddListener(() => EscolherPaxton(false));
+
+        DefinirSpriteFechada();
+        DefinirEstadoScripts(false);
         MostrarFalaAtual();
     }
 
     void Update()
     {
-        if (falaAtiva && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
+        // Se o Skill Check estiver aberto, não permite avançar falas
+        if (SkillCheckManager.Instance != null && SkillCheckManager.Instance.estaAtivo) return;
+
+        if (falaAtiva && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Space)))
         {
             AvancarTexto();
         }
@@ -125,6 +113,8 @@ public class TutorialManager : MonoBehaviour
             return;
         }
 
+        if (painelBotoesEscolha != null && painelBotoesEscolha.activeSelf) return;
+
         etapaFala++;
         MostrarFalaAtual();
     }
@@ -134,63 +124,139 @@ public class TutorialManager : MonoBehaviour
         falaAtiva = true;
 
         if (painelBalaoFala != null) painelBalaoFala.SetActive(true);
-        ExibirGatinhoAtual(true);
-
+        if (objetoGatinhoUI != null) objetoGatinhoUI.SetActive(true);
         if (botaoAvancarFala != null) botaoAvancarFala.gameObject.SetActive(true);
 
         switch (etapaFala)
         {
             case 0:
-                IniciarDigitacao("Oh, I need to do a new experiment!");
+                DefinirNomePersonagem("Myke");
+                IniciarDigitacao("Right... The abyss pressure is extreme, but my dive suit is almost ready.");
                 break;
 
             case 1:
-                IniciarDigitacao("I heard about a mysterious catnip in the ocean.");
+                DefinirNomePersonagem("Myke");
+                IniciarDigitacao("I need to find 3 essential gear pieces left in the lab before I head to the boat.");
                 break;
 
             case 2:
-                IniciarDigitacao("Okay. I need to collect some materials from the lab...");
+                DefinirNomePersonagem("Myke");
+                IniciarDigitacao("Let's see: I need the Helmet, the Oxygen Tank, and the Calibrator Tool.");
                 break;
 
             case 3:
-                IniciarDigitacao("Uhh.. I need to find the magnifying glass, the fishbowl and the scissors. Where on earth did I leave each of them…?");
-                break;
-
-            case 4:
                 EsconderDialogoEGato();
                 if (painelListaItens != null) painelListaItens.SetActive(true);
                 AtualizarTextoLista();
                 break;
 
+            case 4:
+                DefinirNomePersonagem("Myke");
+                IniciarDigitacao("Got the Helmet! The HUD scope is active now.");
+                break;
+
             case 5:
-                IniciarDigitacao("I've found the magnifying glass! Now I can have a closer look to see if I can find the rest...");
+                DefinirNomePersonagem("Narrator");
+                IniciarDigitacao("Tip: You can move the camera and zoom in on objects in the lab to inspect details!");
                 break;
 
             case 6:
-                IniciarDigitacao("Tip: You can move the scene and zoom in on it for a better view!");
-                break;
-
-            case 7:
                 EsconderDialogoEGato();
                 break;
 
+            // --- MONTAGEM DO TRAJE (INÍCIO DO SKILL CHECK) ---
+            case 7:
+                DefinirNomePersonagem("Myke");
+                IniciarDigitacao("Alright, I have all the pieces! Now I need to assemble and calibrate the suit's pressure valves.");
+                break;
+
             case 8:
-                usarGatinhoFinal = true;
-                ExibirGatinhoAtual(true);
-                DefinirSpriteNormal();
+                EsconderDialogoEGato();
+                IniciarDesafioSkillCheck();
+                break;
 
-                IniciarDigitacao("Great, I’ve got everything! Now I’m ready for the experiment! Yay!");
+            case 9:
+                DefinirNomePersonagem("Myke");
+                IniciarDigitacao("Perfect! Calibration complete. The suit is fully operational.");
+                break;
 
-                if (botaoAvancarFala != null)
-                {
-                    botaoAvancarFala.onClick.RemoveAllListeners();
-                    botaoAvancarFala.onClick.AddListener(IrParaOJogo);
-                }
+            // --- ENTRADA DO PAXTON ---
+            case 10:
+                DefinirNomePersonagem("Paxton");
+                IniciarDigitacao("Wait! Myke, don't leave yet!");
+                break;
+
+            case 11:
+                DefinirNomePersonagem("Myke");
+                IniciarDigitacao("Paxton?! What are you doing here in my workshop?");
+                break;
+
+            case 12:
+                DefinirNomePersonagem("Paxton");
+                IniciarDigitacao("I looked over your depth schematics. You're going down to the trench alone? That's insane!");
+                break;
+
+            case 13:
+                DefinirNomePersonagem("Myke");
+                IniciarDigitacao("I don't need your help, Paxton. Not after what happened at the institute.");
+                break;
+
+            case 14:
+                DefinirNomePersonagem("Paxton");
+                IniciarDigitacao("I was wrong about the credit back then... I'm sorry. Just let me handle telemetry from the surface boat. Please.");
+                break;
+
+            case 15:
+                if (botaoAvancarFala != null) botaoAvancarFala.gameObject.SetActive(false);
+                if (painelBotoesEscolha != null) painelBotoesEscolha.SetActive(true);
                 break;
         }
     }
 
-    // --- SISTEMA DE DIGITAÇÃO E ANIMAÇÃO ---
+    void IniciarDesafioSkillCheck()
+    {
+        if (SkillCheckManager.Instance != null)
+        {
+            // Parâmetros: 3 acertos necessários, velocidade base x1.0, e aumento de 35% a cada acerto
+            SkillCheckManager.Instance.IniciarSequenciaMultipla(3, 1.0f, 1.35f, OnSkillCheckResultado);
+        }
+    }
+
+    void OnSkillCheckResultado(bool sucesso)
+    {
+        if (sucesso)
+        {
+            etapaFala = 9;
+            MostrarFalaAtual();
+        }
+        else
+        {
+            // Em caso de erro, dá uma mensagem e tenta de novo
+            DefinirNomePersonagem("Myke");
+            IniciarDigitacao("Oops, a valve slipped! Let me retry calibrating...");
+            etapaFala = 7; // Volta para tentar novamente na próxima barra
+        }
+    }
+
+    public void ExibirLoreObjeto(string nomeAutor, string textoLore)
+    {
+        if (falaAtiva) return;
+
+        falaAtiva = true;
+        if (painelBalaoFala != null) painelBalaoFala.SetActive(true);
+        if (objetoGatinhoUI != null) objetoGatinhoUI.SetActive(true);
+
+        DefinirNomePersonagem(nomeAutor);
+        IniciarDigitacao(textoLore);
+    }
+
+    private void DefinirNomePersonagem(string nome)
+    {
+        if (textoNomePersonagem != null)
+        {
+            textoNomePersonagem.text = nome == "Narrator" ? "" : nome;
+        }
+    }
 
     void IniciarDigitacao(string texto)
     {
@@ -211,7 +277,6 @@ public class TutorialManager : MonoBehaviour
             if (char.IsLetterOrDigit(letra))
             {
                 DefinirSpriteAberta();
-
                 StartCoroutine(PulinhoRapidoGato());
 
                 if (audioSourceSFX != null && somFalaGatinho != null)
@@ -221,13 +286,13 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
-                DefinirSpriteNormal();
+                DefinirSpriteFechada();
             }
 
             yield return new WaitForSeconds(velocidadeEscrita);
         }
 
-        DefinirSpriteNormal();
+        DefinirSpriteFechada();
         estaEscrevendo = false;
     }
 
@@ -236,129 +301,86 @@ public class TutorialManager : MonoBehaviour
         if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
         if (textoBalao != null) textoBalao.text = textoCompletoAtual;
 
-        DefinirSpriteNormal();
+        DefinirSpriteFechada();
         estaEscrevendo = false;
         ResetarPosicaoGato();
     }
 
     IEnumerator PulinhoRapidoGato()
     {
-        Image imgAtual = usarGatinhoFinal ? imagemGatinhoFinal : imagemGatinhoNormal;
-        Vector3 posOriginal = usarGatinhoFinal ? posicaoOriginalFinal : posicaoOriginalNormal;
+        if (imagemGatinhoUI == null || !imagemGatinhoUI.gameObject.activeInHierarchy) yield break;
 
-        if (imgAtual == null || !imgAtual.gameObject.activeInHierarchy) yield break;
-
-        RectTransform rect = imgAtual.rectTransform;
-        rect.anchoredPosition = posOriginal + new Vector3(0, alturaPuloLetra, 0);
+        RectTransform rect = imagemGatinhoUI.rectTransform;
+        rect.anchoredPosition = posicaoOriginalGato + new Vector3(0, alturaPuloLetra, 0);
         yield return new WaitForSeconds(velocidadeEscrita * 0.5f);
-        rect.anchoredPosition = posOriginal;
+        rect.anchoredPosition = posicaoOriginalGato;
     }
 
     void ResetarPosicaoGato()
     {
-        if (imagemGatinhoNormal != null)
-            imagemGatinhoNormal.rectTransform.anchoredPosition = posicaoOriginalNormal;
-
-        if (imagemGatinhoFinal != null)
-            imagemGatinhoFinal.rectTransform.anchoredPosition = posicaoOriginalFinal;
+        if (imagemGatinhoUI != null)
+            imagemGatinhoUI.rectTransform.anchoredPosition = posicaoOriginalGato;
     }
 
-    // --- GERENCIAMENTO DE SPRITES E VISIBILIDADE ---
-
-    void DefinirSpriteNormal()
+    void DefinirSpriteFechada()
     {
-        if (!usarGatinhoFinal && imagemGatinhoNormal != null && spriteNormalFechada != null)
-        {
-            imagemGatinhoNormal.sprite = spriteNormalFechada;
-        }
-        else if (usarGatinhoFinal && imagemGatinhoFinal != null && spriteFinalFechada != null)
-        {
-            imagemGatinhoFinal.sprite = spriteFinalFechada;
-        }
+        if (imagemGatinhoUI != null && spriteNormalFechada != null)
+            imagemGatinhoUI.sprite = spriteNormalFechada;
     }
 
     void DefinirSpriteAberta()
     {
-        if (!usarGatinhoFinal && imagemGatinhoNormal != null && spriteNormalAberta != null)
-        {
-            imagemGatinhoNormal.sprite = spriteNormalAberta;
-        }
-        else if (usarGatinhoFinal && imagemGatinhoFinal != null && spriteFinalAberta != null)
-        {
-            imagemGatinhoFinal.sprite = spriteFinalAberta;
-        }
-    }
-
-    void ExibirGatinhoAtual(bool visivel)
-    {
-        if (!visivel)
-        {
-            if (objetoGatinhoNormal != null) objetoGatinhoNormal.SetActive(false);
-            if (objetoGatinhoFinal != null) objetoGatinhoFinal.SetActive(false);
-            return;
-        }
-
-        if (usarGatinhoFinal)
-        {
-            if (objetoGatinhoNormal != null) objetoGatinhoNormal.SetActive(false);
-            if (objetoGatinhoFinal != null) objetoGatinhoFinal.SetActive(true);
-        }
-        else
-        {
-            if (objetoGatinhoNormal != null) objetoGatinhoNormal.SetActive(true);
-            if (objetoGatinhoFinal != null) objetoGatinhoFinal.SetActive(false);
-        }
+        if (imagemGatinhoUI != null && spriteNormalAberta != null)
+            imagemGatinhoUI.sprite = spriteNormalAberta;
     }
 
     void EsconderDialogoEGato()
     {
         falaAtiva = false;
-        DefinirSpriteNormal();
+        DefinirSpriteFechada();
         if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
-        ExibirGatinhoAtual(false);
+        if (objetoGatinhoUI != null) objetoGatinhoUI.SetActive(false);
     }
 
-    // --- GAMEPLAY E COLETA DE ITENS ---
-
-    public bool PodeColetarItem(string nomeDoItem)
+    public bool PodeColetarItem()
     {
         return !falaAtiva;
     }
 
     public void ColetarItem(string nome)
     {
-        if (nome == "Lupa")
+        if (nome == "Capacete")
         {
-            pegouLupa = true;
+            pegouCapacete = true;
             AtualizarTextoLista();
-            DefinirEstadoScriptsPosLupa(true);
+            DefinirEstadoScripts(true);
 
-            etapaFala = 5;
+            etapaFala = 4;
             MostrarFalaAtual();
         }
-        else if (nome == "Aquario")
+        else if (nome == "Tanque")
         {
-            pegouAquario = true;
+            pegouTanque = true;
             AtualizarTextoLista();
         }
-        else if (nome == "Tesoura")
+        else if (nome == "Ferramenta")
         {
-            pegouTesoura = true;
+            pegouFerramenta = true;
             AtualizarTextoLista();
         }
 
-        if (pegouLupa && pegouAquario && pegouTesoura)
+        if (pegouCapacete && pegouTanque && pegouFerramenta)
         {
-            etapaFala = 8;
+            etapaFala = 7;
             MostrarFalaAtual();
         }
     }
 
-    void DefinirEstadoScriptsPosLupa(bool estado)
+    void DefinirEstadoScripts(bool estado)
     {
-        if (scriptsParaAtivarAposLupa != null)
+        if (scriptsParaAtivarAposCapacete != null)
         {
-            foreach (MonoBehaviour script in scriptsParaAtivarAposLupa)
+            foreach (MonoBehaviour script in scriptsParaAtivarAposCapacete)
             {
                 if (script != null) script.enabled = estado;
             }
@@ -369,14 +391,19 @@ public class TutorialManager : MonoBehaviour
     {
         if (textoLista == null) return;
 
-        textoLista.text = $"<b>Materials:</b>\n" +
-            $"{(pegouLupa ? "<s>• Magnifying Glass</s>" : "• Magnifying Glass")}\n" +
-            $"{(pegouAquario ? "<s>• Fishbowl</s>" : "• Fishbowl")}\n" +
-            $"{(pegouTesoura ? "<s>• Scissors</s>" : "• Scissors")}";
+        textoLista.text = $"<b>Gear Checklist:</b>\n" +
+            $"{(pegouCapacete ? "<s>• Dive Helmet</s>" : "• Dive Helmet")}\n" +
+            $"{(pegouTanque ? "<s>• Oxygen Tank</s>" : "• Oxygen Tank")}\n" +
+            $"{(pegouFerramenta ? "<s>• Calibrator Tool</s>" : "• Calibrator Tool")}";
     }
 
-    public void PularTutorial()
+    public void EscolherPaxton(bool aceitou)
     {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.paxtonAcompanha = aceitou;
+        }
+
         IrParaOJogo();
     }
 
