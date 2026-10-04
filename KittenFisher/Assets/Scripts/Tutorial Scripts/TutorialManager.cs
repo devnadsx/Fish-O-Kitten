@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -9,406 +8,469 @@ public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance;
 
-    [Header("Aviso de Controles")]
-    public GameObject imagemAvisoControles;
-
-    [Header("UI do Diálogo")]
+    [Header("Diálogo")]
     public GameObject painelBalaoFala;
     public TextMeshProUGUI textoNomePersonagem;
     public TextMeshProUGUI textoBalao;
     public Button botaoAvancarFala;
 
-    [Header("UI dos Botões de Escolha do Paxton")]
+    [Header("Escolha do Paxton")]
     public GameObject painelBotoesEscolha;
     public Button botaoAceitarPaxton;
     public Button botaoRecusarPaxton;
 
-    [Header("Gatinho UI")]
+    [Header("Gatinho")]
     public GameObject objetoGatinhoUI;
     public Image imagemGatinhoUI;
     public Sprite spriteNormalFechada;
     public Sprite spriteNormalAberta;
 
-    [Header("Efeitos e Som")]
+    [Header("Texto")]
     public float velocidadeEscrita = 0.04f;
-    public float alturaPuloLetra = 8f;
-    public AudioSource audioSourceSFX;
-    public AudioClip somFalaGatinho;
 
-    [Header("UI da Lista de Tarefas")]
-    public GameObject painelListaItens;
-    public TextMeshProUGUI textoLista;
-
-    [Header("Desbloquear Gameplay Após Pegar o Capacete")]
-    public MonoBehaviour[] scriptsParaAtivarAposCapacete;
-
-    [Header("Configuração de Cenas")]
+    [Header("Cena")]
     public string nomeCenaJogoPrincipal = "SampleScene";
 
-    // Estados
-    private int etapaFala = 0;
-    private bool falaAtiva = true;
 
-    private bool pegouCapacete = false;
-    private bool pegouTanque = false;
-    private bool pegouFerramenta = false;
+    // Itens encontrados
+    private bool capacete;
+    private bool tanque;
+    private bool ferramenta;
 
-    private Vector3 posicaoOriginalGato;
-    private Coroutine coroutineEscrita;
-    private bool estaEscrevendo = false;
-    private string textoCompletoAtual = "";
+    // Controle do diálogo
+    private int etapa = 0;
+    private bool dialogoAtivo;
+    private bool escrevendo;
+
+    private string textoAtual;
+    private Coroutine digitacao;
+
+    private Vector3 posicaoGato;
+
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
+
 
     void Start()
     {
         if (imagemGatinhoUI != null)
-        {
-            posicaoOriginalGato = imagemGatinhoUI.rectTransform.anchoredPosition;
-        }
+            posicaoGato = imagemGatinhoUI.rectTransform.anchoredPosition;
 
-        if (painelListaItens != null) painelListaItens.SetActive(false);
-        if (painelBotoesEscolha != null) painelBotoesEscolha.SetActive(false);
-
-        if (imagemAvisoControles != null)
-        {
-            imagemAvisoControles.SetActive(true);
-        }
+        if (painelBotoesEscolha != null)
+            painelBotoesEscolha.SetActive(false);
 
         if (botaoAceitarPaxton != null)
-            botaoAceitarPaxton.onClick.AddListener(() => EscolherPaxton(true));
+            botaoAceitarPaxton.onClick.AddListener(
+                () => EscolherPaxton(true));
 
         if (botaoRecusarPaxton != null)
-            botaoRecusarPaxton.onClick.AddListener(() => EscolherPaxton(false));
+            botaoRecusarPaxton.onClick.AddListener(
+                () => EscolherPaxton(false));
 
-        DefinirSpriteFechada();
-        DefinirEstadoScripts(false);
-        MostrarFalaAtual();
+        MostrarFala();
     }
+
 
     void Update()
     {
-        // Se o Skill Check estiver aberto, não permite avançar falas
-        if (SkillCheckManager.Instance != null && SkillCheckManager.Instance.estaAtivo) return;
+        // Não permite avançar o diálogo durante o Skill Check.
+        if (SkillCheckManager.Instance != null &&
+            SkillCheckManager.Instance.estaAtivo)
+            return;
 
-        if (falaAtiva && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Space)))
+        if (dialogoAtivo &&
+            (Input.GetKeyDown(KeyCode.Return) ||
+             Input.GetKeyDown(KeyCode.KeypadEnter) ||
+             Input.GetKeyDown(KeyCode.Space)))
         {
             AvancarTexto();
         }
     }
 
+
+    // =========================================================
+    // DIÁLOGO
+    // =========================================================
+
     public void AvancarTexto()
     {
-        if (imagemAvisoControles != null && imagemAvisoControles.activeSelf)
+        // Primeiro aperto termina a animação da fala.
+        if (escrevendo)
         {
-            imagemAvisoControles.SetActive(false);
-        }
-
-        if (estaEscrevendo)
-        {
-            CompletarTextoImediatamente();
+            CompletarTexto();
             return;
         }
 
-        if (painelBotoesEscolha != null && painelBotoesEscolha.activeSelf) return;
+        // Não avança enquanto os botões de escolha estão ativos.
+        if (painelBotoesEscolha != null &&
+            painelBotoesEscolha.activeSelf)
+            return;
 
-        etapaFala++;
-        MostrarFalaAtual();
+        etapa++;
+        MostrarFala();
     }
 
-    void MostrarFalaAtual()
+
+    void MostrarFala()
     {
-        falaAtiva = true;
+        dialogoAtivo = true;
 
-        if (painelBalaoFala != null) painelBalaoFala.SetActive(true);
-        if (objetoGatinhoUI != null) objetoGatinhoUI.SetActive(true);
-        if (botaoAvancarFala != null) botaoAvancarFala.gameObject.SetActive(true);
+        painelBalaoFala?.SetActive(true);
+        objetoGatinhoUI?.SetActive(true);
+        botaoAvancarFala?.gameObject.SetActive(true);
 
-        switch (etapaFala)
+        switch (etapa)
         {
+            // =========================
+            // INTRO
+            // =========================
+
             case 0:
-                DefinirNomePersonagem("Myke");
-                IniciarDigitacao("Right... The abyss pressure is extreme, but my dive suit is almost ready.");
+                Fala("Myke",
+                    "Right... The abyss pressure is extreme, but my dive suit is almost ready.");
                 break;
 
             case 1:
-                DefinirNomePersonagem("Myke");
-                IniciarDigitacao("I need to find 3 essential gear pieces left in the lab before I head to the boat.");
+                Fala("Myke",
+                    "I need to find 3 essential gear pieces left in the lab before I head to the boat.");
                 break;
 
             case 2:
-                DefinirNomePersonagem("Myke");
-                IniciarDigitacao("Let's see: I need the Helmet, the Oxygen Tank, and the Calibrator Tool.");
+                Fala("Myke",
+                    "Let's see: I need the Helmet, the Oxygen Tank, and the Calibrator Tool.");
                 break;
+
+
+            // =========================
+            // EXPLORAÇÃO
+            // =========================
 
             case 3:
-                EsconderDialogoEGato();
-                if (painelListaItens != null) painelListaItens.SetActive(true);
-                AtualizarTextoLista();
+                FecharDialogo();
                 break;
 
+
+            // =========================
+            // ENCONTROU OS 3 ITENS
+            // =========================
+
             case 4:
-                DefinirNomePersonagem("Myke");
-                IniciarDigitacao("Got the Helmet! The HUD scope is active now.");
+                Fala("Myke",
+                    "Great! I found everything I need.");
                 break;
 
             case 5:
-                DefinirNomePersonagem("Narrator");
-                IniciarDigitacao("Tip: You can move the camera and zoom in on objects in the lab to inspect details!");
+                Fala("Narrator",
+                    "Now it's time to put everything together.");
                 break;
 
             case 6:
-                EsconderDialogoEGato();
+                Fala("Myke",
+                    "Alright, let's assemble and calibrate the suit.");
                 break;
 
-            // --- MONTAGEM DO TRAJE (INÍCIO DO SKILL CHECK) ---
             case 7:
-                DefinirNomePersonagem("Myke");
-                IniciarDigitacao("Alright, I have all the pieces! Now I need to assemble and calibrate the suit's pressure valves.");
+                FecharDialogo();
+                IniciarSkillCheck();
                 break;
+
+
+            // =========================
+            // SKILL CHECK CONCLUÍDO
+            // =========================
 
             case 8:
-                EsconderDialogoEGato();
-                IniciarDesafioSkillCheck();
+                Fala("Myke",
+                    "Perfect! Calibration complete. The suit is fully operational.");
                 break;
+
+
+            // =========================
+            // PAXTON
+            // =========================
 
             case 9:
-                DefinirNomePersonagem("Myke");
-                IniciarDigitacao("Perfect! Calibration complete. The suit is fully operational.");
+                Fala("Paxton",
+                    "Wait! Myke, don't leave yet!");
                 break;
 
-            // --- ENTRADA DO PAXTON ---
             case 10:
-                DefinirNomePersonagem("Paxton");
-                IniciarDigitacao("Wait! Myke, don't leave yet!");
+                Fala("Myke",
+                    "Paxton?! What are you doing here in my workshop?");
                 break;
 
             case 11:
-                DefinirNomePersonagem("Myke");
-                IniciarDigitacao("Paxton?! What are you doing here in my workshop?");
+                Fala("Paxton",
+                    "I looked over your depth schematics. You're going down to the trench alone? That's insane!");
                 break;
 
             case 12:
-                DefinirNomePersonagem("Paxton");
-                IniciarDigitacao("I looked over your depth schematics. You're going down to the trench alone? That's insane!");
+                Fala("Myke",
+                    "I don't need your help, Paxton. Not after what happened at the institute.");
                 break;
 
             case 13:
-                DefinirNomePersonagem("Myke");
-                IniciarDigitacao("I don't need your help, Paxton. Not after what happened at the institute.");
+                Fala("Paxton",
+                    "I was wrong about the credit back then... I'm sorry. Just let me handle telemetry from the surface boat. Please.");
                 break;
+
+
+            // =========================
+            // ESCOLHA
+            // =========================
 
             case 14:
-                DefinirNomePersonagem("Paxton");
-                IniciarDigitacao("I was wrong about the credit back then... I'm sorry. Just let me handle telemetry from the surface boat. Please.");
+                botaoAvancarFala?.gameObject.SetActive(false);
+                painelBotoesEscolha?.SetActive(true);
                 break;
+
+
+            // =========================
+            // ERRO NO SKILL CHECK
+            // =========================
 
             case 15:
-                if (botaoAvancarFala != null) botaoAvancarFala.gameObject.SetActive(false);
-                if (painelBotoesEscolha != null) painelBotoesEscolha.SetActive(true);
+                Fala("Myke",
+                    "Oops, a valve slipped! I need to try the calibration again.");
+                break;
+
+            case 16:
+                FecharDialogo();
+                IniciarSkillCheck();
                 break;
         }
     }
 
-    void IniciarDesafioSkillCheck()
-    {
-        if (SkillCheckManager.Instance != null)
-        {
-            // Parâmetros: 3 acertos necessários, velocidade base x1.0, e aumento de 35% a cada acerto
-            SkillCheckManager.Instance.IniciarSequenciaMultipla(3, 1.0f, 1.35f, OnSkillCheckResultado);
-        }
-    }
 
-    void OnSkillCheckResultado(bool sucesso)
-    {
-        if (sucesso)
-        {
-            etapaFala = 9;
-            MostrarFalaAtual();
-        }
-        else
-        {
-            // Em caso de erro, dá uma mensagem e tenta de novo
-            DefinirNomePersonagem("Myke");
-            IniciarDigitacao("Oops, a valve slipped! Let me retry calibrating...");
-            etapaFala = 7; // Volta para tentar novamente na próxima barra
-        }
-    }
-
-    public void ExibirLoreObjeto(string nomeAutor, string textoLore)
-    {
-        if (falaAtiva) return;
-
-        falaAtiva = true;
-        if (painelBalaoFala != null) painelBalaoFala.SetActive(true);
-        if (objetoGatinhoUI != null) objetoGatinhoUI.SetActive(true);
-
-        DefinirNomePersonagem(nomeAutor);
-        IniciarDigitacao(textoLore);
-    }
-
-    private void DefinirNomePersonagem(string nome)
+    void Fala(string personagem, string texto)
     {
         if (textoNomePersonagem != null)
-        {
-            textoNomePersonagem.text = nome == "Narrator" ? "" : nome;
-        }
+            textoNomePersonagem.text =
+                personagem == "Narrator" ? "" : personagem;
+
+        IniciarDigitacao(texto);
     }
 
-    void IniciarDigitacao(string texto)
+
+    void FecharDialogo()
     {
-        textoCompletoAtual = texto;
-        if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
-        coroutineEscrita = StartCoroutine(EfeitoDigitarTexto(texto));
+        dialogoAtivo = false;
+
+        painelBalaoFala?.SetActive(false);
+        objetoGatinhoUI?.SetActive(false);
+        botaoAvancarFala?.gameObject.SetActive(false);
     }
 
-    IEnumerator EfeitoDigitarTexto(string texto)
+
+    // =========================================================
+    // BLOQUEIO DE INTERAÇÃO
+    // =========================================================
+
+    public bool PodeInteragir()
     {
-        estaEscrevendo = true;
-        if (textoBalao != null) textoBalao.text = "";
+        if (dialogoAtivo)
+            return false;
 
-        foreach (char letra in texto.ToCharArray())
-        {
-            if (textoBalao != null) textoBalao.text += letra;
+        if (SkillCheckManager.Instance != null &&
+            SkillCheckManager.Instance.estaAtivo)
+            return false;
 
-            if (char.IsLetterOrDigit(letra))
-            {
-                DefinirSpriteAberta();
-                StartCoroutine(PulinhoRapidoGato());
-
-                if (audioSourceSFX != null && somFalaGatinho != null)
-                {
-                    audioSourceSFX.PlayOneShot(somFalaGatinho);
-                }
-            }
-            else
-            {
-                DefinirSpriteFechada();
-            }
-
-            yield return new WaitForSeconds(velocidadeEscrita);
-        }
-
-        DefinirSpriteFechada();
-        estaEscrevendo = false;
+        return true;
     }
 
-    void CompletarTextoImediatamente()
-    {
-        if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
-        if (textoBalao != null) textoBalao.text = textoCompletoAtual;
-
-        DefinirSpriteFechada();
-        estaEscrevendo = false;
-        ResetarPosicaoGato();
-    }
-
-    IEnumerator PulinhoRapidoGato()
-    {
-        if (imagemGatinhoUI == null || !imagemGatinhoUI.gameObject.activeInHierarchy) yield break;
-
-        RectTransform rect = imagemGatinhoUI.rectTransform;
-        rect.anchoredPosition = posicaoOriginalGato + new Vector3(0, alturaPuloLetra, 0);
-        yield return new WaitForSeconds(velocidadeEscrita * 0.5f);
-        rect.anchoredPosition = posicaoOriginalGato;
-    }
-
-    void ResetarPosicaoGato()
-    {
-        if (imagemGatinhoUI != null)
-            imagemGatinhoUI.rectTransform.anchoredPosition = posicaoOriginalGato;
-    }
-
-    void DefinirSpriteFechada()
-    {
-        if (imagemGatinhoUI != null && spriteNormalFechada != null)
-            imagemGatinhoUI.sprite = spriteNormalFechada;
-    }
-
-    void DefinirSpriteAberta()
-    {
-        if (imagemGatinhoUI != null && spriteNormalAberta != null)
-            imagemGatinhoUI.sprite = spriteNormalAberta;
-    }
-
-    void EsconderDialogoEGato()
-    {
-        falaAtiva = false;
-        DefinirSpriteFechada();
-        if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
-        if (objetoGatinhoUI != null) objetoGatinhoUI.SetActive(false);
-    }
 
     public bool PodeColetarItem()
     {
-        return !falaAtiva;
+        return PodeInteragir();
     }
+
+
+    // =========================================================
+    // ITENS
+    // =========================================================
 
     public void ColetarItem(string nome)
     {
-        if (nome == "Capacete")
+        switch (nome)
         {
-            pegouCapacete = true;
-            AtualizarTextoLista();
-            DefinirEstadoScripts(true);
+            case "Capacete":
+                capacete = true;
+                break;
 
-            etapaFala = 4;
-            MostrarFalaAtual();
-        }
-        else if (nome == "Tanque")
-        {
-            pegouTanque = true;
-            AtualizarTextoLista();
-        }
-        else if (nome == "Ferramenta")
-        {
-            pegouFerramenta = true;
-            AtualizarTextoLista();
+            case "Tanque":
+                tanque = true;
+                break;
+
+            case "Ferramenta":
+                ferramenta = true;
+                break;
         }
 
-        if (pegouCapacete && pegouTanque && pegouFerramenta)
+        // Só continua quando os 3 foram encontrados.
+        if (capacete && tanque && ferramenta)
         {
-            etapaFala = 7;
-            MostrarFalaAtual();
+            etapa = 4;
+            MostrarFala();
         }
     }
 
-    void DefinirEstadoScripts(bool estado)
+
+    // =========================================================
+    // SKILL CHECK
+    // =========================================================
+
+    void IniciarSkillCheck()
     {
-        if (scriptsParaAtivarAposCapacete != null)
+        if (SkillCheckManager.Instance == null)
         {
-            foreach (MonoBehaviour script in scriptsParaAtivarAposCapacete)
-            {
-                if (script != null) script.enabled = estado;
-            }
+            Debug.LogError(
+                "SkillCheckManager não encontrado!");
+            return;
+        }
+
+        // 3 acertos
+        // velocidade inicial = 1x
+        // aumento = 35%
+        SkillCheckManager.Instance.IniciarSequenciaMultipla(
+            3,
+            1f,
+            1.35f,
+            ResultadoSkillCheck
+        );
+    }
+
+
+    void ResultadoSkillCheck(bool sucesso)
+    {
+        if (sucesso)
+        {
+            etapa = 8;
+            MostrarFala();
+        }
+        else
+        {
+            etapa = 15;
+            MostrarFala();
         }
     }
 
-    void AtualizarTextoLista()
-    {
-        if (textoLista == null) return;
 
-        textoLista.text = $"<b>Gear Checklist:</b>\n" +
-            $"{(pegouCapacete ? "<s>• Dive Helmet</s>" : "• Dive Helmet")}\n" +
-            $"{(pegouTanque ? "<s>• Oxygen Tank</s>" : "• Oxygen Tank")}\n" +
-            $"{(pegouFerramenta ? "<s>• Calibrator Tool</s>" : "• Calibrator Tool")}";
-    }
+    // =========================================================
+    // ESCOLHA DO PAXTON
+    // =========================================================
 
     public void EscolherPaxton(bool aceitou)
     {
         if (GameManager.Instance != null)
-        {
             GameManager.Instance.paxtonAcompanha = aceitou;
-        }
 
-        IrParaOJogo();
+        SceneManager.LoadScene(nomeCenaJogoPrincipal);
     }
 
-    public void IrParaOJogo()
+
+    // =========================================================
+    // DIGITAÇÃO
+    // =========================================================
+
+    void IniciarDigitacao(string texto)
     {
-        SceneManager.LoadScene(nomeCenaJogoPrincipal);
+        textoAtual = texto;
+
+        if (digitacao != null)
+            StopCoroutine(digitacao);
+
+        digitacao = StartCoroutine(Digitar());
+    }
+
+
+    IEnumerator Digitar()
+    {
+        escrevendo = true;
+
+        if (textoBalao != null)
+            textoBalao.text = "";
+
+        foreach (char letra in textoAtual)
+        {
+            if (textoBalao != null)
+                textoBalao.text += letra;
+
+            if (imagemGatinhoUI != null)
+            {
+                imagemGatinhoUI.sprite =
+                    spriteNormalAberta;
+
+                imagemGatinhoUI.rectTransform
+                    .anchoredPosition =
+                    posicaoGato + Vector3.up * 8f;
+            }
+
+            yield return new WaitForSeconds(
+                velocidadeEscrita);
+
+            if (imagemGatinhoUI != null)
+            {
+                imagemGatinhoUI.sprite =
+                    spriteNormalFechada;
+
+                imagemGatinhoUI.rectTransform
+                    .anchoredPosition =
+                    posicaoGato;
+            }
+        }
+
+        escrevendo = false;
+    }
+
+
+    void CompletarTexto()
+    {
+        if (digitacao != null)
+            StopCoroutine(digitacao);
+
+        if (textoBalao != null)
+            textoBalao.text = textoAtual;
+
+        escrevendo = false;
+
+        if (imagemGatinhoUI != null)
+        {
+            imagemGatinhoUI.sprite =
+                spriteNormalFechada;
+
+            imagemGatinhoUI.rectTransform
+                .anchoredPosition =
+                posicaoGato;
+        }
+    }
+
+
+    // =========================================================
+    // LORE
+    // =========================================================
+
+    public void ExibirLoreObjeto(
+        string autor,
+        string texto)
+    {
+        if (dialogoAtivo)
+            return;
+
+        dialogoAtivo = true;
+
+        painelBalaoFala?.SetActive(true);
+        objetoGatinhoUI?.SetActive(true);
+
+        if (textoNomePersonagem != null)
+            textoNomePersonagem.text =
+                autor == "Narrator" ? "" : autor;
+
+        IniciarDigitacao(texto);
     }
 }
