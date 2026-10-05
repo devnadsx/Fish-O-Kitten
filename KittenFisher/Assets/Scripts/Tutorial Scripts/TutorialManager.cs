@@ -1,8 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+
+[Serializable]
+public class PersonagemTutorial
+{
+    public string nome;
+    public Sprite spriteBocaFechada;
+    public Sprite spriteBocaAberta;
+    public AudioClip somFala;
+}
 
 public class TutorialManager : MonoBehaviour
 {
@@ -14,6 +25,21 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI textoBalao;
     public Button botaoAvancarFala;
 
+    [Header("Banco de Personagens")]
+    public List<PersonagemTutorial> personagens =
+        new List<PersonagemTutorial>();
+
+    [Header("Imagem do Personagem")]
+    public Image imagemPersonagem;
+
+    [Header("Animação")]
+    public float alturaPuloLetra = 8f;
+
+    [Header("Áudio")]
+    public AudioSource audioSourceFala;
+    [Range(0f, 1f)]
+    public float volumeFala = 0.5f;
+
     [Header("Escolha do Paxton")]
     public GameObject painelBotoesEscolha;
     public Button botaoAceitarPaxton;
@@ -21,31 +47,33 @@ public class TutorialManager : MonoBehaviour
 
     [Header("Gatinho")]
     public GameObject objetoGatinhoUI;
-    public Image imagemGatinhoUI;
-    public Sprite spriteNormalFechada;
-    public Sprite spriteNormalAberta;
 
     [Header("Texto")]
     public float velocidadeEscrita = 0.04f;
 
+    [Header("Skill Check")]
+    public GameObject skillCheckObjeto;
+
     [Header("Cena")]
     public string nomeCenaJogoPrincipal = "SampleScene";
 
-
-    // Itens encontrados
     private bool capacete;
     private bool tanque;
     private bool ferramenta;
 
-    // Controle do diálogo
     private int etapa = 0;
+
     private bool dialogoAtivo;
     private bool escrevendo;
+    private bool lendoLore;
 
     private string textoAtual;
+
     private Coroutine digitacao;
 
-    private Vector3 posicaoGato;
+    private Vector3 posicaoPersonagem;
+
+    private PersonagemTutorial personagemAtivo;
 
 
     void Awake()
@@ -59,19 +87,27 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
-        if (imagemGatinhoUI != null)
-            posicaoGato = imagemGatinhoUI.rectTransform.anchoredPosition;
+        if (imagemPersonagem != null)
+            posicaoPersonagem =
+                imagemPersonagem.rectTransform.anchoredPosition;
 
         if (painelBotoesEscolha != null)
             painelBotoesEscolha.SetActive(false);
 
+        if (skillCheckObjeto != null)
+            skillCheckObjeto.SetActive(false);
+
         if (botaoAceitarPaxton != null)
+        {
             botaoAceitarPaxton.onClick.AddListener(
                 () => EscolherPaxton(true));
+        }
 
         if (botaoRecusarPaxton != null)
+        {
             botaoRecusarPaxton.onClick.AddListener(
                 () => EscolherPaxton(false));
+        }
 
         MostrarFala();
     }
@@ -79,7 +115,6 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
-        // Não permite avançar o diálogo durante o Skill Check.
         if (SkillCheckManager.Instance != null &&
             SkillCheckManager.Instance.estaAtivo)
             return;
@@ -94,25 +129,27 @@ public class TutorialManager : MonoBehaviour
     }
 
 
-    // =========================================================
-    // DIÁLOGO
-    // =========================================================
-
     public void AvancarTexto()
     {
-        // Primeiro aperto termina a animação da fala.
         if (escrevendo)
         {
             CompletarTexto();
             return;
         }
 
-        // Não avança enquanto os botões de escolha estão ativos.
+        if (lendoLore)
+        {
+            lendoLore = false;
+            FecharDialogo();
+            return;
+        }
+
         if (painelBotoesEscolha != null &&
             painelBotoesEscolha.activeSelf)
             return;
 
         etapa++;
+
         MostrarFala();
     }
 
@@ -127,52 +164,50 @@ public class TutorialManager : MonoBehaviour
 
         switch (etapa)
         {
-            // =========================
-            // INTRO
-            // =========================
-
             case 0:
-                Fala("Myke",
-                    "Right... The abyss pressure is extreme, but my dive suit is almost ready.");
+                Fala(
+                    "Myke",
+                    "Right... The abyss pressure is extreme, but my dive suit is almost ready."
+                );
                 break;
 
             case 1:
-                Fala("Myke",
-                    "I need to find 3 essential gear pieces left in the lab before I head to the boat.");
+                Fala(
+                    "Myke",
+                    "I need to find 3 essential gear pieces left in the lab before I head to the boat."
+                );
                 break;
 
             case 2:
-                Fala("Myke",
-                    "Let's see: I need the Helmet, the Oxygen Tank, and the Calibrator Tool.");
+                Fala(
+                    "Myke",
+                    "Let's see: I need the Helmet, the Oxygen Tank, and the Calibrator Tool."
+                );
                 break;
-
-
-            // =========================
-            // EXPLORAÇÃO
-            // =========================
 
             case 3:
                 FecharDialogo();
                 break;
 
-
-            // =========================
-            // ENCONTROU OS 3 ITENS
-            // =========================
-
             case 4:
-                Fala("Myke",
-                    "Great! I found everything I need.");
+                Fala(
+                    "Myke",
+                    "Great! I found everything I need."
+                );
                 break;
 
             case 5:
-                Fala("Narrator",
-                    "Now it's time to put everything together.");
+                Fala(
+                    "Narrator",
+                    "Now it's time to put everything together."
+                );
                 break;
 
             case 6:
-                Fala("Myke",
-                    "Alright, let's assemble and calibrate the suit.");
+                Fala(
+                    "Myke",
+                    "Alright, let's assemble and calibrate the suit."
+                );
                 break;
 
             case 7:
@@ -180,64 +215,58 @@ public class TutorialManager : MonoBehaviour
                 IniciarSkillCheck();
                 break;
 
-
-            // =========================
-            // SKILL CHECK CONCLUÍDO
-            // =========================
-
             case 8:
-                Fala("Myke",
-                    "Perfect! Calibration complete. The suit is fully operational.");
+                Fala(
+                    "Myke",
+                    "Perfect! Calibration complete. The suit is fully operational."
+                );
                 break;
 
-
-            // =========================
-            // PAXTON
-            // =========================
-
             case 9:
-                Fala("Paxton",
-                    "Wait! Myke, don't leave yet!");
+                Fala(
+                    "Paxton",
+                    "Wait! Myke, don't leave yet!"
+                );
                 break;
 
             case 10:
-                Fala("Myke",
-                    "Paxton?! What are you doing here in my workshop?");
+                Fala(
+                    "Myke",
+                    "Paxton?! What are you doing here in my workshop?"
+                );
                 break;
 
             case 11:
-                Fala("Paxton",
-                    "I looked over your depth schematics. You're going down to the trench alone? That's insane!");
+                Fala(
+                    "Paxton",
+                    "I looked over your depth schematics. You're going down to the trench alone? That's insane!"
+                );
                 break;
 
             case 12:
-                Fala("Myke",
-                    "I don't need your help, Paxton. Not after what happened at the institute.");
+                Fala(
+                    "Myke",
+                    "I don't need your help, Paxton. Not after what happened at the institute."
+                );
                 break;
 
             case 13:
-                Fala("Paxton",
-                    "I was wrong about the credit back then... I'm sorry. Just let me handle telemetry from the surface boat. Please.");
+                Fala(
+                    "Paxton",
+                    "I was wrong about the credit back then... I'm sorry. Just let me handle telemetry from the surface boat. Please."
+                );
                 break;
-
-
-            // =========================
-            // ESCOLHA
-            // =========================
 
             case 14:
                 botaoAvancarFala?.gameObject.SetActive(false);
                 painelBotoesEscolha?.SetActive(true);
                 break;
 
-
-            // =========================
-            // ERRO NO SKILL CHECK
-            // =========================
-
             case 15:
-                Fala("Myke",
-                    "Oops, a valve slipped! I need to try the calibration again.");
+                Fala(
+                    "Myke",
+                    "Oops, a valve slipped! I need to try the calibration again."
+                );
                 break;
 
             case 16:
@@ -250,11 +279,55 @@ public class TutorialManager : MonoBehaviour
 
     void Fala(string personagem, string texto)
     {
+        personagemAtivo = BuscarPersonagem(personagem);
+
         if (textoNomePersonagem != null)
+        {
             textoNomePersonagem.text =
-                personagem == "Narrator" ? "" : personagem;
+                personagem == "Narrator"
+                ? ""
+                : personagem;
+        }
+
+        AtualizarPersonagem();
 
         IniciarDigitacao(texto);
+    }
+
+
+    PersonagemTutorial BuscarPersonagem(string nome)
+    {
+        foreach (PersonagemTutorial personagem in personagens)
+        {
+            if (personagem.nome.ToLower() ==
+                nome.ToLower())
+            {
+                return personagem;
+            }
+        }
+
+        return null;
+    }
+
+
+    void AtualizarPersonagem()
+    {
+        if (imagemPersonagem == null)
+            return;
+
+        if (personagemAtivo == null)
+        {
+            imagemPersonagem.gameObject.SetActive(false);
+            return;
+        }
+
+        if (personagemAtivo.spriteBocaFechada != null)
+        {
+            imagemPersonagem.sprite =
+                personagemAtivo.spriteBocaFechada;
+        }
+
+        imagemPersonagem.gameObject.SetActive(true);
     }
 
 
@@ -265,12 +338,15 @@ public class TutorialManager : MonoBehaviour
         painelBalaoFala?.SetActive(false);
         objetoGatinhoUI?.SetActive(false);
         botaoAvancarFala?.gameObject.SetActive(false);
+
+        if (imagemPersonagem != null)
+        {
+            imagemPersonagem.rectTransform
+                .anchoredPosition =
+                posicaoPersonagem;
+        }
     }
 
-
-    // =========================================================
-    // BLOQUEIO DE INTERAÇÃO
-    // =========================================================
 
     public bool PodeInteragir()
     {
@@ -291,10 +367,6 @@ public class TutorialManager : MonoBehaviour
     }
 
 
-    // =========================================================
-    // ITENS
-    // =========================================================
-
     public void ColetarItem(string nome)
     {
         switch (nome)
@@ -312,8 +384,9 @@ public class TutorialManager : MonoBehaviour
                 break;
         }
 
-        // Só continua quando os 3 foram encontrados.
-        if (capacete && tanque && ferramenta)
+        if (capacete &&
+            tanque &&
+            ferramenta)
         {
             etapa = 4;
             MostrarFala();
@@ -321,22 +394,16 @@ public class TutorialManager : MonoBehaviour
     }
 
 
-    // =========================================================
-    // SKILL CHECK
-    // =========================================================
-
     void IniciarSkillCheck()
     {
-        if (SkillCheckManager.Instance == null)
-        {
-            Debug.LogError(
-                "SkillCheckManager não encontrado!");
+        if (skillCheckObjeto == null)
             return;
-        }
 
-        // 3 acertos
-        // velocidade inicial = 1x
-        // aumento = 35%
+        skillCheckObjeto.SetActive(true);
+
+        if (SkillCheckManager.Instance == null)
+            return;
+
         SkillCheckManager.Instance.IniciarSequenciaMultipla(
             3,
             1f,
@@ -348,6 +415,9 @@ public class TutorialManager : MonoBehaviour
 
     void ResultadoSkillCheck(bool sucesso)
     {
+        if (skillCheckObjeto != null)
+            skillCheckObjeto.SetActive(false);
+
         if (sucesso)
         {
             etapa = 8;
@@ -361,22 +431,19 @@ public class TutorialManager : MonoBehaviour
     }
 
 
-    // =========================================================
-    // ESCOLHA DO PAXTON
-    // =========================================================
-
     public void EscolherPaxton(bool aceitou)
     {
         if (GameManager.Instance != null)
-            GameManager.Instance.paxtonAcompanha = aceitou;
+        {
+            GameManager.Instance.paxtonAcompanha =
+                aceitou;
+        }
 
-        SceneManager.LoadScene(nomeCenaJogoPrincipal);
+        SceneManager.LoadScene(
+            nomeCenaJogoPrincipal
+        );
     }
 
-
-    // =========================================================
-    // DIGITAÇÃO
-    // =========================================================
 
     void IniciarDigitacao(string texto)
     {
@@ -385,7 +452,8 @@ public class TutorialManager : MonoBehaviour
         if (digitacao != null)
             StopCoroutine(digitacao);
 
-        digitacao = StartCoroutine(Digitar());
+        digitacao =
+            StartCoroutine(Digitar());
     }
 
 
@@ -401,31 +469,87 @@ public class TutorialManager : MonoBehaviour
             if (textoBalao != null)
                 textoBalao.text += letra;
 
-            if (imagemGatinhoUI != null)
+            if (imagemPersonagem != null &&
+                imagemPersonagem.gameObject.activeSelf &&
+                char.IsLetterOrDigit(letra))
             {
-                imagemGatinhoUI.sprite =
-                    spriteNormalAberta;
+                if (personagemAtivo != null &&
+                    personagemAtivo.spriteBocaAberta != null)
+                {
+                    imagemPersonagem.sprite =
+                        personagemAtivo.spriteBocaAberta;
+                }
 
-                imagemGatinhoUI.rectTransform
-                    .anchoredPosition =
-                    posicaoGato + Vector3.up * 8f;
+                StartCoroutine(
+                    PularPersonagem()
+                );
+
+                if (audioSourceFala != null &&
+                    personagemAtivo != null &&
+                    personagemAtivo.somFala != null)
+                {
+                    audioSourceFala.PlayOneShot(
+                        personagemAtivo.somFala,
+                        volumeFala
+                    );
+                }
             }
 
             yield return new WaitForSeconds(
-                velocidadeEscrita);
+                velocidadeEscrita
+            );
 
-            if (imagemGatinhoUI != null)
+            if (imagemPersonagem != null &&
+                personagemAtivo != null &&
+                personagemAtivo.spriteBocaFechada != null)
             {
-                imagemGatinhoUI.sprite =
-                    spriteNormalFechada;
-
-                imagemGatinhoUI.rectTransform
-                    .anchoredPosition =
-                    posicaoGato;
+                imagemPersonagem.sprite =
+                    personagemAtivo.spriteBocaFechada;
             }
         }
 
         escrevendo = false;
+
+        RestaurarPersonagem();
+    }
+
+
+    IEnumerator PularPersonagem()
+    {
+        if (imagemPersonagem == null)
+            yield break;
+
+        RectTransform rect =
+            imagemPersonagem.rectTransform;
+
+        rect.anchoredPosition =
+            posicaoPersonagem +
+            Vector3.up * alturaPuloLetra;
+
+        yield return new WaitForSeconds(
+            velocidadeEscrita * 0.5f
+        );
+
+        rect.anchoredPosition =
+            posicaoPersonagem;
+    }
+
+
+    void RestaurarPersonagem()
+    {
+        if (imagemPersonagem == null)
+            return;
+
+        imagemPersonagem.rectTransform
+            .anchoredPosition =
+            posicaoPersonagem;
+
+        if (personagemAtivo != null &&
+            personagemAtivo.spriteBocaFechada != null)
+        {
+            imagemPersonagem.sprite =
+                personagemAtivo.spriteBocaFechada;
+        }
     }
 
 
@@ -439,21 +563,9 @@ public class TutorialManager : MonoBehaviour
 
         escrevendo = false;
 
-        if (imagemGatinhoUI != null)
-        {
-            imagemGatinhoUI.sprite =
-                spriteNormalFechada;
-
-            imagemGatinhoUI.rectTransform
-                .anchoredPosition =
-                posicaoGato;
-        }
+        RestaurarPersonagem();
     }
 
-
-    // =========================================================
-    // LORE
-    // =========================================================
 
     public void ExibirLoreObjeto(
         string autor,
@@ -462,14 +574,24 @@ public class TutorialManager : MonoBehaviour
         if (dialogoAtivo)
             return;
 
+        lendoLore = true;
         dialogoAtivo = true;
 
         painelBalaoFala?.SetActive(true);
         objetoGatinhoUI?.SetActive(true);
+        botaoAvancarFala?.gameObject.SetActive(true);
+
+        personagemAtivo = BuscarPersonagem(autor);
 
         if (textoNomePersonagem != null)
+        {
             textoNomePersonagem.text =
-                autor == "Narrator" ? "" : autor;
+                autor == "Narrator"
+                ? ""
+                : autor;
+        }
+
+        AtualizarPersonagem();
 
         IniciarDigitacao(texto);
     }

@@ -866,7 +866,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -128.85469, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &459514974
@@ -1689,8 +1689,8 @@ Transform:
   m_GameObject: {fileID: 916365518}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.06, y: -0.61, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -9.0669, y: -0.61132, z: 0}
+  m_LocalScale: {x: 1.0088, y: 1.0088, z: 1.0088}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2095293135}
@@ -2428,8 +2428,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1687990145}
-  - {fileID: 1723893523}
   - {fileID: 1031044574}
+  - {fileID: 1723893523}
   - {fileID: 1819768794}
   - {fileID: 1105894692}
   - {fileID: 371993242}
@@ -2453,25 +2453,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef15e8ee2779a7144b36c8cf931da09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialManager
-  imagemAvisoControles: {fileID: 0}
   painelBalaoFala: {fileID: 371993241}
   textoNomePersonagem: {fileID: 249850503}
   textoBalao: {fileID: 45484997}
   botaoAvancarFala: {fileID: 1291021389}
+  imagemPersonagem: {fileID: 0}
+  spriteMyke: {fileID: 0}
+  spritePaxton: {fileID: 0}
+  spriteNarrador: {fileID: 0}
+  alturaPuloLetra: 8
+  audioSourceFala: {fileID: 1420500645}
+  somFala: {fileID: 0}
+  volumeFala: 0.5
   painelBotoesEscolha: {fileID: 1687990144}
   botaoAceitarPaxton: {fileID: 1527808508}
   botaoRecusarPaxton: {fileID: 2085691384}
   objetoGatinhoUI: {fileID: 1819768793}
-  imagemGatinhoUI: {fileID: 1819768795}
-  spriteNormalFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
-  spriteNormalAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
   velocidadeEscrita: 0.04
-  alturaPuloLetra: 8
-  audioSourceSFX: {fileID: 1420500645}
-  somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  painelListaItens: {fileID: 0}
-  textoLista: {fileID: 0}
-  scriptsParaAtivarAposCapacete: []
+  skillCheckObjeto: {fileID: 1723893522}
   nomeCenaJogoPrincipal: Fase1
 --- !u!1 &1527808504
 GameObject:
@@ -2847,12 +2846,12 @@ GameObject:
   - component: {fileID: 1723893525}
   - component: {fileID: 1723893524}
   m_Layer: 5
-  m_Name: PainelSkillCheck
+  m_Name: SkillCheckManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1723893523
 RectTransform:
   m_ObjectHideFlags: 0
