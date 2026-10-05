@@ -1639,9 +1639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b656da43a14624581b7352ef256a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoLore
-  autorOuPersonagem: Myke
-  textoLore: 'An old photo of Paxton and me when we won the university science fair...
-    feels like ages ago. '
+  autorOuPersonagem: Narrator
+  textoLore: Uma foto antiga do Myke e do Paxton juntos, quando terminaram o Ensino
+    Superior. Myke olha pra foto no quadro e a abaixa, com desgosto.
   somClique: {fileID: 0}
 --- !u!1 &906417622 stripped
 GameObject:
@@ -1699,81 +1699,6 @@ Transform:
   - {fileID: 600735459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1031044573
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1031044574}
-  - component: {fileID: 1031044576}
-  - component: {fileID: 1031044575}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1031044574
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031044573}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1420500649}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.808192, y: -0.5014655}
-  m_SizeDelta: {x: 800.01, y: 450.15}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1031044575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031044573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 6751839895473353991, guid: 1a07db81ead1ac540af3bacc317770ed, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1031044576
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031044573}
-  m_CullTransparentMesh: 1
 --- !u!1 &1069083943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,7 +2353,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1687990145}
-  - {fileID: 1031044574}
   - {fileID: 1723893523}
   - {fileID: 1819768794}
   - {fileID: 1105894692}
@@ -2457,19 +2381,31 @@ MonoBehaviour:
   textoNomePersonagem: {fileID: 249850503}
   textoBalao: {fileID: 45484997}
   botaoAvancarFala: {fileID: 1291021389}
-  imagemPersonagem: {fileID: 0}
-  spriteMyke: {fileID: 0}
-  spritePaxton: {fileID: 0}
-  spriteNarrador: {fileID: 0}
+  personagens:
+  - nome: Myke
+    spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
+    spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nome: Paxton
+    spriteBocaFechada: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
+    spriteBocaAberta: {fileID: -3558489584634243624, guid: 81d83fc287f936147ae7a9325660ef1c, type: 3}
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nome: Narrator
+    spriteBocaFechada: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
+    spriteBocaAberta: {fileID: -3558489584634243624, guid: 81d83fc287f936147ae7a9325660ef1c, type: 3}
+    somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
+  imagemMyke: {fileID: 1819768795}
+  imagemPaxton: {fileID: 1105894693}
   alturaPuloLetra: 8
   audioSourceFala: {fileID: 1420500645}
-  somFala: {fileID: 0}
   volumeFala: 0.5
   painelBotoesEscolha: {fileID: 1687990144}
   botaoAceitarPaxton: {fileID: 1527808508}
   botaoRecusarPaxton: {fileID: 2085691384}
+  textoBotaoAceitar: {fileID: 218001377}
+  textoBotaoRecusar: {fileID: 281453770}
   objetoGatinhoUI: {fileID: 1819768793}
-  velocidadeEscrita: 0.04
+  velocidadeEscrita: 0.07
   skillCheckObjeto: {fileID: 1723893522}
   nomeCenaJogoPrincipal: Fase1
 --- !u!1 &1527808504
@@ -2595,15 +2531,15 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1420500650}
         m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: EscolherPaxton
-        m_Mode: 6
+        m_MethodName: EscolhaAceitarPaxton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1611114037
 GameObject:
@@ -3291,8 +3227,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1420500650}
         m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: EscolherPaxton
-        m_Mode: 6
+        m_MethodName: EscolhaRecusarPaxton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

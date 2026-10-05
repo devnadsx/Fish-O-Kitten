@@ -26,11 +26,11 @@ public class TutorialManager : MonoBehaviour
     public Button botaoAvancarFala;
 
     [Header("Banco de Personagens")]
-    public List<PersonagemTutorial> personagens =
-        new List<PersonagemTutorial>();
+    public List<PersonagemTutorial> personagens = new List<PersonagemTutorial>();
 
-    [Header("Imagem do Personagem")]
-    public Image imagemPersonagem;
+    [Header("Imagens dos Personagens")]
+    public Image imagemMyke;
+    public Image imagemPaxton;
 
     [Header("Animação")]
     public float alturaPuloLetra = 8f;
@@ -40,10 +40,12 @@ public class TutorialManager : MonoBehaviour
     [Range(0f, 1f)]
     public float volumeFala = 0.5f;
 
-    [Header("Escolha do Paxton")]
+    [Header("Escolhas")]
     public GameObject painelBotoesEscolha;
     public Button botaoAceitarPaxton;
     public Button botaoRecusarPaxton;
+    public TextMeshProUGUI textoBotaoAceitar;
+    public TextMeshProUGUI textoBotaoRecusar;
 
     [Header("Gatinho")]
     public GameObject objetoGatinhoUI;
@@ -61,20 +63,18 @@ public class TutorialManager : MonoBehaviour
     private bool tanque;
     private bool ferramenta;
 
-    private int etapa = 0;
+    private int etapa;
 
     private bool dialogoAtivo;
     private bool escrevendo;
     private bool lendoLore;
 
     private string textoAtual;
-
     private Coroutine digitacao;
 
-    private Vector3 posicaoPersonagem;
-
     private PersonagemTutorial personagemAtivo;
-
+    private Image imagemAtivaAtual;
+    private Vector3 posicaoOriginal;
 
     void Awake()
     {
@@ -84,34 +84,28 @@ public class TutorialManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-
     void Start()
     {
-        if (imagemPersonagem != null)
-            posicaoPersonagem =
-                imagemPersonagem.rectTransform.anchoredPosition;
-
         if (painelBotoesEscolha != null)
             painelBotoesEscolha.SetActive(false);
 
         if (skillCheckObjeto != null)
             skillCheckObjeto.SetActive(false);
 
+        if (imagemMyke != null)
+            imagemMyke.gameObject.SetActive(false);
+
+        if (imagemPaxton != null)
+            imagemPaxton.gameObject.SetActive(false);
+
         if (botaoAceitarPaxton != null)
-        {
-            botaoAceitarPaxton.onClick.AddListener(
-                () => EscolherPaxton(true));
-        }
+            botaoAceitarPaxton.onClick.AddListener(EscolhaAceitarPaxton);
 
         if (botaoRecusarPaxton != null)
-        {
-            botaoRecusarPaxton.onClick.AddListener(
-                () => EscolherPaxton(false));
-        }
+            botaoRecusarPaxton.onClick.AddListener(EscolhaRecusarPaxton);
 
         MostrarFala();
     }
-
 
     void Update()
     {
@@ -127,7 +121,6 @@ public class TutorialManager : MonoBehaviour
             AvancarTexto();
         }
     }
-
 
     public void AvancarTexto()
     {
@@ -149,10 +142,8 @@ public class TutorialManager : MonoBehaviour
             return;
 
         etapa++;
-
         MostrarFala();
     }
-
 
     void MostrarFala()
     {
@@ -165,171 +156,269 @@ public class TutorialManager : MonoBehaviour
         switch (etapa)
         {
             case 0:
-                Fala(
-                    "Myke",
-                    "Right... The abyss pressure is extreme, but my dive suit is almost ready."
-                );
+                Fala("Myke",
+                    "Certo... preciso pensar em como entraria água abaixo, como eu faria isso?");
                 break;
 
             case 1:
-                Fala(
-                    "Myke",
-                    "I need to find 3 essential gear pieces left in the lab before I head to the boat."
-                );
+                Fala("Narrator",
+                    "Ele anota algumas ideias, até se decidir por completo.");
                 break;
 
             case 2:
-                Fala(
-                    "Myke",
-                    "Let's see: I need the Helmet, the Oxygen Tank, and the Calibrator Tool."
-                );
+                Fala("Myke",
+                    "Beleza, acho mais seguro construir um traje de mergulho. É uma boa ideia até.");
                 break;
 
             case 3:
-                FecharDialogo();
+                Fala("Myke",
+                    "Vamos ver... Eu precisaria dos tubos de oxigênios, daquele traje velho e da caixa de ferramentas.");
                 break;
 
             case 4:
-                Fala(
-                    "Myke",
-                    "Great! I found everything I need."
-                );
+                FecharDialogo();
                 break;
 
             case 5:
-                Fala(
-                    "Narrator",
-                    "Now it's time to put everything together."
-                );
+                Fala("Myke",
+                    "Ótimo! Encontrei tudo o que precisava.");
                 break;
 
             case 6:
-                Fala(
-                    "Myke",
-                    "Alright, let's assemble and calibrate the suit."
-                );
+                Fala("Narrator",
+                    "Myke coloca os itens na bancada, e começa a abrir uma caixa de ferramentas.");
                 break;
 
             case 7:
+                Fala("Myke",
+                    "Certo, vamos montar e calibrar o traje.");
+                break;
+
+            case 8:
                 FecharDialogo();
                 IniciarSkillCheck();
                 break;
 
-            case 8:
-                Fala(
-                    "Myke",
-                    "Perfect! Calibration complete. The suit is fully operational."
-                );
-                break;
-
             case 9:
-                Fala(
-                    "Paxton",
-                    "Wait! Myke, don't leave yet!"
-                );
+                Fala("Myke",
+                    "Perfeito! Calibração concluída. O traje está funcionando perfeitamente.");
                 break;
 
             case 10:
-                Fala(
-                    "Myke",
-                    "Paxton?! What are you doing here in my workshop?"
-                );
+                Fala("Paxton",
+                    "Espera! Myke, não vá ainda!");
                 break;
 
             case 11:
-                Fala(
-                    "Paxton",
-                    "I looked over your depth schematics. You're going down to the trench alone? That's insane!"
-                );
+                Fala("Myke",
+                    "Paxton?! O que você está fazendo aqui no meu laboratório?");
                 break;
 
             case 12:
-                Fala(
-                    "Myke",
-                    "I don't need your help, Paxton. Not after what happened at the institute."
-                );
+                Fala("Paxton",
+                    "Eu vi seus cálculos de profundidade. Você pretende descer sozinho até as águas profundas? Isso é loucura!");
                 break;
 
             case 13:
-                Fala(
-                    "Paxton",
-                    "I was wrong about the credit back then... I'm sorry. Just let me handle telemetry from the surface boat. Please."
-                );
+                Fala("Myke",
+                    "Eu não preciso da sua ajuda, Paxton. Não depois do que você fez...");
                 break;
 
             case 14:
-                botaoAvancarFala?.gameObject.SetActive(false);
-                painelBotoesEscolha?.SetActive(true);
+                Fala("Paxton",
+                    "Eu estava errado de ter pego todo o crédito... Me desculpa. Só me deixe te ajudar com os oxigênios do traje. Por favor! Sua vida tá em risco!");
                 break;
 
             case 15:
-                Fala(
-                    "Myke",
-                    "Oops, a valve slipped! I need to try the calibration again."
-                );
+                AbrirEscolhas();
                 break;
 
+            // Caminho: aceitar ajuda
             case 16:
+                Fala("Myke",
+                    "Tudo bem. Pode cuidar da telemetria enquanto eu termino os últimos preparativos.");
+                break;
+
+            case 17:
+                Fala("Paxton",
+                    "Pode deixar. Vou ficar de olho em tudo lá de cima. E, por favor, toma cuidado.");
+                break;
+
+            case 18:
+                Fala("Myke",
+                    "Eu vou tomar. Obrigado por vir até aqui, Paxton.");
+                break;
+
+            case 19:
+                Fala("Paxton",
+                    "Então estamos combinados. Te encontro no barco.");
+                break;
+
+            case 20:
+                FinalizarTutorial();
+                break;
+
+            // Caminho: recusar ajuda
+            case 21:
+                Fala("Myke",
+                    "Não. Eu vou fazer isso sozinho.");
+                break;
+
+            case 22:
+                Fala("Paxton",
+                    "Myke, isso não é uma boa ideia. Você não precisa provar nada para ninguém.");
+                break;
+
+            case 23:
+                Fala("Myke",
+                    "Não, Paxton. Eu não vou mudar de ideia, eu disse não.");
+                break;
+
+            case 24:
+                Fala("Paxton",
+                    "M-Mas, Myke! Eu só quero ajudar.");
+                break;
+
+            case 25:
+                Fala("Myke",
+                    "Paxton. Saia. Agora.");
+                break;
+
+            case 26:
+                FinalizarTutorial();
+                break;
+
+            // Falha no Skill Check
+            case 27:
+                Fala("Myke",
+                    "Ugh! Uma válvula escapou... preciso tentar calibrar o traje novamente.");
+                break;
+
+            case 28:
                 FecharDialogo();
                 IniciarSkillCheck();
                 break;
         }
     }
-
 
     void Fala(string personagem, string texto)
     {
         personagemAtivo = BuscarPersonagem(personagem);
 
         if (textoNomePersonagem != null)
-        {
             textoNomePersonagem.text =
-                personagem == "Narrator"
-                ? ""
-                : personagem;
-        }
+                personagem == "Narrator" ? "" : personagem;
 
         AtualizarPersonagem();
-
         IniciarDigitacao(texto);
     }
-
 
     PersonagemTutorial BuscarPersonagem(string nome)
     {
         foreach (PersonagemTutorial personagem in personagens)
         {
-            if (personagem.nome.ToLower() ==
-                nome.ToLower())
-            {
+            if (personagem.nome.ToLower() == nome.ToLower())
                 return personagem;
-            }
         }
 
         return null;
     }
 
+    void AbrirEscolhas()
+    {
+        dialogoAtivo = false;
+
+        if (painelBalaoFala != null)
+            painelBalaoFala.SetActive(false);
+
+        if (botaoAvancarFala != null)
+            botaoAvancarFala.gameObject.SetActive(false);
+
+        if (painelBotoesEscolha != null)
+            painelBotoesEscolha.SetActive(true);
+
+        if (textoBotaoAceitar != null)
+            textoBotaoAceitar.text = "Pode contar comigo.";
+
+        if (textoBotaoRecusar != null)
+            textoBotaoRecusar.text = "Não. Vou fazer isso sozinho.";
+
+        if (botaoAceitarPaxton != null)
+            botaoAceitarPaxton.interactable = true;
+
+        if (botaoRecusarPaxton != null)
+            botaoRecusarPaxton.interactable = true;
+    }
+
+    public void EscolhaAceitarPaxton()
+    {
+        if (GameManager.Instance != null)
+            GameManager.Instance.paxtonAcompanha = true;
+
+        FecharEscolhas();
+
+        etapa = 16;
+        MostrarFala();
+    }
+
+    public void EscolhaRecusarPaxton()
+    {
+        if (GameManager.Instance != null)
+            GameManager.Instance.paxtonAcompanha = false;
+
+        FecharEscolhas();
+
+        etapa = 21;
+        MostrarFala();
+    }
+
+    void FecharEscolhas()
+    {
+        if (painelBotoesEscolha != null)
+            painelBotoesEscolha.SetActive(false);
+
+        if (botaoAceitarPaxton != null)
+            botaoAceitarPaxton.interactable = false;
+
+        if (botaoRecusarPaxton != null)
+            botaoRecusarPaxton.interactable = false;
+
+        if (painelBalaoFala != null)
+            painelBalaoFala.SetActive(true);
+
+        if (botaoAvancarFala != null)
+            botaoAvancarFala.gameObject.SetActive(true);
+    }
 
     void AtualizarPersonagem()
     {
-        if (imagemPersonagem == null)
-            return;
+        if (imagemMyke != null)
+            imagemMyke.gameObject.SetActive(false);
+
+        if (imagemPaxton != null)
+            imagemPaxton.gameObject.SetActive(false);
+
+        imagemAtivaAtual = null;
 
         if (personagemAtivo == null)
-        {
-            imagemPersonagem.gameObject.SetActive(false);
             return;
-        }
+
+        if (personagemAtivo.nome.ToLower() == "myke")
+            imagemAtivaAtual = imagemMyke;
+        else if (personagemAtivo.nome.ToLower() == "paxton")
+            imagemAtivaAtual = imagemPaxton;
+
+        if (imagemAtivaAtual == null)
+            return;
 
         if (personagemAtivo.spriteBocaFechada != null)
-        {
-            imagemPersonagem.sprite =
-                personagemAtivo.spriteBocaFechada;
-        }
+            imagemAtivaAtual.sprite = personagemAtivo.spriteBocaFechada;
 
-        imagemPersonagem.gameObject.SetActive(true);
+        imagemAtivaAtual.gameObject.SetActive(true);
+
+        posicaoOriginal =
+            imagemAtivaAtual.rectTransform.anchoredPosition;
     }
-
 
     void FecharDialogo()
     {
@@ -339,14 +428,12 @@ public class TutorialManager : MonoBehaviour
         objetoGatinhoUI?.SetActive(false);
         botaoAvancarFala?.gameObject.SetActive(false);
 
-        if (imagemPersonagem != null)
-        {
-            imagemPersonagem.rectTransform
-                .anchoredPosition =
-                posicaoPersonagem;
-        }
-    }
+        if (imagemMyke != null)
+            imagemMyke.gameObject.SetActive(false);
 
+        if (imagemPaxton != null)
+            imagemPaxton.gameObject.SetActive(false);
+    }
 
     public bool PodeInteragir()
     {
@@ -360,12 +447,10 @@ public class TutorialManager : MonoBehaviour
         return true;
     }
 
-
     public bool PodeColetarItem()
     {
         return PodeInteragir();
     }
-
 
     public void ColetarItem(string nome)
     {
@@ -384,15 +469,12 @@ public class TutorialManager : MonoBehaviour
                 break;
         }
 
-        if (capacete &&
-            tanque &&
-            ferramenta)
+        if (capacete && tanque && ferramenta)
         {
-            etapa = 4;
+            etapa = 5;
             MostrarFala();
         }
     }
-
 
     void IniciarSkillCheck()
     {
@@ -412,7 +494,6 @@ public class TutorialManager : MonoBehaviour
         );
     }
 
-
     void ResultadoSkillCheck(bool sucesso)
     {
         if (skillCheckObjeto != null)
@@ -420,30 +501,15 @@ public class TutorialManager : MonoBehaviour
 
         if (sucesso)
         {
-            etapa = 8;
+            etapa = 9;
             MostrarFala();
         }
         else
         {
-            etapa = 15;
+            etapa = 27;
             MostrarFala();
         }
     }
-
-
-    public void EscolherPaxton(bool aceitou)
-    {
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.paxtonAcompanha =
-                aceitou;
-        }
-
-        SceneManager.LoadScene(
-            nomeCenaJogoPrincipal
-        );
-    }
-
 
     void IniciarDigitacao(string texto)
     {
@@ -452,10 +518,8 @@ public class TutorialManager : MonoBehaviour
         if (digitacao != null)
             StopCoroutine(digitacao);
 
-        digitacao =
-            StartCoroutine(Digitar());
+        digitacao = StartCoroutine(Digitar());
     }
-
 
     IEnumerator Digitar()
     {
@@ -469,20 +533,18 @@ public class TutorialManager : MonoBehaviour
             if (textoBalao != null)
                 textoBalao.text += letra;
 
-            if (imagemPersonagem != null &&
-                imagemPersonagem.gameObject.activeSelf &&
+            if (imagemAtivaAtual != null &&
+                imagemAtivaAtual.gameObject.activeSelf &&
                 char.IsLetterOrDigit(letra))
             {
                 if (personagemAtivo != null &&
                     personagemAtivo.spriteBocaAberta != null)
                 {
-                    imagemPersonagem.sprite =
+                    imagemAtivaAtual.sprite =
                         personagemAtivo.spriteBocaAberta;
                 }
 
-                StartCoroutine(
-                    PularPersonagem()
-                );
+                StartCoroutine(PularPersonagem());
 
                 if (audioSourceFala != null &&
                     personagemAtivo != null &&
@@ -495,63 +557,55 @@ public class TutorialManager : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(
-                velocidadeEscrita
-            );
+            yield return new WaitForSeconds(velocidadeEscrita);
 
-            if (imagemPersonagem != null &&
+            if (imagemAtivaAtual != null &&
                 personagemAtivo != null &&
                 personagemAtivo.spriteBocaFechada != null)
             {
-                imagemPersonagem.sprite =
+                imagemAtivaAtual.sprite =
                     personagemAtivo.spriteBocaFechada;
             }
         }
 
         escrevendo = false;
-
         RestaurarPersonagem();
     }
 
-
     IEnumerator PularPersonagem()
     {
-        if (imagemPersonagem == null)
+        if (imagemAtivaAtual == null)
             yield break;
 
         RectTransform rect =
-            imagemPersonagem.rectTransform;
+            imagemAtivaAtual.rectTransform;
 
         rect.anchoredPosition =
-            posicaoPersonagem +
+            posicaoOriginal +
             Vector3.up * alturaPuloLetra;
 
         yield return new WaitForSeconds(
             velocidadeEscrita * 0.5f
         );
 
-        rect.anchoredPosition =
-            posicaoPersonagem;
+        rect.anchoredPosition = posicaoOriginal;
     }
-
 
     void RestaurarPersonagem()
     {
-        if (imagemPersonagem == null)
+        if (imagemAtivaAtual == null)
             return;
 
-        imagemPersonagem.rectTransform
-            .anchoredPosition =
-            posicaoPersonagem;
+        imagemAtivaAtual.rectTransform
+            .anchoredPosition = posicaoOriginal;
 
         if (personagemAtivo != null &&
             personagemAtivo.spriteBocaFechada != null)
         {
-            imagemPersonagem.sprite =
+            imagemAtivaAtual.sprite =
                 personagemAtivo.spriteBocaFechada;
         }
     }
-
 
     void CompletarTexto()
     {
@@ -562,14 +616,10 @@ public class TutorialManager : MonoBehaviour
             textoBalao.text = textoAtual;
 
         escrevendo = false;
-
         RestaurarPersonagem();
     }
 
-
-    public void ExibirLoreObjeto(
-        string autor,
-        string texto)
+    public void ExibirLoreObjeto(string autor, string texto)
     {
         if (dialogoAtivo)
             return;
@@ -584,15 +634,16 @@ public class TutorialManager : MonoBehaviour
         personagemAtivo = BuscarPersonagem(autor);
 
         if (textoNomePersonagem != null)
-        {
             textoNomePersonagem.text =
-                autor == "Narrator"
-                ? ""
-                : autor;
-        }
+                autor == "Narrator" ? "" : autor;
 
         AtualizarPersonagem();
-
         IniciarDigitacao(texto);
+    }
+
+    void FinalizarTutorial()
+    {
+        FecharDialogo();
+        SceneManager.LoadScene(nomeCenaJogoPrincipal);
     }
 }
