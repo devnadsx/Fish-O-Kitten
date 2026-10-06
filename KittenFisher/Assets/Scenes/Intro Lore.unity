@@ -1180,40 +1180,40 @@ MonoBehaviour:
   - nomeQuemFala: Narrator
     ehNarracao: 0
     posicao: 1
-    texto: "Myke and P\xE9res used to be an unbeatable duo, sharing the same tastes
-      and the same big dreams. They met in high school and always made it clear to
-      each other that they loved science. So much so that they both studied Biological
-      and Health Sciences."
+    texto: "Myke e Paxton eram grandes amigos. Eles se conheceram no ensino m\xE9dio,
+      e desde l\xE1, sempre fizeram tudo juntos. Cursaram em Biologia Cient\xEDfica,
+      participaram de competi\xE7\xF5es juntos e at\xE9 serem contratados juntos!"
     imagemFundo: {fileID: 4085662441678637604, guid: 20575267bdc4a6d48a4290360b76d2ee, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 0
     posicao: 1
-    texto: 'They also managed to get hired together and became an unbeatable team.
-      They started working together on various projects, always standing out for
-      their innovation. '
+    texto: "Com isso, passaram a trabalhar juntos em diversos projetos. At\xE9 que
+      come\xE7aram a fazer pesquisas sobre o espa\xE7o sideral, pesquisas essas que
+      Myke correu atr\xE1s de informa\xE7\xF5es com pessoas que j\xE1 foram pro espa\xE7o,
+      sendo de informa\xE7\xF5es extremamente confidenciais."
     imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 0
     posicao: 1
-    texto: "But ambition changed everything. During a major breakthrough, P\xE9res
-      presented the entire project to their superior as his own, erasing Myke\u2019s
-      name from history."
+    texto: "Mas a ambi\xE7\xE3o falou mais alto, e Paxton percebeu o potencial que
+      esse projeto possuia e decidiu mostrar essas pesquisas sem dar cr\xE9dito ao
+      Myke."
     imagemFundo: {fileID: 3733806953780483782, guid: a718a6b93f44b584fb8c7a8550969d25, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
     ehNarracao: 0
     posicao: 2
-    texto: What are you doing?! That was OUR project! You stole everything I worked
-      for!
+    texto: "O que que ' se est\xE1 fazendo?! Esse era o NOSSO projeto! Voc\xEA roubou
+      tudo que eu tanto ralei para achar!"
     imagemFundo: {fileID: 8960213033406119914, guid: 4d038ccdd0ca6bc4dad9a730f3bae6f0, type: 3}
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Paxton
     ehNarracao: 0
     posicao: 0
-    texto: "Face reality, Myke. The board needs a leader, not a sidekick. You\u2019re
-      out."
+    texto: "Myke. O projeto precisa de um l\xEDder apto, n\xE3o de um in\xFAtil.
+      Voc\xEA est\xE1 fora. J\xE1 pode ir pegando suas coisas.."
     imagemFundo: {fileID: -8008447450637822732, guid: fd57f2906efba3a40969e030696c291f, type: 3}
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
   - nomeQuemFala: Narrator
@@ -1223,6 +1223,13 @@ MonoBehaviour:
       demoted, stripped of his authority, and pushed to the background.
     imagemFundo: {fileID: 5074354084149328108, guid: 182cc2fe6710ccf46bf2a05c1e14fdd9, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Myke
+    ehNarracao: 0
+    posicao: 2
+    texto: "Voc\xEA acha que pode simplesmente ME tirar do NOSSO projeto do nada!!??
+      N\xE3o \xE9 assim que funciona!"
+    imagemFundo: {fileID: -8008447450637822732, guid: fd57f2906efba3a40969e030696c291f, type: 3}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 0
     posicao: 1
@@ -1267,7 +1274,8 @@ MonoBehaviour:
   - nomeQuemFala: Narrator
     ehNarracao: 0
     posicao: 1
-    texto: 
+    texto: "Voc\xEA acha que pode simplesmente ME tirar do projeto do nada!!?? N\xE3o
+      \xE9 assim que funciona!"
     imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
 --- !u!1 &1229351854

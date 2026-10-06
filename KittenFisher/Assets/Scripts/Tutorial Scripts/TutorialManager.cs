@@ -168,7 +168,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 1:
-                Fala("Narrator",
+                Fala("Narrador",
                     "Ele anota algumas ideias, até se decidir por completo.");
                 break;
 
@@ -288,7 +288,7 @@ public class TutorialManager : MonoBehaviour
 
             case 25:
                 Fala("Myke",
-                    "Paxton. Saia. Agora.");
+                    " Eu disse não, Paxton. Saia. Agora. Ou terei que ser mais claro?");
                 break;
 
             case 26:

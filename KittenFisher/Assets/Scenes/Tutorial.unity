@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b656da43a14624581b7352ef256a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoLore
-  autorOuPersonagem: Narrator
+  autorOuPersonagem: Narrador
   textoLore: Uma foto antiga do Myke e do Paxton juntos, quando terminaram o Ensino
     Superior. Myke olha pra foto no quadro e a abaixa, com desgosto.
   somClique: {fileID: 0}
@@ -2422,7 +2422,7 @@ MonoBehaviour:
     spriteBocaFechada: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
     spriteBocaAberta: {fileID: -3558489584634243624, guid: 81d83fc287f936147ae7a9325660ef1c, type: 3}
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nome: Narrator
+  - nome: Narrador
     spriteBocaFechada: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
     spriteBocaAberta: {fileID: -3558489584634243624, guid: 81d83fc287f936147ae7a9325660ef1c, type: 3}
     somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
