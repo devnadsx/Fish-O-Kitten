@@ -98,11 +98,18 @@ public class TutorialManager : MonoBehaviour
         if (imagemPaxton != null)
             imagemPaxton.gameObject.SetActive(false);
 
+        // Configura os botões pelo código
         if (botaoAceitarPaxton != null)
+        {
+            botaoAceitarPaxton.onClick.RemoveAllListeners();
             botaoAceitarPaxton.onClick.AddListener(EscolhaAceitarPaxton);
+        }
 
         if (botaoRecusarPaxton != null)
+        {
+            botaoRecusarPaxton.onClick.RemoveAllListeners();
             botaoRecusarPaxton.onClick.AddListener(EscolhaRecusarPaxton);
+        }
 
         MostrarFala();
     }
@@ -350,6 +357,7 @@ public class TutorialManager : MonoBehaviour
             botaoRecusarPaxton.interactable = true;
     }
 
+
     public void EscolhaAceitarPaxton()
     {
         if (GameManager.Instance != null)
@@ -363,6 +371,7 @@ public class TutorialManager : MonoBehaviour
 
     public void EscolhaRecusarPaxton()
     {
+
         if (GameManager.Instance != null)
             GameManager.Instance.paxtonAcompanha = false;
 
