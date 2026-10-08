@@ -474,7 +474,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e8b8c849e651b6143b98f989e8d4272f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.724
   m_Pitch: 0.67
   Loop: 0
@@ -1213,16 +1213,9 @@ MonoBehaviour:
     ehNarracao: 0
     posicao: 0
     texto: "Myke. O projeto precisa de um l\xEDder apto, n\xE3o de um in\xFAtil.
-      Voc\xEA est\xE1 fora. J\xE1 pode ir pegando suas coisas.."
+      J\xE1 pode ir pegando suas coisas.. Voc\xEA est\xE1 fora. "
     imagemFundo: {fileID: -8008447450637822732, guid: fd57f2906efba3a40969e030696c291f, type: 3}
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Narrator
-    ehNarracao: 0
-    posicao: 1
-    texto: The argument escalated into a physical fight. As a consequence, Myke was
-      demoted, stripped of his authority, and pushed to the background.
-    imagemFundo: {fileID: 5074354084149328108, guid: 182cc2fe6710ccf46bf2a05c1e14fdd9, type: 3}
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
     ehNarracao: 0
     posicao: 2
@@ -1230,52 +1223,60 @@ MonoBehaviour:
       N\xE3o \xE9 assim que funciona!"
     imagemFundo: {fileID: -8008447450637822732, guid: fd57f2906efba3a40969e030696c291f, type: 3}
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Narrator
+  - nomeQuemFala: Paxton
     ehNarracao: 0
-    posicao: 1
-    texto: He became a ghost in his own workplace... until a breaking news report
-      shook the scientific world.
-    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Narrator
-    ehNarracao: 0
-    posicao: 1
-    texto: "It was P\xE9res, presenting the project that the two of them had worked
-      hard on, and from which Myke had been excluded."
-    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Myke
-    ehNarracao: 0
-    posicao: 2
-    texto: 'Wh-What the heck!!?? '
-    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Narrator
-    ehNarracao: 0
-    posicao: 1
-    texto: Myke was speechless. Immediately afterwards, he gritted his teeth and
-      aggressively turned off the TV.
-    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Myke
-    ehNarracao: 0
-    posicao: 2
-    texto: "If you think you can control the skies, P\xE9res... then I will conquer
-      the depths."
-    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Narrator
-    ehNarracao: 0
-    posicao: 1
-    texto: Determined and full of rage, Myke decides it's time to turn things around;
-      he decides to start working on a project to explore the depths of the ocean.
+    posicao: 0
+    texto: "Eu s\xF3 lamento Myke, mas as suas coisas est\xE3o ali fora te esperando.."
     imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Narrator
+    ehNarracao: 0
+    posicao: 1
+    texto: "A discuss\xE3o escalou para uma briga f\xEDsica. Como consequ\xEAncia,
+      Myke perdeu sua autoridade e foi rebaixado, tendo que ficar afastado por um
+      tempo."
+    imagemFundo: {fileID: 5074354084149328108, guid: 182cc2fe6710ccf46bf2a05c1e14fdd9, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 0
     posicao: 1
-    texto: "Voc\xEA acha que pode simplesmente ME tirar do projeto do nada!!?? N\xE3o
-      \xE9 assim que funciona!"
+    texto: "Ele voltou a trabalhar por\xE9m afastado, at\xE9 que uma not\xEDcia de
+      \xFAltima hora abalou o mundo cient\xEDfico."
+    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Narrator
+    ehNarracao: 0
+    posicao: 1
+    texto: "Era Paxton. O ex-amigo de Myke, que pegou todo cr\xE9dito do projeto
+      no qual os dois haviam trabalhado arduamente. Ele estava no Meow Talk Show"
+    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Myke
+    ehNarracao: 0
+    posicao: 2
+    texto: M-Mas.. O que!!??
+    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Narrator
+    ehNarracao: 0
+    posicao: 1
+    texto: Myke ficou sem palavras. Imediatamente depois, cerrou os dentes e desligou
+      a TV agressivamente, sentindo inveja do antigo amigo.
+    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Myke
+    ehNarracao: 0
+    posicao: 2
+    texto: "Voc\xEA acha que pode roubar os ares Paxton!!?? Ent\xE3o que eu v\xE1
+      conquistar as profundesas!"
+    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Narrator
+    ehNarracao: 0
+    posicao: 1
+    texto: "Determinado e cheio de raiva, Myke decide que \xE9 hora de mudar as coisas;
+      ele resolve come\xE7ar a trabalhar em um projeto para explorar as profundezas
+      do oceano."
     imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
 --- !u!1 &1229351854

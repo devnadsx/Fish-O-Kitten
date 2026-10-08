@@ -1088,11 +1088,11 @@ MonoBehaviour:
   nomeProximaCena: Menu
   falasIniciais:
   - nomeQuemFala: Narrator
-    texto: At the end of the interview, Myke and Saky are applauded by the audience.
-      The interview was a success! Congratulations, you beat the game!
+    texto: "Ao final da entrevista, Myke e Saky s\xE3o aplaudidos pela plateia. A
+      entrevista foi um sucesso! Parab\xE9ns, voc\xEAs arrasaram!"
     ehNarracao: 0
     posicao: 2
-    somFala: {fileID: 0}
+    somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
 --- !u!82 &1031518405
 AudioSource:
   m_ObjectHideFlags: 0

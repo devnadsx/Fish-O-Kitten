@@ -1072,60 +1072,63 @@ MonoBehaviour:
   nomeProximaCena: Narrator End
   falasIniciais:
   - nomeQuemFala: Saky
-    texto: Welcome back to 'Cats & Flavors', the TV show where we interview the most
-      daring adventurous chefs of the kingdom!
+    texto: Bem-vindos de volta ao 'Meow Talk Show', o programa de TV onde entrevistamos
+      os maiores destaques da semana.
     ehNarracao: 0
     posicao: 1
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Saky
-    texto: 'Tonight, we have a very special guest. He just survived the depths of
-      the ocean and tasted... questionable marine life. Please welcome: Myke!'
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Myke
-    texto: Hey Saky! Thanks for having me. Honestly, I'm just glad to be alive after
-      tasting some of those fish...
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Saky
-    texto: We heard you went out there completely unprepared, armed with just fishbowl
-      and a fishing net. Is that true?
+    texto: "Esta noite, temos um convidado muito especial. Ele acaba de sobreviver
+      \xE0s profundezas do oceano e catalogou... uma nova vida marinha question\xE1vel.
+      Com voc\xEAs, Myke!"
     ehNarracao: 0
     posicao: 1
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
-    texto: Well... a real scientist has to test their ideas in the field! Even if
-      it means almost getting poisoned by a glowing toxic fish.
+    texto: Boa noite Saky! Obrigado por me receber. Honestamente, estou feliz por
+      estar aqui, presente e vivo, depois de provar alguns daqueles peixes...
     ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Saky
-    texto: A true hero of science! Tell us, what was the absolute worst thing you
-      had to chew on today?
+    texto: "Ouvimos dizer que voc\xEA foi para l\xE1 completamente despreparado,
+      equipado com um traje e uma rede de pesca. Isso \xE9 verdade?"
     ehNarracao: 0
     posicao: 1
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
-    texto: Definitely the Jixh. I was coughing for ten minutes straight into an empty
-      bucket! Zero stars, do not recommend.
+    texto: "Bem... um cientista de verdade precisa testar suas ideias em campo! Mesmo
+      que isso signifique quase se afogar com um furo no tubo de oxig\xEAnio."
     ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Saky
-    texto: Yikes! But you managed to log and catalog all the edible ones, right?
+    texto: "Um verdadeiro her\xF3i da ci\xEAncia! Conte-nos, qual foi a pior experi\xEAncia
+      que se teve hoje?"
     ehNarracao: 0
     posicao: 1
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
-    texto: Every single one. The recipes are ready, and the kitchen is open!
+    texto: "Em quest\xF5es fora d'\xE1gua, acho que certamente provar os peixes foi
+      mais desafiador. \xC9 s\xE9rio! Ter que provar todos aqueles peixes \xE9 necess\xE1rio
+      ter um est\xF3mago de ferro"
     ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Saky
-    texto: That's what I like to hear! Thank you Myke, and thank you all for watching
-      'Cats & Flavors'! See you next season!
+    texto: "Nossa! Mas voc\xEA conseguiu registrar e catalogar todas as comest\xEDveis,
+      certo?"
+    ehNarracao: 0
+    posicao: 1
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Myke
+    texto: 'Todas elas. Todas registradas e mandadas para consumo. '
+    ehNarracao: 0
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Saky
+    texto: "\xC9 isso que eu gosto de ouvir! Obrigada, Myke, e obrigada a todos por
+      assistirem a 'Meow Talk Show'! At\xE9 a pr\xF3xima temporada!"
     ehNarracao: 0
     posicao: 1
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}

@@ -542,10 +542,10 @@ MonoBehaviour:
   audioSourceSFX: {fileID: 71099157}
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   falasDoGato:
-  - Okay..! Now let's start from the shallow seas..
-  - It will gonna be so easy..!
-  - 'By the way, let''s clean up that trash too.. '
-  - Ugh this is stinks..
+  - "T\xE1 bom. Vou come\xE7ar pelas \xE1guas rasas.."
+  - "Espero que n\xE3o seja t\xE3o dif\xEDcil.."
+  - "Mas para n\xE3o ser t\xE3o complicado, \xE9 melhor eu tirar essa tralha.."
+  - "Ugh.., o pessoal realmente n\xE3o sabe descartar os lixos corretamente."
   scriptsParaAtivarAposDialogo:
   - {fileID: 0}
   - {fileID: 0}
@@ -1552,7 +1552,7 @@ SpriteRenderer:
   m_Size: {x: 2.39, y: 2.99}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &303628108
@@ -1712,7 +1712,7 @@ SpriteRenderer:
   m_Size: {x: 3.94, y: 3.97}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &351865130
@@ -2407,7 +2407,7 @@ SpriteRenderer:
   m_Size: {x: 2.39, y: 2.99}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &592239393
@@ -4801,7 +4801,7 @@ SpriteRenderer:
   m_Size: {x: 3.94, y: 3.97}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1353165959
@@ -4968,7 +4968,7 @@ SpriteRenderer:
   m_Size: {x: 3.46, y: 3.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1434084288
@@ -5891,7 +5891,7 @@ SpriteRenderer:
   m_Size: {x: 3.46, y: 3.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1600301740
@@ -11038,7 +11038,7 @@ SpriteRenderer:
   m_Size: {x: 2.69, y: 1.95}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1609307383
@@ -11379,7 +11379,7 @@ SpriteRenderer:
   m_Size: {x: 2.93, y: 2.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1737605824

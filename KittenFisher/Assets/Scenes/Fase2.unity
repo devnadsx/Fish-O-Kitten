@@ -503,10 +503,11 @@ MonoBehaviour:
   audioSourceSFX: {fileID: 71099157}
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   falasDoGato:
-  - Well, i need to keep looking for more fishes.
-  - But, i know it won't be so easy..
-  - I'll have to keep an eye on the seaweeds.
-  - Okay, Myke. Time to focus..
+  - Beleza, preciso achar mais peixes.
+  - Contudo preciso ir cada vez mais fundo para achar mais deles..
+  - "E tamb\xE9m \xE9 bom ficar de olho nessas algas marinhas, a maioria deles devem
+    estar escondidos atr\xE1s delas.."
+  - "T\xE1 bom, Myke. Chega de enrola\xE7\xE3o.."
   scriptsParaAtivarAposDialogo:
   - {fileID: 0}
   - {fileID: 0}

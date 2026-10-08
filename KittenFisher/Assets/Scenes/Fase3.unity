@@ -372,7 +372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &71099152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,11 +485,12 @@ MonoBehaviour:
   audioSourceSFX: {fileID: 71099157}
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   falasDoGato:
-  - Okay.., now it's time for the deep water..
-  - I heard that most fish hide behind rocks, maybe there's a pickake somewhere.
-  - And i should be quick now..
-  - I'm afraid my oxygen might suddenly run out!
-  - Okay, Myke. Time to hurry.
+  - "Bem.., agora acho que cheguei n\xE1s \xE1guas profundas.."
+  - "Eu ouvi dizer que h\xE1 algumas esp\xE9cies que se escondem entre as pedras..,
+    talvez tenha alguma maneira de eu quebrar elas"
+  - "E \xE9 melhor eu apurar o passo.."
+  - "Eu t\xF4 com um mal presentimento de meu oxig\xEAnio acabar do nada.."
+  - "OK, OK... Vamos l\xE1 Myke.."
   scriptsParaAtivarAposDialogo:
   - {fileID: 0}
   - {fileID: 0}
@@ -2093,7 +2094,7 @@ SpriteRenderer:
   m_Size: {x: 2.39, y: 2.99}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &303628108
@@ -2486,7 +2487,7 @@ SpriteRenderer:
   m_Size: {x: 3.94, y: 3.97}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &351865130
@@ -3541,7 +3542,7 @@ SpriteRenderer:
   m_Size: {x: 2.39, y: 2.99}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &592239393
@@ -7157,7 +7158,7 @@ SpriteRenderer:
   m_Size: {x: 3.94, y: 3.97}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1353165959
@@ -7833,7 +7834,7 @@ SpriteRenderer:
   m_Size: {x: 3.46, y: 3.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1434084288
@@ -8949,7 +8950,7 @@ SpriteRenderer:
   m_Size: {x: 3.46, y: 3.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1600301740
@@ -14461,7 +14462,7 @@ SpriteRenderer:
   m_Size: {x: 2.69, y: 1.95}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1609307383
@@ -15261,7 +15262,7 @@ SpriteRenderer:
   m_Size: {x: 2.93, y: 2.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1737605824
