@@ -163,7 +163,7 @@ public class SkillCheckManager : MonoBehaviour
             // Se ainda restam rodadas no teste
             if (tentativaAtual < tentativasTotais)
             {
-                multiplicadorAtual *= incrementoVelocidade; // 🚀 Aumenta a velocidade
+                multiplicadorAtual *= incrementoVelocidade; // Aumenta a velocidade
                 ExecutarRodada();
             }
             else
@@ -194,7 +194,7 @@ public class SkillCheckManager : MonoBehaviour
                 GerenciadorAnalisePeixes.Instance.OnSkillCheckFalha();
         }
 
-        // 🟢 Se veio de uma chamada personalizada (ex: Tutorial / Montagem do Traje)
+        // Se veio de uma chamada personalizada (ex: Tutorial / Montagem do Traje)
         callbackFinal?.Invoke(sucesso);
     }
 
