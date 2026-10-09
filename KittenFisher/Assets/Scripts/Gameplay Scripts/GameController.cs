@@ -7,21 +7,21 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
+    
     public int foundedFish;
-    [Tooltip("Defina a quantidade de peixes necessários no Inspector")]
+    
     public int FishNumber = 3;
-
+    //troca cena
     [Header("Troca Direta de Cena")]
-    [Tooltip("Digite aqui o nome exato da cena para onde o jogador deve ir ao coletar todos os peixes")]
-    public string nomeProximaCena = "AnalyseScene";
-    [Tooltip("Tempo em segundos de espera com as partículas na tela antes de carregar a nova cena")]
+    public string nomeProximaCena = "Analyse 1,2,3, ...";
+    
     public float tempoEsperaTrocaCena = 1.5f;
 
     [Header("Efeitos de Vitória")]
-    [Tooltip("Prefab de Partícula que será instanciado ao coletar todos os peixes")]
+    //Particula
     public GameObject prefabParticulaVitoria;
 
-    [Header("Gerenciador do Gatinho")]
+    //Icone
     public IconManager iconManager;
 
     [Header("Efeitos Sonoros")]
@@ -99,7 +99,7 @@ public class GameController : MonoBehaviour
             iconManager.MudarParaFeliz();
         }
 
-        // Checa gatilho de metade dos peixes na Fase 3
+        // Ve se quando vc ta na fase 3, ativa o timer quando coleta metade dos peixes
         if (estaNaTerceiraFase && !alertaDisparado)
         {
             int metadeDosPeixes = Mathf.CeilToInt(FishNumber / 2f);
@@ -150,7 +150,7 @@ public class GameController : MonoBehaviour
         if (scriptDialogoAlerta != null)
         {
             scriptDialogoAlerta.falasDoGato.Clear();
-            scriptDialogoAlerta.falasDoGato.Add("Oh no! My oxygen tank is running low, I need to hurry up!");
+            scriptDialogoAlerta.falasDoGato.Add("Meu deus!! Meu oxigênio tá acabando!! Preciso ser rápido.");
 
             scriptDialogoAlerta.gameObject.SetActive(true);
             scriptDialogoAlerta.IniciarNovoDialogoExterno();
@@ -162,7 +162,7 @@ public class GameController : MonoBehaviour
             IniciarTimerEMusica();
         }
     }
-
+    //Espera o dialogo sumir para tocar o timer
     IEnumerator AguardarFimDoDialogoEIniciarTimer()
     {
         while (scriptDialogoAlerta != null && scriptDialogoAlerta.painelBalaoFala.activeSelf)
@@ -172,7 +172,7 @@ public class GameController : MonoBehaviour
 
         IniciarTimerEMusica();
     }
-
+    //quando cmc o timer vem a musica tbm
     void IniciarTimerEMusica()
     {
         timerAtivo = true;
@@ -184,7 +184,7 @@ public class GameController : MonoBehaviour
             audioSourceMusicaFundo.Play();
         }
     }
-
+    //atuliza conforme o tempo
     void AtualizarTextoTimer()
     {
         if (textoTimerUI != null)
@@ -193,16 +193,15 @@ public class GameController : MonoBehaviour
             textoTimerUI.text = $"Time: {segundos}s";
         }
     }
-
+    //caso zere, te joga na cena de derrota
     void CarregarGameOver()
     {
         SceneManager.LoadScene(nomeCenaGameOver);
     }
 
-    // -----------------------------------------------------------
-    // 🐱 SISTEMA DE REVELAR PEIXES (VISÃO CATNIP DO BAÚ)
-    // -----------------------------------------------------------
+   // Catnip
 
+    //aq ele revela os peixes restantes e spawna os secretos
     public void RevelarPeixesRestantes()
     {
         aurasInstanciadas.Clear();
@@ -217,7 +216,7 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
+    //quando passar o contador/musica, destroi a aura q mostra os peixes
     public void EsconderAuraPeixes(float tempoFade)
     {
         foreach (GameObject auraObj in aurasInstanciadas)

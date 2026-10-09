@@ -32,7 +32,7 @@ public class ItemPicareta : MonoBehaviour
         if (scriptDialogo != null)
         {
             scriptDialogo.falasDoGato.Clear();
-            scriptDialogo.falasDoGato.Add("Great! I found a pickaxe! Now I can break those big rocks in my way!");
+            scriptDialogo.falasDoGato.Add("Caraca! Que sorte! Achei uma picareta, e agora posso finalmente quebrar essas pedras!");
 
             scriptDialogo.gameObject.SetActive(true);
             scriptDialogo.IniciarNovoDialogoExterno();

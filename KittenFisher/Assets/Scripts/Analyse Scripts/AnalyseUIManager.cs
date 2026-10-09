@@ -10,7 +10,7 @@ public class FalaItem
 {
     [TextArea(2, 4)]
     public string texto;
-    public bool ehNarracao; // Se true, o gato escurece, não mexe a boca e não pula (representa uma ação)
+    public bool ehNarracao; // Se true, o gato escurece
 }
 
 public class AnalyseUIManager : MonoBehaviour
@@ -18,8 +18,8 @@ public class AnalyseUIManager : MonoBehaviour
     [Header("UI Elementos")]
     public GameObject painelBalaoFala;  // Objeto 'fala'
     public TextMeshProUGUI textoBalao; // Texto do balão
-    public Image imagemGatoUI;         // GatinhoVN
-    public RectTransform rectGatoUI;   // GatinhoVN
+    public Image imagemGatoUI;        
+    public RectTransform rectGatoUI;   
 
     [Header("Expressões do Gato")]
     public Sprite bocaFechada;
@@ -62,9 +62,9 @@ public class AnalyseUIManager : MonoBehaviour
         // Introdução inicial com Fala + Narração de ação
         List<FalaItem> intro = new List<FalaItem>()
         {
-            new FalaItem { texto = "Time to analyze these fish carefully...", ehNarracao = false },
-            new FalaItem { texto = "*Mike opens his notebook and gets his tools ready.*", ehNarracao = true },
-            new FalaItem { texto = "Which one should I start with?", ehNarracao = false }
+            new FalaItem { texto = "Hora de analisar esses peixes..", ehNarracao = false },
+            new FalaItem { texto = "*Myke abre seu caderno e saca algumas ferramentas de pesquisa*", ehNarracao = true },
+            new FalaItem { texto = "Ok.., por qual deles devo começar?", ehNarracao = false }
         };
 
         IniciarSequenciaDialogo(intro);
@@ -121,7 +121,7 @@ public class AnalyseUIManager : MonoBehaviour
             if (painelBalaoFala != null)
                 painelBalaoFala.SetActive(false);
 
-            // 🔴 LIBERA OS CLIQUES NOS PEIXES AO TERMINAR AS FALAS
+            
             if (GerenciadorAnalisePeixes.Instance != null)
             {
                 GerenciadorAnalisePeixes.Instance.FinalizarDialogo();

@@ -58,15 +58,15 @@ public class GerenciadorAnalisePeixes : MonoBehaviour
 
         if (peixeAtualEhVenenoso)
         {
-            sequencia.Add(new FalaItem { texto = $"Phew! Good thing I was careful with this {peixeSendoAnalisado}!", ehNarracao = false });
-            sequencia.Add(new FalaItem { texto = $"*Mike carefully marks a red warning symbol in his notebook.*", ehNarracao = true });
-            sequencia.Add(new FalaItem { texto = $"It contains dangerous toxins. Completely unsafe to eat!", ehNarracao = false });
+            sequencia.Add(new FalaItem { texto = $"Eita! Ainda bem que tomei cuidado porque esse {peixeSendoAnalisado} é venenoso!", ehNarracao = false });
+            sequencia.Add(new FalaItem { texto = $"*Myke se acalma, e logo em seguida, escreve os detalhes do peixe, deixando bem claro suas substâncias*", ehNarracao = true });
+            sequencia.Add(new FalaItem { texto = $"Tá bom, tem substâncias tóxicas. Extremamente perigosas se consumidas sem tratamento!", ehNarracao = false });
         }
         else
         {
-            sequencia.Add(new FalaItem { texto = $"Excellent cut! The {peixeSendoAnalisado} looks pristine.", ehNarracao = false });
-            sequencia.Add(new FalaItem { texto = $"*Mike writes down the clean inspection details in his notebook.*", ehNarracao = true });
-            sequencia.Add(new FalaItem { texto = $"It's clean and safe for consumption.", ehNarracao = false });
+            sequencia.Add(new FalaItem { texto = $"Aee! O {peixeSendoAnalisado} é seguro.", ehNarracao = false });
+            sequencia.Add(new FalaItem { texto = $"*Myke escreve contente no caderno, anotando seus detalhes.*", ehNarracao = true });
+            sequencia.Add(new FalaItem { texto = $"É totalmente seguro e perfeito para consumo.", ehNarracao = false });
         }
 
         StartCoroutine(AguardarEProcessar(sequencia));
@@ -76,9 +76,9 @@ public class GerenciadorAnalisePeixes : MonoBehaviour
     {
         List<FalaItem> sequencia = new List<FalaItem>()
         {
-            new FalaItem { texto = $"Ouch! I messed up the cut on the {peixeSendoAnalisado}!", ehNarracao = false },
-            new FalaItem { texto = $"*Mike shakes his head in disappointment and crosses out his notes.*", ehNarracao = true },
-            new FalaItem { texto = $"Bad slice... I need to stay focused on the next ones.", ehNarracao = false }
+            new FalaItem { texto = $"Oww!! Não consegui investigar adequadamente o {peixeSendoAnalisado}!", ehNarracao = false },
+            new FalaItem { texto = $"*Myke, frustado, traça as informações do peixe, porque não possui dados verdadeiros.*", ehNarracao = true },
+            new FalaItem { texto = $"Que droga.., preciso tomar mais cuidado, se não isso irá influenciar no relatório.", ehNarracao = false }
         };
 
         StartCoroutine(AguardarEProcessar(sequencia));
@@ -127,9 +127,9 @@ public class GerenciadorAnalisePeixes : MonoBehaviour
 
         List<FalaItem> sequenciaFinal = new List<FalaItem>()
         {
-            new FalaItem { texto = "That's all of them! I've analyzed every fish on the table.", ehNarracao = false },
-            new FalaItem { texto = "*Mike closes his notebook and organizes his desk.*", ehNarracao = true },
-            new FalaItem { texto = "Time to move on to the next step!", ehNarracao = false }
+            new FalaItem { texto = "Fechou! Analisei todos os peixes, agora posso ir para a próxima etapa.", ehNarracao = false },
+            new FalaItem { texto = "*Myke fecha o caderno e organiza suas coisas.*", ehNarracao = true },
+            new FalaItem { texto = "Ok, hora de ir para a próxima etapa!", ehNarracao = false }
         };
 
         if (uiManager != null)

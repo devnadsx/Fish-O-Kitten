@@ -513,6 +513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpamFish
       objectReference: {fileID: 0}
+    - target: {fileID: 4748286008182988143, guid: e7ce71d889be22948b325e8b51951a36, type: 3}
+      propertyPath: nomeDoPeixe
+      value: PeixeSpam
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -583,6 +587,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 766108860010480307, guid: ea07991c891bbec4abb5cc7f06931fcc, type: 3}
+      propertyPath: nomeDoPeixe
+      value: Peixe Comum
+      objectReference: {fileID: 0}
     - target: {fileID: 1986210376575911744, guid: ea07991c891bbec4abb5cc7f06931fcc, type: 3}
       propertyPath: m_Name
       value: Evil Fish 1
@@ -689,7 +697,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRESS THE SPACEBAR!
+  m_text: "PRESSIONE ESPA\xC7O PARA ACERTAR!!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1484,6 +1492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: The Cuttiest Fish
       objectReference: {fileID: 0}
+    - target: {fileID: 6892516945537078065, guid: 856580a9795e09f468928739e7ad0369, type: 3}
+      propertyPath: nomeDoPeixe
+      value: Peixe Fofo
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1928,6 +1940,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 766108860010480307, guid: 293c70c1e4f127c4ead5a8da1e383b21, type: 3}
+      propertyPath: nomeDoPeixe
+      value: "Peixe Mal\xE9fico"
+      objectReference: {fileID: 0}
     - target: {fileID: 1986210376575911744, guid: 293c70c1e4f127c4ead5a8da1e383b21, type: 3}
       propertyPath: m_Name
       value: Evil Fish
@@ -2520,6 +2536,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9097880278921006746, guid: 2e39590d5320abe49ba77ec4e161248c, type: 3}
+      propertyPath: nomeDoPeixe
+      value: Peixe Tristonho
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2655,6 +2675,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8707547604026588757, guid: 697bdc2159555a34095ad9eb1db5a70e, type: 3}
+      propertyPath: nomeDoPeixe
+      value: "Peixe T\xEDmido"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2727,6 +2751,10 @@ PrefabInstance:
     - target: {fileID: 5321137228435083055, guid: 0e41a4a950452a6498455145e6cf5aa9, type: 3}
       propertyPath: m_Name
       value: Chill Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892516945537078065, guid: 0e41a4a950452a6498455145e6cf5aa9, type: 3}
+      propertyPath: nomeDoPeixe
+      value: Peixe Calmo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2801,6 +2829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lil Fih
       objectReference: {fileID: 0}
+    - target: {fileID: 6892516945537078065, guid: 1ab596ca7f48a50408b2865247126636, type: 3}
+      propertyPath: nomeDoPeixe
+      value: Fih
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2869,6 +2901,10 @@ PrefabInstance:
     - target: {fileID: 5321137228435083055, guid: fc7ddfb74eca2cb4394acd0a10e5fa98, type: 3}
       propertyPath: m_Name
       value: Smallest Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892516945537078065, guid: fc7ddfb74eca2cb4394acd0a10e5fa98, type: 3}
+      propertyPath: nomeDoPeixe
+      value: Peixinho Pequeninho
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
