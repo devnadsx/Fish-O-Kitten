@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Fase3.unity
     guid: 35429b0309e21d54e99e9310d4920b10
   - enabled: 1
+    path: Assets/Scenes/Fase3 Paxton.unity
+    guid: ceebcc9ada93eab4dbcaf51cce30e568
+  - enabled: 1
     path: Assets/Scenes/Analyse 3.unity
     guid: 5100bb8e582ccfe4fb418ce0274523ec
   - enabled: 1
@@ -38,6 +41,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 784d868ff264fda409628f3d238eead3
+  - enabled: 1
+    path: Assets/Scenes/Paxton End.unity
+    guid: 4fd26a316debb844eb90e47dc24e785e
   - enabled: 1
     path: Assets/Scenes/Narrator End.unity
     guid: 64f23555a491cc046a3ef1052289231a

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,16 +11,16 @@ public class FalaItem
 {
     [TextArea(2, 4)]
     public string texto;
-    public bool ehNarracao; // Se true, o gato escurece
+    public bool ehNarracao;
 }
 
 public class AnalyseUIManager : MonoBehaviour
 {
     [Header("UI Elementos")]
-    public GameObject painelBalaoFala;  // Objeto 'fala'
-    public TextMeshProUGUI textoBalao; // Texto do balão
-    public Image imagemGatoUI;        
-    public RectTransform rectGatoUI;   
+    public GameObject painelBalaoFala;
+    public TextMeshProUGUI textoBalao;
+    public Image imagemGatoUI;
+    public RectTransform rectGatoUI;
 
     [Header("Expressões do Gato")]
     public Sprite bocaFechada;
@@ -27,7 +28,7 @@ public class AnalyseUIManager : MonoBehaviour
 
     [Header("Cores de Fala vs. Narração")]
     public Color corGatoFala = Color.white;
-    public Color corGatoNarracao = new Color(0.6f, 0.6f, 0.6f, 1f); // Tom mais escuro durante ações
+    public Color corGatoNarracao = new Color(0.6f, 0.6f, 0.6f, 1f);
 
     [Header("Configurações do Pulo e Fala")]
     public float forcaPuloUI = 10f;
@@ -35,8 +36,10 @@ public class AnalyseUIManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip somFala;
 
-    [Header("Próxima Cena")]
+    [Header("Próximas Cenas")]
     public string nomeCenaEntrevista = "End";
+    public string nomeCenaFase3Normal = "Fase3";
+    public string nomeCenaFase3Paxton = "Fase3 Paxton";
 
     private Vector2 posOriginalGato;
     private Coroutine coroutineFala;
@@ -45,26 +48,36 @@ public class AnalyseUIManager : MonoBehaviour
     private string textoAtual = "";
     private float tempoUltimoInput = 0f;
 
-    // Fila para controlar a sequência de falas/narrações
     private List<FalaItem> sequenciaAtual = new List<FalaItem>();
     private int indiceFalaAtual = 0;
+
+    private System.Action aoTerminarSequencia;
 
     void Awake()
     {
         if (rectGatoUI != null)
-        {
             posOriginalGato = rectGatoUI.anchoredPosition;
-        }
     }
 
     void Start()
     {
-        // Introdução inicial com Fala + Narração de ação
         List<FalaItem> intro = new List<FalaItem>()
         {
-            new FalaItem { texto = "Hora de analisar esses peixes..", ehNarracao = false },
-            new FalaItem { texto = "*Myke abre seu caderno e saca algumas ferramentas de pesquisa*", ehNarracao = true },
-            new FalaItem { texto = "Ok.., por qual deles devo começar?", ehNarracao = false }
+            new FalaItem
+            {
+                texto = "Hora de analisar esses peixes..",
+                ehNarracao = false
+            },
+            new FalaItem
+            {
+                texto = "*Myke abre seu caderno e saca algumas ferramentas de pesquisa*",
+                ehNarracao = true
+            },
+            new FalaItem
+            {
+                texto = "Ok.., por qual deles devo começar?",
+                ehNarracao = false
+            }
         };
 
         IniciarSequenciaDialogo(intro);
@@ -72,31 +85,38 @@ public class AnalyseUIManager : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - tempoUltimoInput < 0.2f) return;
+        if (Time.time - tempoUltimoInput < 0.2f)
+            return;
 
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0) ||
+            Input.GetKeyDown(KeyCode.Space))
         {
-            if (painelBalaoFala != null && painelBalaoFala.activeSelf)
+            if (painelBalaoFala != null &&
+                painelBalaoFala.activeSelf)
             {
                 AvancarOuPularTexto();
             }
         }
     }
 
-    public void IniciarSequenciaDialogo(List<FalaItem> falas)
+    public void IniciarSequenciaDialogo(
+        List<FalaItem> falas,
+        System.Action aoTerminar = null)
     {
-        // Avisa ao Gerenciador que um diálogo começou
         if (GerenciadorAnalisePeixes.Instance != null)
-        {
             GerenciadorAnalisePeixes.Instance.estaEmDialogo = true;
-        }
 
         sequenciaAtual = falas;
         indiceFalaAtual = 0;
+        aoTerminarSequencia = aoTerminar;
 
         if (sequenciaAtual != null && sequenciaAtual.Count > 0)
         {
             MostrarFalaItem(sequenciaAtual[indiceFalaAtual]);
+        }
+        else
+        {
+            ConcluirSequenciaDialogo();
         }
     }
 
@@ -108,47 +128,55 @@ public class AnalyseUIManager : MonoBehaviour
             return;
         }
 
-        // Avança para a próxima fala da sequência
         indiceFalaAtual++;
 
-        if (sequenciaAtual != null && indiceFalaAtual < sequenciaAtual.Count)
+        if (sequenciaAtual != null &&
+            indiceFalaAtual < sequenciaAtual.Count)
         {
             MostrarFalaItem(sequenciaAtual[indiceFalaAtual]);
         }
         else
         {
-            // Fim da sequência de falas atual
-            if (painelBalaoFala != null)
-                painelBalaoFala.SetActive(false);
-
-            
-            if (GerenciadorAnalisePeixes.Instance != null)
-            {
-                GerenciadorAnalisePeixes.Instance.FinalizarDialogo();
-            }
+            ConcluirSequenciaDialogo();
         }
+    }
+
+    private void ConcluirSequenciaDialogo()
+    {
+        if (painelBalaoFala != null)
+            painelBalaoFala.SetActive(false);
+
+        estaEscrevendo = false;
+
+        if (GerenciadorAnalisePeixes.Instance != null)
+            GerenciadorAnalisePeixes.Instance.FinalizarDialogo();
+
+        System.Action acao = aoTerminarSequencia;
+        aoTerminarSequencia = null;
+
+        if (acao != null)
+            acao.Invoke();
     }
 
     private void MostrarFalaItem(FalaItem item)
     {
         tempoUltimoInput = Time.time;
 
-        if (rectGatoUI != null && (posOriginalGato == Vector2.zero || posOriginalGato.y == 0))
-        {
+        if (rectGatoUI != null)
             posOriginalGato = rectGatoUI.anchoredPosition;
-        }
 
         if (painelBalaoFala != null)
             painelBalaoFala.SetActive(true);
 
-        // Aplica o efeito visual de cor no Gato (fala vs narração)
         if (imagemGatoUI != null)
-        {
-            imagemGatoUI.color = item.ehNarracao ? corGatoNarracao : corGatoFala;
-        }
+            imagemGatoUI.color =
+                item.ehNarracao ? corGatoNarracao : corGatoFala;
 
-        if (coroutineFala != null) StopCoroutine(coroutineFala);
-        if (coroutinePulo != null) StopCoroutine(coroutinePulo);
+        if (coroutineFala != null)
+            StopCoroutine(coroutineFala);
+
+        if (coroutinePulo != null)
+            StopCoroutine(coroutinePulo);
 
         ResetaExpressao();
 
@@ -170,7 +198,6 @@ public class AnalyseUIManager : MonoBehaviour
             if (textoBalao != null)
                 textoBalao.text += letra;
 
-            // Animação e áudio acontecem apenas se NÃO for narração
             if (!item.ehNarracao && char.IsLetterOrDigit(letra))
             {
                 if (imagemGatoUI != null && bocaAberta != null)
@@ -181,7 +208,9 @@ public class AnalyseUIManager : MonoBehaviour
 
                 if (rectGatoUI != null)
                 {
-                    if (coroutinePulo != null) StopCoroutine(coroutinePulo);
+                    if (coroutinePulo != null)
+                        StopCoroutine(coroutinePulo);
+
                     coroutinePulo = StartCoroutine(ExecutarPulinho());
                 }
             }
@@ -195,21 +224,30 @@ public class AnalyseUIManager : MonoBehaviour
 
         ResetaExpressao();
         estaEscrevendo = false;
+        coroutineFala = null;
     }
 
     IEnumerator ExecutarPulinho()
     {
-        if (rectGatoUI == null) yield break;
+        if (rectGatoUI == null)
+            yield break;
 
-        rectGatoUI.anchoredPosition = posOriginalGato + new Vector2(0, forcaPuloUI);
+        rectGatoUI.anchoredPosition =
+            posOriginalGato + new Vector2(0, forcaPuloUI);
+
         yield return new WaitForSeconds(0.04f);
+
         rectGatoUI.anchoredPosition = posOriginalGato;
+        coroutinePulo = null;
     }
 
     void CompletarTextoImediatamente()
     {
         if (coroutineFala != null)
+        {
             StopCoroutine(coroutineFala);
+            coroutineFala = null;
+        }
 
         if (textoBalao != null)
             textoBalao.text = textoAtual;
@@ -220,18 +258,60 @@ public class AnalyseUIManager : MonoBehaviour
 
     void ResetaExpressao()
     {
-        if (rectGatoUI != null && posOriginalGato != Vector2.zero)
+        if (rectGatoUI != null)
             rectGatoUI.anchoredPosition = posOriginalGato;
 
         if (imagemGatoUI != null && bocaFechada != null)
             imagemGatoUI.sprite = bocaFechada;
     }
 
+
     public void FinalizarAnalyseETrocarCena()
     {
-        if (!string.IsNullOrEmpty(nomeCenaEntrevista))
+        string cenaAtual = SceneManager.GetActiveScene().name;
+
+        // Analyse 1 deve seguir para a Fase 2.
+        if (cenaAtual == "Analyse 1")
         {
-            SceneManager.LoadScene(nomeCenaEntrevista);
+            if (!string.IsNullOrWhiteSpace(nomeCenaEntrevista))
+            {
+                SceneManager.LoadScene(nomeCenaEntrevista);
+            }
+            else
+            {
+                Debug.LogError("O nome da cena da Fase 2 está vazio!");
+            }
+
+            return;
         }
+
+        // Somente Analyse 2 decide qual Fase 3 carregar.
+        if (cenaAtual == "Analyse 2")
+        {
+            if (GameManager.Instance == null)
+            {
+                Debug.LogError(
+                    "GameManager não encontrado na Analyse 2!"
+                );
+                return;
+            }
+
+            string proximaCena = GameManager.Instance.paxtonAcompanha
+                ? nomeCenaFase3Paxton
+                : nomeCenaFase3Normal;
+
+            if (string.IsNullOrWhiteSpace(proximaCena))
+            {
+                Debug.LogError("O nome da Fase 3 está vazio!");
+                return;
+            }
+
+            SceneManager.LoadScene(proximaCena);
+            return;
+        }
+
+        Debug.LogWarning(
+            "Nenhuma transição configurada para a cena: " + cenaAtual
+        );
     }
 }

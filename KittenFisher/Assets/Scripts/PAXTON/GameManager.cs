@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,14 +9,23 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        Debug.Log("GameManager criado. Instância: " + Instance);
+    }
+    void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Debug.LogWarning("O GameManager principal foi destruído!");
+            Instance = null;
         }
     }
 }

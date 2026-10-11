@@ -1205,6 +1205,8 @@ MonoBehaviour:
   audioSource: {fileID: 71099157}
   somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   nomeCenaEntrevista: Fase2
+  nomeCenaFase3Normal: Fase3
+  nomeCenaFase3Paxton: Fase3 Paxton
 --- !u!114 &572010385
 MonoBehaviour:
   m_ObjectHideFlags: 0

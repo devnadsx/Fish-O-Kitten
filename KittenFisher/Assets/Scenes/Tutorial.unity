@@ -1453,7 +1453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737b1d8ac0439ec4e8eb974a028ae2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  paxtonAcompanha: 0
+  paxtonAcompanha: 1
 --- !u!4 &672010319
 Transform:
   m_ObjectHideFlags: 0
