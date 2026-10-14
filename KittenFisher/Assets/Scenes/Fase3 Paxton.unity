@@ -4472,7 +4472,7 @@ MonoBehaviour:
   somColetaPeixe: {fileID: 8300000, guid: bc56b9d931c3e0240987e956bcee1239, type: 3}
   audioSourceMusicaFundo: {fileID: 519420033}
   musicaTensa: {fileID: 8300000, guid: d186123f58cdff049a7c45c5df72e121, type: 3}
-  nomeCenaFase3: Fase3
+  nomeCenaFase3: Fase3 Paxton
   nomeCenaGameOver: Paxton End
   textoTimerUI: {fileID: 1053009541}
   tempoLimite: 60
@@ -6125,11 +6125,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3263774276397628451, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.61
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3263774276397628451, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.38
+      value: 6.24
       objectReference: {fileID: 0}
     - target: {fileID: 3263774276397628451, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_LocalPosition.z
