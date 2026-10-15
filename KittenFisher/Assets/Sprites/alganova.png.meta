@@ -148,10 +148,10 @@ TextureImporter:
       name: alganova_0
       rect:
         serializedVersion: 2
-        x: 495
-        y: 0
-        width: 1167
-        height: 907
+        x: 416
+        y: 230
+        width: 1002
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,55 +166,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: alganova_1
-      rect:
-        serializedVersion: 2
-        x: 714
-        y: 108
-        width: 10
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5325fb6bdd8c6fa0800000000000000
-      internalID: -5806109846038830241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alganova_2
-      rect:
-        serializedVersion: 2
-        x: 929
-        y: 161
-        width: 8
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 11359944b01979530800000000000000
-      internalID: 3861714683075056401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5b765841e5b44fc4daf96754b1aa2bc3
     internalID: 0
     vertices: []
     indices: 

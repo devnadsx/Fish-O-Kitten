@@ -57,6 +57,9 @@ TagManager:
   - name: pedras e algas 2
     uniqueID: 3739441845
     locked: 0
+  - name: Lixo2
+    uniqueID: 3200746371
+    locked: 0
   - name: Fish
     uniqueID: 971331551
     locked: 0
