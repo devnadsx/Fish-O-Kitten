@@ -465,7 +465,7 @@ public class TutorialManager : MonoBehaviour
     {
         switch (nome)
         {
-            case "Capacete":
+            case "Traje Velho":
                 capacete = true;
                 break;
 
