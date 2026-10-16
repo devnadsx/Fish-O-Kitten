@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 86cd7d756088f5e4a9537600ae66164b
+guid: 513dbad3ed8b0504598999afdbbc5c33
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4517367349893309993
-    second: ShadowCatOpenMouth_0
+      213: -7473354087148204023
+    second: mesa_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShadowCatOpenMouth_0
+      name: mesa_0
       rect:
         serializedVersion: 2
-        x: 348
-        y: 0
-        width: 795
-        height: 1943
+        x: 366
+        y: 76
+        width: 905
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d959ad44561f41c0800000000000000
-      internalID: -4517367349893309993
+      spriteID: 90051d2ad00594890800000000000000
+      internalID: -7473354087148204023
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ShadowCatOpenMouth_0: -4517367349893309993
+      mesa_0: -7473354087148204023
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
