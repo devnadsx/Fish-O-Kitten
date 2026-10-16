@@ -1,0 +1,242 @@
+fileFormatVersion: 2
+guid: e5a165f97b441c942a64a089848a43a5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4320978033097131966
+    second: baixador de png 1_0
+  - first:
+      213: 184374681061851693
+    second: baixador de png 1_1
+  - first:
+      213: -4742268771166905181
+    second: baixador de png 1_2
+  - first:
+      213: 8954426938939236830
+    second: baixador de png 1_3
+  - first:
+      213: -3119609468903222983
+    second: baixador de png 1_4
+  - first:
+      213: -5318768740284625800
+    second: baixador de png 1_5
+  - first:
+      213: 5321559058090434646
+    second: baixador de png 1_6
+  - first:
+      213: 7837057055038598353
+    second: baixador de png 1_7
+  - first:
+      213: -7706510302392191791
+    second: baixador de png 1_8
+  - first:
+      213: -2259529087129495874
+    second: baixador de png 1_9
+  - first:
+      213: -7804314976218491764
+    second: baixador de png 1_10
+  - first:
+      213: 2425075692520505074
+    second: baixador de png 1_11
+  - first:
+      213: 1070002142550039506
+    second: baixador de png 1_12
+  - first:
+      213: 8814812097542721579
+    second: baixador de png 1_13
+  - first:
+      213: -626557414024753632
+    second: baixador de png 1_14
+  - first:
+      213: 8916847314167814440
+    second: baixador de png 1_15
+  - first:
+      213: -1204073473073330731
+    second: baixador de png 1_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: baixador de png 1_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 765
+        width: 1916
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb74509a0a237fb30800000000000000
+      internalID: 4320978033097131966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baixador de png 1_1
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 257
+        width: 1380
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d22844aabc70f8200800000000000000
+      internalID: 184374681061851693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1d39d9880e63e7c43bad6b6e8722571d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      baixador de png 1_0: 4320978033097131966
+      baixador de png 1_1: 184374681061851693
+      baixador de png 1_10: -7804314976218491764
+      baixador de png 1_11: 2425075692520505074
+      baixador de png 1_12: 1070002142550039506
+      baixador de png 1_13: 8814812097542721579
+      baixador de png 1_14: -626557414024753632
+      baixador de png 1_15: 8916847314167814440
+      baixador de png 1_16: -1204073473073330731
+      baixador de png 1_2: -4742268771166905181
+      baixador de png 1_3: 8954426938939236830
+      baixador de png 1_4: -3119609468903222983
+      baixador de png 1_5: -5318768740284625800
+      baixador de png 1_6: 5321559058090434646
+      baixador de png 1_7: 7837057055038598353
+      baixador de png 1_8: -7706510302392191791
+      baixador de png 1_9: -2259529087129495874
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
