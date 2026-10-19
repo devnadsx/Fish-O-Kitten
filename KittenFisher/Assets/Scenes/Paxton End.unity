@@ -399,7 +399,7 @@ MonoBehaviour:
   audioSourceSFX: {fileID: 71099157}
   overlayEscuro: {fileID: 607516407}
   duracaoFadeFinal: 1.2
-  nomeCenaEntrevista: End
+  nomeCenaEntrevista: End 2
   esperaAntesDeTrocarCena: 1
 --- !u!1 &93573340
 GameObject:
@@ -490,7 +490,7 @@ SpriteRenderer:
   m_Size: {x: 3.18, y: 3.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &93573343
@@ -715,7 +715,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.0691, y: 3.2883, z: 0}
-  m_LocalScale: {x: 3.693208, y: 2.8264358, z: 1}
+  m_LocalScale: {x: 1.2449065, y: 0.952735, z: 0.33708}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1491413254}
@@ -767,7 +767,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2600417077083943953, guid: c7b8fc32010cd794bb159e7119874f8f, type: 3}
+  m_Sprite: {fileID: 2854053662719815127, guid: 635c8df17f4e33a4a92e2d4a7549360c, type: 3}
   m_Color: {r: 0.8113208, g: 0.7845319, b: 0.7845319, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1807,7 +1807,7 @@ SpriteRenderer:
   m_Size: {x: 3.18, y: 3.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &843956565
@@ -2521,7 +2521,7 @@ SpriteRenderer:
   m_Size: {x: 3.18, y: 3.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &1501514472
@@ -2676,7 +2676,7 @@ SpriteRenderer:
   m_Size: {x: 3.18, y: 3.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &1572253786

@@ -1192,7 +1192,7 @@ MonoBehaviour:
       come\xE7aram a fazer pesquisas sobre o espa\xE7o sideral, pesquisas essas que
       Myke correu atr\xE1s de informa\xE7\xF5es com pessoas que j\xE1 foram pro espa\xE7o,
       sendo de informa\xE7\xF5es extremamente confidenciais."
-    imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
+    imagemFundo: {fileID: 9218159724107326331, guid: 4a85c0836368b6d428729804329dd287, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 0
@@ -1207,27 +1207,27 @@ MonoBehaviour:
     posicao: 2
     texto: "O que que ' se est\xE1 fazendo?! Esse era o NOSSO projeto! Voc\xEA roubou
       tudo que eu tanto ralei para achar!"
-    imagemFundo: {fileID: 8960213033406119914, guid: 4d038ccdd0ca6bc4dad9a730f3bae6f0, type: 3}
+    imagemFundo: {fileID: 9218159724107326331, guid: 4a85c0836368b6d428729804329dd287, type: 3}
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Paxton
     ehNarracao: 0
     posicao: 0
     texto: "Myke. O projeto precisa de um l\xEDder apto, n\xE3o de um in\xFAtil.
       J\xE1 pode ir pegando suas coisas.. Voc\xEA est\xE1 fora. "
-    imagemFundo: {fileID: -8008447450637822732, guid: fd57f2906efba3a40969e030696c291f, type: 3}
+    imagemFundo: {fileID: 9218159724107326331, guid: 4a85c0836368b6d428729804329dd287, type: 3}
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
   - nomeQuemFala: Myke
     ehNarracao: 0
     posicao: 2
     texto: "Voc\xEA acha que pode simplesmente ME tirar do NOSSO projeto do nada!!??
       N\xE3o \xE9 assim que funciona!"
-    imagemFundo: {fileID: -8008447450637822732, guid: fd57f2906efba3a40969e030696c291f, type: 3}
+    imagemFundo: {fileID: 9218159724107326331, guid: 4a85c0836368b6d428729804329dd287, type: 3}
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Paxton
     ehNarracao: 0
     posicao: 0
     texto: "Eu s\xF3 lamento Myke, mas as suas coisas est\xE3o ali fora te esperando.."
-    imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
+    imagemFundo: {fileID: 9218159724107326331, guid: 4a85c0836368b6d428729804329dd287, type: 3}
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 0
@@ -1249,7 +1249,7 @@ MonoBehaviour:
     posicao: 1
     texto: "Era Paxton. O ex-amigo de Myke, que pegou todo cr\xE9dito do projeto
       no qual os dois haviam trabalhado arduamente. Ele estava no Meow Talk Show"
-    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    imagemFundo: {fileID: 7211410365379686115, guid: 30fd1fdcc933522428eb3a2cd130b0ff, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
     ehNarracao: 0

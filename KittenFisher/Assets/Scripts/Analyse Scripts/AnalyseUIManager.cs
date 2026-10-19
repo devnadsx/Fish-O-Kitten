@@ -270,48 +270,31 @@ public class AnalyseUIManager : MonoBehaviour
     {
         string cenaAtual = SceneManager.GetActiveScene().name;
 
-        // Analyse 1 deve seguir para a Fase 2.
         if (cenaAtual == "Analyse 1")
         {
             if (!string.IsNullOrWhiteSpace(nomeCenaEntrevista))
-            {
                 SceneManager.LoadScene(nomeCenaEntrevista);
-            }
-            else
-            {
-                Debug.LogError("O nome da cena da Fase 2 está vazio!");
-            }
 
             return;
         }
 
-        // Somente Analyse 2 decide qual Fase 3 carregar.
         if (cenaAtual == "Analyse 2")
         {
             if (GameManager.Instance == null)
-            {
-                Debug.LogError(
-                    "GameManager não encontrado na Analyse 2!"
-                );
                 return;
-            }
 
-            string proximaCena = GameManager.Instance.paxtonAcompanha
+            bool paxtonVaiAcompanhar =
+                GameManager.Instance.paxtonAcompanha;
+
+            string proximaCena = paxtonVaiAcompanhar
                 ? nomeCenaFase3Paxton
                 : nomeCenaFase3Normal;
 
-            if (string.IsNullOrWhiteSpace(proximaCena))
-            {
-                Debug.LogError("O nome da Fase 3 está vazio!");
-                return;
-            }
-
-            SceneManager.LoadScene(proximaCena);
-            return;
+            if (!string.IsNullOrWhiteSpace(proximaCena))
+                SceneManager.LoadScene(proximaCena);
         }
-
-        Debug.LogWarning(
-            "Nenhuma transição configurada para a cena: " + cenaAtual
-        );
     }
+
 }
+    
+    

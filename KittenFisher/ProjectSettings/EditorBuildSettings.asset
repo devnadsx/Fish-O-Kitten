@@ -50,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Narrator End.unity
     guid: 64f23555a491cc046a3ef1052289231a
+  - enabled: 1
+    path: Assets/Scenes/End 2.unity
+    guid: ed96ffcf7df4dd847b5d167be862377a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
