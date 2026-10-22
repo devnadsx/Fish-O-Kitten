@@ -1183,7 +1183,7 @@ MonoBehaviour:
     texto: "Myke e Paxton eram grandes amigos. Eles se conheceram no ensino m\xE9dio,
       e desde l\xE1, sempre fizeram tudo juntos. Cursaram em Biologia Cient\xEDfica,
       participaram de competi\xE7\xF5es juntos e at\xE9 serem contratados juntos!"
-    imagemFundo: {fileID: 4085662441678637604, guid: 20575267bdc4a6d48a4290360b76d2ee, type: 3}
+    imagemFundo: {fileID: -4095726633846370896, guid: 5fe054863182e874892760f865da9732, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 0
