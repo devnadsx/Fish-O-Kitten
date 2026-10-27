@@ -182,7 +182,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1031518404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogoManager, Assembly-CSharp
         m_MethodName: AvancarTexto
         m_Mode: 1
@@ -773,6 +773,202 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &684543765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684543767}
+  - component: {fileID: 684543766}
+  m_Layer: 0
+  m_Name: --FALAS--
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &684543766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684543765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ef4e293a228ba429dac075a5a3b84a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntrevistaPaxtonManager
+  painelBalaoFala: {fileID: 536729366}
+  textoNomePersonagem: {fileID: 1355338277}
+  textoBalao: {fileID: 2132858260}
+  imagemMyke: {fileID: 1436648940}
+  imagemPaxton: {fileID: 2016071866}
+  imagemSaky: {fileID: 805137804}
+  myke:
+    nome: Myke
+    expressoes:
+    - nomeExpressao: Normal
+      bocaFechada: {fileID: 0}
+      bocaAberta: {fileID: 0}
+  paxton:
+    nome: Paxton
+    expressoes:
+    - nomeExpressao: Normal
+      bocaFechada: {fileID: 0}
+      bocaAberta: {fileID: 0}
+  saky:
+    nome: Saky
+    expressoes:
+    - nomeExpressao: Normal
+      bocaFechada: {fileID: 0}
+      bocaAberta: {fileID: 0}
+  falas:
+  - nomeQuemFala: Saky
+    texto: "Boa noite a todos! Sejam muito bem-vindos a mais uma edi\xE7\xE3o do
+      nosso programa! Hoje temos dois convidados bastante especiais: Myke e Paxton,
+      que estiveram envolvidos em acontecimentos que certamente voc\xEAs n\xE3o esquecer\xE3o
+      t\xE3o cedo!"
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+    expressaoMyke: 
+    expressaoPaxton: 
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia aplaude entusiasmada. Myke acena discretamente para o p\xFAblico,
+      enquanto Paxton se acomoda na cadeira com uma tranquilidade quase exagerada."
+    ehNarracao: 1
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+    expressaoMyke: 
+    expressaoPaxton: 
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Saky
+    texto: "Antes de come\xE7armos, preciso perguntar: como \xE9 estar aqui depois
+      de tudo o que aconteceu?"
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+    expressaoMyke: 
+    expressaoPaxton: 
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Paxton
+    texto: "Bastante confort\xE1vel, na verdade. Cadeiras melhores do que eu esperava,
+      ilumina\xE7\xE3o razo\xE1vel... S\xF3 falta servirem alguma coisa para comer."
+    ehNarracao: 0
+    posicao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: 
+    expressaoPaxton: 
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Myke
+    texto: "Voc\xEA aceitou participar de uma entrevista ou veio avaliar o restaurante?"
+    ehNarracao: 0
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: 
+    expressaoPaxton: 
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Paxton
+    texto: "Ainda estou decidindo. Se as perguntas forem ruins, pelo menos posso
+      avaliar o servi\xE7o."
+    ehNarracao: 0
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: 
+    expressaoPaxton: 
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Saky
+    texto: "Que bom saber que temos um convidado t\xE3o cooperativo! E voc\xEA, Myke?
+      Est\xE1 t\xE3o tranquilo quanto seu acompanhante?"
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+    expressaoMyke: 
+    expressaoPaxton: 
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Myke
+    texto: "Eu diria que estou mais preocupado com as coisas que ele pode falar do
+      que com as perguntas que voc\xEA vai fazer."
+    ehNarracao: 0
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: 
+    expressaoPaxton: 
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Paxton
+    texto: "Ah, n\xE3o se preocupe. Se eu quisesse arruinar sua reputa\xE7\xE3o,
+      teria escolhido um lugar com c\xE2meras melhores."
+    ehNarracao: 0
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: 
+    expressaoPaxton: 
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: 
+    expressaoPaxton: 
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  velocidadeEscrita: 0.07
+  audioSourceFala: {fileID: 1031518405}
+  somFalaPadrao: {fileID: 0}
+  velocidadeTransicaoExpressao: 0.25
+  nomeProximaCena: NarradorEnd
+--- !u!4 &684543767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684543765}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.99772, y: -2.90196, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &795438542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,7 +1220,6 @@ GameObject:
   - component: {fileID: 1031518407}
   - component: {fileID: 1031518406}
   - component: {fileID: 1031518405}
-  - component: {fileID: 1031518404}
   - component: {fileID: 1031518410}
   m_Layer: 5
   m_Name: Canvas
@@ -1033,209 +1228,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1031518404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031518403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dcd408145778f04eaec33ae12e961c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogoManager
-  painelBalaoFala: {fileID: 536729366}
-  textoNomePersonagem: {fileID: 1355338277}
-  textoBalao: {fileID: 2132858260}
-  imagemEsquerda: {fileID: 1436648940}
-  imagemCentro: {fileID: 2016071866}
-  imagemDireita: {fileID: 48322229}
-  listaPersonagens:
-  - nomePersonagem: Myke
-    spriteBocaFechada: {fileID: -2774935278654895130, guid: ac555857b32beef449adc9a054559984, type: 3}
-    spriteBocaAberta: {fileID: -7421273427394222630, guid: 3054c74687683bd4fa2fec20613a26a7, type: 3}
-    corFoco: {r: 0, g: 0, b: 0, a: 0}
-  - nomePersonagem: Saky
-    spriteBocaFechada: {fileID: -1768769924907106779, guid: b6c4e47d19c91c34891c4d478515d380, type: 3}
-    spriteBocaAberta: {fileID: 3376071792619935919, guid: 6cf82002ea8e6d6469cecbaf89f46190, type: 3}
-    corFoco: {r: 0, g: 0, b: 0, a: 0}
-  - nomePersonagem: Paxton
-    spriteBocaFechada: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
-    spriteBocaAberta: {fileID: -3558489584634243624, guid: 81d83fc287f936147ae7a9325660ef1c, type: 3}
-    corFoco: {r: 0, g: 0, b: 0, a: 0}
-  - nomePersonagem: Narrador
-    spriteBocaFechada: {fileID: 0}
-    spriteBocaAberta: {fileID: 0}
-    corFoco: {r: 0, g: 0, b: 0, a: 0}
-  velocidadeEscrita: 0.07
-  alturaPuloLetra: 4
-  corInativo: {r: 1, g: 1, b: 1, a: 1}
-  audioSourceSFX: {fileID: 1031518405}
-  somFalaPadrao: {fileID: 0}
-  nomeProximaCena: Narrator End
-  falasIniciais:
-  - nomeQuemFala: Saky
-    texto: Bem-vindos de volta ao 'Meow Talk Show', o programa de TV onde entrevistamos
-      os maiores destaques da semana.
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Myke
-    texto: Boa noite Saky! Obrigado por me receber. Honestamente, estou feliz por
-      estar aqui, presente e vivo, depois de provar alguns daqueles peixes...
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Saky
-    texto: "Hoje temos conosco duas figuras que estiveram no centro de acontecimentos
-      que ningu\xE9m poderia imaginar... Myke e Paxton!"
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Narrador
-    texto: "A plateia irrompe em aplausos. Myke acena timidamente para o p\xFAblico,
-      enquanto Paxton observa o est\xFAdio com uma express\xE3o despreocupada."
-    ehNarracao: 1
-    posicao: 1
-    somFala: {fileID: 0}
-  - nomeQuemFala: Saky
-    texto: "Antes de come\xE7armos, preciso perguntar: como \xE9 estar aqui depois
-      de tudo o que aconteceu?"
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Paxton
-    texto: "Bastante confort\xE1vel, na verdade. Cadeiras melhores do que eu esperava,
-      ilumina\xE7\xE3o razo\xE1vel... S\xF3 falta servirem alguma coisa para comer."
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Myke
-    texto: "Voc\xEA aceitou participar de uma entrevista ou veio avaliar o restaurante?"
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Paxton
-    texto: "Ainda estou decidindo. Se as perguntas forem ruins, pelo menos posso
-      avaliar o servi\xE7o."
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Saky
-    texto: "Que bom saber que temos um convidado t\xE3o cooperativo! E voc\xEA, Myke?
-      Est\xE1 t\xE3o tranquilo quanto seu acompanhante?"
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Myke
-    texto: "Eu diria que estou mais preocupado com as coisas que ele pode falar do
-      que com as perguntas que voc\xEA vai fazer."
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Paxton
-    texto: "Ah, n\xE3o se preocupe. Se eu quisesse arruinar sua reputa\xE7\xE3o,
-      teria escolhido um lugar com c\xE2meras melhores."
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Narrador
-    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
-      a aten\xE7\xE3o. Myke apenas olha s\xE9rio pra ele meio preocupado com as respostas
-      dele."
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Narrador
-    texto: "Saky sorri meio descontra\xEDda, arrumando os pap\xE9is antes de voltar
-      a entrevistar ele."
-    ehNarracao: 1
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Saky
-    texto: "Brincadeiras \xE0 parte, Paxton, existe uma quest\xE3o que n\xE3o podemos
-      ignorar. Durante os acontecimentos, voc\xEA traiu a confian\xE7a de Myke. Por
-      qu\xEA?"
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Paxton
-    texto: "Ah, sim. A famosa trai\xE7\xE3o. Imaginei que chegar\xEDamos a essa parte."
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Saky
-    texto: "E voc\xEA j\xE1 tem uma resposta preparada?"
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Paxton
-    texto: "Tenho v\xE1rias. Nenhuma delas parece particularmente boa quando dita
-      em voz alta."
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Myke
-    texto: "Ent\xE3o talvez seja a primeira vez que voc\xEA deveria tentar dizer
-      a verdade."
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Narrador
-    texto: "O sorriso de Paxton diminui. Ele olha para Myke por um instante, mas
-      logo volta a aten\xE7\xE3o para Saky, ajeitando a postura no encosto."
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Paxton
-    texto: "Voc\xEA sempre teve uma maneira irritante de tornar as coisas mais dif\xEDceis
-      do que precisam ser."
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Myke
-    texto: "E voc\xEA sempre teve uma maneira irritante de fingir que nada \xE9 sua
-      culpa."
-    ehNarracao: 0
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  - nomeQuemFala: Paxton
-    texto: ...Justo.
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Narrador
-    texto: "Pela primeira vez desde o in\xEDcio da entrevista, Paxton n\xE3o tenta
-      fazer a plateia rir. Seus dedos tamborilam discretamente no bra\xE7o da cadeira
-      antes de ele olhar pro lado, irritado."
-    ehNarracao: 1
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Saky
-    texto: "H\xE1 outra coisa que chama a aten\xE7\xE3o nessa hist\xF3ria. Apesar
-      de tudo o que aconteceu, voc\xEA acabou salvando Myke. Por que fazer isso depois
-      de tra\xED-lo?"
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Paxton
-    texto: "Porque tra\xED-lo n\xE3o significava que eu queria v\xEA-lo morto."
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Saky
-    texto: "Mas voc\xEA poderia ter ido embora. Poderia ter deixado que ele seguisse
-      o pr\xF3prio caminho. Por que ficou?"
-    ehNarracao: 0
-    posicao: 1
-    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
-  - nomeQuemFala: Paxton
-    texto: "Mas voc\xEA poderia ter ido embora. Poderia ter deixado que ele seguisse
-      o pr\xF3prio caminho. Por que ficou?"
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
 --- !u!82 &1031518405
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1412,8 +1404,8 @@ RectTransform:
   - {fileID: 1436648778}
   - {fileID: 48322231}
   - {fileID: 805137803}
-  - {fileID: 1436648939}
   - {fileID: 2016071868}
+  - {fileID: 1436648939}
   - {fileID: 795438543}
   - {fileID: 536729367}
   m_Father: {fileID: 0}
@@ -2003,7 +1995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35, y: -20}
+  m_AnchoredPosition: {x: -59, y: -18.144}
   m_SizeDelta: {x: 160, y: 413.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2132858257
@@ -2151,3 +2143,4 @@ SceneRoots:
   - {fileID: 1229351856}
   - {fileID: 1756970247}
   - {fileID: 1031518409}
+  - {fileID: 684543767}
