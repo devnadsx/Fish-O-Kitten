@@ -102,7 +102,7 @@ public class SceneIntroDialogue : MonoBehaviour
 
             if (char.IsLetterOrDigit(letra))
             {
-                // 😮 Troca para boca aberta quando for uma letra
+                //  Troca para boca aberta quando for uma letra
                 if (imagemGatinho != null && spriteBocaAberta != null)
                 {
                     imagemGatinho.sprite = spriteBocaAberta;
@@ -120,14 +120,14 @@ public class SceneIntroDialogue : MonoBehaviour
             }
             else
             {
-                // 😐 Fecha a boca em espaços e pontuações
+                // Fecha a boca em espaços e pontuações
                 DefinirSpriteNormal();
             }
 
             yield return new WaitForSeconds(velocidadeEscrita);
         }
 
-        // 😐 Fecha a boca quando a frase terminar
+        // Fecha a boca quando a frase terminar
         DefinirSpriteNormal();
         estaEscrevendo = false;
     }
