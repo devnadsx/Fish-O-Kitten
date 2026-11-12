@@ -1210,7 +1210,7 @@ MonoBehaviour:
     duracaoMovimento: 0
   - nomeQuemFala: Saky
     texto: "E como \xE9 trabalhar juntos depois de tudo isso?"
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 2
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
@@ -1329,6 +1329,539 @@ MonoBehaviour:
     deslocamentoY: 0
     duracaoMovimento: 0
   - nomeQuemFala: Saky
+    texto: "Pelo visto, voc\xEAs continuam com a mesma din\xE2mica!"
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Myke
+    texto: Infelizmente, sim.
+    ehNarracao: 0
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Saky
+    texto: " Mas existe alguma coisa que voc\xEAs gostam um no outro?"
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Myke
+    texto: "Hm... bom, o Paxton \xE9 bastante inteligente. \xC0s vezes at\xE9 mais
+      do que deveria."
+    ehNarracao: 0
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Paxton
+    texto: ' Isso foi um elogio?'
+    ehNarracao: 0
+    posicao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Myke
+    texto: "N\xE3o se acostuma."
+    ehNarracao: 0
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Saky
+    texto: "E voc\xEA, Paxton? Qual sua opini\xE3o sobre o Myke?"
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
+    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
+      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
+      pergunta em uma piada."
+    ehNarracao: 1
+    posicao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: Normal
+    expressaoPaxton: Normal
+    expressaoSaky: Normal
+    moverPaxton: 0
+    deslocamentoX: 0
+    deslocamentoY: 0
+    duracaoMovimento: 0
+  - nomeQuemFala: Narrador
     texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
       a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
       pergunta em uma piada."
