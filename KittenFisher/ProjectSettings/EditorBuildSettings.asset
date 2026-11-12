@@ -53,6 +53,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/End 2.unity
     guid: ed96ffcf7df4dd847b5d167be862377a
+  - enabled: 1
+    path: Assets/Scenes/MyTon End.unity
+    guid: fcbaf7274d5011f4fadcfdaed1b15048
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
