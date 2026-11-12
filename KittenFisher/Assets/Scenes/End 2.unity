@@ -818,8 +818,11 @@ MonoBehaviour:
     nome: Paxton
     expressoes:
     - nomeExpressao: Normal
-      bocaFechada: {fileID: 2327593037766731116, guid: cd2fa6c8d6942024a8445f9d98cde8af, type: 3}
-      bocaAberta: {fileID: -6760148359141997971, guid: d08bff1fa3e3ce74999a157a1f75c422, type: 3}
+      bocaFechada: {fileID: -8667911174759601613, guid: 6f16b781bf02f4c4aa88393cc1651d5f, type: 3}
+      bocaAberta: {fileID: -5630389615208292744, guid: babcee5759fdcc44299f35145e7c6f89, type: 3}
+    - nomeExpressao: "Desconfort\xE1vel"
+      bocaFechada: {fileID: -9075387232587416792, guid: 71c05736593132144b07b3406943eaca, type: 3}
+      bocaAberta: {fileID: -5050030687400655120, guid: 373fcfaa9fddd4042be358154a2ec175, type: 3}
   saky:
     nome: Saky
     expressoes:
@@ -1104,7 +1107,7 @@ MonoBehaviour:
     posicao: 2
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1121,7 +1124,7 @@ MonoBehaviour:
     moverPaxton: 1
     deslocamentoX: -5
     deslocamentoY: 0
-    duracaoMovimento: 1
+    duracaoMovimento: 10
   - nomeQuemFala: Paxton
     texto: "N\xE3o precisa parecer t\xE3o surpresa."
     ehNarracao: 0
@@ -1485,7 +1488,7 @@ MonoBehaviour:
     moverPaxton: 1
     deslocamentoX: -10
     deslocamentoY: 0
-    duracaoMovimento: 1
+    duracaoMovimento: 10
   - nomeQuemFala: Narrador
     texto: "E agora chegamos \xE0 parte que todos estavam esperando... ou pelo menos
       \xE0 parte que algu\xE9m aqui claramente n\xE3o gostaria de responder."
@@ -1535,7 +1538,7 @@ MonoBehaviour:
     moverPaxton: 1
     deslocamentoX: 5
     deslocamentoY: 0
-    duracaoMovimento: 1.5
+    duracaoMovimento: 10
   - nomeQuemFala: Paxton
     texto: "H\xE3? Como assim?"
     ehNarracao: 0
@@ -1734,7 +1737,7 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Paxton
     texto: "Ele morde o l\xE1bio, irritado, ficando ainda mais vermelho. Ele responde
       e evita olhar diretamente pra ele ou pra Saky. Apenas se aproximando um pouquinho
       de Myke."
@@ -1748,11 +1751,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Saky
     texto: B-Bom, essa foi uma resposta bem mais... interessante do que eu esperava!
     ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1760,11 +1763,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Paxton
     texto: "\xD3timo. Agora podemos continuar?"
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1772,11 +1775,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Saky
     texto: "Claro! Mas, Myke, gostaria de saber sua rea\xE7\xE3o."
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1784,9 +1787,9 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Myke
     texto: "Eu... sinceramente, n\xE3o esperava por isso. Sendo bem honesto Saky.."
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
@@ -1796,7 +1799,7 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Myke
     texto: "Ele ri meio sem gra\xE7a, tentando n\xE3o parecer t\xE3o constrangido.
       Ele cruza os bra\xE7os, apenas tentando ficar mais calmo."
     ehNarracao: 1
@@ -1809,11 +1812,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Paxton
     texto: "N\xE3o precisa dizer nada agora."
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1821,9 +1824,9 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Myke
     texto: "Eu sei... E-eu s\xF3 fui pego de surpresa."
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
@@ -1833,13 +1836,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
-    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
-      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
-      pergunta em uma piada."
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Saky
+    texto: ' Acho que vou deixar esse assunto descansar por enquanto.'
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1847,13 +1848,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
-    texto: "A plateia ri. Paxton sorri satisfeito, claramente confort\xE1vel com
-      a aten\xE7\xE3o. Por enquanto, parece acreditar que pode transformar qualquer
-      pergunta em uma piada."
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Saky
+    texto: "Bom, acho que j\xE1 conseguimos bastante coisa por hoje!"
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1861,9 +1860,9 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Myke
     texto: Foi bem divertido, na verdade.
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
@@ -1873,11 +1872,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Paxton
     texto: "N\xE3o sei se usaria essa palavra."
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1885,11 +1884,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Saky
     texto: "Ah, Paxton, voc\xEA precisa aprender a se divertir um pouco!"
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1897,11 +1896,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Paxton
     texto: "Estou me divertindo. Olha como que eu t\xF4 feliz."
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1909,9 +1908,9 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Myke
     texto: Hahahah. Claro que sim!
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
@@ -1921,12 +1920,12 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Saky
     texto: "Enfim, muito obrigada aos dois por participarem. Foi um prazer conversar
       com voc\xEAs!"
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1934,9 +1933,9 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Myke
     texto: Obrigado pelo convite, Saky!
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
@@ -1946,11 +1945,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Paxton
     texto: "Obrigado tamb\xE9m.."
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1958,11 +1957,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Saky
     texto: E, Myke...
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1970,9 +1969,9 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Myke
     texto: Sim..?
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
@@ -1982,11 +1981,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Saky
     texto: "Boa sorte com esse a\xED."
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -1994,9 +1993,9 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Myke
     texto: Vou precisar!
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
@@ -2006,11 +2005,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Paxton
     texto: "Eu t\xF4 bem aqui, sabia?"
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -2031,11 +2030,11 @@ MonoBehaviour:
     deslocamentoX: 0
     deslocamentoY: 0
     duracaoMovimento: 0
-  - nomeQuemFala: Narrador
+  - nomeQuemFala: Saky
     texto: "At\xE9 a pr\xF3xima, \xE9 s\xE9rio! Foi muito divertido hoje!"
-    ehNarracao: 1
-    posicao: 0
-    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    ehNarracao: 0
+    posicao: 2
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
     expressaoSaky: Normal
@@ -3070,7 +3069,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
+  m_Sprite: {fileID: -8667911174759601613, guid: 6f16b781bf02f4c4aa88393cc1651d5f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3104,8 +3103,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -59, y: -18.144}
-  m_SizeDelta: {x: 160, y: 413.59}
+  m_AnchoredPosition: {x: -41.485, y: -29.220001}
+  m_SizeDelta: {x: 121.03, y: 413.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2132858257
 GameObject:
