@@ -823,6 +823,12 @@ MonoBehaviour:
     - nomeExpressao: "Desconfort\xE1vel"
       bocaFechada: {fileID: -9075387232587416792, guid: 71c05736593132144b07b3406943eaca, type: 3}
       bocaAberta: {fileID: -5050030687400655120, guid: 373fcfaa9fddd4042be358154a2ec175, type: 3}
+    - nomeExpressao: Tsundere
+      bocaFechada: {fileID: -6256693274855252453, guid: 36c09293750f53e4a883c527512294e2, type: 3}
+      bocaAberta: {fileID: 4669263468199765160, guid: c2985bc514995db4d9872f96a211b7f5, type: 3}
+    - nomeExpressao: Deslize
+      bocaFechada: {fileID: -1498807283584910905, guid: 6bde06c322b9a2c41af58fbdac9bf89a, type: 3}
+      bocaAberta: {fileID: -167031423309260228, guid: 19f69d274f970284eaf62db8c6129eef, type: 3}
   saky:
     nome: Saky
     expressoes:
@@ -996,7 +1002,7 @@ MonoBehaviour:
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: Tsundere
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1009,7 +1015,7 @@ MonoBehaviour:
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: Tsundere
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1046,7 +1052,7 @@ MonoBehaviour:
     posicao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1119,7 +1125,7 @@ MonoBehaviour:
     posicao: 2
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
     expressaoSaky: Normal
     moverPaxton: 1
     deslocamentoX: -5
@@ -1131,7 +1137,7 @@ MonoBehaviour:
     posicao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
