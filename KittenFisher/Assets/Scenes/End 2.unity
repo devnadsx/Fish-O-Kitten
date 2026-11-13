@@ -915,7 +915,7 @@ MonoBehaviour:
     posicao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: Tsundere
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1161,7 +1161,7 @@ MonoBehaviour:
     posicao: 2
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -2068,6 +2068,8 @@ MonoBehaviour:
   duracaoPuloLetra: 0.07
   velocidadeTransicaoExpressao: 0.25
   nomeProximaCena: MyTon End
+  alturaPuloExpressao: 2
+  duracaoPuloExpressao: 0.22
 --- !u!4 &684543767
 Transform:
   m_ObjectHideFlags: 0

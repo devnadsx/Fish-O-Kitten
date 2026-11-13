@@ -99,8 +99,29 @@ public class EntrevistaPaxtonManager : MonoBehaviour
     private Coroutine coroutinePuloPaxton;
     private Coroutine coroutinePuloSaky;
 
+    [Header("Pulinho ao mudar expressão")]
+    public float alturaPuloExpressao = 18f;
+    public float duracaoPuloExpressao = 0.22f;
+
     private Vector2 posicaoOriginalMyke;
     private Vector2 posicaoOriginalPaxton;
+    private Vector2 posicaoOriginalSaky;
+
+    private Vector2 posicaoBaseMyke;
+    private Vector2 posicaoBasePaxton;
+    private Vector2 posicaoBaseSaky;
+
+    private float puloLetraMyke;
+    private float puloLetraPaxton;
+    private float puloLetraSaky;
+
+    private float puloExpressaoMyke;
+    private float puloExpressaoPaxton;
+    private float puloExpressaoSaky;
+
+    private Coroutine coroutineExpressaoMyke;
+    private Coroutine coroutineExpressaoPaxton;
+    private Coroutine coroutineExpressaoSaky;
 
     private ExpressaoPersonagem expressaoAtualMyke;
     private ExpressaoPersonagem expressaoAtualPaxton;
@@ -113,6 +134,34 @@ public class EntrevistaPaxtonManager : MonoBehaviour
 
         if (imagemPaxton != null)
             posicaoOriginalPaxton = imagemPaxton.rectTransform.anchoredPosition;
+
+        if (imagemSaky != null)
+            posicaoOriginalSaky = imagemSaky.rectTransform.anchoredPosition;
+
+        posicaoBaseMyke = posicaoOriginalMyke;
+        posicaoBasePaxton = posicaoOriginalPaxton;
+        posicaoBaseSaky = posicaoOriginalSaky;
+    }
+
+    private void LateUpdate()
+    {
+        AplicarPosicaoComPulinho(imagemMyke, posicaoBaseMyke,
+            puloLetraMyke + puloExpressaoMyke);
+
+        AplicarPosicaoComPulinho(imagemPaxton, posicaoBasePaxton,
+            puloLetraPaxton + puloExpressaoPaxton);
+
+        AplicarPosicaoComPulinho(imagemSaky, posicaoBaseSaky,
+            puloLetraSaky + puloExpressaoSaky);
+    }
+
+    private void AplicarPosicaoComPulinho(Image imagem, Vector2 posicaoBase, float altura)
+    {
+        if (imagem == null)
+            return;
+
+        imagem.rectTransform.anchoredPosition =
+            posicaoBase + Vector2.up * altura;
     }
 
     private void Start()
@@ -298,24 +347,81 @@ public class EntrevistaPaxtonManager : MonoBehaviour
         if (personagem == null)
             yield break;
 
-        Vector2 posicaoInicial = personagem.anchoredPosition;
-        float duracao = Mathf.Max(0.01f, duracaoPuloLetra);
+        string nome = ObterNomePeloRect(personagem);
+        yield return AnimarPulinho(nome, alturaPuloLetra, duracaoPuloLetra, false);
+    }
+
+    private string ObterNomePeloRect(RectTransform rect)
+    {
+        if (imagemMyke != null && rect == imagemMyke.rectTransform) return "Myke";
+        if (imagemPaxton != null && rect == imagemPaxton.rectTransform) return "Paxton";
+        if (imagemSaky != null && rect == imagemSaky.rectTransform) return "Saky";
+        return "";
+    }
+
+    private IEnumerator AnimarPulinho(string nome, float altura, float duracao, bool aoMudarExpressao)
+    {
         float tempo = 0f;
+        duracao = Mathf.Max(0.01f, duracao);
 
         while (tempo < duracao)
         {
             tempo += Time.deltaTime;
             float progresso = Mathf.Clamp01(tempo / duracao);
-
-            float altura = Mathf.Sin(progresso * Mathf.PI) * alturaPuloLetra;
-
-            personagem.anchoredPosition =
-                posicaoInicial + Vector2.up * altura;
-
+            float valor = Mathf.Sin(progresso * Mathf.PI) * altura;
+            DefinirAlturaPulinho(nome, valor, aoMudarExpressao);
             yield return null;
         }
 
-        personagem.anchoredPosition = posicaoInicial;
+        DefinirAlturaPulinho(nome, 0f, aoMudarExpressao);
+    }
+
+    private void DefinirAlturaPulinho(string nome, float valor, bool aoMudarExpressao)
+    {
+        if (nome.Equals("Myke", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (aoMudarExpressao) puloExpressaoMyke = valor;
+            else puloLetraMyke = valor;
+        }
+        else if (nome.Equals("Paxton", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (aoMudarExpressao) puloExpressaoPaxton = valor;
+            else puloLetraPaxton = valor;
+        }
+        else if (nome.Equals("Saky", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (aoMudarExpressao) puloExpressaoSaky = valor;
+            else puloLetraSaky = valor;
+        }
+    }
+
+    private void IniciarPulinhoExpressao(string nome)
+    {
+        if (string.IsNullOrEmpty(nome))
+            return;
+
+        Coroutine atual = null;
+
+        if (nome.Equals("Myke", System.StringComparison.OrdinalIgnoreCase))
+            atual = coroutineExpressaoMyke;
+        else if (nome.Equals("Paxton", System.StringComparison.OrdinalIgnoreCase))
+            atual = coroutineExpressaoPaxton;
+        else if (nome.Equals("Saky", System.StringComparison.OrdinalIgnoreCase))
+            atual = coroutineExpressaoSaky;
+
+        if (atual != null)
+            StopCoroutine(atual);
+
+        Coroutine nova = StartCoroutine(
+            AnimarPulinho(nome, alturaPuloExpressao, duracaoPuloExpressao, true)
+        );
+
+        if (nome.Equals("Myke", System.StringComparison.OrdinalIgnoreCase))
+            coroutineExpressaoMyke = nova;
+        else if (nome.Equals("Paxton", System.StringComparison.OrdinalIgnoreCase))
+            coroutineExpressaoPaxton = nova;
+        else if (nome.Equals("Saky", System.StringComparison.OrdinalIgnoreCase))
+            coroutineExpressaoSaky = nova;
     }
 
     private void AplicarExpressoes(FalaEntrevista fala)
@@ -324,20 +430,14 @@ public class EntrevistaPaxtonManager : MonoBehaviour
         {
             ExpressaoPersonagem nova = EncontrarExpressao(myke, fala.expressaoMyke);
             if (nova != null)
-                expressaoAtualMyke = nova;
-            RestaurarExpressao("Myke");
+                DefinirExpressao("Myke", nova);
         }
 
         if (!string.IsNullOrWhiteSpace(fala.expressaoSaky))
         {
-            ExpressaoPersonagem nova = EncontrarExpressao(
-                saky, fala.expressaoSaky
-            );
-
+            ExpressaoPersonagem nova = EncontrarExpressao(saky, fala.expressaoSaky);
             if (nova != null)
-                expressaoAtualSaky = nova;
-
-            RestaurarExpressao("Saky");
+                DefinirExpressao("Saky", nova);
         }
         else if (expressaoAtualSaky == null && saky != null &&
                  saky.expressoes != null && saky.expressoes.Count > 0)
@@ -350,8 +450,7 @@ public class EntrevistaPaxtonManager : MonoBehaviour
         {
             ExpressaoPersonagem nova = EncontrarExpressao(paxton, fala.expressaoPaxton);
             if (nova != null)
-                expressaoAtualPaxton = nova;
-            RestaurarExpressao("Paxton");
+                DefinirExpressao("Paxton", nova);
         }
 
         if (expressaoAtualSaky == null && saky != null &&
@@ -359,6 +458,27 @@ public class EntrevistaPaxtonManager : MonoBehaviour
             expressaoAtualSaky = saky.expressoes[0];
 
         RestaurarExpressaoDoFalante(fala.nomeQuemFala);
+    }
+
+    private void DefinirExpressao(string nome, ExpressaoPersonagem nova)
+    {
+        if (nova == null)
+            return;
+
+        ExpressaoPersonagem anterior = ObterExpressaoAtual(nome);
+
+        if (anterior == nova)
+            return;
+
+        if (nome.Equals("Myke", System.StringComparison.OrdinalIgnoreCase))
+            expressaoAtualMyke = nova;
+        else if (nome.Equals("Paxton", System.StringComparison.OrdinalIgnoreCase))
+            expressaoAtualPaxton = nova;
+        else if (nome.Equals("Saky", System.StringComparison.OrdinalIgnoreCase))
+            expressaoAtualSaky = nova;
+
+        RestaurarExpressao(nome);
+        IniciarPulinhoExpressao(nome);
     }
 
     private ExpressaoPersonagem EncontrarExpressao(Personagem personagem, string nomeExpressao)
@@ -429,12 +549,11 @@ public class EntrevistaPaxtonManager : MonoBehaviour
 
     private IEnumerator MoverPaxton(Vector2 destino, float duracao)
     {
-        RectTransform rect = imagemPaxton.rectTransform;
-        Vector2 inicio = rect.anchoredPosition;
+        Vector2 inicio = posicaoBasePaxton;
 
         if (duracao <= 0f)
         {
-            rect.anchoredPosition = destino;
+            posicaoBasePaxton = destino;
             yield break;
         }
 
@@ -446,7 +565,7 @@ public class EntrevistaPaxtonManager : MonoBehaviour
 
             float progresso = Mathf.Clamp01(tempo / duracao);
 
-            rect.anchoredPosition = Vector2.Lerp(
+            posicaoBasePaxton = Vector2.Lerp(
                 inicio,
                 destino,
                 progresso
@@ -455,7 +574,7 @@ public class EntrevistaPaxtonManager : MonoBehaviour
             yield return null;
         }
 
-        rect.anchoredPosition = destino;
+        posicaoBasePaxton = destino;
     }
 
     private Personagem ObterPersonagem(string nome)
@@ -515,17 +634,19 @@ public class EntrevistaPaxtonManager : MonoBehaviour
         if (coroutineMovimento != null)
             StopCoroutine(coroutineMovimento);
 
-        if (imagemMyke != null)
-        {
-            imagemMyke.rectTransform.anchoredPosition =
-                posicaoOriginalMyke;
-        }
+        if (coroutinePuloMyke != null) StopCoroutine(coroutinePuloMyke);
+        if (coroutinePuloPaxton != null) StopCoroutine(coroutinePuloPaxton);
+        if (coroutinePuloSaky != null) StopCoroutine(coroutinePuloSaky);
+        if (coroutineExpressaoMyke != null) StopCoroutine(coroutineExpressaoMyke);
+        if (coroutineExpressaoPaxton != null) StopCoroutine(coroutineExpressaoPaxton);
+        if (coroutineExpressaoSaky != null) StopCoroutine(coroutineExpressaoSaky);
 
-        if (imagemPaxton != null)
-        {
-            imagemPaxton.rectTransform.anchoredPosition =
-                posicaoOriginalPaxton;
-        }
+        posicaoBaseMyke = posicaoOriginalMyke;
+        posicaoBasePaxton = posicaoOriginalPaxton;
+        posicaoBaseSaky = posicaoOriginalSaky;
+
+        puloLetraMyke = puloLetraPaxton = puloLetraSaky = 0f;
+        puloExpressaoMyke = puloExpressaoPaxton = puloExpressaoSaky = 0f;
 
         expressaoAtualMyke = myke != null && myke.expressoes != null &&
             myke.expressoes.Count > 0 ? myke.expressoes[0] : null;
