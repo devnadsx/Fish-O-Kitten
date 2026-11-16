@@ -182,9 +182,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogoManager, Assembly-CSharp
-        m_MethodName: AvancarTexto
+      - m_Target: {fileID: 684543766}
+        m_TargetAssemblyTypeName: EntrevistaPaxtonManager, Assembly-CSharp
+        m_MethodName: AvancarFala
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1759,7 +1759,7 @@ MonoBehaviour:
     duracaoMovimento: 0
   - nomeQuemFala: Saky
     texto: B-Bom, essa foi uma resposta bem mais... interessante do que eu esperava!
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 2
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal

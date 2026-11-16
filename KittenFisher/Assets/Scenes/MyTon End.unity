@@ -182,9 +182,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1031518404}
-        m_TargetAssemblyTypeName: DialogoManager, Assembly-CSharp
-        m_MethodName: AvancarTexto
+      - m_Target: {fileID: 459498594}
+        m_TargetAssemblyTypeName: EntrevistaPaxtonManager, Assembly-CSharp
+        m_MethodName: AvancarFala
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -251,7 +251,7 @@ RectTransform:
   m_AnchoredPosition: {x: 218, y: -49}
   m_SizeDelta: {x: 462.85, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &48322228
+--- !u!1 &459498592
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,73 +259,85 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 48322231}
-  - component: {fileID: 48322230}
-  - component: {fileID: 48322229}
-  m_Layer: 5
-  m_Name: SakyVN
+  - component: {fileID: 459498593}
+  - component: {fileID: 459498594}
+  m_Layer: 0
+  m_Name: ---FALAS---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &48322229
+--- !u!4 &459498593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459498592}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.77862, y: -3.38375, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &459498594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48322228}
+  m_GameObject: {fileID: 459498592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: c2ef4e293a228ba429dac075a5a3b84a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -1768769924907106779, guid: b6c4e47d19c91c34891c4d478515d380, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &48322230
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48322228}
-  m_CullTransparentMesh: 1
---- !u!224 &48322231
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48322228}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.241146, y: 4.8974314, z: 1.2033}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1031518409}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275.66, y: 69}
-  m_SizeDelta: {x: 79.28, y: 42.2}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_EditorClassIdentifier: Assembly-CSharp::EntrevistaPaxtonManager
+  painelBalaoFala: {fileID: 536729366}
+  textoNomePersonagem: {fileID: 1355338277}
+  textoBalao: {fileID: 2132858260}
+  imagemMyke: {fileID: 0}
+  imagemPaxton: {fileID: 0}
+  imagemSaky: {fileID: 0}
+  myke:
+    nome: Myke
+    expressoes:
+    - nomeExpressao: Normal
+      bocaFechada: {fileID: -2774935278654895130, guid: ac555857b32beef449adc9a054559984, type: 3}
+      bocaAberta: {fileID: -7421273427394222630, guid: 3054c74687683bd4fa2fec20613a26a7, type: 3}
+  paxton:
+    nome: Paxton
+    expressoes:
+    - nomeExpressao: Normal
+      bocaFechada: {fileID: -8667911174759601613, guid: 6f16b781bf02f4c4aa88393cc1651d5f, type: 3}
+      bocaAberta: {fileID: -5630389615208292744, guid: babcee5759fdcc44299f35145e7c6f89, type: 3}
+    - nomeExpressao: "Desconfort\xE1vel"
+      bocaFechada: {fileID: -9075387232587416792, guid: 71c05736593132144b07b3406943eaca, type: 3}
+      bocaAberta: {fileID: -5050030687400655120, guid: 373fcfaa9fddd4042be358154a2ec175, type: 3}
+    - nomeExpressao: Tsundere
+      bocaFechada: {fileID: -6256693274855252453, guid: 36c09293750f53e4a883c527512294e2, type: 3}
+      bocaAberta: {fileID: 4669263468199765160, guid: c2985bc514995db4d9872f96a211b7f5, type: 3}
+    - nomeExpressao: Deslize
+      bocaFechada: {fileID: -1498807283584910905, guid: 6bde06c322b9a2c41af58fbdac9bf89a, type: 3}
+      bocaAberta: {fileID: -167031423309260228, guid: 19f69d274f970284eaf62db8c6129eef, type: 3}
+  saky:
+    nome: Saky
+    expressoes:
+    - nomeExpressao: Normal
+      bocaFechada: {fileID: -1768769924907106779, guid: b6c4e47d19c91c34891c4d478515d380, type: 3}
+      bocaAberta: {fileID: 3376071792619935919, guid: 6cf82002ea8e6d6469cecbaf89f46190, type: 3}
+  falas: []
+  velocidadeEscrita: 0.07
+  audioSourceFala: {fileID: 0}
+  somFalaPadrao: {fileID: 0}
+  alturaPuloLetra: 4
+  duracaoPuloLetra: 0.07
+  velocidadeTransicaoExpressao: 0.25
+  nomeProximaCena: MyTon End
+  alturaPuloExpressao: 2
+  duracaoPuloExpressao: 0.22
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +785,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &795438542
+--- !u!1 &742355483
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -781,43 +793,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 795438543}
-  - component: {fileID: 795438545}
-  - component: {fileID: 795438544}
-  - component: {fileID: 795438546}
+  - component: {fileID: 742355484}
+  - component: {fileID: 742355486}
+  - component: {fileID: 742355485}
   m_Layer: 5
-  m_Name: Plateia
+  m_Name: MykeVN (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &795438543
+--- !u!224 &742355484
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795438542}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 742355483}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2720097, y: 0.48901865, z: 1.1971856}
+  m_LocalScale: {x: 1.5414021, y: 0.9248412, z: 0.8808012}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1031518409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000052064, y: -157}
-  m_SizeDelta: {x: 800, y: 446.67}
+  m_AnchoredPosition: {x: -24, y: -24.39}
+  m_SizeDelta: {x: 135.66, y: 434.37}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &795438544
+--- !u!114 &742355485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795438542}
+  m_GameObject: {fileID: 742355483}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -825,13 +836,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5074354084149328108, guid: 182cc2fe6710ccf46bf2a05c1e14fdd9, type: 3}
+  m_Sprite: {fileID: 4669263468199765160, guid: c2985bc514995db4d9872f96a211b7f5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -841,103 +852,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &795438545
+--- !u!222 &742355486
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795438542}
-  m_CullTransparentMesh: 1
---- !u!114 &795438546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795438542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4abf5cd00532dd04ab52698c04e48701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TituloAnimado
-  movimento: 25
-  escala: 0.02
-  velocidade: 50
---- !u!1 &805137802
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 805137803}
-  - component: {fileID: 805137805}
-  - component: {fileID: 805137804}
-  m_Layer: 5
-  m_Name: SakyTable
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &805137803
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805137802}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8625, y: 4.07, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1031518409}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 239.57, y: -98.58}
-  m_SizeDelta: {x: 166.12, y: 40.45}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &805137804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805137802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -3030898821712404945, guid: f2763f8159382b3458943f20822fb3f2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &805137805
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805137802}
+  m_GameObject: {fileID: 742355483}
   m_CullTransparentMesh: 1
 --- !u!1 &825008488
 GameObject:
@@ -1040,7 +961,6 @@ GameObject:
   - component: {fileID: 1031518407}
   - component: {fileID: 1031518406}
   - component: {fileID: 1031518405}
-  - component: {fileID: 1031518404}
   - component: {fileID: 1031518410}
   m_Layer: 5
   m_Name: Canvas
@@ -1049,50 +969,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1031518404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031518403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dcd408145778f04eaec33ae12e961c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogoManager
-  painelBalaoFala: {fileID: 536729366}
-  textoNomePersonagem: {fileID: 1355338277}
-  textoBalao: {fileID: 2132858260}
-  imagemEsquerda: {fileID: 1436648940}
-  imagemCentro: {fileID: 0}
-  imagemDireita: {fileID: 48322229}
-  listaPersonagens:
-  - nomePersonagem: Myke
-    spriteBocaFechada: {fileID: -2774935278654895130, guid: ac555857b32beef449adc9a054559984, type: 3}
-    spriteBocaAberta: {fileID: -7421273427394222630, guid: 3054c74687683bd4fa2fec20613a26a7, type: 3}
-    corFoco: {r: 0, g: 0, b: 0, a: 0}
-  - nomePersonagem: Saky
-    spriteBocaFechada: {fileID: -1768769924907106779, guid: b6c4e47d19c91c34891c4d478515d380, type: 3}
-    spriteBocaAberta: {fileID: 3376071792619935919, guid: 6cf82002ea8e6d6469cecbaf89f46190, type: 3}
-    corFoco: {r: 0, g: 0, b: 0, a: 0}
-  - nomePersonagem: Narrador
-    spriteBocaFechada: {fileID: 0}
-    spriteBocaAberta: {fileID: 0}
-    corFoco: {r: 0, g: 0, b: 0, a: 0}
-  velocidadeEscrita: 0.07
-  alturaPuloLetra: 4
-  corInativo: {r: 1, g: 1, b: 1, a: 1}
-  audioSourceSFX: {fileID: 1031518405}
-  somFalaPadrao: {fileID: 0}
-  nomeProximaCena: Menu
-  falasIniciais:
-  - nomeQuemFala: Narrator
-    texto: "Ao final da entrevista, Myke e Saky s\xE3o aplaudidos pela plateia. A
-      entrevista foi um sucesso! Parab\xE9ns, voc\xEAs arrasaram!"
-    ehNarracao: 0
-    posicao: 2
-    somFala: {fileID: 8300000, guid: 2e1e8e5ad222b2b43b053d0128ded4bc, type: 3}
 --- !u!82 &1031518405
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1267,10 +1143,8 @@ RectTransform:
   m_Children:
   - {fileID: 825008489}
   - {fileID: 1436648778}
-  - {fileID: 48322231}
-  - {fileID: 805137803}
   - {fileID: 1436648939}
-  - {fileID: 795438543}
+  - {fileID: 742355484}
   - {fileID: 536729367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1932,3 +1806,4 @@ SceneRoots:
   - {fileID: 1229351856}
   - {fileID: 1756970247}
   - {fileID: 1031518409}
+  - {fileID: 459498593}
