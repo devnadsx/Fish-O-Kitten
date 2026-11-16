@@ -525,15 +525,15 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 5db58d7ba6bc9fa47b08fad767a1e593, type: 3}
+  m_Resource: {fileID: 8300000, guid: e8b8c849e651b6143b98f989e8d4272f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.735
+  m_Volume: 0.39
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 173
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -835,6 +835,9 @@ MonoBehaviour:
     - nomeExpressao: Normal
       bocaFechada: {fileID: -1768769924907106779, guid: b6c4e47d19c91c34891c4d478515d380, type: 3}
       bocaAberta: {fileID: 3376071792619935919, guid: 6cf82002ea8e6d6469cecbaf89f46190, type: 3}
+    - nomeExpressao: Interessada
+      bocaFechada: {fileID: -5485155197946580225, guid: e09b35823c0d44a4ca93f91912f4c8d5, type: 3}
+      bocaAberta: {fileID: -5785175082703249381, guid: e63c12bb0df594f46ac2b5cdb3c4d780, type: 3}
   falas:
   - nomeQuemFala: Narrador
     texto: "As c\xE2meras est\xE3o ligadas, os convidados est\xE3o acomodados e nossa
@@ -880,7 +883,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -892,7 +895,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -904,7 +907,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1029,7 +1032,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1041,7 +1044,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1162,7 +1165,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1392,7 +1395,7 @@ MonoBehaviour:
     posicao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1404,7 +1407,7 @@ MonoBehaviour:
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: Tsundere
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1416,8 +1419,8 @@ MonoBehaviour:
     posicao: 2
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoPaxton: Deslize
+    expressaoSaky: Interessada
     moverPaxton: 1
     deslocamentoX: -5
     deslocamentoY: 0
@@ -1428,7 +1431,7 @@ MonoBehaviour:
     posicao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: Deslize
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1440,7 +1443,7 @@ MonoBehaviour:
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: Tsundere
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1453,7 +1456,7 @@ MonoBehaviour:
     posicao: 2
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1465,8 +1468,8 @@ MonoBehaviour:
     posicao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoPaxton: Tsundere
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1477,7 +1480,7 @@ MonoBehaviour:
     posicao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
     expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
@@ -1489,8 +1492,8 @@ MonoBehaviour:
     posicao: 2
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
+    expressaoSaky: Interessada
     moverPaxton: 1
     deslocamentoX: -10
     deslocamentoY: 0
