@@ -182,9 +182,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 459498594}
+      - m_Target: {fileID: 1031518403}
         m_TargetAssemblyTypeName: EntrevistaPaxtonManager, Assembly-CSharp
-        m_MethodName: AvancarFala
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -292,49 +292,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 459498592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ef4e293a228ba429dac075a5a3b84a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c94da1d2de1cbd4e9948fc78173a6a0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EntrevistaPaxtonManager
+  m_EditorClassIdentifier: Assembly-CSharp::DeclaracaoPaxtonManager
   painelBalaoFala: {fileID: 536729366}
   textoNomePersonagem: {fileID: 1355338277}
   textoBalao: {fileID: 2132858260}
   imagemMyke: {fileID: 0}
   imagemPaxton: {fileID: 0}
-  imagemSaky: {fileID: 0}
   myke:
-    nome: Myke
-    expressoes:
-    - nomeExpressao: Normal
-      bocaFechada: {fileID: -2774935278654895130, guid: ac555857b32beef449adc9a054559984, type: 3}
-      bocaAberta: {fileID: -7421273427394222630, guid: 3054c74687683bd4fa2fec20613a26a7, type: 3}
-  paxton:
-    nome: Paxton
-    expressoes:
-    - nomeExpressao: Normal
-      bocaFechada: {fileID: -8667911174759601613, guid: 6f16b781bf02f4c4aa88393cc1651d5f, type: 3}
-      bocaAberta: {fileID: -5630389615208292744, guid: babcee5759fdcc44299f35145e7c6f89, type: 3}
-    - nomeExpressao: "Desconfort\xE1vel"
-      bocaFechada: {fileID: -9075387232587416792, guid: 71c05736593132144b07b3406943eaca, type: 3}
-      bocaAberta: {fileID: -5050030687400655120, guid: 373fcfaa9fddd4042be358154a2ec175, type: 3}
-    - nomeExpressao: Tsundere
-      bocaFechada: {fileID: -6256693274855252453, guid: 36c09293750f53e4a883c527512294e2, type: 3}
-      bocaAberta: {fileID: 4669263468199765160, guid: c2985bc514995db4d9872f96a211b7f5, type: 3}
-    - nomeExpressao: Deslize
-      bocaFechada: {fileID: -1498807283584910905, guid: 6bde06c322b9a2c41af58fbdac9bf89a, type: 3}
-      bocaAberta: {fileID: -167031423309260228, guid: 19f69d274f970284eaf62db8c6129eef, type: 3}
-  saky:
-    nome: Saky
+    nome: 
     expressoes: []
-  falas: []
-  velocidadeEscrita: 0.07
+  paxton:
+    nome: 
+    expressoes: []
+  falasAntesDaEscolha: []
+  falasSeAceitar: []
+  falasSeRecusar: []
+  painelEscolha: {fileID: 0}
+  botaoAceitar: {fileID: 0}
+  botaoRecusar: {fileID: 0}
+  velocidadeEscrita: 0.03
   audioSourceFala: {fileID: 0}
   somFalaPadrao: {fileID: 0}
-  alturaPuloLetra: 4
-  duracaoPuloLetra: 0.07
-  velocidadeTransicaoExpressao: 0.25
-  nomeProximaCena: Menu
-  alturaPuloExpressao: 2
+  alturaPuloLetra: 8
+  duracaoPuloLetra: 0.12
+  alturaPuloExpressao: 18
   duracaoPuloExpressao: 0.22
+  nomeProximaCena: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +632,7 @@ RectTransform:
   m_GameObject: {fileID: 536729366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5779061, y: 1.0899876, z: 1.0899876}
+  m_LocalScale: {x: 1.1455599, y: 0.89024746, z: 0.79133105}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2132858258}
@@ -657,7 +642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17, y: -422}
+  m_AnchoredPosition: {x: -0.72558, y: -152}
   m_SizeDelta: {x: 539.48, y: 164.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &536729368
@@ -1411,7 +1396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8008447450637822732, guid: fd57f2906efba3a40969e030696c291f, type: 3}
+  m_Sprite: {fileID: 7633505783665212837, guid: 3c9d29ac59747b14fb5e2aeac3da015a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1456,14 +1441,14 @@ RectTransform:
   m_GameObject: {fileID: 1436648938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7769963, y: 1.0154264, z: 1.0154264}
+  m_LocalScale: {x: 3.26914, y: 1.8680799, z: 1.8680799}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1031518409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -153, y: -14}
+  m_AnchoredPosition: {x: -135, y: -169}
   m_SizeDelta: {x: 160, y: 413.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436648940
@@ -1479,7 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1610,15 +1595,15 @@ RectTransform:
   m_GameObject: {fileID: 2098106048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4377108, y: 0.95249647, z: 0.95249647}
+  m_LocalScale: {x: 1.7554448, y: 1.1629982, z: 1.1629982}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1031518409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -41.485004, y: -23.4}
-  m_SizeDelta: {x: 121.03, y: 413.59}
+  m_AnchoredPosition: {x: 223, y: -180}
+  m_SizeDelta: {x: 184.64, y: 596.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098106050
 MonoBehaviour:
@@ -1633,7 +1618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
