@@ -21,6 +21,10 @@ public class DeclaracaoPaxtonManager : MonoBehaviour
         public string nome;
         public List<ExpressaoPersonagem> expressoes = new List<ExpressaoPersonagem>();
     }
+    public void TestarClique()
+    {
+        Debug.Log("O BOTÃO ESTÁ FUNCIONANDO!");
+    }
 
     [System.Serializable]
     public class FalaDeclaracao
