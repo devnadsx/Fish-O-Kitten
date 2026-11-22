@@ -251,6 +251,142 @@ RectTransform:
   m_AnchoredPosition: {x: 218, y: -49}
   m_SizeDelta: {x: 462.85, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &148371082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148371083}
+  - component: {fileID: 148371085}
+  - component: {fileID: 148371084}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &148371083
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148371082}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2117824889}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &148371084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148371082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Eu n\xE3o gosto de voc\xEA"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &148371085
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148371082}
+  m_CullTransparentMesh: 1
 --- !u!1 &459498592
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,35 +458,754 @@ MonoBehaviour:
       bocaFechada: {fileID: -6256693274855252453, guid: 36c09293750f53e4a883c527512294e2, type: 3}
       bocaAberta: {fileID: 4669263468199765160, guid: c2985bc514995db4d9872f96a211b7f5, type: 3}
   falasAntesDaEscolha:
+  - nomeQuemFala: Narrador
+    texto: "Ao chegarem, Myke chama ele para vir conversar com ele, no quarto dele,
+      onde as luzes da manh\xE3 nublada deixavam com uma sensa\xE7\xE3o agrad\xE1vel"
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: N
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
   - nomeQuemFala: Myke
     texto: ...
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
     expressaoPaxton: N
-    moverMyke: 1
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: ...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: N
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: "Ent\xE3o..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: N
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: "O que \xE9, idiota?"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: N
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: "'C\xEA realmente gosta de mim..?\r\n"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: Tsk, eu sabia que se ia falar disso...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: "Eu sei! S\xF3 queria ouvir de novo, pra ter certeza..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: "'C\xEA \xE9 insuport\xE1vel, sabia?"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: "N\xE3o querendo dizer muito, mas 'c\xEA t\xE1 fugindo da pergunta."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: Paxton franze o cenho, desviando o olhar pro lado
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
     duracaoMovimentoMyke: 2
     moverPaxton: 1
+    deslocamentoXPaxton: 10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: Ngh...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: "...T\xE1, eu gosto de voc\xEA..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: "Myke fica em sil\xEAncio por um instante, atordoado pelas palavras."
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: "E... e eu n\xE3o t\xF4 falando de s\xF3 gostar da sua companhia ou de
+      trabalhar com voc\xEA. E-eu gosto de voc\xEA de verdade."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: "Eu gosto... quando voc\xEA come\xE7a a falar sobre alguma coisa que nunca
+      tem fim... Gosto das suas reclama\xE7\xF5es, mesmo quando s\xE3o sobre mim...
+      E at\xE9 quando voc\xEA faz aquelas perguntas idiotas.\r\n"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: Paxton... E-eu...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: "Myke d\xE1 um riso nervoso, tentando recuperar a compostura, mas falha
+      miseravelmente."
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: Paxton engole em seco, grunhindo baixo antes de voltar a falar.
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: "E... e eu sei que n\xE3o tenho o direito de esperar que voc\xEA sinta
+      o mesmo, principalmente depois do que aconteceu entre a gente."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: Paxton...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: "Ele n\xE3o percebe o amigo querendo falar, apenas continuando."
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: "Eu n\xE3o quero que voc\xEA se sinta obrigado a responder alguma coisa.
+      S\xF3... precisava que soubesse.\r\n"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: "Ele finalmente encara Myke. Seu olhar est\xE1 mais vulner\xE1vel do que
+      de costume."
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Paxton
+    texto: "Acho que j\xE1 estava guardando isso h\xE1 tempo demais, e tava fazendo
+      mal..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: Myke abaixa um pouco o olhar, refletindo sobre o que acabou de ouvir.
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: ...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: P-Paxton... E-eu...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: -10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 2
+  - nomeQuemFala: Myke
+    texto: "Uma breve pausa. Myke respira fundo, o voz meio tr\xEAmula. Anres de
+      voltar a falar."
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
     deslocamentoXPaxton: -10
     deslocamentoYPaxton: 0
     duracaoMovimentoPaxton: 2
   falasSeAceitar:
   - nomeQuemFala: Myke
-    texto: quero sijm
+    texto: "Eu tamb\xE9m gosto de voc\xEA... de verdade"
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-    expressaoMyke: 
-    expressaoPaxton: 
+    expressaoMyke: N
+    expressaoPaxton: Tsu
     moverMyke: 1
-    deslocamentoXMyke: 125
+    deslocamentoXMyke: 10
     deslocamentoYMyke: 0
     duracaoMovimentoMyke: 0.5
-    moverPaxton: 1
+    moverPaxton: 0
     deslocamentoXPaxton: -20
     deslocamentoYPaxton: 0
     duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Paxton
+    texto: Paxton se cala por completo
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: "E voc\xEA \xE9 p\xE9ssimo demonstrando seus sentimentos..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: "Mas voc\xEA tem raz\xE3o, aquilo que voc\xEA fez... Ou aquilo eu fiz,
+      \xE9 quase que imperdo\xE1vel..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 1
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: Myke se aproxima
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 1
+    deslocamentoXMyke: 40
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: Mas Pax, Eu te garanto que dessa vez pode ser diferente...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: "A gente pode recome\xE7ar isso juntos, dessa vez, sem as discuss\xF5es
+      intermin\xE1veis, sem brigas bestas ou at\xE9 mesmo sem perguntas idiotas..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: "Sem interrup\xE7\xF5es dessa vez... Somente eu e voc\xEA Pax, como antes..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: "E Pax, voc\xEA foi uma das \xFAnicas pessoas que me entendia, e eu adoro
+      isso em voc\xEA."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: Myke fala para Paxton numa vulnerabilidade jamais vista, olhando para
+      Paxton, sorrindo meio nervoso.
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: "Ent\xE3o independentemente do que aconte\xE7a, Paxton. Daqui pra frente
+      eu quero tentar.. "
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: "Myke da uma pausa, se aproximando e segurando a m\xE3o de Paxton"
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 1
+    deslocamentoXMyke: 80
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 1
+    moverPaxton: 1
+    deslocamentoXPaxton: -30
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Myke
+    texto: ...Falar que te amo, Paxton...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 10
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0.5
+    moverPaxton: 0
+    deslocamentoXPaxton: -20
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Paxton
+    texto: "Algumas l\xE1grimas se formam no rosto de Paxton, ele funga e vira pro
+      lado, sorrindo meio sem jeito"
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: "Myke.., e-eu... nunca imaginei que voc\xEA sentia o mesmo... "
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: "Paxton entrela\xE7a a m\xE3o dele na de Myke, quase desesperadamente"
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 1
+    deslocamentoXMyke: 90
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 1
+    moverPaxton: 1
+    deslocamentoXPaxton: -50
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Paxton
+    texto: S-seu idiota...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: Paxton ri timidamente, descendo o rosto pra baixo. Mas Myke se aproxima
+      por completo, colocando institivamente passando o polegar na bochecha dele.
+      Um gesto quase que protetor que significava muita coisa para ele.
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 1
+    deslocamentoXMyke: 126
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 3
+    moverPaxton: 1
+    deslocamentoXPaxton: -124
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 3
+  - nomeQuemFala: Myke
+    texto: "Quem que t\xE1 chorando aqui..?"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: "Myke ri de forma brincalhona, agora, puxando Paxton para um abra\xE7o
+      dessa vez."
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 1
+    deslocamentoXMyke: 130
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 1
+    moverPaxton: 1
+    deslocamentoXPaxton: -130
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 1
+  - nomeQuemFala: Paxton
+    texto: C-cala a boca...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: "S-s\xF3... fica... aqui..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: "Os dois ficam ali juntos durante a manh\xE3 toda, apenas em sil\xEAncio"
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
   falasSeRecusar:
   - nomeQuemFala: Myke
     texto: quero nao,,
@@ -368,7 +1223,7 @@ MonoBehaviour:
     duracaoMovimentoPaxton: 0
   painelEscolha: {fileID: 1990597759}
   botaoAceitar: {fileID: 1933613069}
-  botaoRecusar: {fileID: 582890952}
+  botaoRecusar: {fileID: 2117824886}
   velocidadeEscrita: 0.07
   audioSourceFala: {fileID: 1031518405}
   somFalaPadrao: {fileID: 0}
@@ -576,7 +1431,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 55c7e60fedabc68409c177ec5c38b409, type: 3}
+  m_Resource: {fileID: 8300000, guid: b8958db20cab30e46be0976b2be77292, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.602
   m_Pitch: 1
@@ -740,127 +1595,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536729366}
   m_CullTransparentMesh: 1
---- !u!1 &582890951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 582890955}
-  - component: {fileID: 582890954}
-  - component: {fileID: 582890953}
-  - component: {fileID: 582890952}
-  m_Layer: 5
-  m_Name: R
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &582890952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582890951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 582890953}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &582890953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582890951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &582890954
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582890951}
-  m_CullTransparentMesh: 1
---- !u!224 &582890955
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582890951}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 635766026}
-  m_Father: {fileID: 1990597760}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.141846, y: -16.160461}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,142 +1679,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &635766025
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 635766026}
-  - component: {fileID: 635766028}
-  - component: {fileID: 635766027}
-  m_Layer: 5
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &635766026
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635766025}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 582890955}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &635766027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635766025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: Recusar?
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &635766028
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635766025}
-  m_CullTransparentMesh: 1
 --- !u!1 &825008488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,7 +2127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Aceitar?
+  m_text: "Eu tamb\xE9m gosto de voc\xEA"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
   m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
@@ -2055,8 +2653,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.141846, y: 92}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 15.142, y: 104}
+  m_SizeDelta: {x: 232.7, y: 62.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1933613067
 MonoBehaviour:
@@ -2171,7 +2769,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1933613066}
-  - {fileID: 582890955}
+  - {fileID: 2117824889}
   m_Father: {fileID: 1031518409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2292,6 +2890,127 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098106048}
   m_CullTransparentMesh: 1
+--- !u!1 &2117824885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117824889}
+  - component: {fileID: 2117824888}
+  - component: {fileID: 2117824887}
+  - component: {fileID: 2117824886}
+  m_Layer: 5
+  m_Name: R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2117824886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117824885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2117824887}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2117824887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117824885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2117824888
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117824885}
+  m_CullTransparentMesh: 1
+--- !u!224 &2117824889
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117824885}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 148371083}
+  m_Father: {fileID: 1990597760}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 15.142, y: -4}
+  m_SizeDelta: {x: 232.7, y: 62.55}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2132858257
 GameObject:
   m_ObjectHideFlags: 0
