@@ -41,6 +41,9 @@ public class GameController : MonoBehaviour
     [Header("Diálogo de Alerta de Oxigênio")]
     public SceneIntroDialogue scriptDialogoAlerta;
 
+    [Header("Diálogo após coletar todos os peixes")]
+    public SceneIntroDialogue scriptDialogoFinal;
+
     [Header("Efeito Visão Catnip / Baú")]
     public GameObject auraPeixePrefab;
 
@@ -128,12 +131,38 @@ public class GameController : MonoBehaviour
     {
         if (prefabParticulaVitoria != null)
         {
-            Vector3 posSpawn = Camera.main != null ? Camera.main.transform.position + Camera.main.transform.forward * 2f : transform.position;
+            Vector3 posSpawn = Camera.main != null
+                ? Camera.main.transform.position + Camera.main.transform.forward * 2f
+                : transform.position;
+
             Instantiate(prefabParticulaVitoria, posSpawn, Quaternion.identity);
         }
 
         yield return new WaitForSeconds(tempoEsperaTrocaCena);
 
+        // Diálogo após coletar todos os peixes
+        if (scriptDialogoFinal != null)
+        {
+            scriptDialogoFinal.gameObject.SetActive(true);
+
+            scriptDialogoFinal.IniciarDialogoComFalas(
+                new List<string>
+                {
+                "Ufa... consegui encontrar todos os peixes!",
+                "Agora preciso organizar minhas descobertas e voltar para apresentar os resultados."
+                }
+            );
+
+            // Espera o jogador terminar o diálogo
+            while (scriptDialogoFinal != null &&
+                   scriptDialogoFinal.painelBalaoFala != null &&
+                   scriptDialogoFinal.painelBalaoFala.activeSelf)
+            {
+                yield return null;
+            }
+        }
+
+        // Só troca de cena depois do diálogo
         if (!string.IsNullOrEmpty(nomeProximaCena))
         {
             SceneManager.LoadScene(nomeProximaCena);
@@ -149,11 +178,14 @@ public class GameController : MonoBehaviour
 
         if (scriptDialogoAlerta != null)
         {
-            scriptDialogoAlerta.falasDoGato.Clear();
-            scriptDialogoAlerta.falasDoGato.Add("Meu deus!! Meu oxigênio tá acabando!! Preciso ser rápido.");
-
             scriptDialogoAlerta.gameObject.SetActive(true);
-            scriptDialogoAlerta.IniciarNovoDialogoExterno();
+
+            scriptDialogoAlerta.IniciarDialogoComFalas(
+                new List<string>
+                {
+                "Meu deus!! Meu oxigênio tá acabando!! Preciso ser rápido."
+                }
+            );
 
             StartCoroutine(AguardarFimDoDialogoEIniciarTimer());
         }
@@ -165,7 +197,9 @@ public class GameController : MonoBehaviour
     //Espera o dialogo sumir para tocar o timer
     IEnumerator AguardarFimDoDialogoEIniciarTimer()
     {
-        while (scriptDialogoAlerta != null && scriptDialogoAlerta.painelBalaoFala.activeSelf)
+        while (scriptDialogoAlerta != null &&
+               scriptDialogoAlerta.painelBalaoFala != null &&
+               scriptDialogoAlerta.painelBalaoFala.activeSelf)
         {
             yield return null;
         }

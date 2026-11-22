@@ -595,22 +595,20 @@ MonoBehaviour:
   spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
   spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
   velocidadeEscrita: 0.07
-  alturaPuloLetra: 4
+  alturaPuloPalavra: 6
+  duracaoPuloPalavra: 0.12
   audioSourceSFX: {fileID: 71099157}
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  falasDoGato:
-  - "T\xE1 bom. Vou come\xE7ar pelas \xE1guas rasas.."
-  - "Espero que n\xE3o seja t\xE3o dif\xEDcil.."
-  - "Mas para n\xE3o ser t\xE3o complicado, \xE9 melhor eu tirar essa tralha.."
-  - "Ugh.., o pessoal realmente n\xE3o sabe descartar os lixos corretamente."
-  scriptsParaAtivarAposDialogo:
+  paxtonAtivado: 0
+  falasMykeSozinho:
+  - oi
+  - myke
+  falasComPaxton:
+  - 
+  - 
+  scriptsBloquearDuranteDialogo:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 826934057}
-  - {fileID: 1207483717}
-  - {fileID: 924382264}
-  - {fileID: 249278238}
-  - {fileID: 1852266993}
 --- !u!82 &71099157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2519,6 +2517,7 @@ MonoBehaviour:
   textoTimerUI: {fileID: 0}
   tempoLimite: 60
   scriptDialogoAlerta: {fileID: 0}
+  scriptDialogoFinal: {fileID: 0}
   auraPeixePrefab: {fileID: 951689331282238978, guid: 935aa5c72d165d7479a7bbbba2e21bd6, type: 3}
 --- !u!82 &826934058
 AudioSource:

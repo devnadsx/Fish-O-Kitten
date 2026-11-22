@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,50 +14,134 @@ public class SceneIntroDialogue : MonoBehaviour
 
     [Header("Sprites do Gatinho (Boca Aberta / Fechada)")]
     public Image imagemGatinho;
-    public Sprite spriteBocaFechada; // Sprite do gatinho quieto
-    public Sprite spriteBocaAberta;  // Sprite do gatinho falando
+    public Sprite spriteBocaFechada;
+    public Sprite spriteBocaAberta;
 
     [Header("Estilo Visual Novel / RPG")]
     public float velocidadeEscrita = 0.03f;
-    public float alturaPuloLetra = 6f;
+    public float alturaPuloPalavra = 6f;
+    public float duracaoPuloPalavra = 0.12f;
     public AudioSource audioSourceSFX;
     public AudioClip somFalaGatinho;
 
-    [Header("✍️ DIGITE AS FALAS AQUI NO INSPECTOR!")]
+    [Header("Escolha do diálogo")]
+    public bool paxtonAtivado;
+
+    [Header("Falas - Myke sozinho")]
     [TextArea(2, 5)]
-    public List<string> falasDoGato = new List<string>();
+    public List<string> falasMykeSozinho = new List<string>();
 
-    [Header("Desbloquear Gameplay")]
-    public MonoBehaviour[] scriptsParaAtivarAposDialogo;
+    [Header("Falas - Paxton ativado (com Buliana)")]
+    [TextArea(2, 5)]
+    public List<string> falasComPaxton = new List<string>();
 
-    private Vector3 posicaoOriginalGato;
+    [Header("Scripts bloqueados durante o diálogo")]
+    [Tooltip("Arraste os COMPONENTES dos scripts aqui, não os GameObjects.")]
+    public Behaviour[] scriptsBloquearDuranteDialogo;
+
+    private readonly List<Behaviour> scriptsQueEstavamAtivos = new List<Behaviour>();
+    private readonly List<bool> estadosOriginaisScripts = new List<bool>();
+
+    private Vector2 posicaoOriginalGato;
     private Coroutine coroutineEscrita;
-    private bool estaEscrevendo = false;
+    private Coroutine coroutinePulo;
+    private bool estaEscrevendo;
+    private bool dialogoAtivo;
     private string textoCompletoAtual = "";
-    private int indiceFalaAtual = 0;
+    private int indiceFalaAtual;
+    private List<string> falasAtuais;
 
-    void Start()
+    private void Awake()
     {
         if (imagemGatinho != null)
         {
             posicaoOriginalGato = imagemGatinho.rectTransform.anchoredPosition;
             DefinirSpriteNormal();
         }
+    }
 
-        if (falasDoGato.Count > 0)
-        {
-            DefinirEstadoGameplay(false);
-            indiceFalaAtual = 0;
+    private void Start()
+    {
+        paxtonAtivado = GameManager.Instance != null &&
+                        GameManager.Instance.paxtonAcompanha;
+
+        IniciarDialogo(paxtonAtivado);
+    }
+
+    private void Update()
+    {
+        if (!dialogoAtivo)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+            AvancarTexto();
+    }
+    public void IniciarDialogoComFalas(List<string> novasFalas)
+    {
+        if (novasFalas == null || novasFalas.Count == 0)
+            return;
+
+        PararDigitacaoEPulo();
+
+        falasAtuais = new List<string>(novasFalas);
+        indiceFalaAtual = 0;
+
+        DefinirEstadoGameplay(false);
+
+        dialogoAtivo = true;
+
+        painelBalaoFala.SetActive(true);
+        imagemGatinho.gameObject.SetActive(true);
+        botaoAvancarFala.gameObject.SetActive(true);
+
+        MostrarFalaAtual();
+    }
+
+    private void IniciarDialogo(bool comPaxton)
+    {
+        PararDigitacaoEPulo();
+
+        paxtonAtivado = comPaxton;
+        falasAtuais = comPaxton ? falasComPaxton : falasMykeSozinho;
+
+        DefinirEstadoGameplay(false);
+
+        dialogoAtivo = true;
+        indiceFalaAtual = 0;
+
+        if (painelBalaoFala != null)
+            painelBalaoFala.SetActive(true);
+
+        if (imagemGatinho != null)
+            imagemGatinho.gameObject.SetActive(true);
+
+        if (botaoAvancarFala != null)
+            botaoAvancarFala.gameObject.SetActive(true);
+
+        if (textoBalao != null)
+            textoBalao.text = "";
+
+        if (falasAtuais != null && falasAtuais.Count > 0)
             MostrarFalaAtual();
-        }
         else
-        {
             FinalizarDialogo();
-        }
+    }
+
+    public void IniciarNovoDialogoExterno()
+    {
+        IniciarDialogo(paxtonAtivado);
+    }
+
+    public void IniciarNovoDialogoExterno(bool comPaxton)
+    {
+        IniciarDialogo(comPaxton);
     }
 
     public void AvancarTexto()
     {
+        if (!dialogoAtivo)
+            return;
+
         if (estaEscrevendo)
         {
             CompletarTextoImediatamente();
@@ -65,130 +150,217 @@ public class SceneIntroDialogue : MonoBehaviour
 
         indiceFalaAtual++;
 
-        if (indiceFalaAtual < falasDoGato.Count)
-        {
+        if (falasAtuais != null && indiceFalaAtual < falasAtuais.Count)
             MostrarFalaAtual();
-        }
         else
+            FinalizarDialogo();
+    }
+
+    private void MostrarFalaAtual()
+    {
+        if (falasAtuais == null || indiceFalaAtual < 0 ||
+            indiceFalaAtual >= falasAtuais.Count)
         {
             FinalizarDialogo();
+            return;
         }
+
+        if (painelBalaoFala != null)
+            painelBalaoFala.SetActive(true);
+
+        if (imagemGatinho != null)
+            imagemGatinho.gameObject.SetActive(true);
+
+        if (botaoAvancarFala != null)
+            botaoAvancarFala.gameObject.SetActive(true);
+
+        IniciarDigitacao(falasAtuais[indiceFalaAtual]);
     }
 
-    void MostrarFalaAtual()
+    private void IniciarDigitacao(string texto)
     {
-        if (painelBalaoFala != null) painelBalaoFala.SetActive(true);
-        if (imagemGatinho != null) imagemGatinho.gameObject.SetActive(true);
-        if (botaoAvancarFala != null) botaoAvancarFala.gameObject.SetActive(true);
+        textoCompletoAtual = texto ?? "";
 
-        IniciarDigitacao(falasDoGato[indiceFalaAtual]);
+        if (coroutineEscrita != null)
+            StopCoroutine(coroutineEscrita);
+
+        coroutineEscrita = StartCoroutine(EfeitoDigitarTexto(textoCompletoAtual));
     }
 
-    void IniciarDigitacao(string texto)
-    {
-        textoCompletoAtual = texto;
-        if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
-        coroutineEscrita = StartCoroutine(EfeitoDigitarTexto(texto));
-    }
-
-    IEnumerator EfeitoDigitarTexto(string texto)
+    private IEnumerator EfeitoDigitarTexto(string texto)
     {
         estaEscrevendo = true;
-        textoBalao.text = "";
 
-        foreach (char letra in texto.ToCharArray())
+        if (textoBalao != null)
+            textoBalao.text = "";
+
+        bool dentroDeUmaPalavra = false;
+
+        foreach (char letra in texto)
         {
-            textoBalao.text += letra;
+            if (textoBalao != null)
+                textoBalao.text += letra;
 
-            if (char.IsLetterOrDigit(letra))
+            bool caractereDePalavra = char.IsLetterOrDigit(letra);
+
+            if (caractereDePalavra)
             {
-                //  Troca para boca aberta quando for uma letra
-                if (imagemGatinho != null && spriteBocaAberta != null)
-                {
-                    imagemGatinho.sprite = spriteBocaAberta;
-                }
+                if (!dentroDeUmaPalavra)
+                    IniciarPulinhoPalavra();
 
-                if (imagemGatinho != null && imagemGatinho.gameObject.activeSelf)
-                {
-                    StartCoroutine(PulinhoRapidoGato());
-                }
+                dentroDeUmaPalavra = true;
+
+                if (imagemGatinho != null && spriteBocaAberta != null)
+                    imagemGatinho.sprite = spriteBocaAberta;
 
                 if (audioSourceSFX != null && somFalaGatinho != null)
-                {
                     audioSourceSFX.PlayOneShot(somFalaGatinho);
-                }
             }
             else
             {
-                // Fecha a boca em espaços e pontuações
+                dentroDeUmaPalavra = false;
                 DefinirSpriteNormal();
             }
 
-            yield return new WaitForSeconds(velocidadeEscrita);
+            yield return new WaitForSeconds(Mathf.Max(0.001f, velocidadeEscrita));
         }
 
-        // Fecha a boca quando a frase terminar
         DefinirSpriteNormal();
         estaEscrevendo = false;
+        coroutineEscrita = null;
     }
 
-    void CompletarTextoImediatamente()
+    private void CompletarTextoImediatamente()
     {
-        if (coroutineEscrita != null) StopCoroutine(coroutineEscrita);
-        textoBalao.text = textoCompletoAtual;
+        if (coroutineEscrita != null)
+        {
+            StopCoroutine(coroutineEscrita);
+            coroutineEscrita = null;
+        }
 
-        DefinirSpriteNormal(); // Garante que fecha a boca
+        if (textoBalao != null)
+            textoBalao.text = textoCompletoAtual;
+
+        DefinirSpriteNormal();
         estaEscrevendo = false;
 
-        if (imagemGatinho != null)
-        {
-            imagemGatinho.rectTransform.anchoredPosition = posicaoOriginalGato;
-        }
+        PararPulinho();
     }
 
-    IEnumerator PulinhoRapidoGato()
+    private void IniciarPulinhoPalavra()
+    {
+        if (imagemGatinho == null || !imagemGatinho.gameObject.activeInHierarchy)
+            return;
+
+        if (coroutinePulo != null)
+            StopCoroutine(coroutinePulo);
+
+        coroutinePulo = StartCoroutine(PulinhoRapidoGato());
+    }
+
+    private IEnumerator PulinhoRapidoGato()
     {
         RectTransform rect = imagemGatinho.rectTransform;
-        rect.anchoredPosition = posicaoOriginalGato + new Vector3(0, alturaPuloLetra, 0);
-        yield return new WaitForSeconds(velocidadeEscrita * 0.5f);
+        float duracao = Mathf.Max(0.01f, duracaoPuloPalavra);
+        float tempo = 0f;
+
+        while (tempo < duracao)
+        {
+            tempo += Time.deltaTime;
+
+            float progresso = Mathf.Clamp01(tempo / duracao);
+            float altura = Mathf.Sin(progresso * Mathf.PI) * alturaPuloPalavra;
+
+            rect.anchoredPosition = posicaoOriginalGato + Vector2.up * altura;
+
+            yield return null;
+        }
+
         rect.anchoredPosition = posicaoOriginalGato;
+        coroutinePulo = null;
     }
 
-    void DefinirSpriteNormal()
+    private void PararPulinho()
+    {
+        if (coroutinePulo != null)
+        {
+            StopCoroutine(coroutinePulo);
+            coroutinePulo = null;
+        }
+
+        if (imagemGatinho != null)
+            imagemGatinho.rectTransform.anchoredPosition = posicaoOriginalGato;
+    }
+
+    private void PararDigitacaoEPulo()
+    {
+        if (coroutineEscrita != null)
+        {
+            StopCoroutine(coroutineEscrita);
+            coroutineEscrita = null;
+        }
+
+        estaEscrevendo = false;
+        PararPulinho();
+    }
+
+    private void DefinirSpriteNormal()
     {
         if (imagemGatinho != null && spriteBocaFechada != null)
-        {
             imagemGatinho.sprite = spriteBocaFechada;
-        }
     }
 
-    void FinalizarDialogo()
+    private void FinalizarDialogo()
     {
+        PararDigitacaoEPulo();
         DefinirSpriteNormal();
-        if (painelBalaoFala != null) painelBalaoFala.SetActive(false);
-        if (imagemGatinho != null) imagemGatinho.gameObject.SetActive(false);
+
+        dialogoAtivo = false;
+        estaEscrevendo = false;
+
+        if (painelBalaoFala != null)
+            painelBalaoFala.SetActive(false);
+
+        if (imagemGatinho != null)
+            imagemGatinho.gameObject.SetActive(false);
+
+        if (botaoAvancarFala != null)
+            botaoAvancarFala.gameObject.SetActive(false);
 
         DefinirEstadoGameplay(true);
     }
 
-    void DefinirEstadoGameplay(bool estado)
+    private void DefinirEstadoGameplay(bool estado)
     {
-        if (scriptsParaAtivarAposDialogo != null)
+        if (!estado)
         {
-            foreach (MonoBehaviour script in scriptsParaAtivarAposDialogo)
+            scriptsQueEstavamAtivos.Clear();
+            estadosOriginaisScripts.Clear();
+
+            if (scriptsBloquearDuranteDialogo == null)
+                return;
+
+            foreach (Behaviour script in scriptsBloquearDuranteDialogo)
             {
-                if (script != null) script.enabled = estado;
+                if (script == null || scriptsQueEstavamAtivos.Contains(script))
+                    continue;
+
+                scriptsQueEstavamAtivos.Add(script);
+                estadosOriginaisScripts.Add(script.enabled);
+
+                script.enabled = false;
             }
         }
-    }
-    // Adicione este método em qualquer lugar dentro da classe SceneIntroDialogue
-    public void IniciarNovoDialogoExterno()
-    {
-        if (falasDoGato.Count > 0)
+        else
         {
-            indiceFalaAtual = 0;
-            DefinirEstadoGameplay(false); // Pausa ações enquanto fala
-            MostrarFalaAtual();
+            for (int i = 0; i < scriptsQueEstavamAtivos.Count; i++)
+            {
+                if (scriptsQueEstavamAtivos[i] != null)
+                    scriptsQueEstavamAtivos[i].enabled = estadosOriginaisScripts[i];
+            }
+
+            scriptsQueEstavamAtivos.Clear();
+            estadosOriginaisScripts.Clear();
         }
     }
 }
