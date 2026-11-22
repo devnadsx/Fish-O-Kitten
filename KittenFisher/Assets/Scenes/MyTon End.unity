@@ -1208,15 +1208,344 @@ MonoBehaviour:
     duracaoMovimentoPaxton: 0
   falasSeRecusar:
   - nomeQuemFala: Myke
-    texto: quero nao,,
+    texto: Sendo honesto cara...
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-    expressaoMyke: 
-    expressaoPaxton: 
-    moverMyke: 1
-    deslocamentoXMyke: -10000
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
     deslocamentoYMyke: 0
-    duracaoMovimentoMyke: 0.5
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: "Eu n\xE3o sei qual \xE9 seu problema..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 1
+    deslocamentoXPaxton: 10
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 6
+  - nomeQuemFala: Myke
+    texto: "Depois de tudo que voc\xEA fez..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: "Depois de quebrar minha confian\xE7a."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: Arruinar a minha carreira completamente.
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: "Sem contar em como voc\xEA s\xF3 se intrometeu na minha vida e atrapalhou
+      o meu projeto..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: E ainda ousa vir dizer que me ama...?
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: "Myke se levanta, e cruzo os bra\xE7os, franzindo a testa."
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: -10
+    deslocamentoYMyke: 15
+    duracaoMovimentoMyke: 2
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: "'Ce acha que eu sou o qu\xEA, Paxton? Idiota!? Eu jamais amaria voc\xEA!"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: "Paxton engole em seco, desviando o olhar pro lado. Ele come\xE7a a tremer,
+      hesitando em falar, tremendo o l\xE1bio."
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: "O que foi!? O gato comeu sua l\xEDngua?"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: M-Myke... E-eu...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: "Myke come\xE7a a rir meio descontrolado agora"
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: "Agora 'ce fica assim, se vitimizando todo, sendo que quem que sofreu
+      mais nessa hist\xF3ria. Foi eu!"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: "Se voc\xEA realmente me amasse, nada disso teria acontecido!"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: M-Mas...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: Cala a boca!
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 4982b1de7fd8a214187d79feb0439aac, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: Myke muda bruscamente o tom de voz, olhar com aquele olhar de quando bateu
+      nele.
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: "Paxton... Eu quero que voc\xEA saia, agora. Da minha casa..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 4982b1de7fd8a214187d79feb0439aac, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: E que nunca mais... ouse, conversar comigo...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 4982b1de7fd8a214187d79feb0439aac, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Myke
+    texto: Ou eu finalmente vou te por no seu devido lugar...
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 4982b1de7fd8a214187d79feb0439aac, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: Paxton se levanta agora, segurando o choro, ele abre a porta do quarto
+      e sai.
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 1
+    deslocamentoXPaxton: -1000
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 5
+  - nomeQuemFala: Paxton
+    texto: "Ap\xF3s alguns minutos, um clique na porta da entrada do apartamento
+      de Myke e escutado. Paxton se foi."
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
+  - nomeQuemFala: Paxton
+    texto: "Myke, fica sentado ali, refletindo tudo que passou no decorrer desse
+      m\xEAs. Em como uma amizade se tornou agora um desconhecido."
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Ds
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
     moverPaxton: 0
     deslocamentoXPaxton: 0
     deslocamentoYPaxton: 0
@@ -1781,6 +2110,7 @@ GameObject:
   - component: {fileID: 1031518406}
   - component: {fileID: 1031518405}
   - component: {fileID: 1031518410}
+  - component: {fileID: 1031518411}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1989,6 +2319,103 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 0.94
   Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1031518411
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031518403}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 4982b1de7fd8a214187d79feb0439aac, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 0.94
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
