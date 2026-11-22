@@ -1007,7 +1007,7 @@ MonoBehaviour:
   - nomeQuemFala: Myke
     texto: Myke fala para Paxton numa vulnerabilidade jamais vista, olhando para
       Paxton, sorrindo meio nervoso.
-    ehNarracao: 0
+    ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
     expressaoPaxton: Tsu
@@ -1120,9 +1120,8 @@ MonoBehaviour:
     deslocamentoYPaxton: 0
     duracaoMovimentoPaxton: 0
   - nomeQuemFala: Paxton
-    texto: Paxton ri timidamente, descendo o rosto pra baixo. Mas Myke se aproxima
-      por completo, colocando institivamente passando o polegar na bochecha dele.
-      Um gesto quase que protetor que significava muita coisa para ele.
+    texto: "Paxton ri timidamente, descendo o rosto pra baixo. Mas Myke se aproxima
+      por completo, colocando institivamente a m\xE3o em seu rosto. "
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
@@ -1135,6 +1134,21 @@ MonoBehaviour:
     deslocamentoXPaxton: -124
     deslocamentoYPaxton: 0
     duracaoMovimentoPaxton: 3
+  - nomeQuemFala: Paxton
+    texto: Myke passa o polegar na bochecha dele. Um gesto quase que protetor que
+      significava muita coisa para ele.
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    expressaoMyke: N
+    expressaoPaxton: Tsu
+    moverMyke: 0
+    deslocamentoXMyke: 0
+    deslocamentoYMyke: 0
+    duracaoMovimentoMyke: 0
+    moverPaxton: 0
+    deslocamentoXPaxton: 0
+    deslocamentoYPaxton: 0
+    duracaoMovimentoPaxton: 0
   - nomeQuemFala: Myke
     texto: "Quem que t\xE1 chorando aqui..?"
     ehNarracao: 0
@@ -2412,10 +2426,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4982b1de7fd8a214187d79feb0439aac, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 0.94
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

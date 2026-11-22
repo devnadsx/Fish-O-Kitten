@@ -313,8 +313,6 @@ RectTransform:
   m_Children:
   - {fileID: 1202550936}
   - {fileID: 813380207}
-  - {fileID: 1489011122}
-  - {fileID: 1827702296}
   - {fileID: 1035864644}
   - {fileID: 2070692053}
   m_Father: {fileID: 0}
@@ -1153,9 +1151,9 @@ MonoBehaviour:
   textoNomePersonagem: {fileID: 1583282777}
   textoBalao: {fileID: 1413458684}
   canvasGroupFade: {fileID: 2070692054}
-  imagemEsquerda: {fileID: 1827702294}
+  imagemEsquerda: {fileID: 0}
   imagemCentro: {fileID: 0}
-  imagemDireita: {fileID: 1489011120}
+  imagemDireita: {fileID: 0}
   audioSourceSFX: {fileID: 1202550937}
   somFalaPadrao: {fileID: 0}
   duracaoFade: 0.5
@@ -1178,7 +1176,7 @@ MonoBehaviour:
     corFoco: {r: 0, g: 0, b: 0, a: 0}
   falas:
   - nomeQuemFala: Narrator
-    ehNarracao: 0
+    ehNarracao: 1
     posicao: 1
     texto: "Myke e Paxton eram grandes amigos. Eles se conheceram no ensino m\xE9dio,
       e desde l\xE1, sempre fizeram tudo juntos. Cursaram em Biologia Cient\xEDfica,
@@ -1186,7 +1184,7 @@ MonoBehaviour:
     imagemFundo: {fileID: -4095726633846370896, guid: 5fe054863182e874892760f865da9732, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 0
+    ehNarracao: 1
     posicao: 1
     texto: "Com isso, passaram a trabalhar juntos em diversos projetos. At\xE9 que
       come\xE7aram a fazer pesquisas sobre o espa\xE7o sideral, pesquisas essas que
@@ -1195,7 +1193,7 @@ MonoBehaviour:
     imagemFundo: {fileID: 9218159724107326331, guid: 4a85c0836368b6d428729804329dd287, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 0
+    ehNarracao: 1
     posicao: 1
     texto: "Mas a ambi\xE7\xE3o falou mais alto, e Paxton percebeu o potencial que
       esse projeto possuia e decidiu mostrar essas pesquisas sem dar cr\xE9dito ao
@@ -1230,7 +1228,7 @@ MonoBehaviour:
     imagemFundo: {fileID: 9218159724107326331, guid: 4a85c0836368b6d428729804329dd287, type: 3}
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 0
+    ehNarracao: 1
     posicao: 1
     texto: "A discuss\xE3o escalou para uma briga f\xEDsica. Como consequ\xEAncia,
       Myke perdeu sua autoridade e foi rebaixado, tendo que ficar afastado por um
@@ -1238,18 +1236,18 @@ MonoBehaviour:
     imagemFundo: {fileID: 5074354084149328108, guid: 182cc2fe6710ccf46bf2a05c1e14fdd9, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 0
+    ehNarracao: 1
     posicao: 1
     texto: "Ele voltou a trabalhar por\xE9m afastado, at\xE9 que uma not\xEDcia de
       \xFAltima hora abalou o mundo cient\xEDfico."
     imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 0
+    ehNarracao: 1
     posicao: 1
     texto: "Era Paxton. O ex-amigo de Myke, que pegou todo cr\xE9dito do projeto
       no qual os dois haviam trabalhado arduamente. Ele estava no Meow Talk Show"
-    imagemFundo: {fileID: 7211410365379686115, guid: 30fd1fdcc933522428eb3a2cd130b0ff, type: 3}
+    imagemFundo: {fileID: -2739372180393656232, guid: fb9666c0198a51c43b18f5699a8b129c, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
     ehNarracao: 0
@@ -1258,7 +1256,7 @@ MonoBehaviour:
     imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 0
+    ehNarracao: 1
     posicao: 1
     texto: Myke ficou sem palavras. Imediatamente depois, cerrou os dentes e desligou
       a TV agressivamente, sentindo inveja do antigo amigo.
@@ -1272,7 +1270,7 @@ MonoBehaviour:
     imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 0
+    ehNarracao: 1
     posicao: 1
     texto: "Determinado e cheio de raiva, Myke decide que \xE9 hora de mudar as coisas;
       ele resolve come\xE7ar a trabalhar em um projeto para explorar as profundezas
@@ -1461,81 +1459,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413458682}
   m_CullTransparentMesh: 1
---- !u!1 &1489011119
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1489011122}
-  - component: {fileID: 1489011121}
-  - component: {fileID: 1489011120}
-  m_Layer: 5
-  m_Name: GatinhoVN
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1489011120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489011119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1489011121
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489011119}
-  m_CullTransparentMesh: 1
---- !u!224 &1489011122
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489011119}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.047489, y: 1.047489, z: 1.047489}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 516767117}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 296, y: -15.719}
-  m_SizeDelta: {x: 179.01, y: 458.88}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1583282775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,81 +1595,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583282775}
   m_CullTransparentMesh: 1
---- !u!1 &1827702293
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1827702296}
-  - component: {fileID: 1827702295}
-  - component: {fileID: 1827702294}
-  m_Layer: 5
-  m_Name: PaxtonVN
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1827702294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827702293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1827702295
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827702293}
-  m_CullTransparentMesh: 1
---- !u!224 &1827702296
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827702293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 516767117}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -238.68, y: -53.45}
-  m_SizeDelta: {x: 296.92, y: 488.15}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2070692052
 GameObject:
   m_ObjectHideFlags: 0
