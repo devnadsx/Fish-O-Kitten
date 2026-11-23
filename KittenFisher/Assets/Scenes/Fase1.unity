@@ -589,11 +589,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneIntroDialogue
   painelBalaoFala: {fileID: 752841730}
+  textoNomePersonagem: {fileID: 0}
   textoBalao: {fileID: 4488174}
   botaoAvancarFala: {fileID: 848458251}
   imagemGatinho: {fileID: 530656341}
   spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
   spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
+  imagemPaxton: {fileID: 0}
+  spritePaxtonBocaFechada: {fileID: 0}
+  spritePaxtonBocaAberta: {fileID: 0}
   velocidadeEscrita: 0.07
   alturaPuloPalavra: 6
   duracaoPuloPalavra: 0.12
@@ -601,14 +605,27 @@ MonoBehaviour:
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   paxtonAtivado: 0
   falasMykeSozinho:
-  - oi
-  - myke
+  - nomeQuemFala: Myke
+    texto: 
+    ehNarracao: 0
+    somFala: {fileID: 0}
+  - nomeQuemFala: Myke
+    texto: 
+    ehNarracao: 0
+    somFala: {fileID: 0}
   falasComPaxton:
-  - 
-  - 
+  - nomeQuemFala: Myke
+    texto: 
+    ehNarracao: 0
+    somFala: {fileID: 0}
+  - nomeQuemFala: Myke
+    texto: 
+    ehNarracao: 0
+    somFala: {fileID: 0}
   scriptsBloquearDuranteDialogo:
   - {fileID: 0}
   - {fileID: 0}
+  controleCamera: {fileID: 519420034}
 --- !u!82 &71099157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1773,6 +1790,7 @@ MonoBehaviour:
   zoomMinimo: 2
   zoomMaximo: 5
   sensibilidadeArrasta: 1
+  movimentoBloqueado: 0
 --- !u!1 &529660606
 GameObject:
   m_ObjectHideFlags: 0

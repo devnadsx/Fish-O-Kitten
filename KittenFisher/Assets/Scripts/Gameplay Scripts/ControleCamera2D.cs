@@ -22,6 +22,9 @@ public class ControleCamera2D : MonoBehaviour
     private Vector3 posicaoInicialCam;
     private bool estaArrastando = false;
 
+    [Header("Bloqueio durante diálogos")]
+    public bool movimentoBloqueado = false;
+
     void Awake()
     {
         cam = GetComponent<Camera>();
@@ -32,9 +35,20 @@ public class ControleCamera2D : MonoBehaviour
         cam.orthographicSize = zoomMaximo;
         CentralizarNoMapa();
     }
+    public void BloquearMovimento(bool bloquear)
+    {
+        movimentoBloqueado = bloquear;
+        estaArrastando = false;
+    }
 
     void LateUpdate()
     {
+        if (movimentoBloqueado)
+        {
+            estaArrastando = false;
+            return;
+        }
+
         TratarZoom();
         TratarArrasta();
         AplicarLimitesCamera();
