@@ -430,9 +430,11 @@ RectTransform:
   - {fileID: 1045399217}
   - {fileID: 1810841794}
   - {fileID: 924382262}
+  - {fileID: 1603108306}
+  - {fileID: 530656343}
+  - {fileID: 370458187}
   - {fileID: 1887272365}
   - {fileID: 400057347}
-  - {fileID: 530656343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -459,35 +461,35 @@ MonoBehaviour:
   imagemGatinho: {fileID: 530656341}
   spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
   spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
-  imagemPaxton: {fileID: 0}
-  spritePaxtonBocaFechada: {fileID: 0}
-  spritePaxtonBocaAberta: {fileID: 0}
+  imagemPaxton: {fileID: 370458188}
+  spritePaxtonBocaFechada: {fileID: 2327593037766731116, guid: cd2fa6c8d6942024a8445f9d98cde8af, type: 3}
+  spritePaxtonBocaAberta: {fileID: -6760148359141997971, guid: d08bff1fa3e3ce74999a157a1f75c422, type: 3}
   velocidadeEscrita: 0.07
   alturaPuloPalavra: 6
   duracaoPuloPalavra: 0.12
   audioSourceSFX: {fileID: 71099157}
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  paxtonAtivado: 0
+  paxtonAtivado: 1
   falasMykeSozinho:
   - nomeQuemFala: Myke
-    texto: 
+    texto: asasdasdawadas
     ehNarracao: 0
-    somFala: {fileID: 0}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Myke
-    texto: 
+    texto: afwfrsgdfhfghyy
     ehNarracao: 0
-    somFala: {fileID: 0}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   falasComPaxton:
   - nomeQuemFala: Myke
-    texto: 
+    texto: asdfafa affasdfas
     ehNarracao: 0
-    somFala: {fileID: 0}
-  - nomeQuemFala: Myke
-    texto: 
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Paxton
+    texto: asdasfa afasfasdasd
     ehNarracao: 0
-    somFala: {fileID: 0}
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
   scriptsBloquearDuranteDialogo:
-  - {fileID: 0}
+  - {fileID: 400057348}
   - {fileID: 0}
   controleCamera: {fileID: 519420034}
 --- !u!82 &71099157
@@ -1336,6 +1338,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3263774276397628451, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
   m_PrefabInstance: {fileID: 1575427254}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &370458186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 370458187}
+  - component: {fileID: 370458189}
+  - component: {fileID: 370458188}
+  m_Layer: 5
+  m_Name: PaxtonVN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &370458187
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370458186}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.920474, y: 0.920474, z: 0.920474}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 71099155}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -224.86862, y: -65}
+  m_SizeDelta: {x: 296.92, y: 488.15}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &370458188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370458186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &370458189
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370458186}
+  m_CullTransparentMesh: 1
 --- !u!1 &400057346
 GameObject:
   m_ObjectHideFlags: 0
@@ -9781,12 +9858,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603108303}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -4.47, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -187.70135, z: -4041.417}
+  m_LocalScale: {x: 44.904633, y: 44.904633, z: 44.904633}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 71099155}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!82 &1603108307
 AudioSource:
@@ -11780,7 +11857,6 @@ SceneRoots:
   - {fileID: 1200253121}
   - {fileID: 878182319}
   - {fileID: 71099155}
-  - {fileID: 1603108306}
   - {fileID: 2087890910}
   - {fileID: 877057149}
   - {fileID: 1681140949}
