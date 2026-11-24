@@ -513,8 +513,20 @@ MonoBehaviour:
   audioSourceSFX: {fileID: 71099157}
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   paxtonAtivado: 0
-  falasMykeSozinho: []
-  falasComPaxton: []
+  falasMykeSozinho:
+  - nomeQuemFala: Myke
+    texto: Ola
+    ehNarracao: 0
+    somFala: {fileID: 0}
+  falasComPaxton:
+  - nomeQuemFala: Myke
+    texto: Oi
+    ehNarracao: 0
+    somFala: {fileID: 0}
+  - nomeQuemFala: Paxton
+    texto: Oi
+    ehNarracao: 0
+    somFala: {fileID: 0}
   scriptsBloquearDuranteDialogo: []
   controleCamera: {fileID: 0}
 --- !u!82 &71099157
@@ -1120,7 +1132,7 @@ Transform:
   m_GameObject: {fileID: 249278235}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.55, y: 1.19, z: 0}
+  m_LocalPosition: {x: -4.85, y: 0.23, z: 0}
   m_LocalScale: {x: 0.077101074, y: 0.076631725, z: 0.21334}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3498,8 +3510,8 @@ MonoBehaviour:
   nomeCenaGameOver: GameOver
   textoTimerUI: {fileID: 0}
   tempoLimite: 60
-  scriptDialogoAlerta: {fileID: 0}
-  scriptDialogoFinal: {fileID: 0}
+  scriptDialogoAlerta: {fileID: 71099156}
+  scriptDialogoFinal: {fileID: 71099156}
   auraPeixePrefab: {fileID: 951689331282238978, guid: 935aa5c72d165d7479a7bbbba2e21bd6, type: 3}
 --- !u!82 &826934058
 AudioSource:

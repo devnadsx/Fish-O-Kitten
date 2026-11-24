@@ -270,31 +270,47 @@ public class AnalyseUIManager : MonoBehaviour
     {
         string cenaAtual = SceneManager.GetActiveScene().name;
 
+        Debug.Log("Cena atual: " + cenaAtual);
+
         if (cenaAtual == "Analyse 1")
         {
-            if (!string.IsNullOrWhiteSpace(nomeCenaEntrevista))
-                SceneManager.LoadScene(nomeCenaEntrevista);
-
+            SceneManager.LoadScene(nomeCenaEntrevista);
             return;
         }
 
         if (cenaAtual == "Analyse 2")
         {
             if (GameManager.Instance == null)
+            {
+                Debug.LogError("GameManager não encontrado!");
                 return;
+            }
 
-            bool paxtonVaiAcompanhar =
-                GameManager.Instance.paxtonAcompanha;
+            if (GameManager.Instance.paxtonAcompanha)
+            {
+                Debug.Log("Paxton acompanha! Pulando Analyse 3.");
+                SceneManager.LoadScene(nomeCenaFase3Paxton);
+            }
+            else
+            {
+                Debug.Log("Paxton não acompanha. Indo para Fase3.");
+                SceneManager.LoadScene(nomeCenaFase3Normal);
+            }
 
-            string proximaCena = paxtonVaiAcompanhar
-                ? nomeCenaFase3Paxton
-                : nomeCenaFase3Normal;
-
-            if (!string.IsNullOrWhiteSpace(proximaCena))
-                SceneManager.LoadScene(proximaCena);
+            return;
         }
-    }
 
+        if (cenaAtual == "Analyse 3")
+        {
+            Debug.Log("Analyse 3 concluída. Indo para entrevista normal.");
+            SceneManager.LoadScene(nomeCenaEntrevista);
+            return;
+        }
+
+        Debug.LogError("Não existe transição configurada para: " + cenaAtual);
+    }
 }
+
+
     
     

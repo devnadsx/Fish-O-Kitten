@@ -1,11 +1,22 @@
-
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    private const string CHAVE_PAXTON = "PaxtonAcompanha";
+
     public bool paxtonAcompanha = false;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void CriarGameManager()
+    {
+        if (Instance == null)
+        {
+            GameObject objeto = new GameObject("GameManager");
+            objeto.AddComponent<GameManager>();
+        }
+    }
 
     void Awake()
     {
@@ -18,24 +29,38 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        Debug.Log("GameManager criado. Instância: " + Instance);
+        if (PlayerPrefs.HasKey(CHAVE_PAXTON))
+        {
+            paxtonAcompanha = PlayerPrefs.GetInt(CHAVE_PAXTON) == 1;
+        }
+
+        Debug.Log("GameManager criado! Paxton acompanha: " + paxtonAcompanha);
     }
+
     public void PaxtonVaiAcompanhar()
     {
-        paxtonAcompanha = true;
-        Debug.Log("Paxton vai acompanhar Myke!");
+        DefinirEscolha(true);
     }
 
     public void PaxtonVaiFicar()
     {
-        paxtonAcompanha = false;
-        Debug.Log("Paxton vai ficar para trás!");
+        DefinirEscolha(false);
     }
+
+    void DefinirEscolha(bool escolha)
+    {
+        paxtonAcompanha = escolha;
+
+        PlayerPrefs.SetInt(CHAVE_PAXTON, escolha ? 1 : 0);
+        PlayerPrefs.Save();
+
+        Debug.Log("Escolha salva! Paxton acompanha: " + paxtonAcompanha);
+    }
+
     void OnDestroy()
     {
         if (Instance == this)
         {
-            Debug.LogWarning("O GameManager principal foi destruído!");
             Instance = null;
         }
     }

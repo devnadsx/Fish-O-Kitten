@@ -491,11 +491,15 @@ MonoBehaviour:
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   paxtonAtivado: 0
   falasMykeSozinho:
-  - nomeQuemFala: 
-    texto: 
+  - nomeQuemFala: Myke
+    texto: Oi
     ehNarracao: 0
     somFala: {fileID: 0}
-  falasComPaxton: []
+  falasComPaxton:
+  - nomeQuemFala: Myke
+    texto: Ola
+    ehNarracao: 0
+    somFala: {fileID: 0}
   scriptsBloquearDuranteDialogo: []
   controleCamera: {fileID: 0}
 --- !u!82 &71099157
