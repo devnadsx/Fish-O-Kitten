@@ -3902,7 +3902,7 @@ MonoBehaviour:
   textoTimerUI: {fileID: 1053009541}
   tempoLimite: 60
   scriptDialogoAlerta: {fileID: 71099156}
-  scriptDialogoFinal: {fileID: 0}
+  scriptDialogoFinal: {fileID: 71099156}
   auraPeixePrefab: {fileID: 951689331282238978, guid: 935aa5c72d165d7479a7bbbba2e21bd6, type: 3}
 --- !u!82 &826934058
 AudioSource:

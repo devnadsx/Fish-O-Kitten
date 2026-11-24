@@ -690,7 +690,7 @@ RectTransform:
   m_GameObject: {fileID: 371993241}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5503125, y: 1.2125, z: 1}
+  m_LocalScale: {x: 1.20774, y: 0.9445739, z: 0.77903}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 45484996}
@@ -700,7 +700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: -174}
+  m_AnchoredPosition: {x: -4.9237, y: -156}
   m_SizeDelta: {x: 539.48, y: 164.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371993243
@@ -3469,9 +3469,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1420500650}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: EscolhaAceitarPaxton
+      - m_Target: {fileID: 672010318}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PaxtonVaiAcompanhar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4553,9 +4553,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1420500650}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: EscolhaRecusarPaxton
+      - m_Target: {fileID: 672010318}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PaxtonVaiFicar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

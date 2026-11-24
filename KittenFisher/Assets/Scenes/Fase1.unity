@@ -481,7 +481,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   falasComPaxton:
   - nomeQuemFala: Myke
-    texto: asdfafa affasdfas
+    texto: "Al\xF4? Paxton, 'ce t\xE1 a\xED?"
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Paxton
@@ -2261,8 +2261,8 @@ MonoBehaviour:
   nomeCenaGameOver: GameOver
   textoTimerUI: {fileID: 0}
   tempoLimite: 60
-  scriptDialogoAlerta: {fileID: 0}
-  scriptDialogoFinal: {fileID: 0}
+  scriptDialogoAlerta: {fileID: 71099156}
+  scriptDialogoFinal: {fileID: 71099156}
   auraPeixePrefab: {fileID: 951689331282238978, guid: 935aa5c72d165d7479a7bbbba2e21bd6, type: 3}
 --- !u!82 &826934058
 AudioSource:
