@@ -276,18 +276,20 @@ public class DeclaracaoPaxtonManager : MonoBehaviour
         }
     }
 
-    private void DefinirExpressao(string nome, ExpressaoPersonagem nova)
-    {
-        ExpressaoPersonagem anterior = ObterExpressaoAtual(nome);
-        if (nova == null || anterior == nova) return;
+   private void DefinirExpressao(string nome, ExpressaoPersonagem nova)
+{
+    ExpressaoPersonagem anterior = ObterExpressaoAtual(nome);
 
-        if (nome.Equals("Myke", System.StringComparison.OrdinalIgnoreCase)) expressaoAtualMyke = nova;
-        else if (nome.Equals("Paxton", System.StringComparison.OrdinalIgnoreCase)) expressaoAtualPaxton = nova;
+    if (nova == null || anterior == nova)
+        return;
 
-        RestaurarExpressao(nome);
-        IniciarPulinhoExpressao(nome);
-    }
+    if (nome.Equals("Myke", System.StringComparison.OrdinalIgnoreCase))
+        expressaoAtualMyke = nova;
+    else if (nome.Equals("Paxton", System.StringComparison.OrdinalIgnoreCase))
+        expressaoAtualPaxton = nova;
 
+    RestaurarExpressao(nome);
+}
     private ExpressaoPersonagem EncontrarExpressao(Personagem personagem, string nomeExpressao)
     {
         if (personagem == null || personagem.expressoes == null || string.IsNullOrWhiteSpace(nomeExpressao)) return null;
@@ -376,20 +378,6 @@ public class DeclaracaoPaxtonManager : MonoBehaviour
         {
             if (coroutinePuloLetraPaxton != null) StopCoroutine(coroutinePuloLetraPaxton);
             coroutinePuloLetraPaxton = StartCoroutine(AnimarPulinho(nome, alturaPuloLetra, duracaoPuloLetra, false));
-        }
-    }
-
-    private void IniciarPulinhoExpressao(string nome)
-    {
-        if (nome.Equals("Myke", System.StringComparison.OrdinalIgnoreCase))
-        {
-            if (coroutinePuloExpressaoMyke != null) StopCoroutine(coroutinePuloExpressaoMyke);
-            coroutinePuloExpressaoMyke = StartCoroutine(AnimarPulinho(nome, alturaPuloExpressao, duracaoPuloExpressao, true));
-        }
-        else if (nome.Equals("Paxton", System.StringComparison.OrdinalIgnoreCase))
-        {
-            if (coroutinePuloExpressaoPaxton != null) StopCoroutine(coroutinePuloExpressaoPaxton);
-            coroutinePuloExpressaoPaxton = StartCoroutine(AnimarPulinho(nome, alturaPuloExpressao, duracaoPuloExpressao, true));
         }
     }
 
