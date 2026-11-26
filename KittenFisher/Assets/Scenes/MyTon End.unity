@@ -182,9 +182,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1031518403}
-        m_TargetAssemblyTypeName: EntrevistaPaxtonManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 459498594}
+        m_TargetAssemblyTypeName: DeclaracaoPaxtonManager, Assembly-CSharp
+        m_MethodName: AvancarFala
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -889,7 +889,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: sorrindo
     moverMyke: 1
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -903,7 +903,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: sorrindo
     moverMyke: 0
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -917,7 +917,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: sorrindo
     moverMyke: 0
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -932,7 +932,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: sorrindo
     moverMyke: 1
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -946,7 +946,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: sorrindo
     moverMyke: 1
     deslocamentoXMyke: 40
     deslocamentoYMyke: 0
@@ -960,7 +960,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: sorrindo
     moverMyke: 0
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -975,7 +975,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -989,7 +989,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -1004,7 +1004,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -1019,7 +1019,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -1034,7 +1034,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -1048,7 +1048,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: choro
     moverMyke: 1
     deslocamentoXMyke: 80
     deslocamentoYMyke: 0
@@ -1062,7 +1062,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: choro
     moverMyke: 0
     deslocamentoXMyke: 10
     deslocamentoYMyke: 0
@@ -1077,7 +1077,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: choro
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1091,7 +1091,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: choro
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1105,7 +1105,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: choro
     moverMyke: 1
     deslocamentoXMyke: 90
     deslocamentoYMyke: 0
@@ -1119,7 +1119,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: choro
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1134,7 +1134,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: chorof
     moverMyke: 1
     deslocamentoXMyke: 126
     deslocamentoYMyke: 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: chorof
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1163,7 +1163,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: chorof
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1178,7 +1178,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: chorof
     moverMyke: 1
     deslocamentoXMyke: 130
     deslocamentoYMyke: 0
@@ -1192,7 +1192,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: chorof
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1206,7 +1206,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: chorof
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1220,7 +1220,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Tsu
+    expressaoPaxton: chorof
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1235,7 +1235,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1249,7 +1249,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1263,7 +1263,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1277,7 +1277,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1291,7 +1291,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1306,7 +1306,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: quase choro
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1320,7 +1320,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1334,7 +1334,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: -10
     deslocamentoYMyke: 15
@@ -1348,7 +1348,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1363,7 +1363,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1377,7 +1377,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1391,7 +1391,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1405,7 +1405,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1420,7 +1420,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1434,7 +1434,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1448,7 +1448,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1462,7 +1462,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 4982b1de7fd8a214187d79feb0439aac, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1477,7 +1477,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1491,7 +1491,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 4982b1de7fd8a214187d79feb0439aac, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1505,7 +1505,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 4982b1de7fd8a214187d79feb0439aac, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1519,7 +1519,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 4982b1de7fd8a214187d79feb0439aac, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1534,7 +1534,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1549,7 +1549,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0
@@ -1564,7 +1564,7 @@ MonoBehaviour:
     ehNarracao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: N
-    expressaoPaxton: Ds
+    expressaoPaxton: medo
     moverMyke: 0
     deslocamentoXMyke: 0
     deslocamentoYMyke: 0

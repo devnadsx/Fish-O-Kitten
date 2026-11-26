@@ -129,11 +129,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3263774276397628451, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.05
+      value: 42.85
       objectReference: {fileID: 0}
     - target: {fileID: 3263774276397628451, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.39
+      value: -4.14
       objectReference: {fileID: 0}
     - target: {fileID: 3263774276397628451, guid: b1da238eb9fb4b74a8da79b01258368a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -449,6 +449,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 530656343}
+  - {fileID: 1178159913}
   - {fileID: 1762877542}
   - {fileID: 1019136011}
   - {fileID: 1053009543}
@@ -481,9 +482,9 @@ MonoBehaviour:
   imagemGatinho: {fileID: 530656341}
   spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
   spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
-  imagemPaxton: {fileID: 0}
-  spritePaxtonBocaFechada: {fileID: 0}
-  spritePaxtonBocaAberta: {fileID: 0}
+  imagemPaxton: {fileID: 1178159911}
+  spritePaxtonBocaFechada: {fileID: 2327593037766731116, guid: cd2fa6c8d6942024a8445f9d98cde8af, type: 3}
+  spritePaxtonBocaAberta: {fileID: -6760148359141997971, guid: d08bff1fa3e3ce74999a157a1f75c422, type: 3}
   velocidadeEscrita: 0.07
   alturaPuloPalavra: 6
   duracaoPuloPalavra: 0.12
@@ -492,16 +493,52 @@ MonoBehaviour:
   paxtonAtivado: 0
   falasMykeSozinho:
   - nomeQuemFala: Myke
-    texto: Oi
+    texto: Beleza, acho que continuar procurando.
     ehNarracao: 0
-    somFala: {fileID: 0}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Myke
+    texto: "Espera... Cad\xEA os peixes? E tem uma caverna!?"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Myke
+    texto: "Devem estar l\xE1, e provavelmente atr\xE1s das pedras..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Myke
+    texto: "Okay Myke. Bora ser r\xE1pido e voltar logo..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   falasComPaxton:
   - nomeQuemFala: Myke
-    texto: Ola
+    texto: "Eh... Paxton, eu certamente t\xF4 lascado agora..."
     ehNarracao: 0
-    somFala: {fileID: 0}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Paxton
+    texto: "Como assim lascado? 'Que que deu a\xED?"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Myke
+    texto: "T\xE1 meio escuro aqui, e tem uma caverna, por\xE9m os peixes sumiram..."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Paxton
+    texto: "J\xE1 sei! Eles devem estar escondidos nas pedras! "
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Myke
+    texto: "S\xE9rio? Mas como que eu vou pegar eles?"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Paxton
+    texto: "J\xE1 sei! Eles devem estar escondidos nas pedras! "
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Paxton
+    texto: "J\xE1 sei! Eles devem estar escondidos nas pedras! "
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
   scriptsBloquearDuranteDialogo: []
-  controleCamera: {fileID: 0}
+  controleCamera: {fileID: 519420034}
 --- !u!82 &71099157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1890,7 +1927,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2854053662719815127, guid: 635c8df17f4e33a4a92e2d4a7549360c, type: 3}
-  m_Color: {r: 0.8113208, g: 0.7845319, b: 0.7845319, a: 1}
+  m_Color: {r: 0.7075472, g: 0.6841848, b: 0.6841848, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3904,7 +3941,7 @@ MonoBehaviour:
   nomeCenaFase3: Fase3
   nomeCenaGameOver: GameOver
   textoTimerUI: {fileID: 1053009541}
-  tempoLimite: 60
+  tempoLimite: 50
   scriptDialogoAlerta: {fileID: 71099156}
   scriptDialogoFinal: {fileID: 71099156}
   auraPeixePrefab: {fileID: 951689331282238978, guid: 935aa5c72d165d7479a7bbbba2e21bd6, type: 3}
@@ -4756,7 +4793,7 @@ Transform:
   m_GameObject: {fileID: 949744636}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.79, y: 6.55, z: 0}
+  m_LocalPosition: {x: 36.84, y: 6.61, z: 0}
   m_LocalScale: {x: 1.8193749, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5607,12 +5644,87 @@ Transform:
   m_GameObject: {fileID: 1151332812}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.851002, y: 6.8399997, z: 0}
+  m_LocalPosition: {x: 27.851002, y: 6.93, z: 0}
   m_LocalScale: {x: 2.351875, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1491413254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1178159910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1178159913}
+  - component: {fileID: 1178159912}
+  - component: {fileID: 1178159911}
+  m_Layer: 5
+  m_Name: PaxtonVN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1178159911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178159910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.764151, g: 0.74612856, b: 0.74612856, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1178159912
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178159910}
+  m_CullTransparentMesh: 1
+--- !u!224 &1178159913
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178159910}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9204006, y: 0.9204006, z: 0.9204006}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 71099155}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -174.62854, y: -78.05214}
+  m_SizeDelta: {x: 296.92, y: 488.15}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1191600529
 GameObject:
   m_ObjectHideFlags: 0
@@ -7285,8 +7397,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogoManager, Assembly-CSharp
+      - m_Target: {fileID: 71099156}
+        m_TargetAssemblyTypeName: SceneIntroDialogue, Assembly-CSharp
         m_MethodName: AvancarTexto
         m_Mode: 1
         m_Arguments:
@@ -13443,11 +13555,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2232759810517673204, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.81
+      value: 54.31
       objectReference: {fileID: 0}
     - target: {fileID: 2232759810517673204, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.19
+      value: -1.28
       objectReference: {fileID: 0}
     - target: {fileID: 2232759810517673204, guid: 9fa22b299c0ae3d4f87f8a77c7fcf5b4, type: 3}
       propertyPath: m_LocalPosition.z

@@ -473,6 +473,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 530656343}
+  - {fileID: 405606423}
   - {fileID: 974901068}
   - {fileID: 1810841794}
   - {fileID: 924382262}
@@ -504,9 +505,9 @@ MonoBehaviour:
   imagemGatinho: {fileID: 530656341}
   spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
   spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
-  imagemPaxton: {fileID: 0}
-  spritePaxtonBocaFechada: {fileID: 0}
-  spritePaxtonBocaAberta: {fileID: 0}
+  imagemPaxton: {fileID: 405606421}
+  spritePaxtonBocaFechada: {fileID: 2327593037766731116, guid: cd2fa6c8d6942024a8445f9d98cde8af, type: 3}
+  spritePaxtonBocaAberta: {fileID: -6760148359141997971, guid: d08bff1fa3e3ce74999a157a1f75c422, type: 3}
   velocidadeEscrita: 0.07
   alturaPuloPalavra: 6
   duracaoPuloPalavra: 0.12
@@ -515,18 +516,35 @@ MonoBehaviour:
   paxtonAtivado: 0
   falasMykeSozinho:
   - nomeQuemFala: Myke
-    texto: Ola
+    texto: Okay, hora de descer ainda mais!
     ehNarracao: 0
-    somFala: {fileID: 0}
-  falasComPaxton:
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Myke
-    texto: Oi
+    texto: Meu deus... Tem muita alga aqui!
     ehNarracao: 0
-    somFala: {fileID: 0}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Myke
+    texto: "Okay Myke. Chega de enrola\xE7\xE3o, bora l\xE1."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  falasComPaxton:
   - nomeQuemFala: Paxton
-    texto: Oi
+    texto: "Se mandou bem nos relat\xF3rios, e a\xED? Como que t\xE1 a\xED embaixo?"
     ehNarracao: 0
-    somFala: {fileID: 0}
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Myke
+    texto: "Valeu! E aqui t\xE1 bem... emba\xE7ado. Tem muitas algas aqui!"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Paxton
+    texto: "Vish, melhor tomar cuidado... V\xEA se voc\xEA n\xE3o se perde a\xED
+      hein!"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Myke
+    texto: "Pode deixar! Continua cuidando de tudo a\xED em cima."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   scriptsBloquearDuranteDialogo: []
   controleCamera: {fileID: 0}
 --- !u!82 &71099157
@@ -1979,6 +1997,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+--- !u!1 &405606420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405606423}
+  - component: {fileID: 405606422}
+  - component: {fileID: 405606421}
+  m_Layer: 5
+  m_Name: PaxtonVN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &405606421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405606420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &405606422
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405606420}
+  m_CullTransparentMesh: 1
+--- !u!224 &405606423
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405606420}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9204006, y: 0.9204006, z: 0.9204006}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 71099155}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -177.16083, y: -51.947865}
+  m_SizeDelta: {x: 296.92, y: 488.15}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &406003800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3768,8 +3861,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogoManager, Assembly-CSharp
+      - m_Target: {fileID: 71099156}
+        m_TargetAssemblyTypeName: SceneIntroDialogue, Assembly-CSharp
         m_MethodName: AvancarTexto
         m_Mode: 1
         m_Arguments:

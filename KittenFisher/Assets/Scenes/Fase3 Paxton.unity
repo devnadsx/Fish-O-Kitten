@@ -448,6 +448,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1717656240}
   - {fileID: 530656343}
   - {fileID: 419255704}
   - {fileID: 1019136011}
@@ -475,25 +476,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneIntroDialogue
   painelBalaoFala: {fileID: 419255703}
-  textoNomePersonagem: {fileID: 0}
+  textoNomePersonagem: {fileID: 1631092446}
   textoBalao: {fileID: 1419089469}
   botaoAvancarFala: {fileID: 1604313359}
   imagemGatinho: {fileID: 530656341}
   spriteBocaFechada: {fileID: -7315111759967458589, guid: 2df5173a1c14c9d46a6346d3ebd596e1, type: 3}
   spriteBocaAberta: {fileID: -4517367349893309993, guid: 86cd7d756088f5e4a9537600ae66164b, type: 3}
-  imagemPaxton: {fileID: 0}
-  spritePaxtonBocaFechada: {fileID: 0}
-  spritePaxtonBocaAberta: {fileID: 0}
+  imagemPaxton: {fileID: 1717656238}
+  spritePaxtonBocaFechada: {fileID: 2327593037766731116, guid: cd2fa6c8d6942024a8445f9d98cde8af, type: 3}
+  spritePaxtonBocaAberta: {fileID: -6760148359141997971, guid: d08bff1fa3e3ce74999a157a1f75c422, type: 3}
   velocidadeEscrita: 0.07
   alturaPuloPalavra: 6
   duracaoPuloPalavra: 0.12
   audioSourceSFX: {fileID: 71099157}
   somFalaGatinho: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
-  paxtonAtivado: 0
+  paxtonAtivado: 1
   falasMykeSozinho: []
-  falasComPaxton: []
+  falasComPaxton:
+  - nomeQuemFala: Myke
+    texto: "Al\xF4? Paxton... ent\xE3o, a situa\xE7\xE3o aqui t\xE1 meio... complicada"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Paxton
+    texto: Como assim? 'Que que houve?
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Myke
+    texto: "Os peixes sumiram, t\xE1 tudo escuro e tem uma caverna!"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Paxton
+    texto: "Meu deus..., mas eu j\xE1 sei o que aconteceu! Os peixes est\xE3o atr\xE1s
+      das pedras!"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Myke
+    texto: Espera? Como assim? E como que eu vou pegar eles?
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Paxton
+    texto: Um segundo!
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Paxton
+    texto: Paxton joga uma picareta para Myke
+    ehNarracao: 1
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Paxton
+    texto: Isso deve ajudar, boa sorte!
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Myke
+    texto: Valeu cara, obrigado!
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   scriptsBloquearDuranteDialogo: []
-  controleCamera: {fileID: 0}
+  controleCamera: {fileID: 519420034}
 --- !u!82 &71099157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2210,7 +2248,7 @@ RectTransform:
   m_GameObject: {fileID: 419255703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5373621, y: 0.99984807, z: 0.99984807}
+  m_LocalScale: {x: 1.2248318, y: 0.79658896, z: 0.79658896}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1419089467}
@@ -2220,7 +2258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: -162.99998}
+  m_AnchoredPosition: {x: -6.4644, y: -162.99998}
   m_SizeDelta: {x: 539.48, y: 164.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419255705
@@ -12728,7 +12766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 218, y: -49}
+  m_AnchoredPosition: {x: 218, y: -39}
   m_SizeDelta: {x: 462.85, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1605057289
@@ -13402,6 +13440,81 @@ MonoBehaviour:
   audioSource: {fileID: 519420033}
   somPancada: {fileID: 8300000, guid: 3f5a50212eeb31d4e8de4a8303584e79, type: 3}
   somQuebrar: {fileID: 8300000, guid: d9480c8d33eddd14184288bfba335a2c, type: 3}
+--- !u!1 &1717656237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1717656240}
+  - component: {fileID: 1717656239}
+  - component: {fileID: 1717656238}
+  m_Layer: 5
+  m_Name: PaxtonVN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1717656238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717656237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8207547, g: 0.80139726, b: 0.80139726, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4243792122370641502, guid: 775d726023b5a7c4fb887b4194bc4e29, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1717656239
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717656237}
+  m_CullTransparentMesh: 1
+--- !u!224 &1717656240
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717656237}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9204006, y: 0.9204006, z: 0.9204006}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 71099155}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -225, y: -78.05214}
+  m_SizeDelta: {x: 296.92, y: 488.15}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1725902775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14760,7 +14873,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2854053662719815127, guid: 635c8df17f4e33a4a92e2d4a7549360c, type: 3}
-  m_Color: {r: 0.7075472, g: 0.69753474, b: 0.69753474, a: 1}
+  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

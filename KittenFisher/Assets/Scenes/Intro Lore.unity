@@ -1240,7 +1240,7 @@ MonoBehaviour:
     posicao: 1
     texto: "Ele voltou a trabalhar por\xE9m afastado, at\xE9 que uma not\xEDcia de
       \xFAltima hora abalou o mundo cient\xEDfico."
-    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    imagemFundo: {fileID: 2429842675694073807, guid: 9ec4e8a191b554342a8b6ab2e6caf2ff, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 1
@@ -1253,21 +1253,21 @@ MonoBehaviour:
     ehNarracao: 0
     posicao: 2
     texto: M-Mas.. O que!!??
-    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    imagemFundo: {fileID: 2429842675694073807, guid: 9ec4e8a191b554342a8b6ab2e6caf2ff, type: 3}
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 1
     posicao: 1
     texto: Myke ficou sem palavras. Imediatamente depois, cerrou os dentes e desligou
       a TV agressivamente, sentindo inveja do antigo amigo.
-    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    imagemFundo: {fileID: 2429842675694073807, guid: 9ec4e8a191b554342a8b6ab2e6caf2ff, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Myke
     ehNarracao: 0
     posicao: 2
     texto: "Voc\xEA acha que pode roubar os ares Paxton!!?? Ent\xE3o que eu v\xE1
       conquistar as profundesas!"
-    imagemFundo: {fileID: -957462911366893695, guid: 5c3751b85c70dde44b46dcfef5310465, type: 3}
+    imagemFundo: {fileID: 2429842675694073807, guid: 9ec4e8a191b554342a8b6ab2e6caf2ff, type: 3}
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 1
@@ -1275,7 +1275,7 @@ MonoBehaviour:
     texto: "Determinado e cheio de raiva, Myke decide que \xE9 hora de mudar as coisas;
       ele resolve come\xE7ar a trabalhar em um projeto para explorar as profundezas
       do oceano."
-    imagemFundo: {fileID: 5053938106407878201, guid: 5f07bb2fa7807fa4c9ac1eac9a363ee4, type: 3}
+    imagemFundo: {fileID: 2429842675694073807, guid: 9ec4e8a191b554342a8b6ab2e6caf2ff, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
 --- !u!1 &1229351854
 GameObject:

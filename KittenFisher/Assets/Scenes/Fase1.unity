@@ -472,11 +472,15 @@ MonoBehaviour:
   paxtonAtivado: 1
   falasMykeSozinho:
   - nomeQuemFala: Myke
-    texto: asasdasdawadas
+    texto: "Okay, hora de come\xE7ar nas \xE1guas rasas..."
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Myke
-    texto: afwfrsgdfhfghyy
+    texto: Ouvir dizer que tem um catnip por ai, pode me ajudar a ver os peixes!
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Myke
+    texto: "Beleza, Myke. Bora l\xE1."
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   falasComPaxton:
@@ -485,7 +489,21 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Paxton
-    texto: asdasfa afasfasdasd
+    texto: "Oi! T\xF4 sim, t\xE1 tudo bem?"
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Myke
+    texto: "T\xF4 bem... Seguinte, cuida dos oxig\xEAnios que eu fa\xE7o o trabalho
+      aqui embaixo."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
+  - nomeQuemFala: Paxton
+    texto: "Pode deixar! E tamb\xE9m, ouvir falar num catnip, pode ser \xFAtil para
+      encontrar peixes."
+    ehNarracao: 0
+    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+  - nomeQuemFala: Paxton
+    texto: "Beleza Pax! Valeu, agora \xE9 a hora de procurar!"
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
   scriptsBloquearDuranteDialogo:
@@ -2798,8 +2816,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogoManager, Assembly-CSharp
+      - m_Target: {fileID: 71099156}
+        m_TargetAssemblyTypeName: SceneIntroDialogue, Assembly-CSharp
         m_MethodName: AvancarTexto
         m_Mode: 1
         m_Arguments:
