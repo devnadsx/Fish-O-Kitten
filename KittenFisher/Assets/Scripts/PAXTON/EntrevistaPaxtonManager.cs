@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,6 @@ using UnityEngine.SceneManagement;
 public class EntrevistaPaxtonManager : MonoBehaviour
 {
     [System.Serializable]
-
     public class ExpressaoPersonagem
     {
         public string nomeExpressao;
@@ -63,11 +63,13 @@ public class EntrevistaPaxtonManager : MonoBehaviour
     public Image imagemMyke;
     public Image imagemPaxton;
     public Image imagemSaky;
+    public Image imagemSakyAlternativa;
 
     [Header("Personagens")]
     public Personagem myke;
     public Personagem paxton;
     public Personagem saky;
+    public Personagem sakyAlternativa;
 
     [Header("Falas da Entrevista")]
     public List<FalaEntrevista> falas = new List<FalaEntrevista>();
@@ -106,10 +108,12 @@ public class EntrevistaPaxtonManager : MonoBehaviour
     private Vector2 posicaoOriginalMyke;
     private Vector2 posicaoOriginalPaxton;
     private Vector2 posicaoOriginalSaky;
+    private Vector2 posicaoOriginalSakyAlternativa;
 
     private Vector2 posicaoBaseMyke;
     private Vector2 posicaoBasePaxton;
     private Vector2 posicaoBaseSaky;
+    private Vector2 posicaoBaseSakyAlternativa;
 
     private float puloLetraMyke;
     private float puloLetraPaxton;
@@ -127,6 +131,8 @@ public class EntrevistaPaxtonManager : MonoBehaviour
     private ExpressaoPersonagem expressaoAtualPaxton;
     private ExpressaoPersonagem expressaoAtualSaky;
 
+    private bool sakyUsaImagemAlternativa;
+
     private void Awake()
     {
         if (imagemMyke != null)
@@ -138,9 +144,22 @@ public class EntrevistaPaxtonManager : MonoBehaviour
         if (imagemSaky != null)
             posicaoOriginalSaky = imagemSaky.rectTransform.anchoredPosition;
 
+        if (imagemSakyAlternativa != null)
+            posicaoOriginalSakyAlternativa =
+                imagemSakyAlternativa.rectTransform.anchoredPosition;
+
         posicaoBaseMyke = posicaoOriginalMyke;
         posicaoBasePaxton = posicaoOriginalPaxton;
         posicaoBaseSaky = posicaoOriginalSaky;
+        posicaoBaseSakyAlternativa = posicaoOriginalSakyAlternativa;
+
+        sakyUsaImagemAlternativa = false;
+
+        if (imagemSaky != null)
+            imagemSaky.gameObject.SetActive(true);
+
+        if (imagemSakyAlternativa != null)
+            imagemSakyAlternativa.gameObject.SetActive(false);
     }
 
     private void LateUpdate()
@@ -151,8 +170,17 @@ public class EntrevistaPaxtonManager : MonoBehaviour
         AplicarPosicaoComPulinho(imagemPaxton, posicaoBasePaxton,
             puloLetraPaxton + puloExpressaoPaxton);
 
-        AplicarPosicaoComPulinho(imagemSaky, posicaoBaseSaky,
-            puloLetraSaky + puloExpressaoSaky);
+        if (sakyUsaImagemAlternativa)
+        {
+            AplicarPosicaoComPulinho(imagemSakyAlternativa,
+                posicaoBaseSakyAlternativa,
+                puloLetraSaky + puloExpressaoSaky);
+        }
+        else
+        {
+            AplicarPosicaoComPulinho(imagemSaky, posicaoBaseSaky,
+                puloLetraSaky + puloExpressaoSaky);
+        }
     }
 
     private void AplicarPosicaoComPulinho(Image imagem, Vector2 posicaoBase, float altura)
@@ -248,7 +276,6 @@ public class EntrevistaPaxtonManager : MonoBehaviour
         if (textoBalao != null)
             textoBalao.text = "";
 
-        Personagem personagem = ObterPersonagem(fala.nomeQuemFala);
         Image imagemAtiva = ObterImagem(fala.nomeQuemFala);
 
         foreach (char letra in fala.texto)
@@ -272,6 +299,7 @@ public class EntrevistaPaxtonManager : MonoBehaviour
 
                 if (audioSourceFala != null && som != null)
                     audioSourceFala.PlayOneShot(som);
+
                 IniciarPulinho(fala.nomeQuemFala);
             }
             else
@@ -301,6 +329,7 @@ public class EntrevistaPaxtonManager : MonoBehaviour
 
         escrevendo = false;
     }
+
     private void IniciarPulinho(string nome)
     {
         if (string.IsNullOrEmpty(nome))
@@ -323,8 +352,10 @@ public class EntrevistaPaxtonManager : MonoBehaviour
         }
         else if (nome.Equals("Saky", System.StringComparison.OrdinalIgnoreCase))
         {
-            if (imagemSaky == null) return;
-            personagem = imagemSaky.rectTransform;
+            Image imagem = ObterImagem("Saky");
+            if (imagem == null) return;
+
+            personagem = imagem.rectTransform;
             puloAtual = coroutinePuloSaky;
         }
         else return;
@@ -356,6 +387,9 @@ public class EntrevistaPaxtonManager : MonoBehaviour
         if (imagemMyke != null && rect == imagemMyke.rectTransform) return "Myke";
         if (imagemPaxton != null && rect == imagemPaxton.rectTransform) return "Paxton";
         if (imagemSaky != null && rect == imagemSaky.rectTransform) return "Saky";
+        if (imagemSakyAlternativa != null &&
+            rect == imagemSakyAlternativa.rectTransform) return "Saky";
+
         return "";
     }
 
@@ -435,15 +469,20 @@ public class EntrevistaPaxtonManager : MonoBehaviour
 
         if (!string.IsNullOrWhiteSpace(fala.expressaoSaky))
         {
-            ExpressaoPersonagem nova = EncontrarExpressao(saky, fala.expressaoSaky);
+            bool alternativa;
+            ExpressaoPersonagem nova =
+                EncontrarExpressaoSaky(fala.expressaoSaky, out alternativa);
+
             if (nova != null)
                 DefinirExpressao("Saky", nova);
         }
-        else if (expressaoAtualSaky == null && saky != null &&
-                 saky.expressoes != null && saky.expressoes.Count > 0)
+        else if (expressaoAtualSaky == null)
         {
-            expressaoAtualSaky = saky.expressoes[0];
-            RestaurarExpressao("Saky");
+            if (saky != null && saky.expressoes != null &&
+                saky.expressoes.Count > 0)
+            {
+                DefinirExpressao("Saky", saky.expressoes[0]);
+            }
         }
 
         if (!string.IsNullOrWhiteSpace(fala.expressaoPaxton))
@@ -452,10 +491,6 @@ public class EntrevistaPaxtonManager : MonoBehaviour
             if (nova != null)
                 DefinirExpressao("Paxton", nova);
         }
-
-        if (expressaoAtualSaky == null && saky != null &&
-            saky.expressoes != null && saky.expressoes.Count > 0)
-            expressaoAtualSaky = saky.expressoes[0];
 
         RestaurarExpressaoDoFalante(fala.nomeQuemFala);
     }
@@ -467,21 +502,90 @@ public class EntrevistaPaxtonManager : MonoBehaviour
 
         ExpressaoPersonagem anterior = ObterExpressaoAtual(nome);
 
-        if (anterior == nova)
-            return;
+        if (nome.Equals("Saky", System.StringComparison.OrdinalIgnoreCase))
+        {
+            bool alternativa;
+            EncontrarExpressaoSaky(nova.nomeExpressao, out alternativa);
 
-        if (nome.Equals("Myke", System.StringComparison.OrdinalIgnoreCase))
-            expressaoAtualMyke = nova;
-        else if (nome.Equals("Paxton", System.StringComparison.OrdinalIgnoreCase))
-            expressaoAtualPaxton = nova;
-        else if (nome.Equals("Saky", System.StringComparison.OrdinalIgnoreCase))
+            sakyUsaImagemAlternativa = alternativa;
+
+            if (imagemSaky != null)
+                imagemSaky.gameObject.SetActive(!alternativa);
+
+            if (imagemSakyAlternativa != null)
+                imagemSakyAlternativa.gameObject.SetActive(alternativa);
+
             expressaoAtualSaky = nova;
+        }
+        else if (nome.Equals("Myke", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (anterior == nova)
+                return;
+
+            expressaoAtualMyke = nova;
+        }
+        else if (nome.Equals("Paxton", System.StringComparison.OrdinalIgnoreCase))
+        {
+            if (anterior == nova)
+                return;
+
+            expressaoAtualPaxton = nova;
+        }
+
+        if (anterior == nova)
+        {
+            RestaurarExpressao(nome);
+            return;
+        }
 
         RestaurarExpressao(nome);
         IniciarPulinhoExpressao(nome);
     }
 
-    private ExpressaoPersonagem EncontrarExpressao(Personagem personagem, string nomeExpressao)
+    private ExpressaoPersonagem EncontrarExpressaoSaky(
+        string nomeExpressao, out bool alternativa)
+    {
+        alternativa = false;
+
+        ExpressaoPersonagem expressao = EncontrarExpressao(saky, nomeExpressao);
+
+        if (expressao != null)
+            return expressao;
+
+        expressao = EncontrarExpressaoSemAviso(sakyAlternativa, nomeExpressao);
+
+        if (expressao != null)
+        {
+            alternativa = true;
+            return expressao;
+        }
+
+        Debug.LogWarning("Expressão '" + nomeExpressao +
+            "' não encontrada nas listas da Saky.");
+
+        return null;
+    }
+
+    private ExpressaoPersonagem EncontrarExpressaoSemAviso(
+        Personagem personagem, string nomeExpressao)
+    {
+        if (personagem == null || personagem.expressoes == null ||
+            string.IsNullOrWhiteSpace(nomeExpressao))
+            return null;
+
+        foreach (ExpressaoPersonagem expressao in personagem.expressoes)
+        {
+            if (expressao != null &&
+                nomeExpressao.Equals(expressao.nomeExpressao,
+                    System.StringComparison.OrdinalIgnoreCase))
+                return expressao;
+        }
+
+        return null;
+    }
+
+    private ExpressaoPersonagem EncontrarExpressao(
+        Personagem personagem, string nomeExpressao)
     {
         if (personagem == null || personagem.expressoes == null ||
             string.IsNullOrWhiteSpace(nomeExpressao))
@@ -497,6 +601,7 @@ public class EntrevistaPaxtonManager : MonoBehaviour
 
         Debug.LogWarning("Expressão '" + nomeExpressao +
             "' não encontrada para " + personagem.nome + ".");
+
         return null;
     }
 
@@ -590,9 +695,8 @@ public class EntrevistaPaxtonManager : MonoBehaviour
             nome.Equals("Paxton", System.StringComparison.OrdinalIgnoreCase))
             return paxton;
 
-        if (saky != null &&
-            nome.Equals("Saky", System.StringComparison.OrdinalIgnoreCase))
-            return saky;
+        if (nome.Equals("Saky", System.StringComparison.OrdinalIgnoreCase))
+            return sakyUsaImagemAlternativa ? sakyAlternativa : saky;
 
         return null;
     }
@@ -609,7 +713,9 @@ public class EntrevistaPaxtonManager : MonoBehaviour
             return imagemPaxton;
 
         if (nome.Equals("Saky", System.StringComparison.OrdinalIgnoreCase))
-            return imagemSaky;
+            return sakyUsaImagemAlternativa
+                ? imagemSakyAlternativa
+                : imagemSaky;
 
         return null;
     }
@@ -644,14 +750,25 @@ public class EntrevistaPaxtonManager : MonoBehaviour
         posicaoBaseMyke = posicaoOriginalMyke;
         posicaoBasePaxton = posicaoOriginalPaxton;
         posicaoBaseSaky = posicaoOriginalSaky;
+        posicaoBaseSakyAlternativa = posicaoOriginalSakyAlternativa;
 
         puloLetraMyke = puloLetraPaxton = puloLetraSaky = 0f;
         puloExpressaoMyke = puloExpressaoPaxton = puloExpressaoSaky = 0f;
 
+        sakyUsaImagemAlternativa = false;
+
+        if (imagemSaky != null)
+            imagemSaky.gameObject.SetActive(true);
+
+        if (imagemSakyAlternativa != null)
+            imagemSakyAlternativa.gameObject.SetActive(false);
+
         expressaoAtualMyke = myke != null && myke.expressoes != null &&
             myke.expressoes.Count > 0 ? myke.expressoes[0] : null;
+
         expressaoAtualPaxton = paxton != null && paxton.expressoes != null &&
             paxton.expressoes.Count > 0 ? paxton.expressoes[0] : null;
+
         expressaoAtualSaky = saky != null && saky.expressoes != null &&
             saky.expressoes.Count > 0 ? saky.expressoes[0] : null;
 

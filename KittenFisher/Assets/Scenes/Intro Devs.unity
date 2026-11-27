@@ -313,6 +313,7 @@ RectTransform:
   m_Children:
   - {fileID: 1202550936}
   - {fileID: 813380207}
+  - {fileID: 1453467894}
   - {fileID: 1489011122}
   - {fileID: 1035864644}
   - {fileID: 2070692053}
@@ -680,7 +681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -8008447450637822732, guid: fd57f2906efba3a40969e030696c291f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -982,7 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.51505506, b: 0.5849056, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1179,21 +1180,27 @@ MonoBehaviour:
   - nomeQuemFala: Saky
     ehNarracao: 0
     posicao: 1
-    texto: "Enfim, vim avisar que esse jogo \xE9 uma beta, e ainda est\xE1 em desenvolvimento.
-      Tanto que muita das coisas est\xE3o inacabadas."
+    texto: "Enfim, vim avisar que esse jogo est\xE1 atualmente pronto. Com tudo feito
+      e funcionando!"
     imagemFundo: {fileID: 0}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Saky
     ehNarracao: 0
     posicao: 1
-    texto: "Mas pelo menos, h\xE1 4 finais dispon\xEDveis, ent\xE3o v\xE3o e testem
-      o jogo! Anda!! "
+    texto: "E agora h\xE1 4 finais dispon\xEDveis, ent\xE3o v\xE3o e testem o jogo!
+      Anda!! "
     imagemFundo: {fileID: 0}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Saky
     ehNarracao: 0
     posicao: 1
-    texto: "At\xE9 depois, Player."
+    texto: Caso de bugs, relatem os devs...
+    imagemFundo: {fileID: 0}
+    somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
+  - nomeQuemFala: Saky
+    ehNarracao: 0
+    posicao: 1
+    texto: "At\xE9 depois!!"
     imagemFundo: {fileID: 0}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
 --- !u!1 &1229351854
@@ -1301,8 +1308,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1377,6 +1384,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413458682}
+  m_CullTransparentMesh: 1
+--- !u!1 &1453467893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1453467894}
+  - component: {fileID: 1453467896}
+  - component: {fileID: 1453467895}
+  m_Layer: 5
+  m_Name: SakyTable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1453467894
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453467893}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 516767117}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 245, y: -101}
+  m_SizeDelta: {x: 359.32, y: 183.35}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1453467895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453467893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -3030898821712404945, guid: f2763f8159382b3458943f20822fb3f2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1453467896
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453467893}
   m_CullTransparentMesh: 1
 --- !u!1 &1489011119
 GameObject:
@@ -1512,8 +1594,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Narrator
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1736,8 +1818,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Avan\xE7e o texto clicando aqui!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

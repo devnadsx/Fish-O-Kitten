@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.5137255, b: 0.58431375, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1768769924907106779, guid: b6c4e47d19c91c34891c4d478515d380, type: 3}
+  m_Sprite: {fileID: 3376071792619935919, guid: 6cf82002ea8e6d6469cecbaf89f46190, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -323,8 +323,83 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275.66, y: 69}
-  m_SizeDelta: {x: 79.28, y: 42.2}
+  m_AnchoredPosition: {x: 277.67023, y: 69}
+  m_SizeDelta: {x: 81.07, y: 42.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &409459701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409459704}
+  - component: {fileID: 409459703}
+  - component: {fileID: 409459702}
+  m_Layer: 5
+  m_Name: SakyVN (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &409459702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409459701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4487979036732330409, guid: f36aa819e4e8b374ea1527129cb0195f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &409459703
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409459701}
+  m_CullTransparentMesh: 1
+--- !u!224 &409459704
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409459701}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.241146, y: 4.8974314, z: 1.2033}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1031518409}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 293.41, y: 69}
+  m_SizeDelta: {x: 95.121, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
 GameObject:
@@ -638,7 +713,7 @@ RectTransform:
   m_GameObject: {fileID: 536729366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2571336, y: 0.8684041, z: 0.8684041}
+  m_LocalScale: {x: 1.0842777, y: 0.8684041, z: 0.8684041}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2132858258}
@@ -648,7 +723,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.65522, y: -135}
+  m_AnchoredPosition: {x: 3.1638, y: -135}
   m_SizeDelta: {x: 539.48, y: 164.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &536729368
@@ -808,6 +883,7 @@ MonoBehaviour:
   imagemMyke: {fileID: 1436648940}
   imagemPaxton: {fileID: 2016071866}
   imagemSaky: {fileID: 48322229}
+  imagemSakyAlternativa: {fileID: 409459702}
   myke:
     nome: Myke
     expressoes:
@@ -838,6 +914,21 @@ MonoBehaviour:
     - nomeExpressao: Interessada
       bocaFechada: {fileID: -5485155197946580225, guid: e09b35823c0d44a4ca93f91912f4c8d5, type: 3}
       bocaAberta: {fileID: -5785175082703249381, guid: e63c12bb0df594f46ac2b5cdb3c4d780, type: 3}
+    - nomeExpressao: "Desconfort\xE1vel"
+      bocaFechada: {fileID: 889241161650852893, guid: d5eebf37506a7514d900ed0a88d60e58, type: 3}
+      bocaAberta: {fileID: 889241161650852893, guid: d5eebf37506a7514d900ed0a88d60e58, type: 3}
+  sakyAlternativa:
+    nome: Saky
+    expressoes:
+    - nomeExpressao: Fofo
+      bocaFechada: {fileID: -4487979036732330409, guid: f36aa819e4e8b374ea1527129cb0195f, type: 3}
+      bocaAberta: {fileID: -3641376008173867000, guid: 5edd35e8c2bddd84fbf5defece39e9d6, type: 3}
+    - nomeExpressao: Surpresa
+      bocaFechada: {fileID: -907062405883284858, guid: cd7fcd7834b3cd740889e28516fa6140, type: 3}
+      bocaAberta: {fileID: -7385606851123549672, guid: e12202323711474429b255f9491ee7ce, type: 3}
+    - nomeExpressao: Surpresa2
+      bocaFechada: {fileID: -7385606851123549672, guid: e12202323711474429b255f9491ee7ce, type: 3}
+      bocaAberta: {fileID: -907062405883284858, guid: cd7fcd7834b3cd740889e28516fa6140, type: 3}
   falas:
   - nomeQuemFala: Narrador
     texto: "As c\xE2meras est\xE3o ligadas, os convidados est\xE3o acomodados e nossa
@@ -895,7 +986,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Interessada
+    expressaoSaky: Fofo
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -907,7 +998,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Interessada
+    expressaoSaky: Fofo
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -918,8 +1009,8 @@ MonoBehaviour:
     posicao: 1
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
-    expressaoPaxton: Tsundere
-    expressaoSaky: Normal
+    expressaoPaxton: "Desconfort\xE1vel"
+    expressaoSaky: Fofo
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -931,7 +1022,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Surpresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -944,7 +1035,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -957,7 +1048,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -969,7 +1060,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: "Desconfort\xE1vel"
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -982,7 +1073,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -994,7 +1085,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Fofo
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1006,7 +1097,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Tsundere
-    expressaoSaky: Normal
+    expressaoSaky: Fofo
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1056,7 +1147,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Normal
+    expressaoSaky: Surpresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1068,7 +1159,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Supresa
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1093,7 +1184,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1105,7 +1196,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Surpresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1117,7 +1208,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Normal
+    expressaoSaky: Fofo
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1129,7 +1220,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Normal
+    expressaoSaky: Fofo
     moverPaxton: 1
     deslocamentoX: -5
     deslocamentoY: 0
@@ -1141,7 +1232,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Normal
+    expressaoSaky: "Desconfort\xE1vel"
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1153,7 +1244,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Normal
+    expressaoSaky: "Desconfort\xE1vel"
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1165,7 +1256,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Interessada
+    expressaoSaky: Normal
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1190,7 +1281,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Fofo
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1202,7 +1293,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Surpresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1215,7 +1306,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Supresa
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1227,7 +1318,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1239,7 +1330,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Supresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1251,7 +1342,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Fofo
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1275,7 +1366,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Fofo
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1287,7 +1378,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Supresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1299,7 +1390,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Supresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1311,7 +1402,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Surpresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1347,7 +1438,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1371,7 +1462,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1384,7 +1475,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Normal
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1396,7 +1487,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Normal
+    expressaoSaky: Surpresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1408,7 +1499,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Tsundere
-    expressaoSaky: Normal
+    expressaoSaky: Surpresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1432,7 +1523,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Deslize
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1444,7 +1535,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Tsundere
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1457,7 +1548,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Normal
+    expressaoSaky: Interessada
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1469,7 +1560,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: Tsundere
-    expressaoSaky: Interessada
+    expressaoSaky: Fofo
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1481,7 +1572,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Normal
+    expressaoSaky: Surpresa2
     moverPaxton: 0
     deslocamentoX: 0
     deslocamentoY: 0
@@ -1493,7 +1584,7 @@ MonoBehaviour:
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
     expressaoMyke: Normal
     expressaoPaxton: "Desconfort\xE1vel"
-    expressaoSaky: Interessada
+    expressaoSaky: Supresa
     moverPaxton: 1
     deslocamentoX: -10
     deslocamentoY: 0
@@ -2522,6 +2613,7 @@ RectTransform:
   - {fileID: 816472457}
   - {fileID: 1436648778}
   - {fileID: 48322231}
+  - {fileID: 409459704}
   - {fileID: 805137803}
   - {fileID: 2016071868}
   - {fileID: 1436648939}
@@ -2736,8 +2828,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Myke
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3184,8 +3276,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

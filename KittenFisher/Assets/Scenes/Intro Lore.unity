@@ -471,15 +471,15 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: e8b8c849e651b6143b98f989e8d4272f, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.724
+  m_Resource: {fileID: 8300000, guid: 48948eb8e69ec7a4b9ba55764da8bad5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.982
   m_Pitch: 0.67
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 21
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -980,7 +980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.5137255, b: 0.58431375, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1176,7 +1176,7 @@ MonoBehaviour:
     corFoco: {r: 0, g: 0, b: 0, a: 0}
   falas:
   - nomeQuemFala: Narrator
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 1
     texto: "Myke e Paxton eram grandes amigos. Eles se conheceram no ensino m\xE9dio,
       e desde l\xE1, sempre fizeram tudo juntos. Cursaram em Biologia Cient\xEDfica,
@@ -1184,7 +1184,7 @@ MonoBehaviour:
     imagemFundo: {fileID: -4095726633846370896, guid: 5fe054863182e874892760f865da9732, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 1
     texto: "Com isso, passaram a trabalhar juntos em diversos projetos. At\xE9 que
       come\xE7aram a fazer pesquisas sobre o espa\xE7o sideral, pesquisas essas que
@@ -1193,7 +1193,7 @@ MonoBehaviour:
     imagemFundo: {fileID: 9218159724107326331, guid: 4a85c0836368b6d428729804329dd287, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 1
     texto: "Mas a ambi\xE7\xE3o falou mais alto, e Paxton percebeu o potencial que
       esse projeto possuia e decidiu mostrar essas pesquisas sem dar cr\xE9dito ao
@@ -1228,7 +1228,7 @@ MonoBehaviour:
     imagemFundo: {fileID: -2959460357539303850, guid: c83c542f0a70cca46a361dd8a80d8cb4, type: 3}
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 1
     texto: "A discuss\xE3o escalou para uma briga f\xEDsica. Como consequ\xEAncia,
       Myke perdeu sua autoridade e foi rebaixado, tendo que ficar afastado por um
@@ -1236,14 +1236,14 @@ MonoBehaviour:
     imagemFundo: {fileID: -2959460357539303850, guid: c83c542f0a70cca46a361dd8a80d8cb4, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 1
     texto: "Ele voltou a trabalhar por\xE9m afastado, at\xE9 que uma not\xEDcia de
       \xFAltima hora abalou o mundo cient\xEDfico."
     imagemFundo: {fileID: 2429842675694073807, guid: 9ec4e8a191b554342a8b6ab2e6caf2ff, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 1
     texto: "Era Paxton. O ex-amigo de Myke, que pegou todo cr\xE9dito do projeto
       no qual os dois haviam trabalhado arduamente. Ele estava no Meow Talk Show"
@@ -1256,7 +1256,7 @@ MonoBehaviour:
     imagemFundo: {fileID: 2429842675694073807, guid: 9ec4e8a191b554342a8b6ab2e6caf2ff, type: 3}
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 1
     texto: Myke ficou sem palavras. Imediatamente depois, cerrou os dentes e desligou
       a TV agressivamente, sentindo inveja do antigo amigo.
@@ -1270,7 +1270,7 @@ MonoBehaviour:
     imagemFundo: {fileID: 2429842675694073807, guid: 9ec4e8a191b554342a8b6ab2e6caf2ff, type: 3}
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   - nomeQuemFala: Narrator
-    ehNarracao: 1
+    ehNarracao: 0
     posicao: 1
     texto: "Determinado e cheio de raiva, Myke decide que \xE9 hora de mudar as coisas;
       ele resolve come\xE7ar a trabalhar em um projeto para explorar as profundezas
@@ -1382,8 +1382,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1518,8 +1518,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Narrator
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

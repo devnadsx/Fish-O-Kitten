@@ -176,10 +176,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: '
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -450,8 +452,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Narrator
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -749,6 +751,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1420500645}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoClicar
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e6969f9c56026f4bb1068079785de4b, type: 3}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoRespawnar
+      value: 
+      objectReference: {fileID: 8300000, guid: 03cf8d6b874b44742af4096f915167fc, type: 3}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: -1.0006334
@@ -878,6 +892,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1420500645}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoClicar
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e6969f9c56026f4bb1068079785de4b, type: 3}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoRespawnar
+      value: 
+      objectReference: {fileID: 8300000, guid: 03cf8d6b874b44742af4096f915167fc, type: 3}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: -1.0006334
@@ -1026,8 +1052,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "PRESSIONE ESPA\xC7O!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1253,11 +1279,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: e8b8c849e651b6143b98f989e8d4272f, type: 3}
+  m_Resource: {fileID: 8300000, guid: 48948eb8e69ec7a4b9ba55764da8bad5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.724
   m_Pitch: 0.67
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1359,7 +1385,7 @@ MonoBehaviour:
   zoomMinimo: 2
   zoomMaximo: 5
   sensibilidadeArrasta: 1
-  movimentoBloqueado: 0
+  movimentoBloqueado: 1
 --- !u!1001 &564690670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1368,6 +1394,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1420500645}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoClicar
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e6969f9c56026f4bb1068079785de4b, type: 3}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoRespawnar
+      value: 
+      objectReference: {fileID: 8300000, guid: 03cf8d6b874b44742af4096f915167fc, type: 3}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9525588
@@ -1594,6 +1632,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1420500645}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoClicar
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e6969f9c56026f4bb1068079785de4b, type: 3}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoRespawnar
+      value: 
+      objectReference: {fileID: 8300000, guid: 03cf8d6b874b44742af4096f915167fc, type: 3}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9525588
@@ -2120,6 +2170,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1420500645}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoClicar
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e6969f9c56026f4bb1068079785de4b, type: 3}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoRespawnar
+      value: 
+      objectReference: {fileID: 8300000, guid: 03cf8d6b874b44742af4096f915167fc, type: 3}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9525588
@@ -2363,6 +2425,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1420500645}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoClicar
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e6969f9c56026f4bb1068079785de4b, type: 3}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoRespawnar
+      value: 
+      objectReference: {fileID: 8300000, guid: 03cf8d6b874b44742af4096f915167fc, type: 3}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9525588
@@ -2877,7 +2951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.5137255, b: 0.58431375, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3259,6 +3333,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1420500645}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoClicar
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e6969f9c56026f4bb1068079785de4b, type: 3}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoRespawnar
+      value: 
+      objectReference: {fileID: 8300000, guid: 03cf8d6b874b44742af4096f915167fc, type: 3}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0180472
@@ -3705,6 +3791,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1420500645}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoClicar
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e6969f9c56026f4bb1068079785de4b, type: 3}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoRespawnar
+      value: 
+      objectReference: {fileID: 8300000, guid: 03cf8d6b874b44742af4096f915167fc, type: 3}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9525588
@@ -4401,6 +4499,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1420500645}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoClicar
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e6969f9c56026f4bb1068079785de4b, type: 3}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: somAoRespawnar
+      value: 
+      objectReference: {fileID: 8300000, guid: 03cf8d6b874b44742af4096f915167fc, type: 3}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9525588

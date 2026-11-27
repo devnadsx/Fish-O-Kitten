@@ -502,10 +502,10 @@ MonoBehaviour:
       encontrar peixes."
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
-  - nomeQuemFala: Paxton
+  - nomeQuemFala: Myke
     texto: "Beleza Pax! Valeu, agora \xE9 a hora de procurar!"
     ehNarracao: 0
-    somFala: {fileID: 8300000, guid: 3cc2f7f0224b35f44a9d36b946c2d7da, type: 3}
+    somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   scriptsBloquearDuranteDialogo:
   - {fileID: 400057348}
   - {fileID: 0}
@@ -2841,7 +2841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.5137255, b: 0.58431375, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4224,8 +4224,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4846,8 +4846,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Myke
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
-  m_sharedMaterial: {fileID: 6986775949263003468, guid: 99e5528ecbb171b44ae03eb0b031f37b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
+  m_sharedMaterial: {fileID: -3802024233931933607, guid: c583c2c44b197344c88861ee0d7483db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
