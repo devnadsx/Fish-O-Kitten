@@ -217,6 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -546,7 +548,7 @@ MonoBehaviour:
     ehNarracao: 0
     somFala: {fileID: 8300000, guid: 01e71ceb9b67c924cb514d5d7286791d, type: 3}
   scriptsBloquearDuranteDialogo: []
-  controleCamera: {fileID: 0}
+  controleCamera: {fileID: 519420034}
 --- !u!82 &71099157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -851,6 +853,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -1464,6 +1468,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga roxa
       objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1657,6 +1669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -1783,6 +1797,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga roxa (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1992,6 +2014,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga roxa (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2136,6 +2166,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga roxa (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2234,6 +2272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -2304,6 +2344,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.27
@@ -2962,6 +3010,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 2392662095328502766, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: audioSource
       value: 
@@ -3462,6 +3518,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -3975,7 +4033,6 @@ Transform:
   - {fileID: 887534541}
   - {fileID: 106370985}
   - {fileID: 249278237}
-  - {fileID: 1491413254}
   - {fileID: 826934056}
   - {fileID: 1786579104}
   - {fileID: 1852266992}
@@ -4075,6 +4132,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga roxa (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4142,6 +4207,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga verde (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4223,6 +4296,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga roxa (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4346,6 +4427,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.40068305
@@ -4500,6 +4589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -4575,6 +4666,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.37030587
@@ -4739,6 +4838,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.870375
@@ -4966,6 +5073,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -5080,6 +5189,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga verde
       objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5161,6 +5278,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga roxa (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5174,6 +5299,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 2392662095328502766, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: audioSource
       value: 
@@ -5537,6 +5670,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga roxa (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5635,6 +5776,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -5751,6 +5894,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.44118786
@@ -5820,6 +5971,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 2392662095328502766, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: audioSource
       value: 
@@ -6022,6 +6181,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga verde (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6079,6 +6246,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga verde (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6177,6 +6352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -6332,6 +6509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -6482,6 +6661,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 2392662095328502766, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: audioSource
       value: 
@@ -6655,37 +6842,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1207483716}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1491413253
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1491413254}
-  m_Layer: 0
-  m_Name: Cenario (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1491413254
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491413253}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.988499, y: -0.011499882, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 878182319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1514923773
 GameObject:
@@ -6921,6 +7077,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.63
@@ -6983,6 +7147,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.562024
@@ -7084,6 +7256,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga verde (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7267,6 +7447,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 2392662095328502766, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: audioSource
       value: 
@@ -12493,6 +12681,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga roxa (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12506,6 +12702,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.21
@@ -12607,6 +12811,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga verde (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12620,6 +12832,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.11
@@ -12984,6 +13204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -13394,6 +13616,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga roxa
       objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631153923290258280, guid: 7df802f2031491a4c9856967759885c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13501,6 +13731,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 2392662095328502766, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: audioSource
       value: 
@@ -13642,6 +13880,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga verde (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14056,6 +14302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCenario
   destruirAposRevelar: 1
+  ehAlga: 0
+  duracaoAnimacao: 0.3
   audioSource: {fileID: 0}
   somAoClicar: {fileID: 0}
   somAoRespawnar: {fileID: 0}
@@ -14126,6 +14374,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: destruirAposRevelar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2392662095328502766, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: audioSource
       value: 
@@ -14272,6 +14528,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alga verde
       objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563818239240340827, guid: 1a7c15363bc59c64a83a0160905056ca, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14285,6 +14549,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878182319}
     m_Modifications:
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: ehAlga
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213870356891112406, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 71099157}
     - target: {fileID: 4804196474304640593, guid: c835687268e71b742b56169d7d11d7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.113117

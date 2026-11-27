@@ -473,7 +473,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 48948eb8e69ec7a4b9ba55764da8bad5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.982
+  m_Volume: 0.631
   m_Pitch: 0.67
   Loop: 1
   Mute: 0
@@ -1190,7 +1190,7 @@ MonoBehaviour:
       come\xE7aram a fazer pesquisas sobre o espa\xE7o sideral, pesquisas essas que
       Myke correu atr\xE1s de informa\xE7\xF5es com pessoas que j\xE1 foram pro espa\xE7o,
       sendo de informa\xE7\xF5es extremamente confidenciais."
-    imagemFundo: {fileID: 9218159724107326331, guid: 4a85c0836368b6d428729804329dd287, type: 3}
+    imagemFundo: {fileID: -4095726633846370896, guid: 5fe054863182e874892760f865da9732, type: 3}
     somFala: {fileID: 8300000, guid: 0c17a25fb54e6934791de0c94bf4450c, type: 3}
   - nomeQuemFala: Narrator
     ehNarracao: 0

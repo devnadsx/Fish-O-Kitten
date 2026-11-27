@@ -1,5 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic; // Necessário para usar List
+﻿
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PedraQuebravel : MonoBehaviour
@@ -12,6 +13,15 @@ public class PedraQuebravel : MonoBehaviour
     [Tooltip("Arraste aqui o Sprite da pedra rachada.")]
     public Sprite spriteRachado;
 
+    [Header("Partículas")]
+    public ParticleSystem particulasImpacto;
+    public ParticleSystem particulasQuebra;
+
+    [Header("Tremor")]
+    public float duracaoTremor = 0.15f;
+    public float intensidadeTremor = 0.08f;
+    public float intensidadeTremorFinal = 0.15f;
+
     [Header("Sons")]
     public AudioSource audioSource;
     public AudioClip somPancada;
@@ -20,11 +30,14 @@ public class PedraQuebravel : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Collider2D colisor2D;
     private bool estaQuebrando = false;
+    private Vector3 posicaoOriginal;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         colisor2D = GetComponent<Collider2D>();
+
+        posicaoOriginal = transform.position;
 
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
@@ -32,18 +45,17 @@ public class PedraQuebravel : MonoBehaviour
 
     void OnMouseDown()
     {
-        // 🔒 BLOQUEIO: Só funciona se o jogador tiver a picareta
-        if (GerenciadorInventario.Instance != null && !GerenciadorInventario.Instance.temPicareta)
+        if (GerenciadorInventario.Instance != null &&
+            !GerenciadorInventario.Instance.temPicareta)
         {
             if (DialogoManager.Instance != null)
             {
-                // Cria a fala usando a nova estrutura do DialogoManager
                 List<LineDialogo> falaSemPicareta = new List<LineDialogo>()
                 {
                     new LineDialogo
                     {
-                        nomeQuemFala = "Gatinho",
-                        texto = "This rock is too hard! I need a pickaxe to break it.",
+                        nomeQuemFala = "Myke",
+                        texto = "Ugh... Preciso de uma picareta para quebrar essa pedra.",
                         ehNarracao = false,
                         posicao = PosicaoPersonagem.Centro
                     }
@@ -54,7 +66,9 @@ public class PedraQuebravel : MonoBehaviour
             return;
         }
 
-        if (EsconderijosManager.Instance != null && EsconderijosManager.Instance.interacaoBloqueada) return;
+        if (EsconderijosManager.Instance != null &&
+            EsconderijosManager.Instance.interacaoBloqueada) return;
+
         if (estaQuebrando) return;
 
         ProcessarClique();
@@ -64,51 +78,62 @@ public class PedraQuebravel : MonoBehaviour
     {
         toquesAtuais++;
 
-        if (toquesAtuais == 1)
+        if (particulasImpacto != null)
+            particulasImpacto.Play();
+
+        if (toquesAtuais >= toquesNecessarios)
+        {
+            StartCoroutine(QuebrarPedra());
+        }
+        else
         {
             TocarSom(somPancada);
 
             if (spriteRachado != null && spriteRenderer != null)
-            {
                 spriteRenderer.sprite = spriteRachado;
-            }
 
-            StartCoroutine(EfeitoTremer());
-        }
-        else if (toquesAtuais >= toquesNecessarios)
-        {
-            StartCoroutine(QuebrarPedra());
+            StartCoroutine(EfeitoTremer(intensidadeTremor));
         }
     }
 
-    IEnumerator EfeitoTremer()
+    IEnumerator EfeitoTremer(float intensidade)
     {
-        Vector3 posOriginal = transform.position;
-        float duracao = 0.15f;
-        float tempo = 0;
+        float tempo = 0f;
 
-        while (tempo < duracao)
+        while (tempo < duracaoTremor)
         {
             tempo += Time.deltaTime;
-            transform.position = posOriginal + (Vector3)Random.insideUnitCircle * 0.08f;
+
+            transform.position = posicaoOriginal +
+                (Vector3)Random.insideUnitCircle * intensidade;
+
             yield return null;
         }
 
-        transform.position = posOriginal;
+        transform.position = posicaoOriginal;
     }
 
     IEnumerator QuebrarPedra()
     {
         estaQuebrando = true;
+
         TocarSom(somQuebrar);
 
-        if (colisor2D != null) colisor2D.enabled = false;
-        if (spriteRenderer != null) spriteRenderer.enabled = false;
+        StartCoroutine(EfeitoTremer(intensidadeTremorFinal));
+
+        if (particulasQuebra != null)
+            particulasQuebra.Play();
+
+        if (colisor2D != null)
+            colisor2D.enabled = false;
+
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = false;
 
         if (audioSource != null && somQuebrar != null)
-        {
             yield return new WaitForSeconds(somQuebrar.length);
-        }
+        else
+            yield return new WaitForSeconds(duracaoTremor);
 
         Destroy(gameObject);
     }
@@ -116,8 +141,6 @@ public class PedraQuebravel : MonoBehaviour
     private void TocarSom(AudioClip clip)
     {
         if (audioSource != null && clip != null)
-        {
             audioSource.PlayOneShot(clip);
-        }
     }
 }
