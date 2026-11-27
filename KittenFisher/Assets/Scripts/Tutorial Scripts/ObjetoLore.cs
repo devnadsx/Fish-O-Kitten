@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -11,32 +12,62 @@ public class ObjetoLore : MonoBehaviour
 
     public AudioSource somClique;
 
-    private bool loreExibida = false;
+    [Header("Verificação de Objetos")]
+    public LayerMask camadaBloqueio;
+    public float distanciaVerificacao = 10f;
 
+    private bool loreExibida = false;
+    private Collider2D meuColisor;
+
+    void Start()
+    {
+        meuColisor = GetComponent<Collider2D>();
+    }
 
     void OnMouseDown()
     {
         if (TutorialManager.Instance == null)
             return;
 
-        // Não pode interagir durante diálogos ou Skill Check.
         if (!TutorialManager.Instance.PodeInteragir())
             return;
 
-        // A lore só pode ser vista uma vez.
         if (loreExibida)
+            return;
+
+        if (TemObjetoNaFrente())
             return;
 
         loreExibida = true;
 
-
         if (somClique != null)
             somClique.Play();
-
 
         TutorialManager.Instance.ExibirLoreObjeto(
             autorOuPersonagem,
             textoLore
         );
+    }
+
+    private bool TemObjetoNaFrente()
+    {
+        Vector2 direcao = Camera.main.transform.forward;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(
+            transform.position,
+            direcao,
+            distanciaVerificacao,
+            camadaBloqueio
+        );
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider != meuColisor && hit.collider != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

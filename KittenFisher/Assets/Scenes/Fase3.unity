@@ -1481,7 +1481,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.564
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4031,6 +4031,8 @@ MonoBehaviour:
   tempoLimite: 50
   scriptDialogoAlerta: {fileID: 71099156}
   scriptDialogoFinal: {fileID: 71099156}
+  paxton: {fileID: 0}
+  ocultarPaxtonDuranteDialogo: 0
   auraPeixePrefab: {fileID: 951689331282238978, guid: 935aa5c72d165d7479a7bbbba2e21bd6, type: 3}
 --- !u!82 &826934058
 AudioSource:

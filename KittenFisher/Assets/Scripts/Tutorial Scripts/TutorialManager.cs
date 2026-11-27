@@ -348,7 +348,7 @@ public class TutorialManager : MonoBehaviour
             textoBotaoAceitar.text = "Pode contar comigo.";
 
         if (textoBotaoRecusar != null)
-            textoBotaoRecusar.text = "Não. Vou fazer isso sozinho.";
+            textoBotaoRecusar.text = "Vou fazer isso sozinho.";
 
         if (botaoAceitarPaxton != null)
             botaoAceitarPaxton.interactable = true;

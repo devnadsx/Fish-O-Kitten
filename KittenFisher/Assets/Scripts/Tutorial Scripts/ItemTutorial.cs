@@ -1,48 +1,82 @@
+
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))] // Garante que o objeto tem um Collider 2D para detetar o clique
-public class TutorialItem : MonoBehaviour
+[RequireComponent(typeof(Collider2D))]
+public class ItemTutorial : MonoBehaviour
 {
     [Header("Identificação do Item")]
     [Tooltip("Usa exatamente: Capacete, Tanque ou Ferramenta")]
     public string nomeDoItem = "Capacete";
 
+    [Header("Verificação de Objetos")]
+    public LayerMask camadaBloqueio;
+    public float distanciaVerificacao = 10f;
+
     [Header("Efeitos")]
     public AudioSource audioSourceSFX;
     public AudioClip somAoColetar;
-    public GameObject efeitoParticulas; // Opcional: efeito visual ao pegar no item
+    public GameObject efeitoParticulas;
+
+    private Collider2D meuColisor;
+
+    private void Start()
+    {
+        meuColisor = GetComponent<Collider2D>();
+    }
 
     private void OnMouseDown()
     {
-        // Verifica se o TutorialManager existe e se o jogador pode interagir (sem diálogos abertos)
-        if (TutorialManager.Instance != null && TutorialManager.Instance.PodeColetarItem())
+        if (TutorialManager.Instance == null) return;
+        if (!TutorialManager.Instance.PodeColetarItem()) return;
+
+        if (TemObjetoNaFrente()) return;
+
+        Coletar();
+    }
+
+    private bool TemObjetoNaFrente()
+    {
+        Vector2 direcao = Camera.main.transform.forward;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(
+            transform.position,
+            direcao,
+            distanciaVerificacao,
+            camadaBloqueio
+        );
+
+        foreach (RaycastHit2D hit in hits)
         {
-            Coletar();
+            if (hit.collider != meuColisor && hit.collider != null)
+            {
+                return true;
+            }
         }
+
+        return false;
     }
 
     private void Coletar()
     {
-        // Toca o efeito sonoro no local do objeto
         if (somAoColetar != null)
         {
-            AudioSource.PlayClipAtPoint(somAoColetar, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(
+                somAoColetar,
+                Camera.main.transform.position
+            );
         }
         else if (audioSourceSFX != null && audioSourceSFX.clip != null)
         {
             audioSourceSFX.Play();
         }
 
-        // Instancia o efeito visual de partículas, se configurado
         if (efeitoParticulas != null)
         {
             Instantiate(efeitoParticulas, transform.position, Quaternion.identity);
         }
 
-        // Informa o TutorialManager sobre a coleta
         TutorialManager.Instance.ColetarItem(nomeDoItem);
 
-        // Desativa ou destrói o objeto da cena
         gameObject.SetActive(false);
     }
 }

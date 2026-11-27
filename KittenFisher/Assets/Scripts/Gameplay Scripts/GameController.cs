@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,21 +8,15 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    
     public int foundedFish;
-    
     public int FishNumber = 3;
-    //troca cena
+
     [Header("Troca Direta de Cena")]
     public string nomeProximaCena = "Analyse 1,2,3, ...";
-    
     public float tempoEsperaTrocaCena = 1.5f;
 
     [Header("Efeitos de Vitória")]
-    //Particula
     public GameObject prefabParticulaVitoria;
-
-    //Icone
     public IconManager iconManager;
 
     [Header("Efeitos Sonoros")]
@@ -43,6 +38,10 @@ public class GameController : MonoBehaviour
 
     [Header("Diálogo após coletar todos os peixes")]
     public SceneIntroDialogue scriptDialogoFinal;
+
+    [Header("Paxton")]
+    public GameObject paxton;
+    public bool ocultarPaxtonDuranteDialogo = false;
 
     [Header("Efeito Visão Catnip / Baú")]
     public GameObject auraPeixePrefab;
@@ -102,7 +101,6 @@ public class GameController : MonoBehaviour
             iconManager.MudarParaFeliz();
         }
 
-        // Ve se quando vc ta na fase 3, ativa o timer quando coleta metade dos peixes
         if (estaNaTerceiraFase && !alertaDisparado)
         {
             int metadeDosPeixes = Mathf.CeilToInt(FishNumber / 2f);
@@ -114,7 +112,6 @@ public class GameController : MonoBehaviour
             }
         }
 
-        // CONDIÇÃO DE VITÓRIA / FINALIZAÇÃO DA FASE
         if (foundedFish >= FishNumber)
         {
             jogoFinalizado = true;
@@ -140,34 +137,36 @@ public class GameController : MonoBehaviour
 
         yield return new WaitForSeconds(tempoEsperaTrocaCena);
 
-        // Diálogo após coletar todos os peixes
         if (scriptDialogoFinal != null)
         {
             scriptDialogoFinal.gameObject.SetActive(true);
 
+            OcultarPaxton();
+
             scriptDialogoFinal.IniciarDialogoComFalas(
                 new List<string>
                 {
-                "Ufa... consegui encontrar todos os peixes!",
-                "Agora preciso organizar minhas descobertas e voltar para apresentar os resultados."
+                    "Ufa... consegui encontrar todos os peixes!",
+                    "Agora preciso organizar minhas descobertas e voltar para apresentar os resultados."
                 }
             );
 
-            // Espera o jogador terminar o diálogo
             while (scriptDialogoFinal != null &&
                    scriptDialogoFinal.painelBalaoFala != null &&
                    scriptDialogoFinal.painelBalaoFala.activeSelf)
             {
                 yield return null;
             }
+
+            MostrarPaxton();
         }
 
-        // Só troca de cena depois do diálogo
         if (!string.IsNullOrEmpty(nomeProximaCena))
         {
             SceneManager.LoadScene(nomeProximaCena);
         }
     }
+
     void DispararAlertaOxigenio()
     {
         if (textoTimerUI != null)
@@ -180,10 +179,12 @@ public class GameController : MonoBehaviour
         {
             scriptDialogoAlerta.gameObject.SetActive(true);
 
+            OcultarPaxton();
+
             scriptDialogoAlerta.IniciarDialogoComFalas(
                 new List<string>
                 {
-                "Meu deus!! Meu oxigênio tá acabando!! Preciso ser rápido."
+                    "Meu deus!! Meu oxigênio tá acabando!! Preciso ser rápido."
                 }
             );
 
@@ -194,7 +195,7 @@ public class GameController : MonoBehaviour
             IniciarTimerEMusica();
         }
     }
-    //Espera o dialogo sumir para tocar o timer
+
     IEnumerator AguardarFimDoDialogoEIniciarTimer()
     {
         while (scriptDialogoAlerta != null &&
@@ -204,9 +205,26 @@ public class GameController : MonoBehaviour
             yield return null;
         }
 
+        MostrarPaxton();
         IniciarTimerEMusica();
     }
-    //quando cmc o timer vem a musica tbm
+
+    void OcultarPaxton()
+    {
+        if (ocultarPaxtonDuranteDialogo && paxton != null)
+        {
+            paxton.SetActive(false);
+        }
+    }
+
+    void MostrarPaxton()
+    {
+        if (ocultarPaxtonDuranteDialogo && paxton != null)
+        {
+            paxton.SetActive(true);
+        }
+    }
+
     void IniciarTimerEMusica()
     {
         timerAtivo = true;
@@ -218,7 +236,7 @@ public class GameController : MonoBehaviour
             audioSourceMusicaFundo.Play();
         }
     }
-    //atuliza conforme o tempo
+
     void AtualizarTextoTimer()
     {
         if (textoTimerUI != null)
@@ -227,15 +245,14 @@ public class GameController : MonoBehaviour
             textoTimerUI.text = $"Time: {segundos}s";
         }
     }
-    //caso zere, te joga na cena de derrota
+
     void CarregarGameOver()
     {
         SceneManager.LoadScene(nomeCenaGameOver);
     }
 
-   // Catnip
+    // Catnip
 
-    //aq ele revela os peixes restantes e spawna os secretos
     public void RevelarPeixesRestantes()
     {
         aurasInstanciadas.Clear();
@@ -245,12 +262,18 @@ public class GameController : MonoBehaviour
         {
             if (peixe != null && auraPeixePrefab != null)
             {
-                GameObject aura = Instantiate(auraPeixePrefab, peixe.transform.position, Quaternion.identity, peixe.transform);
+                GameObject aura = Instantiate(
+                    auraPeixePrefab,
+                    peixe.transform.position,
+                    Quaternion.identity,
+                    peixe.transform
+                );
+
                 aurasInstanciadas.Add(aura);
             }
         }
     }
-    //quando passar o contador/musica, destroi a aura q mostra os peixes
+
     public void EsconderAuraPeixes(float tempoFade)
     {
         foreach (GameObject auraObj in aurasInstanciadas)
@@ -258,6 +281,7 @@ public class GameController : MonoBehaviour
             if (auraObj != null)
             {
                 EfeitoAura auraScript = auraObj.GetComponent<EfeitoAura>();
+
                 if (auraScript != null)
                 {
                     auraScript.DestruirComFade(tempoFade);
